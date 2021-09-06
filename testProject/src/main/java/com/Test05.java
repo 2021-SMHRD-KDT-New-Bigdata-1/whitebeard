@@ -1,10 +1,10 @@
 package com;
 
-public class Test2 {
+public class Test05 {
 
 	public static void main(String[] args) {
 
-		System.out.println("Test2 실행!");
+		System.out.println("잘 되고 있는건가?");
 	}
 
 }
