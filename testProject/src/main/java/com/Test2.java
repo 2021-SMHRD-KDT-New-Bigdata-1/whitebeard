@@ -4,7 +4,7 @@ public class Test2 {
 
 	public static void main(String[] args) {
 
-		System.out.println("Test2 ½ÇÇà!");
+		System.out.println("20210917!");
 		
 	}
 
