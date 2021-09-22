@@ -20,26 +20,28 @@
         <div class="navbar__profile">
             프로필사진           
         </div>
-
     </nav>
 
-        <ul class="navbar__menu">
-            <li><a href="">마이페이지</a></li>
-            <li><a href="">나중에추가</a></li>        
-        </ul>
+
+    <ul class="navbar__menu">
+        <li><a href="">마이페이지</a></li>
+        <li><a href="">나중에추가</a></li>        
+    </ul>
 
     
     <form action="" class="searchBar" align="center">
         <input type="text" placeholder="검색(상품명, 행정동)">    
             <button>검색</button>
         </input>
-    </form>
+    </form><br>
+
 
     <form action="" align="center">
         <div style="display:inline"><button>담벼락</button></div>
         <div style="display:inline"><button>간략히</button></div>
         <div style="display:inline"><button>자세히</button></div>
     </form>
+
 
     <script>
         const click__profile = document.querySelector('.navbar__profile');
