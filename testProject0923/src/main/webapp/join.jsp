@@ -9,9 +9,6 @@
 </head>
 <body>
 
-<!-- 실행하면 톰캣 설정이 안됩니다.
-깃허브 폴더가 처음 설정할때부터 오류표시 뜨는데 상관 없는건가요? -->
-
 <div id="wrapper">
     <div id="content">
         <header>
