@@ -14,7 +14,7 @@
         </div>
 
         <div class="navbar__main">
-            할인2동
+            할인2동  ㅇㅇ
         </div>
 
         <div class="navbar__profile">
