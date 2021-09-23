@@ -173,6 +173,15 @@
                     </span>
                 </div>
 
+				<div>
+                    <h3>
+                        <label for="nick">닉네임</label>
+                    </h3>
+                    <span class="signinput">
+                        <input type = "text" id = "nick" class="int" placeholder="내용을 입력하세요">
+                    </span>
+                </div>
+                
                 <div>
                     <h3>
                         <label for="yy">생년월일</label>
