@@ -91,3 +91,52 @@ section .box p {
 section .box:nth-child(2n) {
   background: silver;
 }
+
+div.snshead > span > #storename {
+  color: blue;
+  display: inline;
+  font-size: xx-large;
+  margin: 0px;
+  vertical-align: top;
+}
+
+div.snshead > span > #dongname {
+  color: red;
+  display: inline;
+  font-size: small;
+  vertical-align: middle;
+}
+
+div.snshead > span > #storekind {
+  color: yellowgreen;
+  display: inline;
+  font-size: small;
+  vertical-align: middle;
+}
+div.snshead.a > img {
+  display: inline;
+}
+
+div.snshead > .tap {
+  text-align: center;
+  border-bottom: 1px solid;
+}
+div.snshead > .tap > button {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.clicked {
+  color: silver;
+}
+
+
+
+
+
+
+
