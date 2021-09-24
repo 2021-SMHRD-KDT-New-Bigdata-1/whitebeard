@@ -55,6 +55,10 @@ a {
 /*  */
 
 
+.simpleLook{
+	background-color: yellow;
+}
+
 .closerLook{
 	display:none;
 	background-color: grey;
