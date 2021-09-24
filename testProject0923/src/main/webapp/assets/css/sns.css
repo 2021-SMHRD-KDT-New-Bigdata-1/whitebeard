@@ -144,3 +144,9 @@ ul.tabs li.current {
 .tab-content.current {
   display: inherit;
 }
+
+#storeitem {
+  width: 460px;
+  height: 320px;
+}
+
