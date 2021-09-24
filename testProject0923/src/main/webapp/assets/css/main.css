@@ -59,9 +59,23 @@ a {
 	background-color: yellow;
 }
 
+.simpleLook.active{
+	background-color: yellow;
+	float: right;
+  	display: flex;
+  	flex-direction: column;
+}
+
 .closerLook{
 	display:none;
 	background-color: grey;
+}
+
+.closerLook.active{
+	background-color: grey;
+	float: right;
+  	display: flex;
+  	flex-direction: column;
 }
 
 .secretLook{
@@ -69,6 +83,12 @@ a {
 	background-color: green;
 }
 
+.secretLook.active{
+	background-color: green;
+	float: right;
+  	display: flex;
+  	flex-direction: column;
+}
 
 /*  */
 

@@ -99,22 +99,29 @@
         const closerLook = document.querySelector('.closerLook');
         const secretLook = document.querySelector('.secretLook');
         
-        closerLookBtn.addEventListener('click', () => {
-            closerLook.classList.toggle('active');
-            simpleLook.classList.toggle('deactive');
-            secretLook.classList.toggle('deactive');
+        closerLookBtn.addEventListener('click', () => {            
+        	if(simpleLook.classList.toggle('active') != null){
+            	closerLook.classList.toggle('active');
+                simpleLook.classList.toggle('active');
+        	} else if(secretLook.classList.toggle('active') != null){
+            	closerLook.classList.toggle('active');
+                secretLook.classList.toggle('active');
+        	}       	
+        	/* closerLook.classList.toggle('active');
+            simpleLook.classList.toggle('active');
+            secretLook.classList.toggle('active'); */
         });
         
         secretLookBtn.addEventListener('click', () => {
         	secretLook.classList.toggle('active');
-            simpleLook.classList.toggle('deactive');
-            closerLook.classList.toggle('deactive');
+            simpleLook.classList.toggle('active');
+            closerLook.classList.toggle('active');
         });
         
         simpleLookBtn.addEventListener('click', () => {
         	simpleLook.classList.toggle('active');
-        	closerLook.classList.toggle('deactive');
-            secretLook.classList.toggle('deactive');
+        	closerLook.classList.toggle('active');
+            secretLook.classList.toggle('active');
         });
         
     </script>
