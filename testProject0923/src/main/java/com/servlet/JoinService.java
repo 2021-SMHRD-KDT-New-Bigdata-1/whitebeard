@@ -27,6 +27,13 @@ public class JoinService extends HttpServlet {
 	String nick = request.getParameter("nick");
 	String email = request.getParameter("email");
 	String phone = request.getParameter("phone");
+	String yy = request.getParameter("yy");
+	yy = yy.substring(2);
+	System.out.println(yy);
+	String mm = request.getParameter("mm");
+	String dd = request.getParameter("dd");
+	String date = yy+"/"+mm+"/"+dd;
+	System.out.println(date);
 	
 	try {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -38,16 +45,17 @@ public class JoinService extends HttpServlet {
 		if(conn!=null) {
 			System.out.println("¿¬°á");
 		}
-		String sql = "insert into members(member_id, member_pw, name, nickname, email, phone, member_type) values(?, ?, ?, ?, ?, ?, 0)";
+		String sql = "insert into members(member_id, member_pw, name, birth_date, nickname, email, phone, member_type) values(?, ?, ?, ?, ?, ?, ?, 0)";
 	
 		PreparedStatement psmt = conn.prepareStatement(sql);
 		
 		psmt.setString(1, id);
 		psmt.setString(2, pw);
 		psmt.setString(3, name);
-		psmt.setString(4, nick);
-		psmt.setString(5, email);
-		psmt.setString(6, phone);
+		psmt.setString(4, date);		
+		psmt.setString(5, nick);
+		psmt.setString(6, email);
+		psmt.setString(7, phone);
 		
 		int cnt = psmt.executeUpdate();  
 		
