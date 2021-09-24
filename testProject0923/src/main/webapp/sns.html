@@ -3,7 +3,9 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" href="assets/css/main.css">
+
+<link rel="stylesheet" href="assets/css/sns.css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
 	<nav class="navbar">       
@@ -34,11 +36,7 @@
         </input>
     </form>
 
-    <form action="" align="center">
-        <div style="display:inline"><button>담벼락</button></div>
-        <div style="display:inline"><button>간략히</button></div>
-        <div style="display:inline"><button>자세히</button></div>
-    </form>
+
         <div class="snshead">
    
          
@@ -51,12 +49,66 @@
             <p id="storekind"><span>가게종류</span></p>
 
             </span>
-<div class="tap">
-    <button class="div2">상품게시글</button>
-    <button class="div2">가게정보</button>
-    <button class="div2">댓글모아보기</button>
+            <div class="container">
 
-</div>
+                <ul class="tabs">
+                  <li class="tab-link current" data-tab="tab-1">상품게시글</li>
+                  <li class="tab-link" data-tab="tab-2">가게정보</li>
+                  <li class="tab-link" data-tab="tab-3">댓글모아보기</li>
+                </ul>
+              
+                <div id="tab-1" class="tab-content current"><img src="assets/img/test.jfif" id="storeitem" alt="">
+                    <div>맛있는 가을전어를 갈아서 드셔 보시겠습니까?</div>
+                </div>
+                
+
+
+
+
+
+
+
+
+                <div id="tab-2" class="tab-content">
+
+                    가을 전어는 맛도 좋지만, 몸에 좋은 것으로도 유명하다. 전어에는 불포화지방산이 풍부하게 함유되어 있어 콜레스테롤을 낮추고, 동맥경화나 고혈압과 같은 각종 성인병 예방에 좋다. 또 비타민과 미네랄 성분이 풍부하게 함유되어 있어 피로 해소뿐만 아니라 피부 미용에도 효과가 좋다.2019. 9. 6.
+
+
+                    
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="tab-3" class="tab-content">
+<div> 행인1: 맛있겠당</div>
+<div> 행인4:군침이 싹도네요</div>
+
+<div> 행인3:그녀와 가을전어에 소주한잔 하고싶은 15시 16분...</div>
+
+<div> 행인2:화욜점심뭐먹지</div>
+
+
+
+                   
+                </div>
+              
+              </div>
+              
+
              
   
         </div>      
@@ -116,17 +168,6 @@ function init() {
 init();
 
 
-var submit = document.getElementById('submitButton');
-submit.onclick = showImage;     //Submit 버튼 클릭시 이미지 보여주기
-
-function showImage() {
-    var newImage = document.getElementById('image-show').lastElementChild;
-    newImage.style.visibility = "visible";
-    
-    document.getElementById('image-upload').style.visibility = 'hidden';
-
-    document.getElementById('fileName').textContent = null;     //기존 파일 이름 지우기
-}
 
 
 function loadFile(input) {
@@ -148,12 +189,29 @@ function loadFile(input) {
     var container = document.getElementById('image-show');
     container.appendChild(newImage);
 };
+
+
+$(document).ready(function(){
+  
+  $('ul.tabs li').click(function(){
+    var tab_id = $(this).attr('data-tab');
+
+    $('ul.tabs li').removeClass('current');
+    $('.tab-content').removeClass('current');
+
+    $(this).addClass('current');
+    $("#"+tab_id).addClass('current');
+  })
+
+})
     </script>
 
     
 </body>
 
-</html>
     
-</body>
+
+
+    
+
 </html>
