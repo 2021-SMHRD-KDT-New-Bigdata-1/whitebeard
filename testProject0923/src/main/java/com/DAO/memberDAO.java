@@ -68,6 +68,8 @@ public class memberDAO {
 	
 	public boolean idCheck(String id) {
 
+		System.out.println(id);
+		
 		boolean check = false;
 		conn();
 
@@ -77,10 +79,14 @@ public class memberDAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			rs = psmt.executeQuery();
+			
+			System.out.println(sql);
 
-			if(rs.next()) {  
+			if(rs.next()) { 
+				System.out.print("true");
 				check = true;
 			}else {   
+				System.out.print("false");
 				check = false;
 			}
 		}catch(Exception e) {

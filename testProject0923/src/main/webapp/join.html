@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div id="wrapper">
+	<div id="wrapper">
 	    <div id="content">
 	        <header>
 	            <div>
@@ -29,26 +29,33 @@
 	                    </h3>
 	                    <span class="signinput">
 	                        <input type = "text" id = "id" class="int_input" name = "id" placeholder="내용을 입력하세요">
-	                        <input type = "button" class = "is_check" value ="중복확인" onclick="idCheck()">
+	                        <input type = "button" class = "is_check" value ="중복확인" onclick="idCheck()"><br>
+	                        <br>
 	                        <span id = "sp"></span>
 	                    </span>
 	                </div>
+	                
+	                <br>
 	                <div>
 	                    <h3>
 	                        <label for="pw">비밀번호</label>
 	                    </h3>
 	                    <span class="signinput">
-	                        <input type="password" id = "pw" class = "int" name = "pw" placeholder="내용을 입력하새요">
+	                        <input type="password" id = "pw" class = "int" name = "pw" onchange="check_pw()" placeholder="내용을 입력하새요">
 	                    </span>
 	                </div>
+	                
 	                <div>
 	                    <h3>
 	                        <label for="pwcheck">비밀번호 재확인</label>
 	                    </h3>
 	                    <span class="signinput">
-	                        <input type="password" id = "pwcheck" class="int" name = "pwcheck" placeholder="내용을 입력하세요">
+	                        <input type="password" id = "pwcheck" class="int" name = "pwcheck" onchange="check_pw()" placeholder="내용을 입력하세요">
+	                    	<br>
+	                    	<span id = "ch"></span>
 	                    </span>
 	                </div>
+	                <br>
 	                <div>
 	                    <h3>
 	                        <label for="name">이름</label>
@@ -143,9 +150,11 @@
 
 					if (data == "true") {
 						sp.innerHTML = "사용할수 없는 ID입니다.";
+						document.getElementById('sp').style.color='red'
 						
 					} else {
 						sp.innerHTML = "사용할 수 있는 ID입니다.";
+						document.getElementById('sp').style.color='blue';
 					}
 
 				},
@@ -155,6 +164,20 @@
 			})
 		};
 	</script>
-	
+	  <script>
+        function check_pw(){
+            var pw = document.getElementById('pw').value;
+            if(document.getElementById('pw').value != '' && document.getElementById('pwcheck').value!=''){
+                if(document.getElementById('pw').value==document.getElementById('pwcheck').value){
+                    document.getElementById('ch').innerHTML='비밀번호가 일치합니다.'
+                    document.getElementById('ch').style.color='blue';
+                }
+                else{
+                    document.getElementById('ch').innerHTML='비밀번호가 일치하지 않습니다.';
+                    document.getElementById('ch').style.color='red'
+                }
+            }
+        }
+    </script>
 </body>
 </html>

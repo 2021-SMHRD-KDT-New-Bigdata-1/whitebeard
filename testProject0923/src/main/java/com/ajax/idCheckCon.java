@@ -22,6 +22,9 @@ public class idCheckCon extends HttpServlet {
 	
 		boolean check = dao.idCheck(data);
 		
+		
+		System.out.print(dao+":"+check);
+		
 		PrintWriter out = response.getWriter();
 		out.print(check);
 	}
