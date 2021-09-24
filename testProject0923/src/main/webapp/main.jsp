@@ -107,7 +107,7 @@
 	      		$('.closerLook').hide();       		       		
 	       		       
 	    });
-       
+         
         
         $('.simpleLookBtn').click(function(){
 	       	$('.simpleLook').show();
