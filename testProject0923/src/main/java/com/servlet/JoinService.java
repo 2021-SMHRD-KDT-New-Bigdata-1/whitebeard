@@ -24,11 +24,9 @@ public class JoinService extends HttpServlet {
 	String pw = request.getParameter("pw");
 	String pwcheck = request.getParameter("pwcheck");
 	String name = request.getParameter("name");
-//	String[] birth = request.getParameterValues("birth");
 	String nick = request.getParameter("nick");
 	String email = request.getParameter("email");
 	String phone = request.getParameter("phone");
-//	Date birth = request.getParameter("birth");
 	
 	try {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -47,7 +45,6 @@ public class JoinService extends HttpServlet {
 		psmt.setString(1, id);
 		psmt.setString(2, pw);
 		psmt.setString(3, name);
-//		psmt.setString(4, birth);
 		psmt.setString(4, nick);
 		psmt.setString(5, email);
 		psmt.setString(6, phone);
