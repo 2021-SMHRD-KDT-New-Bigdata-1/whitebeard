@@ -150,3 +150,12 @@ ul.tabs li.current {
   height: 320px;
 }
 
+  
+}
+#tab-1 > div.coment {
+	border: soild 1px;
+	color: red;
+	
+}
+
+
