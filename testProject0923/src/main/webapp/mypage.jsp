@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>마이 페이지</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="assets/css/mypagestyle.css">
 <link
     rel="stylesheet"
@@ -27,27 +29,27 @@
             </div>
             <hr>
             <div class="plus">
-                <div class="sub">내 동네 설정</div>
+                <a class="sub">내 동네 설정</a>
                 <div class="icon1"><i class="fas fa-map-marker-alt"></i></div>
             </div>
             <div class="plus">
-                <div class="sub">내 관심 상품</div>
+                <a class="sub">내 관심 상품</a>
                 <div class="icon1"><i class="fas fa-shopping-cart"></i></div>
             </div>
             <div class="plus">
-                <div class="sub">내 관심 스토어</div>
+                <a class="sub">내 관심 스토어</a>
                 <div class="icon1"><i class="fas fa-store-alt"></i></div>
             </div>
             <div class="plus">
-                <div class="sub">공지사항</div>
+                <a class="sub">공지사항</a>
                 <div class="icon1"><i class="fas fa-volume-up"></i></div>
             </div>
             <div class="plus">
-                <div class="sub">순위표</div>
+                <a class="sub">순위표</a>
                 <div class="icon1"><i class="fas fa-trophy"></i></div>
             </div>
             <div class="plus">
-                <div class="sub">판매자 등록</div>
+                <a class="sub">판매자 등록</a>
                 <div class="icon1"><i class="fas fa-user-check"></i></div>
             </div>
         </div>
