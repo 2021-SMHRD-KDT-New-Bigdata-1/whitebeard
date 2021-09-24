@@ -29,9 +29,8 @@
 	                    </h3>
 	                    <span class="signinput">
 	                        <input type = "text" id = "id" class="int_input" name = "id" placeholder="내용을 입력하세요">
-	                        <span>
-	                            <button class="check">중복확인</button>
-	                        </span>
+	                        <input type = "button" class = "is_check" value ="중복확인" onclick="idCheck()">
+	                        <span id = "sp"></span>
 	                    </span>
 	                </div>
 	                <div>
@@ -126,5 +125,36 @@
 	        </div>
 	    </div>
 	</div>
+	<script src = "js/jquery-3.6.0.min.js"></script>
+	<script>
+		function idCheck(){
+
+			var input = document.getElementById("id");
+			console.log(input.value);
+
+			$.ajax({
+				type : "post",
+				data : {id : input.value},
+				url : "idCheckCon",
+				dataType : "text",
+				success : function(data) {
+
+					var sp = document.getElementById("sp");
+
+					if (data == "true") {
+						sp.innerHTML = "사용할수 없는 ID입니다.";
+						
+					} else {
+						sp.innerHTML = "사용할 수 있는 ID입니다.";
+					}
+
+				},
+				error : function() {
+					alert("통신실패!")
+				},
+			})
+		};
+	</script>
+	
 </body>
 </html>

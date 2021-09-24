@@ -66,5 +66,34 @@ public class memberDAO {
 		return cnt;
 	}
 	
-	
+	public boolean idCheck(String id) {
+
+		boolean check = false;
+		conn();
+
+		String sql = "select member_id from members where member_id = ?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+
+			if(rs.next()) {  
+				check = true;
+			}else {   
+				check = false;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return check;
+
+
+
+	}
+
+
+
 }
