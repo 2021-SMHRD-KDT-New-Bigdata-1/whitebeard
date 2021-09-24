@@ -57,18 +57,42 @@ a {
 
 .simpleLook{
 	background-color: yellow;
+	float: left;
+  	display: flex;
+  	flex-direction: column;
+}
+
+.simpleLook.deactive{
+	display:none;
 }
 
 .closerLook{
-	display:none;
 	background-color: grey;
+	float: left;
+  	display: flex;
+  	flex-direction: column;
+}
+
+.closerLook.active{
+	background-color: grey;
+	float: left;
+  	display: flex;
+  	flex-direction: column;
 }
 
 .secretLook{
-	display: none;
 	background-color: green;
+	float: left;
+  	display: flex;
+  	flex-direction: column;
 }
 
+.secretLook.active{
+	background-color: green;
+	float: left;
+  	display: flex;
+  	flex-direction: column;
+}
 
 /*  */
 

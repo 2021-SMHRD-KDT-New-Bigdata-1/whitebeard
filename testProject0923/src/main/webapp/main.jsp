@@ -40,46 +40,45 @@
 
 
 	<!-- 버튼 3개 -->
-    <form action="" align="center">
-        <div class="simpleLookBtn" style="display:inline"><button>간략히</button></div>
-        <div class="closerLookBtn" style="display:inline"><button>자세히</button></div>
-        <div class="secretLookBtn" style="display:inline"><button>담벼락</button></div>
-    </form><br>
+    <div align="center">
+        <span class="simpleLookBtn" style="display:inline"><button>간략히</button></span>
+        <span class="closerLookBtn" style="display:inline"><button>자세히</button></span>
+        <span class="secretLookBtn" style="display:inline"><button>담벼락</button></span>
+    </div><br>
+    
     
     <!-- 간단히 볼래요  -->
     <section>
     	<div class="simpleLook">
-	    	<div class=""><img src="" alt="">요기엔 이미지를 넣어주세요</div>
-	    	<div>가격 데스</div>
-	    	<div>상호명 데스</div>
-    	</div>
-    </section>
+		    <span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
+		    <span>가격 데스</span>
+		    <span>상호명 데스</span>
+    	</div>  
     
     
     <!-- 자세히 볼래요  -->
-	<section>
+	
 		<div class="closerLook">
-	    	<div class=""><img src="" alt="">요기엔 이미지를 넣어주세요</div>
-	    	<div>제목 데스</div>
-	    	<div>상호명 데스</div>
-	    	<div>게시자 데스</div>
-	    	<div>게시글 데스</div>
-	    	<div>정가 데스</div>
-	    	<div>할인가 데스</div>
-	    	<div>판매가 데스</div>
+	    	<span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
+	    	<span>제목 데스</span>
+	    	<span>상호명 데스</span>
+	    	<span>게시자 데스</span>
+	    	<span>게시글 데스</span>
+	    	<span>정가 데스</span>
+	    	<span>할인가 데스</span>
+	    	<span>판매가 데스</span>
     	</div>
-    </section>
     
     
     <!-- 담벼락 -->
-    <section>
     	<div class="secretLook">
-	    	<div class=""><img src="" alt="">요기엔 이미지를 넣어주세요</div>
-	    	<div>제목 데스</div>
-	    	<div>익명 데스</div>
+	    	<span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
+	    	<span>제목 데스</span>
+	    	<span>익명 데스</span>
 	    </div>
     </section>
 
+	<script src="js/jquery-3.6.0.min.js"></script>
     <script>
     
     	/* 프로필 메뉴 클릭 */
@@ -89,33 +88,34 @@
             click__profile2.classList.toggle('active');
         });
         
-        /* 세 가지 버튼 */       
-        const simpleLookBtn = document.querySelector('.simpleLookBtn');
-        const closerLookBtn = document.querySelector('.closerLookBtn');
-        const secretLookBtn = document.querySelector('.secretLookBtn');
+        /* 세 가지 버튼 */   
         
-        /* 버튼 클릭 이벤트 */
-        const simpleLook = document.querySelector('.simpleLook');
-        const closerLook = document.querySelector('.closerLook');
-        const secretLook = document.querySelector('.secretLook');
+        $('.closerLook').hide();
+        $('.secretLook').hide();
         
-        closerLookBtn.addEventListener('click', () => {
-            closerLook.classList.toggle('active');
-            simpleLook.classList.toggle('deactive');
-            secretLook.classList.toggle('deactive');
-        });
+        $('.closerLookBtn').click(function(){
+	       	$('.closerLook').show();
+	       		$('.simpleLook').hide();	       		
+	      		$('.secretLook').hide();       		       		
+	       		       
+	    });       	
+    
         
-        secretLookBtn.addEventListener('click', () => {
-        	secretLook.classList.toggle('active');
-            simpleLook.classList.toggle('deactive');
-            closerLook.classList.toggle('deactive');
-        });
+        $('.secretLookBtn').click(function(){
+	       	$('.secretLook').show();
+	       		$('.simpleLook').hide();	       		
+	      		$('.closerLook').hide();       		       		
+	       		       
+	    });
+         
         
-        simpleLookBtn.addEventListener('click', () => {
-        	simpleLook.classList.toggle('active');
-        	closerLook.classList.toggle('deactive');
-            secretLook.classList.toggle('deactive');
-        });
+        $('.simpleLookBtn').click(function(){
+	       	$('.simpleLook').show();
+	       		$('.closerLook').hide();	       		
+	      		$('.secretLook').hide();       		       		
+	       		       
+	    });
+        
         
     </script>
 </body>
