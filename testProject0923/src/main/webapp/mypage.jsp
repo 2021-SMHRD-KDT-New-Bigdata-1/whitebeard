@@ -43,8 +43,8 @@
                 <%=town %>
             </div>
             <form action="MyPageService" method="post">
-                <input type="text" id="ground_input" name="town">
-                <input type="submit" value="확인" id="ground_input_check">
+                <input type="text" id="ground_input" name="town" class=''>
+                <input type="submit" value="확인" id="ground_input_check" class=''>
             </form>
             
             
@@ -110,12 +110,12 @@
     
     /* 내 동네 클릭  */
    $("#ground").click(function(){
-	   if($("#ground_info #ground_input").attr('class')==''){
-		   $("#ground_info #ground_input").addClass("active");
-		   $("#ground_info #ground_input_check").addClass("active");
+	   if($("#ground_input").attr('class')==''){
+		   $("#ground_input").addClass("active");
+		   $("#ground_input_check").addClass("active");
 	   }else{
-		   $("#ground_info #ground_input").removeClass("active");
-		   $("#ground_info #ground_input_check").removeClass("active");
+		   $("#ground_input").removeClass("active");
+		   $("#ground_input_check").removeClass("active");
 	   }	
 	});
    

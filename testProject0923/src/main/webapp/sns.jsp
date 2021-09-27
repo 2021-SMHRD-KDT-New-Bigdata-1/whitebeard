@@ -36,7 +36,9 @@
 			<a href=""><img src="img/face.png" alt="" id="face"></a> <span><strong
 				id="storename">가게이름</strong>
 				<p id="dongname" name="dong">
-					<span>동네이름</span>
+					<span>
+						<%String town = (String) session.getAttribute("town");%>
+						<%=town%></span>
 				</p>
 				<p id="storekind" name="stkind">
 					<span>가게종류</span>

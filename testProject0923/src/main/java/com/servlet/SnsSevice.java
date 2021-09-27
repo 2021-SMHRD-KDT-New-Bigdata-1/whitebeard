@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/SnsSevice")
 public class SnsSevice extends HttpServlet {
@@ -16,8 +17,16 @@ public class SnsSevice extends HttpServlet {
 	
 		request.setCharacterEncoding("euc-kr");
 		
-		String dong = request.getParameter("dong");
-		String storekind = request.getParameter("storekind");
+		HttpSession session = request.getSession();
+		session.setMaxInactiveInterval(60*60*24*365); 
+		
+		
+		
+		
+		/*
+		 * String dong = request.getParameter("dong"); String storekind =
+		 * request.getParameter("storekind");
+		 */
 	
 	
 	
