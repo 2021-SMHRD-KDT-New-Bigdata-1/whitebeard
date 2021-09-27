@@ -89,6 +89,91 @@ hr {
 .sub {
   float: left;
 }
+
+.sub:hover {
+	cursor: pointer;
+}
+
 .icon1 {
   float: right;
+}
+/*내 동네 설정 입력창 숨김  */
+#ground_input {
+	display:none;
+}
+
+#ground_input_check {
+	display:none;
+}
+
+/* 관심 물품 입력창 숨김 */
+#item_input {
+	display:none;
+}
+
+#item_input_check {
+	display: none;
+}
+
+/* 관심 물품 입력창 숨김 */
+#shop_input {
+	display:none;
+}
+
+#shop_input_check {
+	display: none;
+}
+
+/*내 동네 설정 클릭 시 등장하는 입력 창 */
+#ground_input.active {
+	display:block;
+	float: left;
+	margin: 1px 10px;
+}
+#ground_input_check.active {
+	display:block;
+	float: right;
+	margin: 1px 10px;
+}
+#ground_input.deactive {
+	display:none;
+}
+#ground_input_check.deactive {
+	display:none;
+}
+
+/* 관심 물품 클릭시 효과  */
+#item_input.active {
+	display:block;
+	float: left;
+	margin: 1px 10px;
+}
+#item_input_check.active {
+	display:block;
+	float: right;
+	margin: 1px 10px;
+}
+#item_input.deactive {
+	display:none;
+}
+#item_input_check.deactive {
+	display:none;
+}
+
+/* 관심 물품 클릭시 효과  */
+#shop_input.active {
+	display:block;
+	float: left;
+	margin: 1px 10px;
+}
+#shop_input_check.active {
+	display:block;
+	float: right;
+	margin: 1px 10px;
+}
+#shop_input.deactive {
+	display:none;
+}
+#shop_input_check.deactive {
+	display:none;
 }
