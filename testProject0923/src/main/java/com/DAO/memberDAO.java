@@ -145,7 +145,5 @@ public class memberDAO {
 			close();
 		}
 		return getpw;
-		
-	}
-
+}
 }
