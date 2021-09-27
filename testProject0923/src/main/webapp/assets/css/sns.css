@@ -1,7 +1,7 @@
+@charset "EUC-KR";
 
-
-
-html, body {
+html,
+body {
   margin: 0;
 }
 
@@ -9,10 +9,6 @@ a {
   text-decoration: none;
   color: black;
 }
-
-
-/*  */
-
 
 .navbar {
   background-color: burlywood;
@@ -51,52 +47,6 @@ a {
   flex-direction: column;
 }
 
-
-/*  */
-
-
-.simpleLook{
-	background-color: yellow;
-	float: left;
-  	display: flex;
-  	flex-direction: column;
-}
-
-.simpleLook.deactive{
-	display:none;
-}
-
-.closerLook{
-	background-color: grey;
-	float: left;
-  	display: flex;
-  	flex-direction: column;
-}
-
-.closerLook.active{
-	background-color: grey;
-	float: left;
-  	display: flex;
-  	flex-direction: column;
-}
-
-.secretLook{
-	background-color: green;
-	float: left;
-  	display: flex;
-  	flex-direction: column;
-}
-
-.secretLook.active{
-	background-color: green;
-	float: left;
-  	display: flex;
-  	flex-direction: column;
-}
-
-/*  */
-
-
 h1 {
   position: fixed;
   top: 0;
@@ -113,7 +63,7 @@ section .box {
 }
 section .box p {
   margin: 0;
-  color:  black;
+  color: white;
   padding: 80px 20px;
 }
 section .box:nth-child(2n) {
@@ -194,3 +144,18 @@ ul.tabs li.current {
 .tab-content.current {
   display: inherit;
 }
+
+#storeitem {
+  width: 460px;
+  height: 320px;
+}
+
+  
+}
+#tab-1 > div.coment {
+	border: soild 1px;
+	color: red;
+	
+}
+
+
