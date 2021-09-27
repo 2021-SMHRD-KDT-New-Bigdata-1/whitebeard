@@ -34,25 +34,26 @@
     
     <!-- 내 동네 랭크 -->
     <div align="center">
-    	<span>1등 : </span><br>
-    	<span>2등 : </span><br>
-    	<span>3등 : </span><br>
+    	<span>1등 : 프로필 사진 / 닉네임 / 점수</span><br>
+    	<span>2등 : 프로필 사진 / 닉네임 / 점수</span><br>
+    	<span>3등 : 프로필 사진 / 닉네임 / 점수</span><br>
     </div><br>
     
     
     <!-- 내 지역구 랭크 -->
     <div align="center">
-    	<span>1등 : </span><br>
-    	<span>2등 : </span><br>
-    	<span>3등 : </span><br>
+    	<span>내 지역구</span><br>
+    	<span>1등 : 프로필 사진 / 닉네임 / 행정동 / 점수</span><br>
+    	<span>2등 : 프로필 사진 / 닉네임 / 행정동 / 점수</span><br>
+    	<span>3등 : 프로필 사진 / 닉네임 / 행정동 / 점수</span><br>
     </div><br>
     
     
     <!-- 광주 전체 랭크 -->
     <div align="center">
-    	<span>1등 : </span><br>
-    	<span>2등 : </span><br>
-    	<span>3등 : </span><br>
+    	<span>1등 : 프로필 사진 / 닉네임 / 지역구 / 점수</span><br>
+    	<span>2등 : 프로필 사진 / 닉네임 / 지역구 / 점수</span><br>
+    	<span>3등 : 프로필 사진 / 닉네임 / 지역구 / 점수</span><br>
     </div><br>
     
     
