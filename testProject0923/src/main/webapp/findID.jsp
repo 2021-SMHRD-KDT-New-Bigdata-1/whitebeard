@@ -1,3 +1,10 @@
+<%@page import="com.DAO.memberDAO"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +15,7 @@ body{
     height: 100%;
     background: #f5f6f7 ;
 }
-#joinpage{
+#idpage{
     top: 15%;
     left: 50%;
     position: absolute;
@@ -43,10 +50,18 @@ a{
 </style>
 </head>
 <body>
+
+	<%
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+	
+		memberDAO dao = new memberDAO();
+		String id = dao.findid(name, email);
+	 %>
 <form>
-	<div id = "joinpage">
+	<div id = "idpage">
         <header>
-            <h2>회원가입</h2>
+            <h2>아이디 찾기</h2>
         <div id = "welcome">
             <br>
             <br>
@@ -54,8 +69,8 @@ a{
             <br>
             
             <span class="fontsize">
-                <p>회원가입이 완료되었습니다</p>
-                <p>로그인을 해주세요</p>
+                <p><%=name%> 님의 아이디는</p>
+                <p><%=id %>입니다.</p>
             </span>
             <br>
             <br>

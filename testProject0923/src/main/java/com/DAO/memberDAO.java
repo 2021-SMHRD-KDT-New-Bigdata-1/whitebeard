@@ -95,9 +95,31 @@ public class memberDAO {
 			close();
 		}
 		return check;
-
-
-
+	}
+	
+	
+	public String findid(String name, String email) {
+		conn();
+		String getid = "";
+		try {
+			String sql = "select member_id from web_member where name = ? and email = ?"; 
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setString(1, name);
+			psmt.setString(2, email);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()){
+				
+				getid = rs.getString(2);
+				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return getid;
 	}
 
 
