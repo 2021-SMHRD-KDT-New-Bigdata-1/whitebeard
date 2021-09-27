@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.DAO.memberDAO;
+
 @WebServlet("/SnsSevice")
 public class SnsSevice extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,6 +22,7 @@ public class SnsSevice extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setMaxInactiveInterval(60*60*24*365); 
 		
+		memberDAO dao = new memberDAO();
 		
 		
 		
