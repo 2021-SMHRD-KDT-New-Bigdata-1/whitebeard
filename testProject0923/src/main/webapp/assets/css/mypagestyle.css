@@ -135,12 +135,6 @@ hr {
 	float: right;
 	margin: 1px 10px;
 }
-#ground_input.deactive {
-	display:none;
-}
-#ground_input_check.deactive {
-	display:none;
-}
 
 /* 관심 물품 클릭시 효과  */
 #item_input.active {
@@ -153,12 +147,6 @@ hr {
 	float: right;
 	margin: 1px 10px;
 }
-#item_input.deactive {
-	display:none;
-}
-#item_input_check.deactive {
-	display:none;
-}
 
 /* 관심 물품 클릭시 효과  */
 #shop_input.active {
@@ -170,10 +158,4 @@ hr {
 	display:block;
 	float: right;
 	margin: 1px 10px;
-}
-#shop_input.deactive {
-	display:none;
-}
-#shop_input_check.deactive {
-	display:none;
 }
