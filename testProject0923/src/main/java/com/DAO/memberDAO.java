@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 
 public class memberDAO {
 
+	
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs =null;
@@ -111,7 +112,7 @@ public class memberDAO {
 			
 			if(rs.next()){
 				
-				getid = rs.getString(2);
+				getid = rs.getString(1);
 				
 			}
 		}catch(Exception e){
@@ -122,6 +123,29 @@ public class memberDAO {
 		return getid;
 	}
 
-
+	public String findpw(String id, String name, String email) {
+		
+		conn();
+		String getpw = null;
+		try {
+			String sql = "select member_pw from members where member_id = ? and name = ? and email = ?"; 
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, name);
+			psmt.setString(3, email);
+			
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				getpw = rs.getString(1);
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return getpw;
+		
+	}
 
 }

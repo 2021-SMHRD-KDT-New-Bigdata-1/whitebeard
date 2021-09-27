@@ -1,8 +1,3 @@
-<%@page import="com.DAO.memberDAO"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -15,7 +10,7 @@ body{
     height: 100%;
     background: #f5f6f7 ;
 }
-#idpage{
+#pwpage{
     top: 15%;
     left: 50%;
     position: absolute;
@@ -38,7 +33,10 @@ header{
     background: white;
 }
 .fontsize{
+
     font-size: 25px;
+    
+
 }
 a{
     text-decoration: none;
@@ -47,15 +45,14 @@ a{
 </style>
 </head>
 <body>
-
 	<%
-		String member_id = (String)session.getAttribute("member_id");
-		String name = (String)session.getAttribute("name");
+		String member_pw = (String)session.getAttribute("member_pw");
+		String id = (String)session.getAttribute("id");
 	 %>
 <form>
-	<div id = "idpage">
+	<div id = "pwpage">
         <header>
-            <h2>아이디 찾기</h2>
+            <h2>비밀번호 찾기</h2>
         <div id = "check">
             <br>
             <br>
@@ -63,8 +60,8 @@ a{
             <br>
             
             <span class="fontsize">
-                <p><%=name%> 님의 아이디는</p>
-                <p>"<%=member_id %>"입니다.</p>
+                <p><%=id %>님의 비밀번호는.</p>
+                <p>"<%=member_pw%>"입니다.</p>
             </span>
             <br>
             <br>
@@ -84,8 +81,9 @@ a{
     </div>
 </form>
 <%
-System.out.println(name);
-System.out.println(member_id);
+System.out.println(id);
+System.out.println(member_pw);
+
 %>
 </body>
 </html>
