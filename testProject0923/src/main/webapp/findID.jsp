@@ -88,5 +88,11 @@ a{
         </div>
     </div>
 </form>
+<%
+System.out.println(name);
+System.out.println(email);
+System.out.println(id);
+
+%>
 </body>
 </html>

@@ -100,9 +100,9 @@ public class memberDAO {
 	
 	public String findid(String name, String email) {
 		conn();
-		String getid = "";
+		String getid = null;
 		try {
-			String sql = "select member_id from web_member where name = ? and email = ?"; 
+			String sql = "select member_id from members where name = ? and email = ?"; 
 			PreparedStatement psmt = conn.prepareStatement(sql);
 			psmt.setString(1, name);
 			psmt.setString(2, email);
