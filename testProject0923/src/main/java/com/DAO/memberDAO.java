@@ -1,13 +1,14 @@
 package com.DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.VO.MemberVO;
 
-public class member {
+public class memberDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
@@ -16,7 +17,7 @@ public class member {
 		try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 
-				String url = "\"jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe\"";
+				String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 				String dbid = "cgi_6_2";
 				String dbpw = "smhrd2";
 				conn = DriverManager.getConnection(url, dbid, dbpw);	
@@ -58,11 +59,22 @@ public class member {
 				rs = psmt.executeQuery();
 
 				if (rs.next()) {
-					String tel = rs.getString(3);
+					String name = rs.getString(3);
+					Date birth_date = rs.getDate(4);
+					String nickname = rs.getString(5);
+					String email = rs.getString(6);
+					String phone = rs.getString(7);
+					String member_type = rs.getString(8);
+					String company_name = rs.getString(9);
+					String company_bn = rs.getString(10);
+					String b_type = rs.getString(11);
+					String company_pic1 = rs.getString(12);
+					String company_pic2 = rs.getString(13);
+					String company_pic3 = rs.getString(14);
+					String company_info = rs.getString(15);
 					
-					// 로그인 성공
-					vo = new MemberVO(email, phone, address);
-					//새로운 데이터타입 = VO
+					vo = new MemberVO(name, birth_date, nickname, email, phone, member_type, company_name,
+							company_bn, b_type, company_pic1, company_pic2, company_pic3, company_info);
 				} 
 				
 			} catch (Exception e) {

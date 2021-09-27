@@ -22,6 +22,26 @@ public class MemberVO {
 	
 	
 	
+	public MemberVO(String name, Date birth_date, String nickname, String email, String phone, String member_type,
+			String company_name, String company_bn, String b_type, String company_pic1, String company_pic2,
+			String company_pic3, String company_info) {
+		super();
+		this.name = name;
+		this.birth_date = birth_date;
+		this.nickname = nickname;
+		this.email = email;
+		this.phone = phone;
+		this.member_type = member_type;
+		this.company_name = company_name;
+		this.company_bn = company_bn;
+		this.b_type = b_type;
+		this.company_pic1 = company_pic1;
+		this.company_pic2 = company_pic2;
+		this.company_pic3 = company_pic3;
+		this.company_info = company_info;
+	}
+	
+	
 	public String getMember_id() {
 		return member_id;
 	}

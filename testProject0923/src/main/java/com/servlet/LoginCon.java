@@ -6,6 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.DAO.memberDAO;
+import com.VO.MemberVO;
 
 @WebServlet("/LoginCon")
 public class LoginCon extends HttpServlet {
@@ -17,6 +21,21 @@ public class LoginCon extends HttpServlet {
 		
 		String ID = request.getParameter("ID");
 		String PW = request.getParameter("PW");
+		
+		memberDAO dao = new memberDAO();
+		
+		MemberVO vo = dao.login(ID, PW);
+		
+		if (vo != null) {
+			HttpSession session = request.getSession(); //세션 객체 생성
+			session.setAttribute("vo", vo);
+			
+			System.out.println("로그인성공");
+			response.sendRedirect("main.jsp");
+		} else {
+			System.out.println("로그인실패");
+			response.sendRedirect("login.jsp");
+		}
 		
 		
 	}
