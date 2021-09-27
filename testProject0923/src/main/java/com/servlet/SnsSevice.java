@@ -23,10 +23,6 @@ public class SnsSevice extends HttpServlet {
 		
 		
 		
-		/*
-		 * String dong = request.getParameter("dong"); String storekind =
-		 * request.getParameter("storekind");
-		 */
 	
 	
 	

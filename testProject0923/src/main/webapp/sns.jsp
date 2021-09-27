@@ -38,7 +38,7 @@
 				<p id="dongname" name="dong">
 					<span>
 						<%String town = (String) session.getAttribute("town");%>
-						<%=town%></span>
+						<%=town%></span>ㅎㅇㅎㅇ
 				</p>
 				<p id="storekind" name="stkind">
 					<span>가게종류</span>

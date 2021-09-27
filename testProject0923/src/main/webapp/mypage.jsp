@@ -33,14 +33,14 @@
             
             <!-- 내 동네 설정 -->
             <div class="plus">
-                <a class="sub" id="ground">내 동네 설정</a>
+                <a class="sub" id="ground">내 동네 설정 </a>
                 <div class="icon1"><i class="fas fa-map-marker-alt"></i></div>
                 <%String town = (String)session.getAttribute("town");
                 	if(town == null){
                 		town = " : 동네 없슴";
                 	} 
                 %>
-                <%=town %>
+                <%=" : "+ town %>
             </div>
             <form action="MyPageService" method="post">
                 <input type="text" id="ground_input" name="town" class=''>
