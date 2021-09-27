@@ -29,8 +29,10 @@ public class MyPageService extends HttpServlet {
 	
 	// town 세션 값이 없을 경우에는 새로 설정, 이미 있을 경우에는 대체
 	if(town != null) {
-		session.removeAttribute("town");
-		session.setAttribute("town", newtown);	
+		if(newtown != null) {
+			session.removeAttribute("town");
+			session.setAttribute("town", newtown);				
+		}
 	} else {
 		session.setAttribute("town", newtown);	
 	}
@@ -42,8 +44,10 @@ public class MyPageService extends HttpServlet {
 
 	// favitem 세션 값이 없을 경우에는 새로 설정, 이미 있을 경우에는 대체
 		if(favitem != null) {
-			session.removeAttribute("favitem");
-			session.setAttribute("favitem", newfavitem);	
+			if(newfavitem != null) {
+				session.removeAttribute("favitem");
+				session.setAttribute("favitem", newfavitem);					
+			}
 		} else {
 			session.setAttribute("favitem", newfavitem);
 		}
@@ -55,8 +59,10 @@ public class MyPageService extends HttpServlet {
 
 	// favshop 세션 값이 없을 경우에는 새로 설정, 이미 있을 경우에는 대체
 		if(favshop != null) {
-			session.removeAttribute("favshop");
-			session.setAttribute("favshop", newfavshop);	
+			if(newfavshop != null) {
+				session.removeAttribute("favshop");
+				session.setAttribute("favshop", newfavshop);					
+			}
 		} else {
 			session.setAttribute("favshop", newfavshop);
 		}	
