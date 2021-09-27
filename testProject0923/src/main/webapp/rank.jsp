@@ -33,15 +33,27 @@
     
     
     <!-- ³» µ¿³× ·©Å© -->
-    
+    <div align="center">
+    	<span>1µî : </span><br>
+    	<span>2µî : </span><br>
+    	<span>3µî : </span><br>
+    </div><br>
     
     
     <!-- ³» Áö¿ª±¸ ·©Å© -->
-    
+    <div align="center">
+    	<span>1µî : </span><br>
+    	<span>2µî : </span><br>
+    	<span>3µî : </span><br>
+    </div><br>
     
     
     <!-- ±¤ÁÖ ÀüÃ¼ ·©Å© -->
-    
+    <div align="center">
+    	<span>1µî : </span><br>
+    	<span>2µî : </span><br>
+    	<span>3µî : </span><br>
+    </div><br>
     
     
     <script src="js/jquery-3.6.0.min.js"></script>
