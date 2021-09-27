@@ -1,0 +1,54 @@
+@charset "EUC-KR";
+
+html, body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+/*  */
+
+
+.navbar {
+  background-color: burlywood;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+}
+
+.navbar__profile {
+  display: flex;
+  list-style: none;
+}
+
+.navbar__menu {
+  width: 20%;
+  padding-left: 0;
+  display: none;
+  flex-direction: column;
+  list-style: none;
+}
+
+.navbar__menu li {
+  padding: 8px 12px;
+}
+
+.navbar__menu li:hover {
+  background-color: cornflowerblue;
+  border-radius: 4px;
+}
+
+.navbar__menu.active {
+  background-color: darkgray;
+  float: right;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/*  */

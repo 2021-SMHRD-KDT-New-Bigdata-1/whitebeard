@@ -82,13 +82,6 @@
             </form>
             
             
-            <!-- 공지사항 -->
-            <div class="plus">
-                <a class="sub">공지사항</a>
-                <div class="icon1"><i class="fas fa-volume-up"></i></div>
-            </div>
-            
-            
             <!-- 순위표 -->
             <div class="plus">
                 <a class="sub">순위표</a>
