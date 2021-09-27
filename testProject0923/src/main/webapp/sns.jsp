@@ -1,3 +1,4 @@
+<%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -9,20 +10,43 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
+	<%
+	MemberVO vo = (MemberVO) session.getAttribute("vo");
+	%>
 	<nav class="navbar">
 		<div class="navbar__logo">로고 자리</div>
 
 		<div class="navbar__main">할인2동</div>
 
-		<div class="navbar__profile">프로필사진</div>
+
+		<%
+		if (vo == null) {
+			out.print("<div class='', onclick='location.href=\"login.jsp\"'>로그인</div>");
+		} else {
+			out.print("<div class='navbar__profile'>프로필</div>");
+		%>
 
 	</nav>
+		<%
+		out.print("<ul class='navbar__menu'>");
+		out.print("<li><a href=''>마이페이지</a></li>");
+		out.print("<li><a href=''>나중에추가</a></li>");
+		out.print("<li><a href='LogoutCon.do'>로그아웃</a></li>");
+		out.print("</ul>");
+		/*  if (vo.getEmail().equals("admin")) {
+		out.print("<a href='selectMember.jsp'>회원전체목록</a>");
+		} else {
+		out.print("<a href='update.jsp'>회원정보수정</a>");
+		}  */
+		}
+		%>
 
-
-	<ul class="navbar__menu">
-		<li><a href="">마이페이지</a></li>
-		<li><a href="">나중에추가</a></li>
-	</ul>
+	<!-- <ul class="navbar__menu">
+		
+		<li><a href=''>마이페이지</a></li>
+		<li><a href=''>나중에추가</a></li>
+		
+	</ul> -->
 
 
 	<form action="" class="searchBar">
@@ -36,9 +60,9 @@
 			<a href=""><img src="img/face.png" alt="" id="face"></a> <span><strong
 				id="storename">가게이름</strong>
 				<p id="dongname" name="dong">
-					<span>
-						<%String town = (String) session.getAttribute("town");%>
-						<%=town%></span>ㅎㅇㅎㅇ
+					<span> <%
+ String town = (String) session.getAttribute("town");
+ %> <%=town%></span>
 				</p>
 				<p id="storekind" name="stkind">
 					<span>가게종류</span>
