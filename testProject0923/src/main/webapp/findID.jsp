@@ -78,6 +78,7 @@ a{
             <br>
             <br>
             
+            
             <!-- 버튼 디자인 변경해야함 -->
             <span>
                 <button><a href="main.jsp">홈화면이동</a></button>
