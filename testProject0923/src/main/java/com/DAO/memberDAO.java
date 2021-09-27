@@ -192,7 +192,35 @@ public class memberDAO {
 		}
 		
 		return vo;
-		
-		
+	}
+	
+	public int sellerjoin(String member_id, String member_pw, String company_name, String company_bn, String b_type, 
+			String company_pic1, String company_pic2, String company_pic3, String company_info) {
+		int cnt = 0;
+		try {
+			conn();
+
+			String sql = "update members set member_type = '1', company_name=?, company_bn=?, b_type=?, company_pic1=?, company_pic2=?, company_pic3=?, company_info=? where member_id = ? and member_pw = ?";
+
+			PreparedStatement psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, company_name);
+			psmt.setString(2, company_bn);
+			psmt.setString(3, b_type);
+			psmt.setString(4, company_pic1);
+			psmt.setString(5, company_pic2);
+			psmt.setString(6, company_pic3);
+			psmt.setString(7, company_info);
+			psmt.setString(8, member_id);
+			psmt.setString(9, member_pw);
+			
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
 	}
 }
