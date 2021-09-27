@@ -2,7 +2,7 @@ package com.VO;
 
 import java.sql.Date;
 
-public class AnoComment {
+public class AnoCommentVO {
 
 	private int anocom_seq;
 	private String anocom_content;
