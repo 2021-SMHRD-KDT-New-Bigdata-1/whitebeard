@@ -24,41 +24,61 @@
                     <p>셀러</p>
                 </div>
             </div>
+            
+            
             <div class="submit">
                 <input type="submit" value="프로필 보기 / 회원정보 수정 ">
             </div>
             <hr>
+            
+            <!-- 내 동네 설정 -->
             <div class="plus">
                 <a class="sub" id="ground">내 동네 설정</a>
                 <div class="icon1"><i class="fas fa-map-marker-alt"></i></div>
             </div>
-                <input type="text" id="ground_input" class=''>
-                <input type="submit" value="확인" id="ground_input_check" class=''>
+            <form action="MyPageService">
+                <input type="text" id="ground_input" class="town">
+                <input type="submit" value="확인" id="ground_input_check">
+            </form>
             
+            
+            <!-- 내 관심 상품 -->
             <div class="plus">
                 <a class="sub" id="favitem">내 관심 상품</a>
                 <div class="icon1"><i class="fas fa-shopping-cart"></i></div>
             </div>
-                <input type="text" id="item_input">
+            <form action="MyPageService">
+                <input type="text" id="item_input" class="favitem">
                 <input type="submit" value="확인" id="item_input_check">
+            </form>
             
+         
+         	<!-- 내 관심 스토어 -->
             <div class="plus">
                 <a class="sub" id="favshop">내 관심 스토어</a>
                 <div class="icon1"><i class="fas fa-store-alt"></i></div>
             </div>
+            <form action="MyPageService">
                 <input type="text" id="shop_input">
                 <input type="submit" value="확인" id="shop_input_check">
+            </form>
             
+            
+            <!-- 공지사항 -->
             <div class="plus">
                 <a class="sub">공지사항</a>
                 <div class="icon1"><i class="fas fa-volume-up"></i></div>
             </div>
             
+            
+            <!-- 순위표 -->
             <div class="plus">
                 <a class="sub">순위표</a>
                 <div class="icon1"><i class="fas fa-trophy"></i></div>
             </div>
             
+            
+            <!-- 판매자 등록 -->
             <div class="plus">
                 <a class="sub">판매자 등록</a>
                 <div class="icon1"><i class="fas fa-user-check"></i></div>
