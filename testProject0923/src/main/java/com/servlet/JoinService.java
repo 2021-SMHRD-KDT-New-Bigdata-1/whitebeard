@@ -21,25 +21,26 @@ public class JoinService extends HttpServlet {
 
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
-	String pwcheck = request.getParameter("pwcheck");
+//	String pwcheck = request.getParameter("pwcheck");
 	String name = request.getParameter("name");
 	String nick = request.getParameter("nick");
 	String email = request.getParameter("email");
 	String phone = request.getParameter("phone");
 	String company_pic1 = request.getParameter("company_pic1");
-	
 	String yy = request.getParameter("yy");
 	yy = yy.substring(2);
-	
 	String mm = request.getParameter("mm");
 	String dd = request.getParameter("dd");
 	String date = yy+"/"+mm+"/"+dd;
-	
+	System.out.println(date);
 	memberDAO dao = new memberDAO();
 	int cnt = dao.join(id, pw, name, date, nick, email, phone, company_pic1);
 	
 	if(cnt>0) {
 		response.sendRedirect("joincomplete.html");
+	}else {
+		response.sendRedirect("join.html");
+
 	}
 	
 			
