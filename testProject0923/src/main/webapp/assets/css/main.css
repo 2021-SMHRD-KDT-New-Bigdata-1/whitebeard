@@ -13,7 +13,9 @@ a {
 
 /*  */
 
-
+.searchBar {
+	text-align: center;
+}
 .navbar {
   background-color: burlywood;
   display: flex;
@@ -35,6 +37,13 @@ a {
   list-style: none;
 }
 
+.navbar__menu.active {
+  background-color: darkgray;
+  float: right;
+  display: flex;
+  flex-direction: column;
+}
+
 .navbar__menu li {
   padding: 8px 12px;
 }
@@ -44,12 +53,6 @@ a {
   border-radius: 4px;
 }
 
-.navbar__menu.active {
-  background-color: darkgray;
-  float: right;
-  display: flex;
-  flex-direction: column;
-}
 
 
 /*  */

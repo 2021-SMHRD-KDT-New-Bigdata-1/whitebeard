@@ -1,3 +1,4 @@
+<%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -6,50 +7,55 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" href="assets/css/main.css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
+	<%
+	MemberVO vo = (MemberVO)session.getAttribute("vo");
+	%>
 	<!-- 상단 메뉴 -->
-	<nav class="navbar">       
-        <div class="navbar__logo">
-            로고 자리
-        </div>
+	
+	<nav class='navbar'>
+	<div class='navbar__logo'>로고 자리</div>"
 
-        <div class="navbar__main">
-            할인2동  ㅇㅇ
-        </div>
+	<div class='navbar__main'>할인2동</div>"
+	<% 
+	if (vo == null) {
+		out.print("<div class='' onclick='location.href=\"login.jsp\"'>로그인</div></nav>");
+        
+	} else {
+		out.print("<div class='navbar__profile'>프로필</div></nav>");
+		out.print("<ul class='navbar__menu'>");
+		out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
+		out.print("<li><a href=''>순위표</a></li>");
+		out.print("<li><a href=''>내찜목록</a></li>");
+		out.print("<li><a href=''>판매자등록</a></li>");
+		out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
+		out.print("</ul>");
+			}
+	%>
 
-        <div class="navbar__profile">
-            프로필사진           
-        </div>
-    </nav>
 
-
-	<!-- 프로필 누르면 나오는 메뉴 -->
-    <ul class="navbar__menu">
-        <li><a href="">마이페이지</a></li>
-        <li><a href="">나중에추가</a></li>        
-    </ul>
 
     
     <!-- 검색 -->
-    <form action="" class="searchBar" align="center">
+    <form action="" class="searchBar">
         <input type="text" placeholder="검색(상품명, 행정동)">    
             <button>검색</button>
-        </input>
     </form><br>
 
 
 	<!-- 버튼 3개 -->
     <div align="center">
         <span class="simpleLookBtn" style="display:inline"><button>간략히</button></span>
-        <span class="closerLookBtn" style="display:inline"><button>자세히</button></span>
+        <button class="closerLookBtn" style="display:inline">자세히</button>
         <span class="secretLookBtn" style="display:inline"><button>담벼락</button></span>
     </div><br>
     
     
     <!-- 간단히 볼래요  -->
     <section>
-    	<div class="simpleLook" onclick="location.href='sns.jsp'">
+    	<div class="simpleLook" onclick="location.href='sns.jsp'" style = "display : flex;">
 		    <span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
 		    <span>가격 데스</span>
 		    <span>상품 이름</span>
@@ -59,7 +65,7 @@
     
     <!-- 자세히 볼래요  -->
 	
-		<div class="closerLook">
+		<div class="closerLook" style = "display : none;">
 	    	<span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
 	    	<span>제목 데스</span>
 	    	<span>상호명 데스</span>
@@ -72,33 +78,33 @@
     
     
     <!-- 담벼락 -->
-    	<div class="secretLook">
+    	<div class="secretLook" style = "display : none;">
 	    	<span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
 	    	<span>제목 데스</span>
 	    	<span>익명 데스</span>
 	    </div>
     </section>
 
-	<script src="js/jquery-3.6.0.min.js"></script>
+	<!-- <script src="js/jquery-3.6.0.min.js"></script> -->
     <script>
     
     	/* 프로필 메뉴 클릭 */
-        const click__profile = document.querySelector('.navbar__profile');
+       /*  const click__profile = document.querySelector('.navbar__profile');
         const click__profile2 = document.querySelector('.navbar__menu');
         click__profile.addEventListener('click', () => {
             click__profile2.classList.toggle('active');
+        }); */
+        
+        $(".navbar__profile").on("click", function() {
+            $(".navbar__menu").addClass("active");
+            $(this).removeClass("active");
         });
         
-        /* 세 가지 버튼 */   
-        
-        $('.closerLook').hide();
-        $('.secretLook').hide();
-        
         $('.closerLookBtn').click(function(){
-	       	$('.closerLook').show();
-	       		$('.simpleLook').hide();	       		
-	      		$('.secretLook').hide();       		       		
-	       		       
+
+        	$('.closerLook').css('display','flex');
+        	$('.simpleLook').css('display','none');	       		
+	      	$('.secretLook').css('display','none');   
 	    });       	
     
         
@@ -106,7 +112,6 @@
 	       	$('.secretLook').show();
 	       		$('.simpleLook').hide();	       		
 	      		$('.closerLook').hide();       		       		
-	       		       
 	    });
          
         
@@ -114,10 +119,9 @@
 	       	$('.simpleLook').show();
 	       		$('.closerLook').hide();	       		
 	      		$('.secretLook').hide();       		       		
-	       		       
 	    });
         
-        
+      
     </script>
 </body>
 </html>
