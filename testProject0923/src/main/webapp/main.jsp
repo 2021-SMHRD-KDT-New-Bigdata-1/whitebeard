@@ -16,9 +16,9 @@
 	<!-- 상단 메뉴 -->
 	
 	<nav class='navbar'>
-	<div class='navbar__logo'>로고 자리</div>"
+	<div class='navbar__logo'>로고 자리</div>
 
-	<div class='navbar__main'>할인2동</div>"
+	<div class='navbar__main'>할인2동</div>
 	<% 
 	if (vo == null) {
 		out.print("<div class='' onclick='location.href=\"login.jsp\"'>로그인</div></nav>");
