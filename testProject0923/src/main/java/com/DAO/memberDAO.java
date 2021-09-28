@@ -43,12 +43,12 @@ public class memberDAO {
 
 	}
 
-	public int join(String id, String pw, String name, String date, String nick, String email, String phone) {
+	public int join(String id, String pw, String name, String date, String nick, String email, String phone, String company_pic1) {
 		int cnt = 0;
 		try {
 			conn();
 
-			String sql = "insert into members(member_id, member_pw, name, birth_date, nickname, email, phone, member_type) values(?, ?, ?, ?, ?, ?, ?, 0)";
+			String sql = "insert into members(member_id, member_pw, name, birth_date, nickname, email, phone, company_pic1, member_type) values(?, ?, ?, ?, ?, ?, ?, ? 0)";
 
 			PreparedStatement psmt = conn.prepareStatement(sql);
 
@@ -59,6 +59,7 @@ public class memberDAO {
 			psmt.setString(5, nick);
 			psmt.setString(6, email);
 			psmt.setString(7, phone);
+			psmt.setString(8, company_pic1);
 
 			cnt = psmt.executeUpdate();
 
@@ -82,6 +83,36 @@ public class memberDAO {
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+
+			System.out.println(sql);
+
+			if (rs.next()) {
+				System.out.print("true");
+				check = true;
+			} else {
+				System.out.print("false");
+				check = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return check;
+	}
+	public boolean bnCheck(String company_bn) {
+
+		System.out.println(company_bn);
+
+		boolean check = false;
+		conn();
+
+		String sql = "select company_bn from members where company_bn = ?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, company_bn);
 			rs = psmt.executeQuery();
 
 			System.out.println(sql);
