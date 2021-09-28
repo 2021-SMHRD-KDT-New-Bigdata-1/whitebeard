@@ -34,7 +34,6 @@ public class UpdateService extends HttpServlet {
 		String dd = request.getParameter("dd");
 		String date = yy+"/"+mm+"/"+dd;
 		
-		System.out.println(date);
 		
 		memberDAO dao = new memberDAO();
 		int cnt = dao.update(nowpw, member_pw, name, date, nick, email, phone, company_pic1, member_id);
