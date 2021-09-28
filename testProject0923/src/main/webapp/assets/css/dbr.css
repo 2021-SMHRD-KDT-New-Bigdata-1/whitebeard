@@ -47,39 +47,119 @@ a {
   display: flex;
   flex-direction: column;
 }
-
-/*  */
-
-.simpleLook {
-  background-color: yellow;
-}
-
-.closerLook {
-  display: none;
-  background-color: grey;
-}
-
-.secretLook {
-  display: none;
-  background-color: green;
-}
-
-/*  */
-
-body > section > div:nth-child(1) > div {
-  border: solid 1px black;
-}
-section .box {
-  height: 200px;
-  background: white;
+#dbr {
   text-align: center;
 }
-section .box p {
-  margin: 0;
-  color: black;
-  padding: 80px 20px;
+#dbr_box {
+  border: blueviolet solid 1px;
+  width: auto;
+  height: auto;
 }
-section .box:nth-child(2n) {
-  background: silver;
-  border: solid 1px black;
+#dbr_box_body {
+  border: darkblue solid 1px;
+  width: auto;
+  height: auto;
 }
+#dbr_box_tail {
+  border: black solid 1px;
+  width: auto;
+  height: auto;
+}
+#coment_box {
+  width: 850px;
+  height: auto;
+}
+#dbr_box_body_title {
+  text-align: center;
+}
+#dbr_box_body_name {
+  text-align: right;
+  font-size: 20px;
+}
+#dbr_box_body_time {
+  font-size: small;
+  color: gray;
+  text-align: right;
+}
+#dbr_box_body_text {
+  margin: 5px;
+}
+#dbr_box_body_img {
+  text-align: center;
+}
+
+#form-commentInfo {
+  width: 100%;
+}
+
+#comment-count {
+  margin-bottom: 10px;
+}
+
+#comment-input {
+  width: 50%;
+  height: 3.3em;
+}
+
+#submit {
+  background-color: rgb(0, 128, 255);
+  width: 5.5em;
+  height: 3.3em;
+  font-size: 15px;
+  font-weight: bold;
+  color: aliceblue;
+}
+
+#voteUp,
+#voteDown {
+  width: 3.5em;
+  height: 1.9em;
+  background-color: aqua;
+}
+
+#comments {
+  margin-top: 10px;
+}
+
+.eachComment {
+  width: 50%;
+  margin: 10px;
+  padding: 0.5em;
+  border-bottom: 1px solid #c1bcba;
+}
+
+.eachComment .name {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 0.3em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.eachComment .inputValue {
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.eachComment .time {
+  font-size: 0.7em;
+  color: #c1bcba;
+  font-style: oblique;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.eachComment .voteDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.eachComment .deleteComment {
+  background-color: red;
+  color: aliceblue;
+}
+#comments > div:nth-child(1n) {
+  border: 1px solid;
+}
+
+/*  */
