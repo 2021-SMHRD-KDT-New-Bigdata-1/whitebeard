@@ -100,6 +100,36 @@ public class memberDAO {
 		}
 		return check;
 	}
+	public boolean bnCheck(String company_bn) {
+
+		System.out.println(company_bn);
+
+		boolean check = false;
+		conn();
+
+		String sql = "select company_bn from members where company_bn = ?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, company_bn);
+			rs = psmt.executeQuery();
+
+			System.out.println(sql);
+
+			if (rs.next()) {
+				System.out.print("true");
+				check = true;
+			} else {
+				System.out.print("false");
+				check = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return check;
+	}
 
 	public String findid(String name, String email) {
 		conn();
