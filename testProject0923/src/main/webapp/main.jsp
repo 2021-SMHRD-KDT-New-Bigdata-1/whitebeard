@@ -55,7 +55,7 @@
     
     <!-- 간단히 볼래요  -->
     <section>
-    	<div class="simpleLook" onclick="location.href='sns.jsp'" style = "display : flex;">
+    	<div class="simpleLook" onclick="location.href='sns.jsp'">
 		    <span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
 		    <span>가격 데스</span>
 		    <span>상품 이름</span>
@@ -108,27 +108,27 @@
      	   }	
      	});
          
+        $('.simpleLookBtn').click(function(){
+        	$('.simpleLook').css('display','inline-block');	       		
+        	$('.closerLook').css('display','none');
+	      	$('.secretLook').css('display','none');      		       		
+	    });
         
         $('.closerLookBtn').click(function(){
 
-        	$('.closerLook').css('display','flex');
         	$('.simpleLook').css('display','none');	       		
+        	$('.closerLook').css('display','inline-block');
 	      	$('.secretLook').css('display','none');   
 	    });       	
     
         
         $('.secretLookBtn').click(function(){
-	       	$('.secretLook').show();
-	       		$('.simpleLook').hide();	       		
-	      		$('.closerLook').hide();       		       		
+        	$('.simpleLook').css('display','none');	       		
+        	$('.closerLook').css('display','none');
+	      	$('.secretLook').css('display','inline-block');        		       		
 	    });
          
         
-        $('.simpleLookBtn').click(function(){
-	       	$('.simpleLook').show();
-	       		$('.closerLook').hide();	       		
-	      		$('.secretLook').hide();       		       		
-	    });
         
       
     </script>
