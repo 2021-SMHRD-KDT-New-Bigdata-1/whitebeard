@@ -75,10 +75,40 @@ public class mypointDAO {
 	}
 	
 	
-	// 찜 성공으로 인한 포인트 계산	
-	public int select_point(String member_id) {
+	// 찜 성공 횟수 인한 포인트 계산	
+	public int select_count_point(String member_id) {
 		
 		int a = 0; // 찜 성공 횟수
+		
+		try {
+			conn();
+			
+			String sql = "select article_seq from mypoints where member_id = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, member_id);
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				a += 1;			
+			} 
+			
+		} catch (Exception e) {
+			// 실행 후 오류가 발생했을 때 에러 출력
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		a *= 10;		
+		
+		return a;
+	}
+	
+	
+	// 찜 성공 사진 갯수로 인한 포인트 계산
+	public int select_picture_point(String member_id) {		
+		
 		int b = 0; // 찜 성공 사진 갯수
 		
 		try {
@@ -96,26 +126,6 @@ public class mypointDAO {
 				}
 			}
 			
-			String sql = "select success_pic1, success_pic2, success_pic3 from mypoints where member_id = ?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, member_id);
-
-			rs = psmt.executeQuery();
-
-			if (rs.next()) {
-				a += 1;			
-			} 
-			
-			sql = "select article_seq from mypoints where member_id = ?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, member_id);
-
-			rs = psmt.executeQuery();
-
-			if (rs.next()) {
-				a += 1;			
-			} 
-			
 		} catch (Exception e) {
 			// 실행 후 오류가 발생했을 때 에러 출력
 			e.printStackTrace();
@@ -123,13 +133,14 @@ public class mypointDAO {
 			close();
 		}
 		
-		a *= 10;
 		b *= 2;
+				
+		return b;
 		
-		int c = a + b;
-		
-		return c;
 	}
+
+	
+	
 	
 	
 	

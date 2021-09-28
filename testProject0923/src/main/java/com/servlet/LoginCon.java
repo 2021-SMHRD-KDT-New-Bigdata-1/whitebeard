@@ -29,6 +29,7 @@ public class LoginCon extends HttpServlet {
 		if (vo != null) {
 			HttpSession session = request.getSession(); //技记 按眉 积己
 			session.setAttribute("vo", vo);
+			session.setAttribute("id", ID);
 			
 			System.out.println("肺弊牢己傍");
 			response.sendRedirect("main.jsp");
