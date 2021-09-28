@@ -316,6 +316,28 @@ public class memberDAO {
 		
 	}
 	
+	public int delete(String id, String pw) {
+		int cnt = 0;
+		
+		try {
+			conn();
+			
+			String sql = "delete from members where member_id = ? and member_pw =?";  
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+
+			cnt = psmt.executeUpdate();  
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return cnt;
+	}
+	
 	
 	
 }
