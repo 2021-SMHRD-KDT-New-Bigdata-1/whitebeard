@@ -5,6 +5,9 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import com.VO.SnsVO;
 
 public class snsDAO {
 
@@ -60,9 +63,9 @@ public class snsDAO {
 				psmt.setString(4, pic1);
 				psmt.setString(5, pic2);
 				psmt.setString(6, pic3);
-				psmt.setInt(6, regular_price);
-				psmt.setInt(6, discount_price);
-				psmt.setInt(6, sale_price);
+				psmt.setInt(7, regular_price);
+				psmt.setInt(8, discount_price);
+				psmt.setInt(9, sale_price);
 
 				cnt = psmt.executeUpdate();
 
@@ -76,6 +79,66 @@ public class snsDAO {
 		}
 		
 		
+		// SNS 수정
+		public int update_sns(int article_seq, String subject, String content, String pic1, String pic2, String pic3, int regular_price, int discount_price, int sale_price) {
+			
+			int cnt = 0;
+			
+			try {
+	            conn();
+	             
+	            String sql = "update sns set subject=?, content=?, pic1=?, pic2=?, pic3=?, regular_price=?, discount_price=?, sale_price=? where member_id = ?";
+	             		
+	            psmt = conn.prepareStatement(sql);
+	            psmt.setString(1, subject);
+				psmt.setString(2, content);
+				psmt.setString(3, pic1);
+				psmt.setString(4, pic2);
+				psmt.setString(5, pic3);
+				psmt.setInt(6, regular_price);
+				psmt.setInt(7, discount_price);
+				psmt.setInt(8, sale_price);
+				psmt.setInt(9, article_seq);
+	                          
+	            cnt = psmt.executeUpdate();      	      
+		         
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		      } finally {
+		    	  close();
+		      }
+		      
+			  return cnt;
+			
+		}
+
+
+		// SNS 삭제
+		public int delete_sns(int article_seq) {
+			
+			int cnt = 0;
+			
+			try {
+	            conn();
+	             
+	            String sql = "delete * from sns where article_seq = ?";
+	             		
+	            psmt = conn.prepareStatement(sql);	          
+				psmt.setInt(1, article_seq);
+	                          
+	            cnt = psmt.executeUpdate();      	      
+		         
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		      } finally {
+		    	  close();
+		      }
+		      
+			  return cnt;
+			
+		}
+
+
 		
 		
 }
