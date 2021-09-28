@@ -127,14 +127,14 @@ hr {
 
 
 /*내 동네 설정 클릭 시 등장하는 입력 창 */
-#ground_info.active {
+#ground_input.active {
 	display:block;
 	float: left;
 	margin: 1px 10px;
 }
 #ground_input_check.active {
 	display:block;
-	float: right;
+	float: left;
 	margin: 1px 10px;
 }
 

@@ -33,18 +33,18 @@
             
             <!-- 내 동네 설정 -->
             <div class="plus">
-                <a class="sub" id="ground">내 동네 설정</a>
+                <a class="sub" id="ground">내 동네 설정 </a>
                 <div class="icon1"><i class="fas fa-map-marker-alt"></i></div>
                 <%String town = (String)session.getAttribute("town");
                 	if(town == null){
                 		town = " : 동네 없슴";
                 	} 
                 %>
-                <%=town %>
+                <%=" : "+ town %>
             </div>
             <form action="MyPageService" method="post">
-                <input type="text" id="ground_input" name="town">
-                <input type="submit" value="확인" id="ground_input_check">
+                <input type="text" id="ground_input" name="town" class=''>
+                <input type="submit" value="확인" id="ground_input_check" class=''>
             </form>
             
             
@@ -60,7 +60,7 @@
                 <%=favitem %>
             </div>
             <form action="MyPageService" method="post">
-                <input type="text" id="item_input" name="favitem">
+                <input type="text" id="item_input" name="favitem" class=''>
                 <input type="submit" value="확인" id="item_input_check">
             </form>
             
@@ -77,7 +77,7 @@
                 <%=favshop %>
             </div>
             <form action="MyPageService" method="post">
-                <input type="text" id="shop_input" name="favshop">
+                <input type="text" id="shop_input" name="favshop" class=''>
                 <input type="submit" value="확인" id="shop_input_check">
             </form>
             
@@ -106,12 +106,30 @@
     
     /* 내 동네 클릭  */
    $("#ground").click(function(){
-	   if($("#ground_info #ground_input").attr('class')==''){
-		   $("#ground_info #ground_input").addClass("active");
-		   $("#ground_info #ground_input_check").addClass("active");
+	   if($("#ground_input").attr('class')==''){
+		   $("#ground_input").addClass("active");
+		   $("#ground_input_check").addClass("active");
 	   }else{
-		   $("#ground_info #ground_input").removeClass("active");
-		   $("#ground_info #ground_input_check").removeClass("active");
+		   $("#ground_input").removeClass("active");
+		   $("#ground_input_check").removeClass("active");
+	   }	
+	});
+   $("#favitem").click(function(){
+	   if($("#item_input").attr('class')==''){
+		   $("#item_input").addClass("active");
+		   $("#item_input_check").addClass("active");
+	   }else{
+		   $("#item_input").removeClass("active");
+		   $("#item_input_check").removeClass("active");
+	   }	
+	});
+   $("#favshop").click(function(){
+	   if($("#shop_input").attr('class')==''){
+		   $("#shop_input").addClass("active");
+		   $("#shop_input_check").addClass("active");
+	   }else{
+		   $("#shop_input").removeClass("active");
+		   $("#shop_input_check").removeClass("active");
 	   }	
 	});
    

@@ -47,6 +47,10 @@ a {
   flex-direction: column;
 }
 
+.searchBar {
+	text-align: center;
+}
+
 h1 {
   position: fixed;
   top: 0;
@@ -70,7 +74,7 @@ section .box:nth-child(2n) {
   background: silver;
 }
 
-div.snshead > span > #storename {
+#storename {
   color: blue;
   display: inline;
   font-size: xx-large;
@@ -78,14 +82,14 @@ div.snshead > span > #storename {
   vertical-align: top;
 }
 
-div.snshead > span > #dongname {
+#dongname {
   color: red;
   display: inline;
   font-size: small;
   vertical-align: middle;
 }
 
-div.snshead > span > #storekind {
+#storekind {
   color: yellowgreen;
   display: inline;
   font-size: small;
@@ -151,7 +155,7 @@ ul.tabs li.current {
 }
 
   
-}
+
 #tab-1 > div.coment {
 	border: soild 1px;
 	color: red;
