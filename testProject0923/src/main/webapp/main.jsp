@@ -18,7 +18,7 @@
 	<nav class='navbar'>
 	<div class='navbar__logo'>로고 자리</div>
 
-	<div class='navbar__main'>할인2동</div>
+	<div class='navbar__main' onclick="location.href='main.jsp'">할인2동</div>
 	<% 
 	if (vo == null) {
 		out.print("<div class='' onclick='location.href=\"login.jsp\"'>로그인</div></nav>");
@@ -65,7 +65,7 @@
     
     <!-- 자세히 볼래요  -->
 	
-		<div class="closerLook" style = "display : none;">
+		<div class="closerLook" onclick="location.href='sns.jsp'" style = "display : none;">
 	    	<span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
 	    	<span>제목 데스</span>
 	    	<span>상호명 데스</span>
@@ -78,7 +78,7 @@
     
     
     <!-- 담벼락 -->
-    	<div class="secretLook" style = "display : none;">
+    	<div class="secretLook" onclick="location.href='dbr.jsp'" style = "display : none;">
 	    	<span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
 	    	<span>제목 데스</span>
 	    	<span>익명 데스</span>
