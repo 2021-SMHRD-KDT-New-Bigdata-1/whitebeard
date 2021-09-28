@@ -88,16 +88,25 @@
     <script>
     
     	/* 프로필 메뉴 클릭 */
-       /*  const click__profile = document.querySelector('.navbar__profile');
+      /*   const click__profile = document.querySelector('.navbar__profile');
         const click__profile2 = document.querySelector('.navbar__menu');
         click__profile.addEventListener('click', () => {
             click__profile2.classList.toggle('active');
         }); */
         
-        $(".navbar__profile").on("click", function() {
+        /*  $(".navbar__profile").on("click", function() {
             $(".navbar__menu").addClass("active");
             $(this).removeClass("active");
-        });
+        }); */
+        
+        $(".navbar__profile").click(function(){
+     	   if($(".navbar__menu").attr('class')=='navbar__menu'){
+     		   $(".navbar__menu").addClass("active");
+     	   }else{
+     		   $(".navbar__menu").removeClass("active");
+     	   }	
+     	});
+         
         
         $('.closerLookBtn').click(function(){
 
