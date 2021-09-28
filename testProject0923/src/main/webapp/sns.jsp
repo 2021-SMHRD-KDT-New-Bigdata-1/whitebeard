@@ -13,33 +13,34 @@
 	<%
 	MemberVO vo = (MemberVO) session.getAttribute("vo");
 	%>
-	<nav class="navbar">
-		<div class="navbar__logo">로고 자리</div>
+	<%
+	out.print("<nav class='navbar'>");
+	out.print("<div class='navbar__logo'>로고 자리</div>");
 
-		<div class="navbar__main">할인2동</div>
+	out.print("<div class='navbar__main'>할인2동</div>");
+
+	if (vo == null) {
+		out.print("<div class='', onclick='location.href=\"login.jsp\"'>로그인</div></nav>");
+	} else {
+		out.print("<div class='navbar__profile'>프로필</div></nav>");
+	%>
 
 
-		<%
-		if (vo == null) {
-			out.print("<div class='', onclick='location.href=\"login.jsp\"'>로그인</div>");
-		} else {
-			out.print("<div class='navbar__profile'>프로필</div>");
-		%>
-
-	</nav>
-		<%
-		out.print("<ul class='navbar__menu'>");
-		out.print("<li><a href=''>마이페이지</a></li>");
-		out.print("<li><a href=''>나중에추가</a></li>");
-		out.print("<li><a href='LogoutCon.do'>로그아웃</a></li>");
-		out.print("</ul>");
-		/*  if (vo.getEmail().equals("admin")) {
-		out.print("<a href='selectMember.jsp'>회원전체목록</a>");
-		} else {
-		out.print("<a href='update.jsp'>회원정보수정</a>");
-		}  */
-		}
-		%>
+	<%
+	out.print("<ul class='navbar__menu'>");
+	out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
+	out.print("<li><a href=''>순위표</a></li>");
+	out.print("<li><a href=''>내찜목록</a></li>");
+	out.print("<li><a href=''>판매자등록</a></li>");
+	out.print("<li><a href='LogoutCon.do'>로그아웃</a></li>");
+	out.print("</ul>");
+	/*  if (vo.getEmail().equals("admin")) {
+	out.print("<a href='selectMember.jsp'>회원전체목록</a>");
+	} else {
+	out.print("<a href='update.jsp'>회원정보수정</a>");
+	}  */
+	}
+	%>
 
 	<!-- <ul class="navbar__menu">
 		

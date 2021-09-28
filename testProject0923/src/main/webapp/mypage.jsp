@@ -60,7 +60,7 @@
                 <%=favitem %>
             </div>
             <form action="MyPageService" method="post">
-                <input type="text" id="item_input" name="favitem">
+                <input type="text" id="item_input" name="favitem" class=''>
                 <input type="submit" value="확인" id="item_input_check">
             </form>
             
@@ -77,7 +77,7 @@
                 <%=favshop %>
             </div>
             <form action="MyPageService" method="post">
-                <input type="text" id="shop_input" name="favshop">
+                <input type="text" id="shop_input" name="favshop" class=''>
                 <input type="submit" value="확인" id="shop_input_check">
             </form>
             
@@ -112,6 +112,24 @@
 	   }else{
 		   $("#ground_input").removeClass("active");
 		   $("#ground_input_check").removeClass("active");
+	   }	
+	});
+   $("#favitem").click(function(){
+	   if($("#item_input").attr('class')==''){
+		   $("#item_input").addClass("active");
+		   $("#item_input_check").addClass("active");
+	   }else{
+		   $("#item_input").removeClass("active");
+		   $("#item_input_check").removeClass("active");
+	   }	
+	});
+   $("#favshop").click(function(){
+	   if($("#shop_input").attr('class')==''){
+		   $("#shop_input").addClass("active");
+		   $("#shop_input_check").addClass("active");
+	   }else{
+		   $("#shop_input").removeClass("active");
+		   $("#shop_input_check").removeClass("active");
 	   }	
 	});
    
