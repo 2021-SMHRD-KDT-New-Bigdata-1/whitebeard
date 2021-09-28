@@ -30,9 +30,9 @@
                 </div>
             </div>
             <div class="login_etc2">
-                <a href="">아이디 찾기 | </a>
-                <a href="">비밀번호 찾기 |</a>
-                <a href="">회원가입</a>
+                <a href="find_id_pw.html">아이디 찾기 | </a>
+                <a href="find_id_pw.html">비밀번호 찾기 |</a>
+                <a href="join.html">회원가입</a>
             </div>
         </div>
     </div>
