@@ -7,14 +7,13 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="assets/css/mypagestyle.css">
 <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
   />
 </head>
 <body>
 	<div class="wrap">
         <div class="mypage">
-            <h2>할인 2동</h2>
+            <h2 onclick="location.href='main.jsp'">할인 2동</h2>
             <h4>마이 페이지</h4>
             <div class="imgAndNick">
                 <div class="profilediv" style="background: #BDBDBD;">
