@@ -34,14 +34,19 @@ public class FindPW extends HttpServlet {
 		session.setAttribute("id", id);
 		
 		if(member_pw != null) {
+			
 			response.sendRedirect("findPW.jsp");
 		}
 		else {
+			response.setCharacterEncoding("euc-kr");
+			response.setContentType("text/html; charset=euc-kr");
 			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('입력한 정보가 바르지 않습니다.')");
-			out.println("</script>");
-			response.sendRedirect("find_id_pw.html");
+		
+			out.print("<script language='javascript' charset='euc-kr'>");
+			out.print("alert('입력한 정보가 바르지 않습니다.');");
+			out.print("location.href='find_id_pw.html'");
+			out.print("</script>");
+			
 		}
 	}
 

@@ -20,7 +20,6 @@ public class FindID extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("euc-kr");
-		PrintWriter out = response.getWriter();
 		
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
@@ -37,10 +36,16 @@ public class FindID extends HttpServlet {
 		}
 		else {
 			
-			out.print("<script>");
+			response.setCharacterEncoding("euc-kr");
+			response.setContentType("text/html; charset=euc-kr");
+			PrintWriter out = response.getWriter();
+			
+			
+			out.print("<script language='javascript' charset='euc-kr'>");
 			out.print("alert('입력한 정보가 바르지 않습니다.');");
+			out.print("location.href='find_id_pw.html'");
 			out.print("</script>");
-			response.sendRedirect("find_id_pw.html");
+			
 		}
 	}
 
