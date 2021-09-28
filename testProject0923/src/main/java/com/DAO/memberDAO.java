@@ -338,6 +338,26 @@ public class memberDAO {
 		return cnt;
 	}
 	
-	
+	public int sellerdelete(String id, String pw) {
+		int cnt = 0;
+		
+		try {
+			conn();
+			
+			String sql = "update members set member_type = 0, company_name = null, company_bn = null, b_type = null, company_pic1=null, company_pic2=null, company_pic3=null, company_info=null where member_id = ? and member_pw = ?";
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+
+			cnt = psmt.executeUpdate();  
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return cnt;
+	}
 	
 }
