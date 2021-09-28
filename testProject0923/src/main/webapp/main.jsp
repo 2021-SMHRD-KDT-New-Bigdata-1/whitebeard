@@ -52,6 +52,7 @@
     	<div class="simpleLook">
 		    <span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
 		    <span>가격 데스</span>
+		    <span>상품 이름</span>
 		    <span>상호명 데스</span>
     	</div>  
     
