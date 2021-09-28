@@ -56,37 +56,40 @@ a {
 
 
 /*  */
+section {
+	text-align: center;
+}
+
 
 
 .simpleLook{
 	background-color: yellow;
-	float: left;
-  	display: flex;
+  	display: inline-block;
   	flex-direction: column;
 }
 
-.simpleLook.deactive{
-	display:none;
+div > span {
+	display: block;
+	text-align: left;
 }
+
+
 
 .closerLook{
 	background-color: grey;
-	float: left;
-  	display: flex;
+	display: inline-block;
   	flex-direction: column;
 }
 
 .closerLook.active{
 	background-color: grey;
-	float: left;
-  	display: flex;
+  	display: inline-block;
   	flex-direction: column;
 }
 
 .secretLook{
 	background-color: green;
-	float: left;
-  	display: flex;
+	display: inline-block;
   	flex-direction: column;
 }
 
@@ -112,7 +115,7 @@ h1 {
 }
 
 section {
-	margin: 0 auto;
+	width :100%;
 }
 
 section .box {
