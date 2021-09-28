@@ -110,6 +110,11 @@ h1 {
   margin: 0;
   line-height: 60px;
 }
+
+section {
+	margin: 0 auto;
+}
+
 section .box {
   height: 500px;
   background: wheat;
