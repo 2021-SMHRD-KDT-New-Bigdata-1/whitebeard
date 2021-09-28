@@ -56,9 +56,10 @@
 	                    </span>
 	                </div>
 	                <br>
+	                
 	                <div>
 						<h3>
-							<label>프로필 사진 등록1</label>
+							<label>프로필 사진 등록</label>
 						</h3>
 						<div>
 							<input type="file" class=imginput accept="image/*" name="company_pic1"
@@ -66,6 +67,7 @@
 						</div>
 						<div id="image_container"></div>
 					</div>
+					
 	                <div>
 	                    <h3>
 	                        <label for="name">이름</label>
@@ -175,7 +177,7 @@
 			})
 		};
 	</script>
-	  <script>
+	<script>
         function check_pw(){
             var pw = document.getElementById('pw').value;
             if(document.getElementById('pw').value != '' && document.getElementById('pwcheck').value!=''){
@@ -189,6 +191,21 @@
                 }
             }
         }
+        
     </script>
+    <script>
+        function setimg(event){
+            var reader = new FileReader();
+            reader.onload = function(event){
+                var img = document.createElement("img");
+                img.setAttribute("src", event.target.result);
+                img.setAttribute("class", "col-lg-6");
+                document.querySelector("div#image_container").appendChild(img);
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+    
+    
 </body>
 </html>
