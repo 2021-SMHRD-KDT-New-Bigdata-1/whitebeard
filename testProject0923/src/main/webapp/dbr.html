@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/dbr.css" />
-    
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
   </head>
   <body>
+  	<%
+	MemberVO vo = (MemberVO)session.getAttribute("vo");
+	%>
+  
     <nav class="navbar">
       <div class="navbar__logo">로고 자리</div>
 
