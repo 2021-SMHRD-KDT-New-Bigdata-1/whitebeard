@@ -46,22 +46,45 @@ public class mypointDAO {
 	
 	
 	// 찜 성공 데이터 입력
-	public int insert_point(int article_seq, Date success_date, String member_id, String success_pic1, String success_pic2, String success_pic3) {
+	public int insert_point(int article_seq, String member_id) {
 	
 		int cnt = 0;
 		try {
 			conn();
 
-			String sql = "insert into mypoints(article_seq, success_date, member_id, success_pic1, success_pic2, success_pic3) values(?, ?, SYSDATE, ?, ?, ?, ?)";
+			String sql = "insert into mypoints(article_seq, success_date, member_id) values(?, SYSDATE, ?)";
 
 			PreparedStatement psmt = conn.prepareStatement(sql);
 
 			psmt.setInt(1, article_seq);
-			psmt.setDate(2, success_date);
-			psmt.setString(3, member_id);
-			psmt.setString(4, success_pic1);
-			psmt.setString(5, success_pic2);
-			psmt.setString(6, success_pic3);
+			psmt.setString(2, member_id);
+
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+		
+	}				
+		
+	// 찜 성공 인증 사진 데이터 입력
+	public int insert_point(int article_seq, String success_pic1, String success_pic2, String success_pic3) {
+	
+		int cnt = 0;
+		try {
+			conn();
+
+			String sql = "update mypoints set success_pic1=?, success_pic2=?, success_pic3=? where article_seq = ?";
+
+			PreparedStatement psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, success_pic1);
+			psmt.setString(2, success_pic2);
+			psmt.setString(3, success_pic3);
+			psmt.setInt(4, article_seq);
 
 			cnt = psmt.executeUpdate();
 
@@ -115,7 +138,7 @@ public class mypointDAO {
 			conn();
 
 			for(int i = 1; i<4 ; i++) {
-				String sql = String.format("select success_pic%s from mypoints where member_id = ?", i);
+				String sql = String.format("select success_pic%s from mypoints where member_id = ? and member_id is not null", i);
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, member_id);
 
@@ -140,7 +163,7 @@ public class mypointDAO {
 	}
 
 	
-	
+	// 찜 성공 데이터 모두 불러오기
 	
 	
 	
