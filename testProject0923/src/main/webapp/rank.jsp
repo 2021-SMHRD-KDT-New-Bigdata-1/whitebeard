@@ -33,28 +33,30 @@
     
     
     <!-- 내 동네 랭크 -->
-    <div align="center">
-    	<span>1등 : 프로필 사진 / 닉네임 / 점수</span><br>
-    	<span>2등 : 프로필 사진 / 닉네임 / 점수</span><br>
-    	<span>3등 : 프로필 사진 / 닉네임 / 점수</span><br>
-    </div><br>
+    <section align="center" class="town">
+    	<div>내 동네</div><br>
+    	<div class="second">2등 : 프로필 사진 / 닉네임 / 점수</div>
+    	<div class="first">1등 : 프로필 사진 / 닉네임 / 점수</div>
+    	<div class="third">3등 : 프로필 사진 / 닉네임 / 점수</div><br>
+    </section><br>
     
     
     <!-- 내 지역구 랭크 -->
-    <div align="center">
-    	<span>내 지역구</span><br>
-    	<span>1등 : 프로필 사진 / 닉네임 / 행정동 / 점수</span><br>
-    	<span>2등 : 프로필 사진 / 닉네임 / 행정동 / 점수</span><br>
-    	<span>3등 : 프로필 사진 / 닉네임 / 행정동 / 점수</span><br>
-    </div><br>
+    <section align="center" class="district">
+    	<div>내 지역구</div><br>
+    	<div class="second">2등 : 프로필 사진 / 닉네임 / 행정동 / 점수</div>
+    	<div class="first">1등 : 프로필 사진 / 닉네임 / 행정동 / 점수</div>
+    	<div class="third">3등 : 프로필 사진 / 닉네임 / 행정동 / 점수</div><br>
+    </section><br>
     
     
-    <!-- 광주 전체 랭크 -->
-    <div align="center">
-    	<span>1등 : 프로필 사진 / 닉네임 / 지역구 / 점수</span><br>
-    	<span>2등 : 프로필 사진 / 닉네임 / 지역구 / 점수</span><br>
-    	<span>3등 : 프로필 사진 / 닉네임 / 지역구 / 점수</span><br>
-    </div><br>
+    <!-- 도시 전체 랭크 -->
+    <section align="center" class="city">
+    	<div>내 도시</div><br>
+    	<div class="second">2등 : 프로필 사진 / 닉네임 / 지역구 / 점수</div>
+    	<div class="first">1등 : 프로필 사진 / 닉네임 / 지역구 / 점수</div>
+    	<div class="third">3등 : 프로필 사진 / 닉네임 / 지역구 / 점수</div><br>
+    </section><br>
     
     
     <script src="js/jquery-3.6.0.min.js"></script>

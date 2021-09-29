@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="assets/css/main.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 	<%
@@ -58,31 +59,38 @@
     <!-- 간단히 볼래요  -->
     <section>
     	<div class="simpleLook" onclick="location.href='sns.jsp'">
-		    <span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
-		    <span>가격 데스</span>
-		    <span>상호명 데스</span>
+		    <div class="img"><img src="assets/img/seller.png" alt="상품이미지"></div>
+		    <div class="hoho">
+		    <div class="notimg">상품명</div><br>
+		    <div class="notimg">현재 판매가</div><br>
+		    <div class="notimg">상호명 : </div><br>
+		    </div>
     	</div>  
     
     
     <!-- 자세히 볼래요  -->
 	
 		<div class="closerLook" onclick="location.href='sns.jsp'" style = "display : none;">
-	    	<span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
-	    	<span>제목 데스</span>
-	    	<span>상호명 데스</span>
-	    	<span>게시자 데스</span>
-	    	<span>게시글 데스</span>
-	    	<span>정가 데스</span>
-	    	<span>할인가 데스</span>
-	    	<span>판매가 데스</span>
+	    	<div class="img2"><img src="assets/img/seller.png" alt="상품이미지"></div>
+	    	<div class="hoho2">
+	    	<div class="notimg">제목</div><br>
+	    	<div class="notimg">상호명</div><br>
+	    	<div class="notimg">게시자</div><br>
+	    	<div class="notimg">게시글</div><br>
+	    	<div class="notimg">정가</div><br>
+	    	<div class="notimg">할인가</div><br>
+	    	<div class="notimg">판매가</div><br>
+	    	</div>
     	</div>
     
     
     <!-- 담벼락 -->
     	<div class="secretLook" onclick="location.href='dbr.jsp'" style = "display : none;">
-	    	<span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
-	    	<span>제목 데스</span>
-	    	<span>익명 데스</span>
+	    	<div class='hoho'>
+	    	<div class="notimg">글 제목</div>
+	    	<div class="notimg">(댓글 수)</div>
+	    	<div class="notimg"><i class="far fa-images"></i></div>
+	    	</div>
 	    </div>
     </section>
 

@@ -63,22 +63,56 @@ section {
 
 
 .simpleLook{
+	width : 50%;	
 	background-color: yellow;
-  	display: inline-block;
+  	display:inline-block;
   	flex-direction: column;
 }
 
-div > span {
-	display: block;
-	text-align: left;
+
+div > .img {
+	width : 30%;
+	height : 100%;
+	float: left;
+	margin: auto auto;
+	border-right : 1px solid;
 }
 
+div > .img2 {
+	width : 30%;
+	height : 100%;
+	float: left;
+	margin: auto;
+}
+img {
+	width : 50%;
+	vertical-align:middle;
+}
 
+.hoho {
+	width : 68%;
+	height : 100%;
+	float: left;
+	padding-left: 3px;
+}
+
+.hoho2 {
+	width : 68%;
+	height : 100%;
+	float: left;
+	padding-left: 3px;
+	border-left : 1px solid;
+}
+.notimg {
+	float: left;
+	display: block;
+}
 
 .closerLook{
 	background-color: grey;
 	display: inline-block;
   	flex-direction: column;
+  	width : 50%;	
 }
 
 .closerLook.active{
@@ -91,6 +125,7 @@ div > span {
 	background-color: green;
 	display: inline-block;
   	flex-direction: column;
+  	width : 50%;	
 }
 
 .secretLook.active{
