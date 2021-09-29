@@ -12,6 +12,18 @@ public class CommentVO {
 	
 	
 	
+	
+	public CommentVO(int comment_seq, String comment_content, int article_seq, Date comment_date, String member_id) {
+		super();
+		this.comment_seq = comment_seq;
+		this.comment_content = comment_content;
+		this.article_seq = article_seq;
+		this.comment_date = comment_date;
+		this.member_id = member_id;
+	}
+	
+	
+	
 	public int getComment_seq() {
 		return comment_seq;
 	}

@@ -91,7 +91,7 @@ public class snsDAO {
 			try {
 	            conn();
 	             
-	            String sql = "update sns set subject=?, content=?, pic1=?, pic2=?, pic3=?, regular_price=?, discount_price=?, sale_price=? input_date=SYSDATE where member_id = ?";
+	            String sql = "update sns set subject=?, content=?, pic1=?, pic2=?, pic3=?, regular_price=?, discount_price=?, sale_price=? input_date=SYSDATE where article_seq = ?";
 	             		
 	            psmt = conn.prepareStatement(sql);
 	            psmt.setString(1, subject);
@@ -185,7 +185,7 @@ public class snsDAO {
 		
 		
 		// 한 가게의 SNS만 불러오기
-		public ArrayList<SnsVO> select_one_sns(String member_id) {
+		public ArrayList<SnsVO> select_market_sns(String member_id) {
 			
 			ArrayList<SnsVO> oneSnsList = new ArrayList<SnsVO>();
 

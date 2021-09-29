@@ -10,6 +10,22 @@ public class MyChoiceVO {
 	private String member_id;
 	
 	
+	
+	
+	
+	
+	public MyChoiceVO(int choice_seq, int article_seq, Date choice_date, String member_id) {
+		super();
+		this.choice_seq = choice_seq;
+		this.article_seq = article_seq;
+		this.choice_date = choice_date;
+		this.member_id = member_id;
+	}
+	
+	
+	
+	
+	
 	public int getChoice_seq() {
 		return choice_seq;
 	}
