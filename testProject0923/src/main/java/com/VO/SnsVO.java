@@ -19,6 +19,25 @@ public class SnsVO {
 	
 	
 	
+	public SnsVO(int article_seq, String member_id, String subject, String content, String pic1, String pic2,
+			String pic3, int regular_price, int discount_price, int sale_price, Date input_date) {
+		super();
+		this.article_seq = article_seq;
+		this.member_id = member_id;
+		this.subject = subject;
+		this.content = content;
+		this.pic1 = pic1;
+		this.pic2 = pic2;
+		this.pic3 = pic3;
+		this.regular_price = regular_price;
+		this.discount_price = discount_price;
+		this.sale_price = sale_price;
+		this.input_date = input_date;
+	}
+	
+	
+	
+	
 	public int getArticle_seq() {
 		return article_seq;
 	}

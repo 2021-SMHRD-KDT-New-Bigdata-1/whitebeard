@@ -18,11 +18,15 @@ public class snsDAO {
 
 		public void conn() {
 			try {
+				
 				Class.forName("oracle.jdbc.driver.OracleDriver");
+				
 				String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 				String dbid = "cgi_6_2";
-				String dbpw = "smhrd2";
+				String dbpw = "smhrd2";		
+				
 				conn = DriverManager.getConnection(url, dbid, dbpw);
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -87,7 +91,7 @@ public class snsDAO {
 			try {
 	            conn();
 	             
-	            String sql = "update sns set subject=?, content=?, pic1=?, pic2=?, pic3=?, regular_price=?, discount_price=?, sale_price=? where member_id = ?";
+	            String sql = "update sns set subject=?, content=?, pic1=?, pic2=?, pic3=?, regular_price=?, discount_price=?, sale_price=? input_date=SYSDATE where member_id = ?";
 	             		
 	            psmt = conn.prepareStatement(sql);
 	            psmt.setString(1, subject);
@@ -138,7 +142,86 @@ public class snsDAO {
 			
 		}
 
-
 		
+		// 동네 이름 기준으로 모든 SNS 불러오기
+		public ArrayList<SnsVO> select_all_sns(String town) {
+			
+			ArrayList<SnsVO> snsList = new ArrayList<SnsVO>();
+
+			try {
+				
+				conn();	               				
+				String sql = "select * from sns A where member_id = (select member_id from members B where company_info = %?% and A.member_id = B.member_id group by member_id)";
+				psmt = conn.prepareStatement(sql);
+	            psmt.setString(1, town);               
+	            
+	            rs = psmt.executeQuery();
+	            
+	            while(rs.next()) {
+	            	int article_seq = rs.getInt(1);
+	            	String member_id = rs.getString(2);
+	            	String subject = rs.getString(3);
+	            	String content = rs.getString(4);
+	            	String pic1 = rs.getString(5);
+	            	String pic2 = rs.getString(6);
+	            	String pic3 = rs.getString(7);
+	            	int regular_price = rs.getInt(8);
+	            	int discount_price = rs.getInt(9);
+	            	int sale_price = rs.getInt(10);
+	            	Date input_date = rs.getDate(11);
+	            		            		            	
+	            	snsList.add(new SnsVO(article_seq, member_id, subject, content, pic1, pic2, pic3, regular_price, discount_price, sale_price, input_date));
+	            }
+	            
+	            }catch(Exception e){
+	            	e.printStackTrace();
+	            }finally {
+	            	close();
+	            }
+			
+			return snsList;		
+			
+		}
+		
+		
+		// 한 가게의 SNS만 불러오기
+		public ArrayList<SnsVO> select_one_sns(String member_id) {
+			
+			ArrayList<SnsVO> oneSnsList = new ArrayList<SnsVO>();
+
+			try {
+				
+				conn();	               				
+				String sql = "select * from sns A where member_id = ?";
+				psmt = conn.prepareStatement(sql);
+	            psmt.setString(1, member_id);               
+	            
+	            rs = psmt.executeQuery();
+	            
+	            while(rs.next()) {
+	            	int article_seq = rs.getInt(1);
+	            	member_id = rs.getString(2);
+	            	String subject = rs.getString(3);
+	            	String content = rs.getString(4);
+	            	String pic1 = rs.getString(5);
+	            	String pic2 = rs.getString(6);
+	            	String pic3 = rs.getString(7);
+	            	int regular_price = rs.getInt(8);
+	            	int discount_price = rs.getInt(9);
+	            	int sale_price = rs.getInt(10);
+	            	Date input_date = rs.getDate(11);
+	            		            		            	
+	            	oneSnsList.add(new SnsVO(article_seq, member_id, subject, content, pic1, pic2, pic3, regular_price, discount_price, sale_price, input_date));
+	            }
+	            
+	            }catch(Exception e){
+	            	e.printStackTrace();
+	            }finally {
+	            	close();
+	            }
+			
+			return oneSnsList;		
+			
+		}
 		
 }
