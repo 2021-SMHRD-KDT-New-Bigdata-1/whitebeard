@@ -1,12 +1,17 @@
 package com.DAO;
 
 import java.sql.Connection;
+
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
+import com.VO.AnoCommentVO;
+import com.VO.AnonymousVO;
 import com.VO.MemberVO;
+import com.VO.SnsVO;
 
 public class dbrDAO {
 
@@ -44,21 +49,22 @@ public class dbrDAO {
 
 	}
 
-	public int write(String ano_subject, String ano_content, String ano_pic1, String ano_pic2, String ano_pic3) {
+	public int write(String ano_subject, String ano_content, String ano_pic1, String ano_pic2, String ano_pic3, String member_id) {
 		int cnt = 0;
 		try {
 			conn();
 			//글제목 사진 1 2 3 이름 시간 글내용 댓글~~~ 이코드는 담벼락 글 작성하는 녀석입니다
-			String sql = "insert into anonymous(ano_subject,ano_content,ano_pic1,ano_pic2,ano_pic3) values(?, ?, ?, ?,?, SYSDATE)";
+			String sql = "insert into anonymous(ano_subject,ano_content,ano_pic1,ano_pic2,ano_pic3,member_id,ano_date) values(?, ?, ?, ?,?,?, SYSDATE)";
 
 			PreparedStatement psmt = conn.prepareStatement(sql);
 
 			
-			psmt.setString(1, ano_subject); //글제목
+			psmt.setString(1, ano_subject); //글제목s
 			psmt.setString(2, ano_content); //글내용
 			psmt.setString(3, ano_pic1); //글사진
 			psmt.setString(4, ano_pic2); //글사진
 			psmt.setString(5, ano_pic3); //글사진
+			psmt.setString(6, member_id);
 			
 
 			cnt = psmt.executeUpdate();
@@ -71,32 +77,7 @@ public class dbrDAO {
 		return cnt;
 	}
 	
-	public int write_com(String anocom_content) {
-		int cnt = 0;
-		try {
-			conn();
-			//글제목 사진 1 2 3 이름 시간 글내용 댓글~~~ 이코드는 담벼락 글 작성하는 녀석입니다
-			String sql = "insert into anocomments(anocom_content) values(?, SYSDATE)";
-
-			PreparedStatement psmt = conn.prepareStatement(sql);
-
-			
-			
-			psmt.setString(1, anocom_content); //글내용
-			
-			
-
-			cnt = psmt.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return cnt;
-	}
-	
-	
+		
 	
 	public int edit(String ano_subject, String ano_content, String ano_pic1, String ano_pic2, String ano_pic3) {
 		
@@ -105,7 +86,7 @@ public class dbrDAO {
 		try {
             conn();
              
-            String sql = "update anonymous set ano_subject=?, ano_content=?, ano_pic1=?, ano_pic2=?, ano_pic3=?,input_date=SYSDATE where member_id = ?";
+            String sql = "update anonymous set ano_subject=?, ano_content=?, ano_pic1=?, ano_pic2=?, ano_pic3=?,ano_date=SYSDATE where ano_seq = ?";
              		
 			psmt.setString(1, ano_subject); //글제목
 			psmt.setString(2, ano_content); //글내용
@@ -125,31 +106,7 @@ public class dbrDAO {
 		
 	}
 	
-	public int edit_com(String anocom_content) {
-		int cnt = 0;
-		try {
-			conn();
-			//글제목 사진 1 2 3 이름 시간 글내용 댓글~~~ 이코드는 담벼락 글 작성하는 녀석입니다
-			String sql = "update anocomments set(anocom_content) values(?, SYSDATE)";
-
-			PreparedStatement psmt = conn.prepareStatement(sql);
-
-			
-			
-			psmt.setString(1, anocom_content); //글내용
-			
-			
-
-			cnt = psmt.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return cnt;
-	}
-
+	
 	
 	
 	public int delete(int ano_seq) {
@@ -159,7 +116,7 @@ public class dbrDAO {
 		try {
             conn();
              
-            String sql = "delete * from anonymouse where ano_seq = ?";
+            String sql = "delete * from anonymous where ano_seq = ?";
              		
             psmt = conn.prepareStatement(sql);	          
 			psmt.setInt(1, ano_seq);
@@ -176,29 +133,46 @@ public class dbrDAO {
 		
 	}
 	
-	public int delete_com(int anocom_seq) {
+	
+	public ArrayList<AnoCommentVO> select_all_dbr(int anocom_seq) {
 		
-		int cnt = 0;
-		
+		ArrayList<AnoCommentVO> anoList = new ArrayList<AnoCommentVO>();
+
 		try {
-            conn();
-             
-            String sql = "delete * from anocom_content where anocom_seq = ?";
-             		
-            psmt = conn.prepareStatement(sql);	          
-			psmt.setInt(1, anocom_seq);
-                          
-            cnt = psmt.executeUpdate();      	      
-	         
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	      } finally {
-	    	  close();
-	      }
-	      
-		  return cnt;
+			
+			conn();	               				
+			String sql = "select * from anocomment where ano_seq=?";
+			psmt = conn.prepareStatement(sql);
+            psmt.setInt(1, anocom_seq);               
+            
+            rs = psmt.executeQuery();
+            
+            while(rs.next()) {
+            	
+            	
+            	anocom_seq = rs.getInt(1);           		    
+    		    String ano_content = rs.getString(2); //글내용
+    		    Date ano_date = rs.getDate(3);
+    		    String member_id = rs.getString(4); //글제목
+            		            		            	
+            	anoList.add(new AnoCommentVO(anocom_seq, ano_content, anocom_seq, ano_date, member_id));
+            }
+            
+            }catch(Exception e){
+            	e.printStackTrace();
+            }finally {
+            	close();
+            }
+		
+		return anoList;		
 		
 	}
+
+	
+	
+	
+	
+		}
 	
 
 
@@ -210,7 +184,6 @@ public class dbrDAO {
 	
 	
 	
-}
 	
 	
 	
