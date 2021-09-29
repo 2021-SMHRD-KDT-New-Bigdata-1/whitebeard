@@ -1,6 +1,5 @@
 
 
-
 html, body {
   margin: 0;
   position: relative;
@@ -14,9 +13,14 @@ a {
 
 /*  */
 
+#inner {
+	width : 100%;
+	position: absolute;
+	z-index: -1;
+}
+
 .searchBar {
 	text-align: center;
-	
 }
 
 
@@ -45,10 +49,11 @@ a {
 
 .navbar__menu.active {
   background-color: darkgray;
-  position: absolute;
+  position: static;
   display: flex;
   flex-direction: column;
-  margin-left: 1068px;
+  float: right;
+  z-index: 4;
 }
 
 .navbar__menu li {

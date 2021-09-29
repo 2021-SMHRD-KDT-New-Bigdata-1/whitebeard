@@ -42,6 +42,7 @@
 
     
     <!-- 검색 -->
+    <div id="inner">
     <form action="" class="searchBar">
         <input type="text" placeholder="검색(상품명, 행정동)">    
             <button>검색</button>
@@ -93,6 +94,7 @@
 	    	</div>
 	    </div>
     </section>
+    </div>
 
 	<!-- <script src="js/jquery-3.6.0.min.js"></script> -->
     <script>

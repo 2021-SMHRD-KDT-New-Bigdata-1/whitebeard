@@ -1,8 +1,8 @@
 @charset "EUC-KR";
 
-html,
-body {
+html,body {
   margin: 0;
+  position: relative;
 }
 
 a {
@@ -41,10 +41,11 @@ a {
 }
 
 .navbar__menu.active {
-  background-color: darkgray;
-  float: right;
+ background-color: darkgray;
+  position: absolute;
   display: flex;
   flex-direction: column;
+  margin-left: 1068px;
 }
 
 .searchBar {
