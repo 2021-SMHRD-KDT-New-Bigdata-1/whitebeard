@@ -1,3 +1,4 @@
+<%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -11,6 +12,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
   />
 </head>
 <body>
+	
 	<div class="wrap">
         <div class="mypage">
             <h2 onclick="location.href='main.jsp'">ÇÒÀÎ 2µ¿</h2>
@@ -20,7 +22,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
                     <img class="profile" src="assets/img/seller.png">
                 </div>
                 <div class="nick">
-                    <p>¼¿·¯</p>
+                    <p>»ø·¯</p>
                 </div>
             </div>
             

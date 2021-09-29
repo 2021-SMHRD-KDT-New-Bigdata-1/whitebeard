@@ -11,7 +11,9 @@
 </head>
 <body>
 	<%
+	
 	MemberVO vo = (MemberVO)session.getAttribute("vo");
+	
 	%>
 	<!-- 상단 메뉴 -->
 	
