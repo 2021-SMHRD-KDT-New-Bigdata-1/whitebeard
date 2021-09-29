@@ -90,8 +90,10 @@ hr {
 .plus {
   margin: 1px 10px;
 }
-.sub {
-  float: left;
+.sub  {
+	float: left;
+	text-decoration: none;
+	color: inherit;
 }
 
 .sub:hover {

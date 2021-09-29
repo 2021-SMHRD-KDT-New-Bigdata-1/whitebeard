@@ -11,7 +11,9 @@
 </head>
 <body>
 	<%
+	
 	MemberVO vo = (MemberVO)session.getAttribute("vo");
+	
 	%>
 	<!-- 상단 메뉴 -->
 	
@@ -56,12 +58,19 @@
     <!-- 간단히 볼래요  -->
     <section>
     	<div class="simpleLook" onclick="location.href='sns.jsp'">
+<<<<<<< HEAD
 		    <div class="img"><img src="assets/img/seller.png" alt="상품이미지"></div>
 		    <div class="hoho">
 		    <div class="notimg">상품명</div><br>
 		    <div class="notimg">현재 판매가</div><br>
 		    <div class="notimg">상호명 : </div><br>
 		    </div>
+=======
+		    <span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
+		    <span>가격 데스</span>
+		    <span>상품 이름</span>
+		    <span>상호명 데스</span>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/whitebeard.git
     	</div>  
     
     

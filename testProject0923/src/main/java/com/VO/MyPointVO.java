@@ -14,6 +14,25 @@ public class MyPointVO {
 	
 	
 	
+	
+	
+	
+	public MyPointVO(int success_seq, int article_seq, Date date, String member_id, String success_pic1,
+			String success_pic2, String success_pic3) {
+		super();
+		this.success_seq = success_seq;
+		this.article_seq = article_seq;
+		this.date = date;
+		this.member_id = member_id;
+		this.success_pic1 = success_pic1;
+		this.success_pic2 = success_pic2;
+		this.success_pic3 = success_pic3;
+	}
+	
+	
+	
+	
+	
 	public int getSuccess_seq() {
 		return success_seq;
 	}
