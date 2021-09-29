@@ -1,3 +1,4 @@
+<%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -11,6 +12,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
   />
 </head>
 <body>
+	
 	<div class="wrap">
         <div class="mypage">
             <h2 onclick="location.href='main.jsp'">할인 2동</h2>
@@ -20,13 +22,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
                     <img class="profile" src="assets/img/seller.png">
                 </div>
                 <div class="nick">
-                    <p>셀러</p>
+                    <p>샐러</p>
                 </div>
             </div>
             
             
             <div class="submit">
-                <input type="submit" value="프로필 보기 / 회원정보 수정 ">
+                <a href = "update.html"><input type="submit" value="프로필 보기 / 회원정보 수정 "></a>
             </div>
             <hr>
             
@@ -86,14 +88,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
             
             <!-- 순위표 -->
             <div class="plus">
-                <a class="sub">순위표</a>
+                <a class="sub" href = "rank.jsp">순위표</a>
                 <div class="icon1"><i class="fas fa-trophy"></i></div>
             </div>
             
             
             <!-- 판매자 등록 -->
             <div class="plus">
-                <a class="sub">판매자 등록</a>
+                <a class="sub" href = "sellerjoin.html">판매자 등록</a>
                 <div class="icon1"><i class="fas fa-user-check"></i></div>
             </div>
         </div>
