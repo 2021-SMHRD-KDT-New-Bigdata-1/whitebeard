@@ -39,7 +39,7 @@ function numberCount(event) {
 function deleteComments(event) {
   const btn = event.target;
   const list = btn.parentNode.parentNode;
-  //
+  // ㅋㅋ
   commentList = rootDiv.removeChild(list);
   //메인댓글 카운트 줄이기.
   if (mainCommentCount.innerHTML <= "0") {

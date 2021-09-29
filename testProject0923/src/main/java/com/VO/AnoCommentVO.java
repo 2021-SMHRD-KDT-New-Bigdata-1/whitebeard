@@ -12,6 +12,14 @@ public class AnoCommentVO {
 	
 	
 	
+	public AnoCommentVO(int anocom_seq, String anocom_content, int ano_seq, Date date, String member_id) {
+		super();
+		this.anocom_seq = anocom_seq;
+		this.anocom_content = anocom_content;
+		this.ano_seq = ano_seq;
+		this.date = date;
+		this.member_id = member_id;
+	}
 	public int getAnocom_seq() {
 		return anocom_seq;
 	}
