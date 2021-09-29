@@ -96,6 +96,11 @@
 	    	<span>제목 데스</span><br>
 	    	<span>익명 데스</span><br>
 	    </div>
+	    <div class="secretLook" onclick="location.href='dbr.jsp'" style = "display : none;">
+	    	<span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
+	    	<span>제목 데스</span>
+	    	<span>익명 데스</span>
+	    </div>
     </section>
 
 	<!-- <script src="js/jquery-3.6.0.min.js"></script> -->
