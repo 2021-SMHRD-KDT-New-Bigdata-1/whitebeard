@@ -1,8 +1,9 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
-
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +20,10 @@ public class JoinService extends HttpServlet {
 
 	request.setCharacterEncoding("euc-kr");
 
+	
+	
+	
+	
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
 //	String pwcheck = request.getParameter("pwcheck");
