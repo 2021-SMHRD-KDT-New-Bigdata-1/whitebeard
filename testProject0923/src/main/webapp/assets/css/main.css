@@ -125,6 +125,7 @@ img {
 	background-color: green;
 	display: inline-block;
   	flex-direction: column;
+  	width : 50%;	
 }
 
 .secretLook.active{

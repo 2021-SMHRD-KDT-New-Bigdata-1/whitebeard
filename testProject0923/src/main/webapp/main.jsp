@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="assets/css/main.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 	<%
@@ -58,19 +59,12 @@
     <!-- 간단히 볼래요  -->
     <section>
     	<div class="simpleLook" onclick="location.href='sns.jsp'">
-<<<<<<< HEAD
 		    <div class="img"><img src="assets/img/seller.png" alt="상품이미지"></div>
 		    <div class="hoho">
 		    <div class="notimg">상품명</div><br>
 		    <div class="notimg">현재 판매가</div><br>
 		    <div class="notimg">상호명 : </div><br>
 		    </div>
-=======
-		    <span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
-		    <span>가격 데스</span>
-		    <span>상품 이름</span>
-		    <span>상호명 데스</span>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/whitebeard.git
     	</div>  
     
     
@@ -92,14 +86,11 @@
     
     <!-- 담벼락 -->
     	<div class="secretLook" onclick="location.href='dbr.jsp'" style = "display : none;">
-	    	<span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
-	    	<span>제목 데스</span><br>
-	    	<span>익명 데스</span><br>
-	    </div>
-	    <div class="secretLook" onclick="location.href='dbr.jsp'" style = "display : none;">
-	    	<span class=""><img src="" alt="">요기엔 이미지를 넣어주세요</span>
-	    	<span>제목 데스</span>
-	    	<span>익명 데스</span>
+	    	<div class='hoho'>
+	    	<div class="notimg">글 제목</div>
+	    	<div class="notimg">(댓글 수)</div>
+	    	<div class="notimg"><i class="far fa-images"></i></div>
+	    	</div>
 	    </div>
     </section>
 
