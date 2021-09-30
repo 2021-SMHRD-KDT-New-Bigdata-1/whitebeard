@@ -30,8 +30,10 @@
 	//검색값 받아오기
 	String want = request.getParameter("want");
 	snsDAO dao = new snsDAO();
+	
 	memberDAO m_dao = new memberDAO();
 	ArrayList<SnsVO> vo2 = dao.search(want);
+	ArrayList<SnsVO> vo3 = dao.select_random_sns();
 	
 	
 	%>
@@ -79,6 +81,36 @@
 
 			<!-- 간단히 볼래요  -->
 			<section>
+					<%
+					if (vo2.size()==0) {
+						
+				
+						for (int i = 0; i < vo3.size(); i++) {
+						  
+						 System.out.println("------");  %>
+				<div class="simpleLook" onclick="location.href='sns.jsp'">
+					<div class="img">
+						<img src="assets/img/seller.png" alt="상품이미지">
+					</div>
+					<div class="hoho">
+						<div class="notimg">상품명 : <%
+						out.print(vo3.get(i).getSubject());
+						%>
+						</div>
+						<br>
+						<div class="notimg">현재 판매가 : <%
+						out.print(vo3.get(i).getRegular_price());
+						%>
+						</div>
+						<br>
+						<div class="notimg">상호명 : <%
+						out.print(m_dao.find_company_name((vo3.get(i).getMember_id())));
+						%></div>
+						<br>
+					</div> 
+				</div>
+					<% 	}
+					     }else {%>
 					<%for (int i = 0; i < vo2.size(); i++) {
 						  
 						 System.out.println("------");  %>
@@ -103,10 +135,60 @@
 						<br>
 					</div> 
 				</div>
-					<% }%>
+					<% }
+					}%>
 
 
 				<!-- 자세히 볼래요  -->
+				<%
+				if (vo2.size()==0) {
+				for (int i = 0; i < vo3.size(); i++) {
+						  
+						 System.out.println("------");  %>
+				<div class="closerLook" onclick="location.href='sns.jsp'"
+					style="display: none;">
+					<div class="img2">
+						<img src="assets/img/seller.png" alt="상품이미지">
+					</div>
+					<div class="hoho2">
+						<div class="notimg">상품명 : <%
+						out.print(vo3.get(i).getSubject());
+						%>
+						</div>
+						<br>
+						<div class="notimg">상호명 : <%
+						out.print(m_dao.find_company_name((vo3.get(i).getMember_id())));
+						%>
+						</div>
+						<br>
+						<div class="notimg">게시자 :  <%
+						out.print(vo3.get(i).getMember_id());
+						%></div>
+						<br>
+						<div class="notimg">게시글 : <%
+						out.print(vo3.get(i).getContent());
+						%>
+						</div>
+						<br>
+						<div class="notimg">정가 : <%
+						out.print(vo3.get(i).getRegular_price());
+						%>
+						</div>
+						<br>
+						<div class="notimg">할인가 : <%
+						out.print(vo3.get(i).getDiscount_price());
+						%>
+						</div>
+						<br>
+						<div class="notimg">판매가 : <%
+						out.print(vo3.get(i).getSale_price());
+						%>
+						</div>
+						<br>
+					</div>
+				</div>
+				<% }
+				}else {%>
 				<%for (int i = 0; i < vo2.size(); i++) {
 						  
 						 System.out.println("------");  %>
@@ -152,7 +234,8 @@
 						<br>
 					</div>
 				</div>
-				<% }%>
+				<% }
+				}%>
 
 				<!-- 담벼락 -->
 				
