@@ -1,8 +1,8 @@
 
 
-
 html, body {
   margin: 0;
+  position: relative;
 }
 
 a {
@@ -13,9 +13,17 @@ a {
 
 /*  */
 
+#inner {
+	width : 100%;
+	position: absolute;
+	z-index: -1;
+}
+
 .searchBar {
 	text-align: center;
 }
+
+
 .navbar {
   background-color: burlywood;
   display: flex;
@@ -29,6 +37,8 @@ a {
   list-style: none;
 }
 
+
+
 .navbar__menu {
   width: 20%;
   padding-left: 0;
@@ -39,9 +49,11 @@ a {
 
 .navbar__menu.active {
   background-color: darkgray;
-  float: right;
+  position: static;
   display: flex;
   flex-direction: column;
+  float: right;
+  z-index: 4;
 }
 
 .navbar__menu li {
