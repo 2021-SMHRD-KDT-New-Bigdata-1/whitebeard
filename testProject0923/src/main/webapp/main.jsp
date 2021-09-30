@@ -31,8 +31,9 @@
 			out.print("<div class='navbar__profile'>프로필</div></nav>");
 			out.print("<ul class='navbar__menu'>");
 			out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
-			out.print("<li><a href='myzzim.jsp'>내찜정보</a></li>");
-			out.print("<li><a href='sellerjoin.html'>판매자등록</a></li>");
+			out.print("<li><a href=''>순위표</a></li>");
+			out.print("<li><a href=''>내찜목록</a></li>");
+			out.print("<li><a href=''>판매자등록</a></li>");
 			out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
 			out.print("</ul>");
 		}

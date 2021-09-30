@@ -1,7 +1,4 @@
-<%@page import="com.VO.SnsVO"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="com.VO.MemberVO"%>
-<%@page import="com.DAO.snsDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -17,19 +14,8 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-	<%
-	request.setCharacterEncoding("euc-kr");
+  <%
 	MemberVO vo = (MemberVO) session.getAttribute("vo");
-	
-	String want = request.getParameter("want");
-	snsDAO dao = new snsDAO();
-	ArrayList<SnsVO> vo2 = dao.search(want);
-	
-	for (int i = 0; i < vo2.size(); i++) {
-		 System.out.println(vo2.get(i).getSubject()); 
-		 System.out.println("------"); }
-	
-	
 	%>
 	<!-- 상단 메뉴 -->
 
@@ -45,9 +31,8 @@
 			out.print("<div class='navbar__profile'>프로필</div></nav>");
 			out.print("<ul class='navbar__menu'>");
 			out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
-			out.print("<li><a href=''>순위표</a></li>");
-			out.print("<li><a href=''>내찜목록</a></li>");
-			out.print("<li><a href=''>판매자등록</a></li>");
+			out.print("<li><a href='myzzim.jsp'>내찜정보</a></li>");
+			out.print("<li><a href='sellerjoin.html'>판매자등록</a></li>");
 			out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
 			out.print("</ul>");
 		}
@@ -57,10 +42,10 @@
 
 
 		<!-- 검색 -->
-		<div id="inner">
-			<form action="" class="searchBar" method="post">
+		<div id="search.jsp">
+			<form action="search" class="searchBar" method="post">
 				<input type="text" name="want" placeholder="검색(상품명, 행정동)">
-				<input type="submit" value="검색">
+				<input type="submit" value="검색" onClick="location.href='search.jsp'">
 			</form>
 			<br>
 
@@ -76,29 +61,45 @@
 
 			<!-- 간단히 볼래요  -->
 			<section>
-					<%for (int i = 0; i < vo2.size(); i++) {
-						  
-						 System.out.println("------");  %>
 				<div class="simpleLook" onclick="location.href='sns.jsp'">
 					<div class="img">
 						<img src="assets/img/seller.png" alt="상품이미지">
 					</div>
 					<div class="hoho">
-						<div class="notimg">상품명 : <%
-						out.print(vo2.get(i).getSubject());
-						%>
-						</div>
+						<div class="notimg">상품명</div>
 						<br>
-						<div class="notimg">현재 판매가 : <%
-						out.print(vo2.get(i).getRegular_price());
-						%>
-						</div>
+						<div class="notimg">현재 판매가</div>
 						<br>
 						<div class="notimg">상호명 :</div>
 						<br>
-					</div> 
+					</div>
 				</div>
-					<% }%>
+				<div class="simpleLook" onclick="location.href='sns.jsp'">
+					<div class="img">
+						<img src="assets/img/seller.png" alt="상품이미지">
+					</div>
+					<div class="hoho">
+						<div class="notimg">상품명</div>
+						<br>
+						<div class="notimg">현재 판매가</div>
+						<br>
+						<div class="notimg">상호명 :</div>
+						<br>
+					</div>
+				</div>
+				<div class="simpleLook" onclick="location.href='sns.jsp'">
+					<div class="img">
+						<img src="assets/img/seller.png" alt="상품이미지">
+					</div>
+					<div class="hoho">
+						<div class="notimg">상품명</div>
+						<br>
+						<div class="notimg">현재 판매가</div>
+						<br>
+						<div class="notimg">상호명 :</div>
+						<br>
+					</div>
+				</div>
 
 
 				<!-- 자세히 볼래요  -->
@@ -232,6 +233,5 @@
 				$('.secretLook').css('display', 'inline-block');
 			});
 		</script>
-		
 </body>
 </html>
