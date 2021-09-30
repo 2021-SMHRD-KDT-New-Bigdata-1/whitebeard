@@ -104,9 +104,9 @@
 
 
 				<!-- 담벼락 -->
-				<div class="secretLook" onclick="location.href='dbr.jsp'"
+				<div class="secretLook"
 					style="display: none;">
-					<div class='hoho'>
+					
 					<marquee behavior="alternate" scrolldelay="100" direction="right">
       담벼락.</marquee
     >
@@ -157,12 +157,12 @@
         </tr>
       </tfoot>
     </table>
-    <input type="button" value="처음으로" onclick="move('Board_List.jsp');" />
-    <input type="button" value="글쓰기" onclick="move('Board_Write.jsp');" />
+    <input type="button" value="처음으로" onclick="move('main.jsp');" />
+    <input type="button" value="글쓰기" onclick="move('dbr_write.jsp');" />
 								
 						
 						
-					</div>
+					
 				</div>
 			</section>
 		</div>
