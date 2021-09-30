@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +8,7 @@
 <link rel="stylesheet" href="assets/css/join.css"/>
 
 </head>
+<body>
 <body>
 
 	<div id="wrapper">
@@ -22,7 +25,7 @@
 	            </div>
 	        </header>
 	        <div>
-	            <form action = "JoinService" method = "post" >
+	            <form action = "JoinService" method = "post"  enctype="multipart/form-data">
 	                <div>
 	                    <h3>
 	                        <label for="id">아이디</label>
@@ -62,10 +65,11 @@
 							<label>프로필 사진 등록</label>
 						</h3>
 						<div>
-							<input type="file" class=imginput accept="image/*" name="company_pic1" 
-								onchange="setimg(event);">
+							<input type="file" class=imginput accept="image/*" name="file" id = "file">
 						</div>
-						<div id="image_container"></div>
+						<div id="image_container">
+							<img src = "">
+						</div>
 					</div>
 					
 	                <div>
@@ -140,6 +144,7 @@
 							<span>가입하기</span>
 						</button>
 					</div>
+					<%=application.getRealPath("/upload") %>
 	            </form>
 	        </div>
 	    </div>
@@ -193,17 +198,26 @@
         }
         
     </script>
-    <script>
-        function setimg(event){
-            var reader = new FileReader();
-            reader.onload = function(event){
-                var img = document.createElement("img");
-                img.setAttribute("src", event.target.result);
-                img.setAttribute("class", "col-lg-6");
-                document.querySelector("div#image_container").appendChild(img);
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        }
+   
+    <script type = "text/javascript">
+    $(function(){
+    	$("#file").change(function(){
+    		var ext = $(this).val().split('.').pop().toLowerCase();
+    		if($.inArray(ext, ['gif', 'pnp', 'jpg', 'jpeg'])== -1){
+    			resetFormElement($(this));
+    			window.alert('이미지 파일이 아닙니다!');
+    		}else{
+    			var file = $(this).prop("files")[0];
+    			var vlobURL = window.URL.createObjectURL(file);
+    			/* alert(vlobURL); */
+    			$('#image_container img').attr('src', vlobURL).css('width', '100%');
+    			$('#image_container').slideDown();
+    		}
+    		function resetFormElement($obj){
+    			$obj.val("");
+    		}
+    	});
+    });
     </script>
     
     
