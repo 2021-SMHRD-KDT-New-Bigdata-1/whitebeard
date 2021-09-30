@@ -2,13 +2,9 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="com.DAO.memberDAO"%>
-<%@page import="com.VO.SnsVO"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="com.VO.MemberVO"%>
-<%@page import="com.DAO.snsDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,17 +19,7 @@
 </head>
 <body>
 	<%
-	request.setCharacterEncoding("euc-kr");
-	//로그인 한사람의 세션
 	MemberVO vo = (MemberVO) session.getAttribute("vo");
-	
-	//검색값 받아오기
-	String want = request.getParameter("want");
-	snsDAO dao = new snsDAO();
-	memberDAO m_dao = new memberDAO();
-	ArrayList<SnsVO> vo2 = dao.search(want);
-	
-	
 	%>
 	<!-- 상단 메뉴 -->
 
@@ -49,9 +35,8 @@
 			out.print("<div class='navbar__profile'>프로필</div></nav>");
 			out.print("<ul class='navbar__menu'>");
 			out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
-			out.print("<li><a href=''>순위표</a></li>");
-			out.print("<li><a href=''>내찜목록</a></li>");
-			out.print("<li><a href=''>판매자등록</a></li>");
+			out.print("<li><a href='myzzim.jsp'>내찜정보</a></li>");
+			out.print("<li><a href='sellerjoin.html'>판매자등록</a></li>");
 			out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
 			out.print("</ul>");
 		}
@@ -61,10 +46,10 @@
 
 
 		<!-- 검색 -->
-		<div id="inner">
-			<form action="" class="searchBar" method="post">
+		<div id="search.jsp">
+			<form action="search" class="searchBar" method="post">
 				<input type="text" name="want" placeholder="검색(상품명, 행정동)">
-				<input type="submit" value="검색">
+				<input type="button" value="검색" onClick="location.href='search.jsp'">
 			</form>
 			<br>
 
@@ -80,85 +65,48 @@
 
 			<!-- 간단히 볼래요  -->
 			<section>
-					<%for (int i = 0; i < vo2.size(); i++) {
-						  
-						 System.out.println("------");  %>
 				<div class="simpleLook" onclick="location.href='sns.jsp'">
 					<div class="img">
 						<img src="assets/img/seller.png" alt="상품이미지">
 					</div>
 					<div class="hoho">
-						<div class="notimg">상품명 : <%
-						out.print(vo2.get(i).getSubject());
-						%>
-						</div>
+						<div class="notimg">상품명</div>
 						<br>
-						<div class="notimg">현재 판매가 : <%
-						out.print(vo2.get(i).getRegular_price());
-						%>
-						</div>
+						<div class="notimg">현재 판매가</div>
 						<br>
-						<div class="notimg">상호명 : <%
-						out.print(m_dao.find_company_name((vo2.get(i).getMember_id())));
-						%></div>
+						<div class="notimg">상호명 :</div>
 						<br>
-					</div> 
+					</div>
 				</div>
-					<% }%>
 
 
 				<!-- 자세히 볼래요  -->
-				<%for (int i = 0; i < vo2.size(); i++) {
-						  
-						 System.out.println("------");  %>
+
 				<div class="closerLook" onclick="location.href='sns.jsp'"
 					style="display: none;">
 					<div class="img2">
 						<img src="assets/img/seller.png" alt="상품이미지">
 					</div>
 					<div class="hoho2">
-						<div class="notimg">상품명 : <%
-						out.print(vo2.get(i).getSubject());
-						%>
-						</div>
+						<div class="notimg">제목</div>
 						<br>
-						<div class="notimg">상호명 : <%
-						out.print(m_dao.find_company_name((vo2.get(i).getMember_id())));
-						%>
-						</div>
+						<div class="notimg">상호명</div>
 						<br>
-						<div class="notimg">게시자 :  <%
-						out.print(vo2.get(i).getMember_id());
-						%></div>
+						<div class="notimg">게시자</div>
 						<br>
-						<div class="notimg">게시글 : <%
-						out.print(vo2.get(i).getContent());
-						%>
-						</div>
+						<div class="notimg">게시글</div>
 						<br>
-						<div class="notimg">정가 : <%
-						out.print(vo2.get(i).getRegular_price());
-						%>
-						</div>
+						<div class="notimg">정가</div>
 						<br>
-						<div class="notimg">할인가 : <%
-						out.print(vo2.get(i).getDiscount_price());
-						%>
-						</div>
+						<div class="notimg">할인가</div>
 						<br>
-						<div class="notimg">판매가 : <%
-						out.print(vo2.get(i).getSale_price());
-						%>
-						</div>
+						<div class="notimg">판매가</div>
 						<br>
 					</div>
 				</div>
-				<% }%>
+
 
 				<!-- 담벼락 -->
-				
-				
-				
 				<div class="secretLook"
 					style="display: none;">
 					
@@ -246,7 +194,10 @@
    <td><input type=button value="글쓰기" onclick="move('dbr_write')"></td>
   </tr>
 </table>
+
+
 				</div>
+				<!-- -------------------------------- -->
 			</section>
 		</div>
 
@@ -291,6 +242,5 @@
 				$('.secretLook').css('display', 'inline-block');
 			});
 		</script>
-		
 </body>
 </html>
