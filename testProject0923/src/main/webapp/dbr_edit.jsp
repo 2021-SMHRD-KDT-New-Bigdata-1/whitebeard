@@ -32,10 +32,7 @@ function boardUpdateCheck() {
 
 		<table summary="테이블 구성" >
 		<caption>글 수정하기</caption>	
-    		<tr>
-				<td>작성자</td>
-				<td><input type=text name=name size=10 maxlength=8></td>
-			</tr>
+    	
     		<tr>
      			<td>제 목</td>
      			<td><input type=text name=title></td>
