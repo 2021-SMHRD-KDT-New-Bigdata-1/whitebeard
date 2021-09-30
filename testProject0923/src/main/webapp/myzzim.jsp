@@ -54,13 +54,12 @@
 		
 		
 		<!-- 내가 찜에 성공한 리스트 (SNS 제목만 나옴) -->
-		<div>성공한 찜 목록</div><br>
 		<div><% if(p_dao.select_my_choice(vo.getMember_id()) == null) {
-			out.print("<div> 내 찜 인증 사진 없슴 </div>");
-		} else {
-			out.print("<%=p_dao.select_my_choice(vo.getMember_id())");					
-		} %></div><br>
-		
+			out.print("<div> 내 찜 인증 사진 없슴</div>");
+		} else { %>
+			<%=p_dao.select_my_choice(vo.getMember_id())%>					
+		<%} %>
+		</div><br>
 		
 		<!-- 찜을 성공한 뒤, 인증 사진 올리기  -->
 		<div>찜 인증 사진 올리기</div><br>
@@ -68,11 +67,11 @@
 		
 		<div>찜 인증 사진 구경하기</div><br>
 		<div><% if(p_dao.select_picture(vo.getMember_id()) == null) {
-			out.print("<div> 내 찜 인증 사진 없슴 </div>");
-		} else {
-			out.print("<%=p_dao.select_picture(vo.getMember_id())");					
-		} %></div><br>
-		
+		out.print("<div> 내 찜 인증 사진 없슴 </div>");
+		} else { %>
+			<%=p_dao.select_picture(vo.getMember_id())%>					
+		<%} %>
+		</div><br>
 		
 		<!-- 내 현재 포인트 (새로고침 버튼 누르면 업데이트) -->
 		<form action="MyPointService">
