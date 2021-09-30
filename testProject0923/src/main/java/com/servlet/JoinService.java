@@ -41,7 +41,7 @@ public class JoinService extends HttpServlet {
 	yy = yy.substring(2);
 	String mm = multi.getParameter("mm");
 	String dd = multi.getParameter("dd");
-	
+	 
 	String date =  yy+"/"+mm+"/"+dd;
 	String file = URLEncoder.encode(multi.getFilesystemName("file"), "EUC-KR");
 	//saveDri +"\\"+ 
@@ -69,7 +69,7 @@ public class JoinService extends HttpServlet {
 	if(cnt>0) {
 		response.sendRedirect("joincomplete.html");
 	}else {
-		response.sendRedirect("join.jsp");
+		response.sendRedirect("join.html");
 		System.out.println("가입실패");
 	}
 	
