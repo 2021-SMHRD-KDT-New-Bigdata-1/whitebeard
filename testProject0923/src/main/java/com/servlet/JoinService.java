@@ -23,7 +23,7 @@ public class JoinService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	request.setCharacterEncoding("euc-kr");
-
+ 
 	String saveDri = request.getServletContext().getRealPath("uploadedFiles");
 	System.out.println(saveDri);
 	int maxSize = 5*1024*1024;
