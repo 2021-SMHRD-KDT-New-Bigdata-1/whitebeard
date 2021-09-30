@@ -41,6 +41,7 @@ public class UpdateService extends HttpServlet {
 		String email = multi.getParameter("email");
 		String phone = multi.getParameter("phone");
 		String yy = multi.getParameter("yy");
+		yy = yy.substring(2);
 		String mm = multi.getParameter("mm");
 		String dd = multi.getParameter("dd");
 		String date = yy + "/" + mm + "/" + dd;

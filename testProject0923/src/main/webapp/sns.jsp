@@ -1,3 +1,4 @@
+<%@page import="com.VO.SnsVO"%>
 <%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
@@ -13,6 +14,7 @@
 	<%
    MemberVO vo = (MemberVO) session.getAttribute("vo");
    %>
+   <a href = "page.jsp">고</a>
 	<div id="wrapper">
 		<div id="content">
 			<nav class='navbar'>
@@ -45,24 +47,33 @@
 			</nav>
 
 			<div id="inner">
-				<form action="" class="searchBar">
-					<input type="text" placeholder="검색(상품명, 행정동)">
-					<button>검색</button>
-				</form>
-				<br>
-
-
 				<div class="snshead">
 					<form action="/SnsSevice">
-						<a href=""><img src="img/face.png" alt="" id="face"></a> <span><strong
-							id="storename">가게이름</strong>
-							<p id="dongname" name="dong">
-								<span> <%String town = (String) session.getAttribute("town");%>
-									<%=town%></span>
-							</p>
+						<div>
+							<!--가게 프로필사진 -->
+							<table>
+								<tr class="storeimg">
+									<td class="storeimg" >
+										<%
+										if (vo != null) {%> 
+										<img src="uploadedFiles/<%=vo.getCompany_pic1() %>"
+										class="profile"> 
+										<%} else {%>
+										<p>업체 사진을 등록해 주세요.</p> 
+										<%}%>
+									</td>
+								</tr>
+
+							</table>
+						</div>
+
+						<a href=""><img src="img/face.png" alt="" id="face"></a> 
+						<span id = "name">
+							<strong id="storename">가게이름</strong>
 							<p id="storekind" name="stkind">
 								<span>가게종류</span>
-							</p> </span>
+							</p>
+						</span>
 					</form>
 					<div class="container">
 
@@ -73,7 +84,29 @@
 						</ul>
 
 
+
+
+						<!-- 상품 게시글 -->
 						<div id="tab-1" class="tab-content current">
+							<%-- <div class="feed">
+								<h3 class="name"><%=vo.getCompany_name() %></h3>
+								<div class="date"><%=vo2.getInput_date() %></div>
+								<a class="title"><%=vo2.getSubject() %></a>
+								<p class="content">
+									<%for(int i = 1; i <= 3; i++){ %>
+										<%if(vo2.getPic1() == null){
+											break;
+										}else{ %>
+											<img src="uploadedFiles/<%=vo2.getPic1() %>" class="pic" >
+										<%} %>
+									<%} %>
+								</p>
+								<div class="accessory">
+									<img src="좋아요아이콘" width="16px"> Like 
+									<img src="댓글아이콘" width="16px"> Comments
+								</div>
+							</div> --%>
+
 
 							<h4>제목</h4>
 							<img src="assets/img/test.jfif" id="storeitem" alt="">
@@ -91,14 +124,16 @@
 								16분... <br> 행인2:화욜점심뭐먹지
 							</div>
 
+
 						</div>
 
-
+						<!-- 가게정보 -->
 						<div id="tab-2" class="tab-content">가을 전어는 맛도 좋지만, 몸에 좋은
 							것으로도 유명하다. 전어에는 불포화지방산이 풍부하게 함유되어 있어 콜레스테롤을 낮추고, 동맥경화나 고혈압과 같은 각종
 							성인병 예방에 좋다. 또 비타민과 미네랄 성분이 풍부하게 함유되어 있어 피로 해소뿐만 아니라 피부 미용에도 효과가
 							좋다.2019. 9. 6.</div>
 
+						<!-- 댓글 모아보기 -->
 						<div id="tab-3" class="tab-content">
 							<div>행인1: 맛있겠당</div>
 							<div>행인4:군침이 싹도네요</div>
@@ -106,15 +141,9 @@
 							<div>행인3:그녀와 가을전어에 소주한잔 하고싶은 15시 16분...</div>
 
 							<div>행인2:화욜점심뭐먹지</div>
-
 						</div>
-
 					</div>
-
-
 				</div>
-
-				<div class="snsbody"></div>
 			</div>
 		</div>
 	</div>
