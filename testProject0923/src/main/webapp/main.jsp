@@ -158,7 +158,8 @@
       </tfoot>
     </table>
     <input type="button" value="처음으로ㄱㄱ" onclick="move('main.jsp');" />
-    <input type="button" value="글쓰기" onclick="move('dbr_write.jsp');" />
+    
+    <input type="button" value="글쓰기"  onClick="location.href='dbr_write.jsp'"/>
 								
 						
 						
