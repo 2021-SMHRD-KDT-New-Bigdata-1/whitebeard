@@ -176,7 +176,7 @@
 	<td>&nbsp;</td>
 </tr>
   <tr height="1" bgcolor="#D2D2D2"><td colspan="6"></td></tr>
-<% ////
+<% ///////
 		}
 	} 
 	rs.close();
