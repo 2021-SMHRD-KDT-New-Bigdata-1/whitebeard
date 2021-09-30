@@ -117,9 +117,9 @@
 	String id = "cgi_6_2";
 	String pass = "smhrd2";
 	int total = 0;
-	
+	Connection conn = null;
 	try {
-		Connection conn = DriverManager.getConnection(url,id,pass);
+		conn = DriverManager.getConnection(url,id,pass);
 		Statement stmt = conn.createStatement();
 
 		String sqlCount = "SELECT COUNT(*) FROM anonymous";
@@ -169,10 +169,10 @@
 <tr height="25" align="center">
 	<td>&nbsp;</td>
 	<td><%=ano_seq %></td>
-	<td align="left"><a href="dbr.jsp"><%=ano_subject %></a></td>
+	
+	<td align="left"><a href="dbr.jsp?ano_seq=<%=ano_seq%>"><%=ano_subject %></td>
 	<td align="center">¿Õ∏Ì</td>
 	<td align="center"><%=date %></td>
-	<td align="center"><%=count %></td>
 	<td>&nbsp;</td>
 </tr>
   <tr height="1" bgcolor="#D2D2D2"><td colspan="6"></td></tr>
