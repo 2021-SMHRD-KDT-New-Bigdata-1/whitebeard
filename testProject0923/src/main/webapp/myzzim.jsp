@@ -53,6 +53,7 @@
 		
 		
 		<!-- 내가 찜에 성공한 리스트 (SNS 제목만 나옴) -->
+		<div>내 찜 성공 목록</div>
 		<div><% if(p_dao.select_my_choice(vo.getMember_id()) == null) {
 			out.print("<div> 내 찜 인증 사진 없슴</div>");
 		} else { %>
