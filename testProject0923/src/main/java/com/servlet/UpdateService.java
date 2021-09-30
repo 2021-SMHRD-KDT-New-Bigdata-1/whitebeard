@@ -3,14 +3,17 @@ package com.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
+import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.DAO.memberDAO;
+import com.VO.MemberVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -31,7 +34,6 @@ public class UpdateService extends HttpServlet {
 		MultipartRequest multi = new MultipartRequest(request, saveDri, maxSize, encoding,
 				new DefaultFileRenamePolicy());
 
-		String member_id = multi.getParameter("id");
 		String nowpw = multi.getParameter("nowpw");
 		String member_pw = multi.getParameter("pw");
 		String name = multi.getParameter("name");
@@ -44,27 +46,33 @@ public class UpdateService extends HttpServlet {
 		String date = yy + "/" + mm + "/" + dd;
 		String file = URLEncoder.encode(multi.getFilesystemName("file"), "EUC-KR");
 
-		/*
-		 * String member_id = request.getParameter("id"); String nowpw =
-		 * request.getParameter("nowpw"); String member_pw = request.getParameter("pw");
-		 * String name = request.getParameter("name"); String nick =
-		 * request.getParameter("nick"); String email = request.getParameter("email");
-		 * String phone = request.getParameter("phone"); String company_pic1 =
-		 * request.getParameter("company_pic1");
-		 * 
-		 * String yy = request.getParameter("yy"); yy = yy.substring(2); String mm =
-		 * request.getParameter("mm"); String dd = request.getParameter("dd"); String
-		 * date = yy+"/"+mm+"/"+dd;
-		 */
-
+		
+		HttpSession session = request.getSession();   
+		MemberVO vo = (MemberVO)session.getAttribute("vo");
+		
+		String member_id = vo.getMember_id();
+		String member_type = vo.getMember_type();
+		String company_name = vo.getCompany_name();
+		String company_bn = vo.getCompany_bn();
+		String b_type = vo.getB_type();
+		String company_pic2 = vo.getCompany_pic2();
+		String company_pic3 = vo.getCompany_pic3();
+		String company_info = vo.getCompany_info();
+		
+		
 		memberDAO dao = new memberDAO();
 		int cnt = dao.update(nowpw, member_pw, name, date, nick, email, phone, file, member_id);
-
+		
 		if (cnt > 0) {
+//			MemberVO vo2 = new MemberVO(name, date, nick, email, phone, member_type, company_name, company_bn, b_type, file, company_pic2, company_pic3,  company_info);
+			MemberVO vo2 = new MemberVO(name, date, nick, email, phone, member_type, company_name,
+					company_bn, b_type, file, company_pic2, company_pic3, company_info);
+			session.setAttribute("vo", vo2);
+			
 			response.setCharacterEncoding("euc-kr");
 			response.setContentType("text/html; charset=euc-kr");
 			PrintWriter out = response.getWriter();
-
+			
 			out.print("<script language='javascript' charset='euc-kr'>");
 			out.print("alert('회원정보 수정 완료.');");
 			out.print("location.href='mypage.jsp'");
