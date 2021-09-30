@@ -278,7 +278,7 @@ public class snsDAO {
 	            rs = psmt.executeQuery();
 	            
 	            while(rs.next()) {
-	            	System.out.println("°¡Á®¿ÍÁü:"+rs.getInt(1));
+					/* System.out.println("°¡Á®¿ÍÁü:"+rs.getInt(1)); */
 	            	int article_seq = rs.getInt(1);
 	            	String member_id = rs.getString(2);
 	            	want = rs.getString(3);

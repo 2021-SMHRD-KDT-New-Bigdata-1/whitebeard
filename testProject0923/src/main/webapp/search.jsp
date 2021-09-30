@@ -26,7 +26,8 @@
 	ArrayList<SnsVO> vo2 = dao.search(want);
 	
 	for (int i = 0; i < vo2.size(); i++) {
-		 System.out.println(vo2.get(i)); }
+		 System.out.println(vo2.get(i).getSubject()); 
+		 System.out.println("------"); }
 	
 	
 	%>
@@ -57,7 +58,7 @@
 
 		<!-- 검색 -->
 		<div id="inner">
-			<form action="search" class="searchBar" method="post">
+			<form action="" class="searchBar" method="post">
 				<input type="text" name="want" placeholder="검색(상품명, 행정동)">
 				<input type="submit" value="검색">
 			</form>
@@ -75,19 +76,29 @@
 
 			<!-- 간단히 볼래요  -->
 			<section>
+					<%for (int i = 0; i < vo2.size(); i++) {
+						  
+						 System.out.println("------");  %>
 				<div class="simpleLook" onclick="location.href='sns.jsp'">
 					<div class="img">
 						<img src="assets/img/seller.png" alt="상품이미지">
 					</div>
 					<div class="hoho">
-						<div class="notimg"><%=dao.search(want) %></div>
+						<div class="notimg">상품명 : <%
+						out.print(vo2.get(i).getSubject());
+						%>
+						</div>
 						<br>
-						<div class="notimg">현재 판매가</div>
+						<div class="notimg">현재 판매가 : <%
+						out.print(vo2.get(i).getRegular_price());
+						%>
+						</div>
 						<br>
 						<div class="notimg">상호명 :</div>
 						<br>
-					</div>
+					</div> 
 				</div>
+					<% }%>
 
 
 				<!-- 자세히 볼래요  -->
