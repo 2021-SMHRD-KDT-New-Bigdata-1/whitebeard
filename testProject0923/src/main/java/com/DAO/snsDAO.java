@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import com.VO.MemberVO;
 import com.VO.SnsVO;
 
 public class snsDAO {
@@ -263,7 +264,9 @@ public class snsDAO {
 			return randomSnsList;		
 			
 		}		
-        //검색 기능		
+        
+		
+		//검색 기능		
 		public ArrayList<SnsVO> search(String want) {
 			
 			ArrayList<SnsVO> searchList = new ArrayList<SnsVO>();
@@ -271,9 +274,10 @@ public class snsDAO {
 				try {
 				
 				conn();	               				
-				String sql = "select * from sns where subject like ?";
+				String sql = "select * from sns A where member_id = (select member_id from members B where company_info like ? and A.member_id = B.member_id group by member_id) or A.subject like ?";
 				psmt = conn.prepareStatement(sql);
 	            psmt.setString(1, "%"+want+"%");               
+	            psmt.setString(2, "%"+want+"%");               
 	            
 	            rs = psmt.executeQuery();
 	            
@@ -299,9 +303,11 @@ public class snsDAO {
 	            }finally {
 	            	close();
 	            }
+							
 				
 			return searchList;
 			
 		}
+		
 		
 }

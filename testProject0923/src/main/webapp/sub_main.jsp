@@ -43,9 +43,10 @@
 
 		<!-- 검색 -->
 		<div id="search.jsp">
-			<form action="search" class="searchBar" method="post">
+			<form action="search" class="searchBar" method="get">
 				<input type="text" name="want" placeholder="검색(상품명, 행정동)">
-				<input type="submit" value="검색" onClick="location.href='search.jsp'">
+				<input type="submit" value="검색">
+				
 			</form>
 			<br>
 

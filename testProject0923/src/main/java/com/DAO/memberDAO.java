@@ -360,4 +360,29 @@ public class memberDAO {
 		return cnt;
 	}
 	
+	
+	public String find_company_name(String member_id) {
+		conn();
+		String getCompany_name = null;
+		try {
+			String sql = "select company_name from members where member_id = ?";
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setString(1, member_id);
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+
+				getCompany_name = rs.getString(1);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return getCompany_name;
+	}
+	
+	
 }

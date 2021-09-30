@@ -41,6 +41,10 @@ public class MemberVO {
 	      this.company_info = company_info;
 	   }
 	   
+	   public String getCompany_name(String member_id) {
+		      return company_name;
+		   }
+	   
 	   
 	   public String getMember_id() {
 	      return member_id;
