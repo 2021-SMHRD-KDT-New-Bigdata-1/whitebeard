@@ -40,11 +40,11 @@
             <td><input type="text" name="title" /></td>
           </tr>
           <tr>
-            <td>내 용</td>
+            <td>내 용ㅇ</td>
             <td><textarea name="content" rows="10" cols="100"></textarea></td>
           </tr>
           <tr>
-            <td>비밀번호</td>
+            <td>비밀번호ㅇㅇ</td>
             <td>
               <input type="password" name="password" size="15" maxlength="15" />
             </td>

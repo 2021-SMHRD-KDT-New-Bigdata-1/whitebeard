@@ -157,7 +157,7 @@
         </tr>
       </tfoot>
     </table>
-    <input type="button" value="처음으로" onclick="move('main.jsp');" />
+    <input type="button" value="처음으로ㄱ" onclick="move('main.jsp');" />
     <input type="button" value="글쓰기" onclick="move('dbr_write.jsp');" />
 								
 						
