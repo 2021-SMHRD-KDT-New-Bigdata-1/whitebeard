@@ -169,7 +169,7 @@
 <tr height="25" align="center">
 	<td>&nbsp;</td>
 	<td><%=ano_seq %></td>
-	<td align="left"><%=ano_subject %></td>
+	<td align="left"><a href="dbr.jsp"><%=ano_subject %></a></td>
 	<td align="center">¿Õ∏Ì</td>
 	<td align="center"><%=date %></td>
 	<td align="center"><%=count %></td>
