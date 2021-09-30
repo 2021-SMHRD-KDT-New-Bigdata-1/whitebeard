@@ -262,6 +262,7 @@ public class snsDAO {
 	            }
 				
 			return searchList;
+			
 		}
 		
 }

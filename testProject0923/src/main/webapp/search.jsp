@@ -25,6 +25,10 @@
 	snsDAO dao = new snsDAO();
 	ArrayList<SnsVO> vo2 = dao.search(want);
 	
+	for (int i = 0; i < vo2.size(); i++) {
+		 System.out.println(vo2.get(i)); }
+	
+	
 	%>
 	<!-- 상단 메뉴 -->
 
@@ -217,5 +221,6 @@
 				$('.secretLook').css('display', 'inline-block');
 			});
 		</script>
+		
 </body>
 </html>

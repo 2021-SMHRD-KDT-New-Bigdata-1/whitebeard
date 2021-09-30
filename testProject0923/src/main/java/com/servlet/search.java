@@ -26,7 +26,7 @@ public class search extends HttpServlet {
 		snsDAO dao = new snsDAO();
 		
 		ArrayList<SnsVO> vo = dao.search(want);
-
+		
 	}
 
 }
