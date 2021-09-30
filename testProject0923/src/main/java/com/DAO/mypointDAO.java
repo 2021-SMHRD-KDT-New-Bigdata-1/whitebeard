@@ -5,8 +5,12 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.VO.MemberVO;
+import com.VO.MyChoiceVO;
+import com.VO.MyPointVO;
+import com.VO.SnsVO;
 
 public class mypointDAO {
 
@@ -46,22 +50,45 @@ public class mypointDAO {
 	
 	
 	// 찜 성공 데이터 입력
-	public int insert_point(int article_seq, Date success_date, String member_id, String success_pic1, String success_pic2, String success_pic3) {
+	public int insert_point(int article_seq, String member_id) {
 	
 		int cnt = 0;
 		try {
 			conn();
 
-			String sql = "insert into mypoints(article_seq, success_date, member_id, success_pic1, success_pic2, success_pic3) values(?, ?, SYSDATE, ?, ?, ?, ?)";
+			String sql = "insert into mypoints(article_seq, success_date, member_id) values(?, SYSDATE, ?)";
 
 			PreparedStatement psmt = conn.prepareStatement(sql);
 
 			psmt.setInt(1, article_seq);
-			psmt.setDate(2, success_date);
-			psmt.setString(3, member_id);
-			psmt.setString(4, success_pic1);
-			psmt.setString(5, success_pic2);
-			psmt.setString(6, success_pic3);
+			psmt.setString(2, member_id);
+
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+		
+	}				
+		
+	// 찜 성공 인증 사진 데이터 입력
+	public int insert_point(int article_seq, String success_pic1, String success_pic2, String success_pic3) {
+	
+		int cnt = 0;
+		try {
+			conn();
+
+			String sql = "update mypoints set success_pic1=?, success_pic2=?, success_pic3=? where article_seq = ?";
+
+			PreparedStatement psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, success_pic1);
+			psmt.setString(2, success_pic2);
+			psmt.setString(3, success_pic3);
+			psmt.setInt(4, article_seq);
 
 			cnt = psmt.executeUpdate();
 
@@ -115,7 +142,7 @@ public class mypointDAO {
 			conn();
 
 			for(int i = 1; i<4 ; i++) {
-				String sql = String.format("select success_pic%s from mypoints where member_id = ?", i);
+				String sql = String.format("select success_pic%s from mypoints where member_id = ? and success_pic%s is not null", i);
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, member_id);
 
@@ -140,8 +167,96 @@ public class mypointDAO {
 	}
 
 	
+	// 사진 데이터 가져오기
+	public ArrayList<MyPointVO> select_picture(String member_id) {		
+		
+		ArrayList<MyPointVO> picture_list = new ArrayList<MyPointVO>();
+		
+		try {
+			conn();
+
+			for(int i = 1; i<4 ; i++) {
+				String sql = String.format("select success_pic%s from mypoints where member_id = ? and success_pic%s is not null", i);
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, member_id);
+
+				while(rs.next()) {
+	            	String success_pic1 = rs.getString(1);
+	            	String success_pic2 = rs.getString(2);
+	            	String success_pic3 = rs.getString(3);
+	            		            		            	
+	            	picture_list.add(new MyPointVO(success_pic1, success_pic2, success_pic3));
+				}}
+	            
+				}catch(Exception e){
+	            	e.printStackTrace();
+	            }finally {
+	            	close();
+	            }
+			
+			return picture_list;		
+			
+		}	
+	
+	// 찜 성공 데이터 모두 불러오기
+	public ArrayList<MyPointVO> select_all(String member_id) {
+		
+		ArrayList<MyPointVO> successList = new ArrayList<MyPointVO>();
+		try {
+			conn();
+
+			for(int i = 1; i<4 ; i++) {
+				String sql = String.format("select * from mypoints where member_id = ?");
+				psmt = conn.prepareStatement(sql);
+				int success_seq = rs.getInt(1);
+				int article_seq = rs.getInt(2);
+				Date success_date = rs.getDate(3);
+				member_id = rs.getString(4);
+				String success_pic1 = rs.getString(5);
+				String success_pic2 = rs.getString(6);
+				String success_pic3 = rs.getString(7);
+				
+				successList.add(new MyPointVO(success_seq, article_seq, success_date, member_id, success_pic1, success_pic2, success_pic3));
+            }
+            
+            }catch(Exception e){
+            	e.printStackTrace();
+            }finally {
+            	close();
+            }
+		
+		return successList;
+		
+	}
 	
 	
+	// 찜 성공한 물건 이름 모두 불러오기
+	public ArrayList<MyPointVO> select_my_choice(String member_id) {		
+		
+		ArrayList<MyPointVO> success_company_name_list = new ArrayList<MyPointVO>();
+
+		try {
+			conn();
+
+			String sql = String.format("select subject from sns where article_seq = (select article_seq from mypoints where member_id = ?)");
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, member_id);
+
+            while(rs.next()) {
+            	String subject = rs.getString(1);
+            		            		            	
+            	success_company_name_list.add(new MyPointVO(subject));
+            			}
+            
+            }catch(Exception e){
+            	e.printStackTrace();
+            }finally {
+            	close();
+            }
+		
+		return success_company_name_list;		
+		
+	}
 	
 	
 }

@@ -167,27 +167,26 @@ public class commetDAO {
 		
 		
 		// SNS 댓글 모아보기
-		public ArrayList<CommentVO> select_market_comment(int article_seq) {
+		public ArrayList<CommentVO> select_market_comment(String member_id) {
 			
 			ArrayList<CommentVO> commentListMarket = new ArrayList<CommentVO>();
 
 			try {
 				
 				conn();	               				
-				String sql = "select * from comments A where article_seq = (select article_seq from sns B where ";
-				String sql = "select * from sns A where member_id = (select member_id from members B where company_info = %?% and A.member_id = B.member_id group by member_id)";
+				String sql = "select * from comments A where article_seq = (select article_seq from sns B where member_id = '?')";
 
 				psmt = conn.prepareStatement(sql);
-	            psmt.setInt(1, article_seq);               
+	            psmt.setString(1, member_id);               
 	            
 	            rs = psmt.executeQuery();
 	            
 	            while(rs.next()) {
 	            	int comment_seq = rs.getInt(1);
 	            	String comment_content = rs.getString(2);
-	            	article_seq= rs.getInt(3);
+	            	int article_seq= rs.getInt(3);
 	            	Date comment_date = rs.getDate(4);
-	            	String member_id = rs.getString(5);	            	
+	            	member_id = rs.getString(5);	            	
 	            		            		            	
 	            	commentListMarket.add(new CommentVO(comment_seq, comment_content, article_seq, comment_date, member_id));
 	            }
