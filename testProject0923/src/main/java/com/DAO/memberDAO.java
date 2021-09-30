@@ -255,7 +255,7 @@ public class memberDAO {
 		}
 		return cnt;
 	}
-	public int update(String nowpw, String member_pw, String name, String date, String nick, String email, String phone, String company_pic1, String member_id) {
+	public int update(String nowpw, String member_pw, String name, String date, String nick, String email, String phone, String file, String member_id) {
 		int cnt=0;
 		try {
 			conn();
@@ -269,7 +269,7 @@ public class memberDAO {
 			psmt.setString(4, nick);
 			psmt.setString(5, email);
 			psmt.setString(6, phone);
-			psmt.setString(7, company_pic1);
+			psmt.setString(7, file);
 			psmt.setString(8, member_id);
 			psmt.setString(9, nowpw);
 			

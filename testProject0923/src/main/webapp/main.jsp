@@ -85,7 +85,7 @@
 						<img src="assets/img/seller.png" alt="상품이미지">
 					</div>
 					<div class="hoho2">
-						<div class="notimg">제목</div>
+						<div class="notimg">제.목</div>
 						<br>
 						<div class="notimg">상호명</div>
 						<br>

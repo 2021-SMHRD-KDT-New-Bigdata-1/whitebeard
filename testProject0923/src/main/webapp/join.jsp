@@ -52,7 +52,7 @@
 	                    <h3>
 	                        <label for="pwcheck">비밀번호 재확인</label>
 	                    </h3>
-	                    <span class="signinput">
+	                    <span class3="signinput">
 	                        <input type="password" id = "pwcheck" class="int" name = "pwcheck" onchange="check_pw()" placeholder="내용을 입력하세요">
 	                    	<br>
 	                    	<span id = "ch"></span>
@@ -203,7 +203,7 @@
     $(function(){
     	$("#file").change(function(){
     		var ext = $(this).val().split('.').pop().toLowerCase();
-    		if($.inArray(ext, ['gif', 'pnp', 'jpg', 'jpeg'])== -1){
+    		if($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg'])== -1){
     			resetFormElement($(this));
     			window.alert('이미지 파일이 아닙니다!');
     		}else{
