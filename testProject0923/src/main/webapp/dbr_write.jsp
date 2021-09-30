@@ -21,9 +21,9 @@
   <body>
     <table summary="글쓰기 전체 테이블">
       <form
-        name="BoardWriteForm"
+        name="dbrWriteForm"
         method="post"
-        action="main.jsp"
+        action="dbrwrite"
         onsubmit="return boardWriteCheck();"
       >
         <colgroup>
@@ -37,18 +37,13 @@
           </caption>
           <tr>
             <td>제 목</td>
-            <td><input type="text" name="title" /></td>
+            <td><input type="text" name="ano_subject" /></td>
           </tr>
           <tr>
-            <td>내 용ㅇ</td>
-            <td><textarea name="content" rows="10" cols="100"></textarea></td>
+            <td>내 용</td>
+            <td><textarea name="ano_content" rows="10" cols="100"></textarea></td>
           </tr>
-          <tr>
-            <td>비밀번호ㅇㅇㅇ</td>
-            <td>
-              <input type="password" name="password" size="15" maxlength="15" />
-            </td>
-          </tr>
+       
           <tr>
             <td colspan="2"><hr size="1" /></td>
           </tr>
