@@ -152,7 +152,7 @@ public class snsDAO {
 			try {
 				
 				conn();	               				
-				String sql = "select * from sns A where member_id = (select member_id from members B where company_info = '%?%' and A.member_id = B.member_id group by member_id)";
+				String sql = "select * from sns A where member_id in (select member_id from members B where company_info = '%?%' and A.member_id = B.member_id group by member_id)";
 				psmt = conn.prepareStatement(sql);
 	            psmt.setString(1, town);               
 	            
@@ -274,7 +274,7 @@ public class snsDAO {
 				try {
 				
 				conn();	               				
-				String sql = "select * from sns A where member_id = (select member_id from members B where company_info like ? and A.member_id = B.member_id group by member_id) or A.subject like ?";
+				String sql = "select * from sns A where member_id in (select member_id from members B where company_info like ? and A.member_id = B.member_id group by member_id) or A.subject like ?";
 				psmt = conn.prepareStatement(sql);
 	            psmt.setString(1, "%"+want+"%");               
 	            psmt.setString(2, "%"+want+"%");               

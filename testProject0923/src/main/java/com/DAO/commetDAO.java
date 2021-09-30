@@ -174,7 +174,7 @@ public class commetDAO {
 			try {
 				
 				conn();	               				
-				String sql = "select * from comments A where article_seq = (select article_seq from sns B where member_id = '?')";
+				String sql = "select * from comments A where A.article_seq in (select B.article_seq from sns B where B.member_id like ?)";
 
 				psmt = conn.prepareStatement(sql);
 	            psmt.setString(1, member_id);               
