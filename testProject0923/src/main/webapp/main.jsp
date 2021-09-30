@@ -33,6 +33,7 @@
 	memberDAO m_dao = new memberDAO();
 	ArrayList<SnsVO> vo2 = dao.search(want);
 	
+	
 	%>
 	<!-- 상단 메뉴 -->
 
@@ -245,7 +246,10 @@
    <td><input type=button value="글쓰기" onclick="move('dbr_write')"></td>
   </tr>
 </table>
+
+
 				</div>
+				<!-- -------------------------------- -->
 			</section>
 		</div>
 
