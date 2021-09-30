@@ -41,7 +41,7 @@
 			out.print("</ul>");
 		}
 		%>
-		<div>
+		<div id="inner">
 			<h1 id="dbr">´ãº­¶ô</h1>
 			<div id="dbr_box">
 				<div id="dbr_box_body">
