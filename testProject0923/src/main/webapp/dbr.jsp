@@ -17,6 +17,9 @@
 			String ano_seq = rs.getString(1); 
 			String ano_subject = rs.getString(2); 
 			String ano_content = rs.getString(3); 
+			String ano_pic1 = rs.getString(4); 
+			String ano_pic2 = rs.getString(5); 
+			String ano_pic3 = rs.getString(6); 
 			String ano_date = rs.getString(8); 
 			%>
 
@@ -288,7 +291,21 @@ a {
       <td width="319"><%=ano_subject%></td>
       <td width="0">&nbsp;</td>
      </tr>
+     
+     
      <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
+     <tr>
+      <td width="0">&nbsp;</td>
+      <td align="center" width="76">내용</td>
+      <td width="319"><%=ano_pic1%><%=ano_pic2%><%=ano_pic3%><%=ano_content%></td>
+      
+      
+      <td width="0">&nbsp;</td>
+     </tr>
+     
+     
+     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
+     
                 
  <% 
   	stmt.executeUpdate(sql);
@@ -307,7 +324,7 @@ a {
      <tr height="1" bgcolor="#82B5DF"><td colspan="4" width="407"></td></tr>
      <tr align="center">
       <td width="0">&nbsp;</td>
-      <td colspan="2" width="399"><input type=button value="글쓰기"  OnClick="window.location='write.jsp'">
+      <td colspan="2" width="399"><input type=button value="글쓰기"  OnClick="window.location='dbr_write.jsp'">
 	<input type=button value="답글">
 	<input type=button value="목록" OnClick="window.location='list.jsp'">
 	<input type=button value="수정">
