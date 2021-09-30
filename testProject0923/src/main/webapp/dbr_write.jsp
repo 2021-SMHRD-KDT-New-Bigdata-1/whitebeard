@@ -1,3 +1,5 @@
+
+<%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -19,6 +21,20 @@
   </head>
 
   <body>
+  	<%
+	MemberVO vo = (MemberVO)session.getAttribute("vo");
+	%>
+  
+  <% 
+  String member_id = vo.getMember_id();
+  
+ 	System.out.print(member_id);
+  %>
+ 
+ 
+ 
+  	
+  
     <table summary="글쓰기 전체 테이블">
       <form
         name="dbrWriteForm"
@@ -39,6 +55,7 @@
             <td>제 목</td>
             <td><input type="text" name="ano_subject" /></td>
           </tr>
+  
           <tr>
             <td>내 용</td>
             <td><textarea name="ano_content" rows="10" cols="100"></textarea></td>

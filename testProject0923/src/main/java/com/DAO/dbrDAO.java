@@ -59,14 +59,14 @@ public class dbrDAO {
 			PreparedStatement psmt = conn.prepareStatement(sql);
 
 			
-			psmt.setString(1, ano_subject); //글제목s
+			psmt.setString(1, ano_subject); //글제목
 			psmt.setString(2, ano_content); //글내용
 			psmt.setString(3, ano_pic1); //글사진
 			psmt.setString(4, ano_pic2); //글사진
 			psmt.setString(5, ano_pic3); //글사진
 			psmt.setString(6, member_id);
 			
-
+ 
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {
