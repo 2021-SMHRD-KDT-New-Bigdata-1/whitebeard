@@ -33,6 +33,20 @@ public class MyPointVO {
 	
 	
 	
+
+
+
+
+
+
+	public MyPointVO(String success_pic12, String success_pic22, String success_pic32) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
 	public int getSuccess_seq() {
 		return success_seq;
 	}
