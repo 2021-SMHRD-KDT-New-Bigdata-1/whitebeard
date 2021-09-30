@@ -19,7 +19,7 @@
             <h2 onclick="location.href='main.jsp'">할인 2동</h2>
             <h4>마이 페이지</h4>
             <div class="imgAndNick">
-                <div class="profilediv" style="background: #BDBDBD;">
+                <div class="profilediv">
                     <!-- <img src="C:\Users\smhrd\Desktop\JavaStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\testProject0923\uploadedFiles\img113.jpg" class="profile" > -->
                     <img src="uploadedFiles/<%=vo.getCompany_pic1() %>" class="profile" >
                 </div>
