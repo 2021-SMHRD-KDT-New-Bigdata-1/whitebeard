@@ -42,7 +42,8 @@ public class JoinService extends HttpServlet {
 	String dd = multi.getParameter("dd");
 	String date =  yy+"/"+mm+"/"+dd;
 	String file = URLEncoder.encode(multi.getFilesystemName("file"), "EUC-KR");
-//	
+	//saveDri +"\\"+ 
+	
 //	String id = request.getParameter("id");
 //	String pw = request.getParameter("pw");
 ////	String pwcheck = request.getParameter("pwcheck");
@@ -70,7 +71,6 @@ public class JoinService extends HttpServlet {
 		System.out.println("가입실패");
 	}
 	
-			
 	
 	}
 
