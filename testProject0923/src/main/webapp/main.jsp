@@ -107,11 +107,61 @@
 				<div class="secretLook" onclick="location.href='dbr.jsp'"
 					style="display: none;">
 					<div class='hoho'>
-						<div class="notimg">글 제목</div>
-						<div class="notimg">(댓글 수)</div>
-						<div class="notimg">
-							<i class="far fa-images"></i>
-						</div>
+					<marquee behavior="alternate" scrolldelay="100" direction="right">
+      담벼락.</marquee
+    >
+    <table class="bbs" width="800" height="200" border="2" bgcolor="D8D8D8">
+      <colgroup>
+        <col width="50" />
+        <col width="500" />
+        <col width="100" />
+        <col width="50" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>번 호</th>
+          <th>제 목</th>
+          <th>작성자</th>
+          <th>작성일</th>
+          <th>조 회</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="center">3</td>
+          <td><a href="Board_View.jsp">게시판 글입니다 3<i class="far fa-images"></i>
+					</a></td>
+          <td align="center">닉네임</td>
+          <td align="center">날자</td>
+          <td align="center">0</td>
+          
+        </tr>
+        <tr>
+          <td align="center">2</td>
+          <td><a href="Board_View.jsp">게시판 글입니다 2</a></td>
+          <td align="center">닉네임</td>
+          <td align="center">날자</td>
+          <td align="center">0</td>
+        </tr>
+        <tr>
+          <td align="center">1</td>
+          <td><a href="dbr.jsp">점심메뉴 딱 정하는방법</a></td>
+          <td align="center">닉네임</td>
+          <td align="center">날자</td>
+          <td align="center">0</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td align="center" colspan="5">1</td>
+        </tr>
+      </tfoot>
+    </table>
+    <input type="button" value="처음으로" onclick="move('Board_List.jsp');" />
+    <input type="button" value="글쓰기" onclick="move('Board_Write.jsp');" />
+								
+						
+						
 					</div>
 				</div>
 			</section>
