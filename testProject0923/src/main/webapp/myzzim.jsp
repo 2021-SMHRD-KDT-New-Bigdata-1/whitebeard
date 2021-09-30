@@ -47,9 +47,10 @@
 		<div>내 찜 목록</div><br>
 		<div><% if(c_dao.select_my_choice(vo.getMember_id()) == null) {
 			out.print("<div> 내 찜 목록 없슴 </div>");
-		} else {
-			out.print("<%=c_dao.select_my_choice(vo.getMember_id())");					
-		} %></div><br>
+		} else { %>
+			<%=c_dao.select_my_choice(vo.getMember_id())%>					
+		<%} %>
+		</div><br>
 		
 		
 		<!-- 내가 찜에 성공한 리스트 (SNS 제목만 나옴) -->

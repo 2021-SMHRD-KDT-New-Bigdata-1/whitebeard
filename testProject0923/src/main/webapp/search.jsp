@@ -1,6 +1,9 @@
+<%@page import="com.VO.SnsVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.VO.MemberVO"%>
+<%@page import="com.DAO.snsDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +18,13 @@
 </head>
 <body>
 	<%
+	request.setCharacterEncoding("euc-kr");
 	MemberVO vo = (MemberVO) session.getAttribute("vo");
+	
+	String want = request.getParameter("want");
+	snsDAO dao = new snsDAO();
+	ArrayList<SnsVO> vo2 = dao.search(want);
+	
 	%>
 	<!-- 상단 메뉴 -->
 
@@ -31,8 +40,9 @@
 			out.print("<div class='navbar__profile'>프로필</div></nav>");
 			out.print("<ul class='navbar__menu'>");
 			out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
-			out.print("<li><a href='myzzim.jsp'>내찜정보</a></li>");
-			out.print("<li><a href='sellerjoin.html'>판매자등록</a></li>");
+			out.print("<li><a href=''>순위표</a></li>");
+			out.print("<li><a href=''>내찜목록</a></li>");
+			out.print("<li><a href=''>판매자등록</a></li>");
 			out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
 			out.print("</ul>");
 		}
@@ -42,7 +52,7 @@
 
 
 		<!-- 검색 -->
-		<div id="search.jsp">
+		<div id="inner">
 			<form action="search" class="searchBar" method="post">
 				<input type="text" name="want" placeholder="검색(상품명, 행정동)">
 				<input type="submit" value="검색">
@@ -66,7 +76,7 @@
 						<img src="assets/img/seller.png" alt="상품이미지">
 					</div>
 					<div class="hoho">
-						<div class="notimg">상품명</div>
+						<div class="notimg"><%=dao.search(want) %></div>
 						<br>
 						<div class="notimg">현재 판매가</div>
 						<br>

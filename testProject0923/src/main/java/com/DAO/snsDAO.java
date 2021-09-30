@@ -263,5 +263,44 @@ public class snsDAO {
 			return randomSnsList;		
 			
 		}		
+        //검색 기능		
+		public ArrayList<SnsVO> search(String want) {
+			
+			ArrayList<SnsVO> searchList = new ArrayList<SnsVO>();
+			
+				try {
+				
+				conn();	               				
+				String sql = "select * from sns where subject like ?";
+				psmt = conn.prepareStatement(sql);
+	            psmt.setString(1, "%"+want+"%");               
+	            
+	            rs = psmt.executeQuery();
+	            
+	            while(rs.next()) {
+	            	System.out.println("가져와짐:"+rs.getInt(1));
+	            	int article_seq = rs.getInt(1);
+	            	String member_id = rs.getString(2);
+	            	want = rs.getString(3);
+	            	String content = rs.getString(4);
+	            	String pic1 = rs.getString(5);
+	            	String pic2 = rs.getString(6);
+	            	String pic3 = rs.getString(7);
+	            	int regular_price = rs.getInt(8);
+	            	int discount_price = rs.getInt(9);
+	            	int sale_price = rs.getInt(10);
+	            	Date input_date = rs.getDate(11);	
+	            	
+	            	searchList.add(new SnsVO(article_seq, member_id, want, content, pic1, pic2, pic3, regular_price, discount_price, sale_price, input_date));
+	            }
+	            
+	            }catch(Exception e){
+	            	e.printStackTrace();
+	            }finally {
+	            	close();
+	            }
+				
+			return searchList;
+		}
 		
 }

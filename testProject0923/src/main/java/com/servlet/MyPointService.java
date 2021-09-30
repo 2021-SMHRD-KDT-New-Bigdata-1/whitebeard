@@ -36,7 +36,9 @@ public class MyPointService extends HttpServlet {
 	int b = dao.select_picture_point(id);
 	
 	session.setAttribute("mypoint", a+b);
-			
+	
+	response.sendRedirect("myzzim.jsp");
+	
 	}
 
 }
