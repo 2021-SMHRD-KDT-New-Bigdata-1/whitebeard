@@ -26,6 +26,22 @@ public class MyChoiceVO {
 	
 	
 	
+	public MyChoiceVO() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+	public MyChoiceVO(String subject) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
 	public int getChoice_seq() {
 		return choice_seq;
 	}
@@ -49,6 +65,15 @@ public class MyChoiceVO {
 	}
 	public void setMember_id(String member_id) {
 		this.member_id = member_id;
+	}
+
+
+
+
+
+	public void add(MyChoiceVO myChoiceVO) {
+		// TODO Auto-generated method stub
+		
 	} 
 	
 	

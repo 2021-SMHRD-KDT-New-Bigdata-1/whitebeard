@@ -38,6 +38,11 @@ public class SnsVO {
 	
 	
 	
+	
+
+
+
+
 	public int getArticle_seq() {
 		return article_seq;
 	}

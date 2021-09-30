@@ -46,7 +46,7 @@
 		<div id="search.jsp">
 			<form action="search" class="searchBar" method="post">
 				<input type="text" name="want" placeholder="검색(상품명, 행정동)">
-				<input type="submit" value="검색">
+				<input type="button" value="검색" onClick="location.href='search.jsp'">
 			</form>
 			<br>
 
@@ -158,7 +158,8 @@
       </tfoot>
     </table>
     <input type="button" value="처음으로ㄱㄱ" onclick="move('main.jsp');" />
-    <input type="button" value="글쓰기" onclick="move('dbr_write.jsp');" />
+    
+    <input type="button" value="글쓰기"  onClick="location.href='dbr_write.jsp'"/>
 								
 						
 						
