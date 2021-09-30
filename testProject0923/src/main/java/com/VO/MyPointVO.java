@@ -47,6 +47,15 @@ public class MyPointVO {
 
 
 
+	public MyPointVO(String subject) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+
 	public int getSuccess_seq() {
 		return success_seq;
 	}

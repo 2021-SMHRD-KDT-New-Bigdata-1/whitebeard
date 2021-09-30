@@ -230,5 +230,33 @@ public class mypointDAO {
 	}
 	
 	
+	// 찜 성공한 물건 이름 모두 불러오기
+	public ArrayList<MyPointVO> select_my_choice(String member_id) {		
+		
+		ArrayList<MyPointVO> success_company_name_list = new ArrayList<MyPointVO>();
+
+		try {
+			conn();
+
+			String sql = String.format("select subject from sns where article_seq = (select article_seq from mypoints where member_id = ?)");
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, member_id);
+
+            while(rs.next()) {
+            	String subject = rs.getString(1);
+            		            		            	
+            	success_company_name_list.add(new MyPointVO(subject));
+            			}
+            
+            }catch(Exception e){
+            	e.printStackTrace();
+            }finally {
+            	close();
+            }
+		
+		return success_company_name_list;		
+		
+	}
+	
 	
 }
