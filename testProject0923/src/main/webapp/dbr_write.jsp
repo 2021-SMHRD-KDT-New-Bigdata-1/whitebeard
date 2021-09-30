@@ -44,7 +44,7 @@
             <td><textarea name="content" rows="10" cols="100"></textarea></td>
           </tr>
           <tr>
-            <td>비밀번호ㅇㅇ</td>
+            <td>비밀번호ㅇㅇㅇ</td>
             <td>
               <input type="password" name="password" size="15" maxlength="15" />
             </td>
