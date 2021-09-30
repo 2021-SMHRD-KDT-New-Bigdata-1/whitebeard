@@ -35,11 +35,11 @@ function boardUpdateCheck() {
     	
     		<tr>
      			<td>제 목</td>
-     			<td><input type=text name=title></td>
+     			<td><input type=text name=ano_subject></td>
     		</tr>
     		<tr>
      			<td>내 용</td>
-     			<td><textarea name=content rows ="10" cols="100"></textarea></td>
+     			<td><textarea name=ano_content rows ="10" cols="100"></textarea></td>
     		</tr>
     		<tr>
      			<td>비밀번호</td> 

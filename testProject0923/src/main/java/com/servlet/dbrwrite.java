@@ -1,6 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,15 +28,18 @@ public class dbrwrite extends HttpServlet {
 		String ano_pic1 = request.getParameter("ano_pic1");
 		String ano_pic2 = request.getParameter("ano_pic2");
 		String ano_pic3 = request.getParameter("ano_pic3");
-		
-		
+		String member_id = request.getParameter("member_id");
+		int readcount = 0;
+		Timestamp nowdate = new Timestamp(System.currentTimeMillis());
 		
 
 		
 
 		
 		dbrDAO dbr = new dbrDAO();
-		int cnt = dbr.write(ano_subject, ano_content, ano_pic1, ano_pic2, ano_pic3);
+		int num= 0;
+		int cnt = dbr.write(ano_subject, ano_content,
+				ano_pic1, ano_pic2, ano_pic3,member_id);
 		
 		if(cnt>0) {
 			response.sendRedirect("main.jsp");
