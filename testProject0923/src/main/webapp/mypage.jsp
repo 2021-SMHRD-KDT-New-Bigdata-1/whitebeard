@@ -12,6 +12,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
   />
 </head>
 <body>
+	<%
+	MemberVO vo = (MemberVO)session.getAttribute("vo");
+	%>
 	
 	<div class="wrap">
         <div class="mypage">
@@ -19,10 +22,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
             <h4>마이 페이지</h4>
             <div class="imgAndNick">
                 <div class="profilediv" style="background: #BDBDBD;">
-                    <img class="profile" src="assets/img/seller.png">
+                    <img class="profile" src="<%=vo.getCompany_pic1() %>">
+                   <!--   "assets/img/seller.png">-->
                 </div>
                 <div class="nick">
-                    <p>샐러</p>
+                    <p><%=vo.getNickname() %></p>
+                   
                 </div>
             </div>
             
