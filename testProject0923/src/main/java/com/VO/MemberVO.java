@@ -132,4 +132,11 @@ public class MemberVO {
 	public void setCompany_info(String company_info) {
 		this.company_info = company_info;
 	}
+<<<<<<< HEAD
 }
+=======
+	
+}
+	   
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/whitebeard.git

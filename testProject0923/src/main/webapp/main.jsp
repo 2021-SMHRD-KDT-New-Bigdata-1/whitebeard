@@ -153,7 +153,6 @@
 					</div>
 					<div class="hoho2">
 
-						<div class="notimg">제.목</div>
 
 						<div class="notimg">상품명 : <%
 						out.print(vo3.get(i).getSubject());
