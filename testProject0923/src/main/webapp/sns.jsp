@@ -12,7 +12,7 @@
 </head>
 <body>
 	<%
-   MemberVO vo = (MemberVO) session.getAttribute("vo");
+    MemberVO vo = (MemberVO) session.getAttribute("vo");
 	SnsVO vo2 = (SnsVO)session.getAttribute("vo2");
    %>
 	<a href="page.jsp">°í</a>
