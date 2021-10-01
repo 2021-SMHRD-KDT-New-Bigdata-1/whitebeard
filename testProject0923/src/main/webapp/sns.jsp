@@ -119,7 +119,7 @@
 							<div>게시자 : <%=vo2.get(0).getMember_id() %> </div>
 							<div>정가 : <%=vo2.get(0).getRegular_price() %></div>
 							<div>판매가 : <%=vo2.get(0).getSale_price() %></div>
-							<div>상호명</div>
+							<div>상호명 :  <%=vo3.get(0).getCompany_name() %></div>
 							<div>
 							글내용 : <%=vo2.get(0).getContent() %>
 						    <div>프로필</div>
@@ -136,7 +136,7 @@
 						<!-- 가게정보 -->
 						<div id="tab-2" class="tab-content">
 							<p>
-								가게정보
+								가게정보 : <%= vo3.get(0).getCompany_info() %>
 							</p>
 						</div>
 

@@ -253,7 +253,6 @@ public class memberDAO {
 			psmt.setString(9, member_pw);
 			
 			cnt = psmt.executeUpdate();
-			System.out.println(cnt);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
