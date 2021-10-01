@@ -75,9 +75,9 @@
 						</div>
 
 						<a href=""><img src="img/face.png" alt="" id="face"></a> <span
-							id="name"> <strong id="storename">가게이름 : </strong>
+							id="name"> <strong id="storename">가게이름 : <%= vo3.get(0).getCompany_name() %></strong>
 							<p id="storekind" name="stkind">
-								<span>가게종류</span>
+								<span>가게종류 : <%= vo3.get(0).getB_type() %> </span>
 							</p>
 						</span>
 					</form>
