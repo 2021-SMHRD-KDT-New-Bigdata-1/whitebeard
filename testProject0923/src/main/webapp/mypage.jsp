@@ -40,8 +40,11 @@
             
             
             <div class="submit">
-                <a href = "update.html"><input type="submit" value=" 회원정보 수정 "></a>
-                <a href = "update.html"><input type="submit" value=" 회원정보 수정 "></a>
+			<% if(vo.getMember_type().equals('0')){%> 
+                <a href = "update.html"><input type="submit" value=" 회원 정보 수정 "></a>
+             <% } else { %>                
+                <a href = "sellerupdate.html"><input type="submit" value=" 판매자 정보 수정 "></a>
+                <%} %>
             </div>
             <hr>
             
@@ -106,11 +109,28 @@
             </div>
             
             
-            <!-- 판매자 등록 -->
+            <!-- 판매자 등록 / 내 SNS 이동 -->
+            <% if(vo.getMember_type().equals('0')){
+            	%>           
             <div class="plus">
                 <a class="sub" href = "sellerjoin.html">판매자 등록</a>
                 <div class="icon1"><i class="fas fa-user-check"></i></div>
             </div>
+            <% } else {  %>
+            <div class="plus">
+	           	<a class="sub" href = "sellerjoin.html">내 SNS 이동</a>
+	            <div class="icon1"><i class="fas fa-user-check"></i></div>
+            </div>	
+            <% }%>
+            
+            
+            <!-- 회원탈퇴 / 판매자탈퇴 -->          
+            <div class="plus">
+                <a class="sub" href = "delete.html">회원 탈퇴 / 판매자 탈퇴</a>
+                <div class="icon1"><i class="fas fa-user-check"></i></div>
+            </div>
+
+          
         </div>
     </div>
     
