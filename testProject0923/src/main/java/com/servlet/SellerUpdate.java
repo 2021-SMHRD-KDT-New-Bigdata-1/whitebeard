@@ -39,7 +39,7 @@ public class SellerUpdate extends HttpServlet {
 		String company_info = multi.getParameter("company_info");
 		
 		
-		
+		System.out.println(member_id + ","+member_pw+ ","+company_name+ ","+company_bn+ ","+b_type+ ","+company_pic1+ ","+company_pic2+ ","+company_pic3+ ","+ company_info);
 		memberDAO dao = new memberDAO();
 		int cnt = dao.sellerupdate(member_id, member_pw, company_name, company_bn, b_type, company_pic1, company_pic2, company_pic3, company_info);
 		System.out.println(cnt);
