@@ -266,48 +266,131 @@ public class snsDAO {
 		}		
         
 		
-		//검색 기능		
+		//검색기능
 		public ArrayList<SnsVO> search(String want) {
 			
 			ArrayList<SnsVO> searchList = new ArrayList<SnsVO>();
 			
-				try {
+			try {
 				
 				conn();	               				
 				String sql = "select * from sns A where member_id in (select member_id from members B where company_info like ? and A.member_id = B.member_id group by member_id) or A.subject like ?";
 				psmt = conn.prepareStatement(sql);
-	            psmt.setString(1, "%"+want+"%");               
-	            psmt.setString(2, "%"+want+"%");               
-	            
-	            rs = psmt.executeQuery();
-	            
-	            while(rs.next()) {
-					/* System.out.println("가져와짐:"+rs.getInt(1)); */
-	            	int article_seq = rs.getInt(1);
-	            	String member_id = rs.getString(2);
-	            	want = rs.getString(3);
-	            	String content = rs.getString(4);
-	            	String pic1 = rs.getString(5);
-	            	String pic2 = rs.getString(6);
-	            	String pic3 = rs.getString(7);
-	            	int regular_price = rs.getInt(8);
-	            	int discount_price = rs.getInt(9);
-	            	int sale_price = rs.getInt(10);
-	            	Date input_date = rs.getDate(11);	
-	            	
-	            	searchList.add(new SnsVO(article_seq, member_id, want, content, pic1, pic2, pic3, regular_price, discount_price, sale_price, input_date));
-	            }
-	            
-	            }catch(Exception e){
-	            	e.printStackTrace();
-	            }finally {
-	            	close();
-	            }
-							
+				psmt.setString(1, "%"+want+"%");               
+				psmt.setString(2, "%"+want+"%");               
 				
+				rs = psmt.executeQuery();
+				
+				while(rs.next()) {
+					/* System.out.println("가져와짐:"+rs.getInt(1)); */
+					int article_seq = rs.getInt(1);
+					String member_id = rs.getString(2);
+					want = rs.getString(3);
+					String content = rs.getString(4);
+					String pic1 = rs.getString(5);
+					String pic2 = rs.getString(6);
+					String pic3 = rs.getString(7);
+					int regular_price = rs.getInt(8);
+					int discount_price = rs.getInt(9);
+					int sale_price = rs.getInt(10);
+					Date input_date = rs.getDate(11);	
+					
+					searchList.add(new SnsVO(article_seq, member_id, want, content, pic1, pic2, pic3, regular_price, discount_price, sale_price, input_date));
+				}
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+			
+			
 			return searchList;
 			
 		}
 		
-		
+		//SNS페이지 표시를 위한 기능	
+				public ArrayList<SnsVO> sns_real(int idx) {
+					
+					ArrayList<SnsVO> oneSnsList = new ArrayList<SnsVO>();
+
+					try {
+						
+						conn();	               				
+						String sql = "select * from sns where article_seq = ?";
+						psmt = conn.prepareStatement(sql);
+			            psmt.setInt(1, idx);               
+			            
+			            rs = psmt.executeQuery();
+			            
+			            while(rs.next()) {
+			            	idx  = rs.getInt(1);
+			            	String member_id = rs.getString(2);
+			            	String subject = rs.getString(3);
+			            	String content = rs.getString(4);
+			            	String pic1 = rs.getString(5);
+			            	String pic2 = rs.getString(6);
+			            	String pic3 = rs.getString(7);
+			            	int regular_price = rs.getInt(8);
+			            	int discount_price = rs.getInt(9);
+			            	int sale_price = rs.getInt(10);
+			            	Date input_date = rs.getDate(11);
+			            		            		            	
+			            	oneSnsList.add(new SnsVO(idx, member_id, subject, content, pic1, pic2, pic3, regular_price, discount_price, sale_price, input_date));
+			            }
+			            
+			            }catch(Exception e){
+			            	e.printStackTrace();
+			            }finally {
+			            	close();
+			            }
+					
+					return oneSnsList;		
+					
+				}
+				
+				public ArrayList<MemberVO> sns_member(String sns_member_id) {
+					
+					ArrayList<MemberVO> memList = new ArrayList<MemberVO>();
+					
+					try {
+						
+						conn();	               				
+						String sql = "select * from members where member_id = ?";
+						psmt = conn.prepareStatement(sql);
+						psmt.setString(1, sns_member_id);               
+						
+						rs = psmt.executeQuery();
+						
+						while(rs.next()) {
+							sns_member_id = rs.getString(1);
+							String pw = rs.getString(2);
+							String name = rs.getString(3);
+							String birth_date = rs.getString(4);
+							String nickname = rs.getString(5);
+							String email = rs.getString(6);
+							String phone = rs.getString(7);
+							String member_type = rs.getString(8);
+							String company_name = rs.getString(9);
+							String company_bn = rs.getString(10);
+							String b_type = rs.getString(11);
+							String company_pic1 = rs.getString(12);
+							String company_pic2 = rs.getString(13);
+							String company_pic3 = rs.getString(14);
+							String company_info = rs.getString(15);
+							System.out.print(birth_date);
+							
+							memList.add(new MemberVO(sns_member_id, pw, name, birth_date, nickname, email, phone, member_type, company_name,
+									company_bn, b_type, company_pic1, company_pic2, company_pic3, company_info));
+						}
+						
+					}catch(Exception e){
+						e.printStackTrace();
+					}finally {
+						close();
+					}
+					
+					return memList;		
+					
+				}
 }

@@ -17,7 +17,7 @@ public class MemberVO {
       private String company_pic1;
       private String company_pic2;
       
-      private String company_pic3;
+      private String company_pic3;//
       private String company_info;
     
       

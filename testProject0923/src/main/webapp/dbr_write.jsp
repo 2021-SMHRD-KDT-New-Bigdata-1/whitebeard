@@ -1,4 +1,5 @@
 
+<%@page import="javax.websocket.Session"%>
 <%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -21,15 +22,14 @@
   </head>
 
   <body>
-  	<%
-	MemberVO vo = (MemberVO)session.getAttribute("vo");
+   <%
+   MemberVO vo = (MemberVO)session.getAttribute("vo");
   
-	%>
+   %>
   
-  <% 
+  <% //
   String member_id = vo.getMember_id();
   
- 	System.out.print(member_id);
   %>
  
  

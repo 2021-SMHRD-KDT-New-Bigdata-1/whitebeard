@@ -23,13 +23,13 @@ public class dbrwrite extends HttpServlet {
 		request.setCharacterEncoding("euc-kr");
 
 		
+		String member_id = request.getParameter("member_id");
 		String ano_subject = request.getParameter("ano_subject");
 		String ano_content = request.getParameter("ano_content");
 		String ano_pic1 = request.getParameter("ano_pic1");
 		String ano_pic2 = request.getParameter("ano_pic2");
 		String ano_pic3 = request.getParameter("ano_pic3");
-		String member_id = request.getParameter("member_id");
-		int readcount = 0;
+		int readcount = 0;//
 		Timestamp nowdate = new Timestamp(System.currentTimeMillis());
 		
 
@@ -38,8 +38,8 @@ public class dbrwrite extends HttpServlet {
 		
 		dbrDAO dbr = new dbrDAO();
 		int num= 0;
-		int cnt = dbr.write(ano_subject, ano_content,
-				ano_pic1, ano_pic2, ano_pic3,member_id);
+		int cnt = dbr.write(member_id,ano_subject, ano_content,
+				ano_pic1, ano_pic2, ano_pic3);
 		
 		if(cnt>0) {
 			response.sendRedirect("main.jsp");
