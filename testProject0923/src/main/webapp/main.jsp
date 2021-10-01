@@ -22,13 +22,9 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<<<<<<< HEAD
 	<% 
-=======
-	<%
 	request.setCharacterEncoding("euc-kr");
 	//로그인 한사람의 세션
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/whitebeard
 	MemberVO vo = (MemberVO) session.getAttribute("vo");
 	
 	//검색값 받아오기
@@ -155,14 +151,11 @@
 						<img src="assets/img/seller.png" alt="상품이미지">
 					</div>
 					<div class="hoho2">
-<<<<<<< HEAD
 						<div class="notimg">제.목</div>
-=======
 						<div class="notimg">상품명 : <%
 						out.print(vo3.get(i).getSubject());
 						%>
 						</div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/whitebeard
 						<br>
 						<div class="notimg">상호명 : <%
 						out.print(m_dao.find_company_name((vo3.get(i).getMember_id())));
