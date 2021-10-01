@@ -41,7 +41,7 @@ public class dbrwrite extends HttpServlet {
 		
 
 		
-		dbrDAO dbr = new dbrDAO();
+		dbrDAO dbr = new dbrDAO();  
 		int num= 0;
 		int cnt = dbr.write(member_id,ano_subject, ano_content,
 				ano_pic1, ano_pic2, ano_pic3);
