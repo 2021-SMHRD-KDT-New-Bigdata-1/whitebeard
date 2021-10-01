@@ -1,4 +1,3 @@
-<%@page import="jdk.internal.misc.FileSystemOption"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.snsDAO"%>
 <%@page import="com.VO.SnsVO"%>
@@ -18,8 +17,11 @@
     MemberVO vo = (MemberVO) session.getAttribute("vo");
 	snsDAO dao = new snsDAO();
 	int idx = Integer.parseInt(request.getParameter("sns_seq")); 
-		ArrayList<SnsVO> vo2 = dao.sns_real(idx);
-	/* System.out.println(idx); */
+	String id = request.getParameter("sns_memeber_id");
+	
+	ArrayList<SnsVO> vo2 = dao.sns_real(idx);
+	ArrayList<MemberVO> vo3 = dao.sns_member(id);
+	System.out.println(id);
 	
    %>
 	<a href="page.jsp">고</a>
@@ -73,7 +75,7 @@
 						</div>
 
 						<a href=""><img src="img/face.png" alt="" id="face"></a> <span
-							id="name"> <strong id="storename">가게이름</strong>
+							id="name"> <strong id="storename">가게이름 : </strong>
 							<p id="storekind" name="stkind">
 								<span>가게종류</span>
 							</p>

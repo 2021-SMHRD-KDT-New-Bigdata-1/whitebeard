@@ -348,4 +348,49 @@ public class snsDAO {
 					return oneSnsList;		
 					
 				}
+				
+				public ArrayList<MemberVO> sns_member(String sns_member_id) {
+					
+					ArrayList<MemberVO> memList = new ArrayList<MemberVO>();
+					
+					try {
+						
+						conn();	               				
+						String sql = "select * from members where member_id = ?";
+						psmt = conn.prepareStatement(sql);
+						psmt.setString(1, sns_member_id);               
+						
+						rs = psmt.executeQuery();
+						
+						while(rs.next()) {
+							sns_member_id = rs.getString(1);
+							String pw = rs.getString(2);
+							String name = rs.getString(3);
+							String birth_date = rs.getString(4);
+							String nickname = rs.getString(5);
+							String email = rs.getString(6);
+							String phone = rs.getString(7);
+							String member_type = rs.getString(8);
+							String company_name = rs.getString(9);
+							String company_bn = rs.getString(10);
+							String b_type = rs.getString(11);
+							String company_pic1 = rs.getString(12);
+							String company_pic2 = rs.getString(13);
+							String company_pic3 = rs.getString(14);
+							String company_info = rs.getString(15);
+							System.out.print(birth_date);
+							
+							memList.add(new MemberVO(sns_member_id, pw, name, birth_date, nickname, email, phone, member_type, company_name,
+									company_bn, b_type, company_pic1, company_pic2, company_pic3, company_info));
+						}
+						
+					}catch(Exception e){
+						e.printStackTrace();
+					}finally {
+						close();
+					}
+					
+					return memList;		
+					
+				}
 }

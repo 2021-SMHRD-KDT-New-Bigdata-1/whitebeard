@@ -84,7 +84,7 @@
 					if (vo2.size()==0) {
 						for (int i = 0; i < vo3.size(); i++) {
 						    %>
-				<div class="simpleLook" onclick="location.href='sns.jsp?sns_seq=<%=vo3.get(i).getArticle_seq()%>&'">
+				<div class="simpleLook" onclick="location.href='sns.jsp?sns_seq=<%=vo3.get(i).getArticle_seq()%>&sns_memeber_id<%=vo3.get(i).getMember_id() %>'">
 					<div class="img">
 						<img src="assets/img/seller.png" alt="상품이미지">
 					</div>
