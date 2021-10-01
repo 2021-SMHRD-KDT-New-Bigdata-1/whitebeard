@@ -10,12 +10,15 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/myzzim.css">
 </head>
 <body>
 	<%
 	MemberVO vo = (MemberVO)session.getAttribute("vo");
 	%>
+	
+	<div class="wrap">
+        <div class="mypage">
 	
 	<!-- 상단 메뉴 -->	
 	<nav class='navbar'>
@@ -81,6 +84,8 @@
 		
 	</section>
 	
+		</div>
+	</div>
 	
 	
     <script>

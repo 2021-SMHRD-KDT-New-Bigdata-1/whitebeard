@@ -40,7 +40,7 @@
             
             
             <div class="submit">
-                <a href = "update.html"><input type="submit" value="프로필 보기 / 회원정보 수정 "></a>
+                <a href = "update.html"><input type="submit" value=" 회원정보 수정 "></a>
             </div>
             <hr>
             
@@ -63,14 +63,14 @@
             
             <!-- 내 관심 상품 -->
             <div class="plus">
-                <a class="sub" id="favitem">내 관심 상품</a>
+                <a class="sub" id="favitem">내 관심 상품 </a>
                 <div class="icon1"><i class="fas fa-shopping-cart"></i></div>
                 <%String favitem = (String)session.getAttribute("favitem");
                    if(favitem == null){
                       favitem = " : 아이템 없슴";
                    } 
                 %>
-                <%=favitem %>
+                <%=" : " + favitem %>
             </div>
             <form action="MyPageService" method="post">
                 <input type="text" id="item_input" name="favitem" class=''>
@@ -80,27 +80,24 @@
          
             <!-- 내 관심 스토어 -->
             <div class="plus">
-                <a class="sub" id="favshop">내 관심 스토어</a>
+                <a class="sub" id="favshop">내 관심 스토어 </a>
                 <div class="icon1"><i class="fas fa-store-alt"></i></div>
                 <%String favshop = (String)session.getAttribute("favshop");
                    if(favshop == null){
-                      favshop = " : 상점없슴";
+                      favshop = " : 상점 없슴";
                    } 
                 %>
-                <%=favshop %>
+                <%=" : " + favshop %>
             </div>
             <form action="MyPageService" method="post">
                 <input type="text" id="shop_input" name="favshop" class=''>
                 <input type="submit" value="확인" id="shop_input_check">
             </form>
             
-            
-            <!-- 내 찜 목록 -->
-            
-            
-            <!-- 순위표 -->
+
+            <!-- 내찜정보 -->
             <div class="plus">
-                <a class="sub" href = "rank.jsp">순위표</a>
+                <a class="sub" href = "myzzim.jsp">내 찜 정보</a>
                 <div class="icon1"><i class="fas fa-trophy"></i></div>
             </div>
             

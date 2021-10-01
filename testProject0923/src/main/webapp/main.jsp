@@ -22,9 +22,6 @@
    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<<<<<<< HEAD
-   <% 
-=======
 	<% 
 
 	request.setCharacterEncoding("euc-kr");
@@ -157,7 +154,6 @@
                }%>
 
 
-<<<<<<< HEAD
             <!-- 자세히 볼래요  -->
             <%
             if (vo2.size()==0) {
@@ -170,7 +166,6 @@
                   <img src="assets/img/seller.png" alt="상품이미지">
                </div>
                <div class="hoho2">
-=======
 				<!-- 자세히 볼래요  -->
 				<%
 				if (vo2.size()==0) {
@@ -270,7 +265,6 @@
 				</div>
 				<% }
 				}%>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/whitebeard
 
 
                   <div class="notimg">상품명 : <%
