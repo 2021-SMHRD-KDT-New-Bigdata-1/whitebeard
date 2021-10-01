@@ -66,7 +66,6 @@ public class UpdateService extends HttpServlet {
 		int cnt = dao.update(nowpw, member_pw, name, date, nick, email, phone, file, member_id);
 		
 		if (cnt > 0) {
-//			MemberVO vo2 = new MemberVO(name, date, nick, email, phone, member_type, company_name, company_bn, b_type, file, company_pic2, company_pic3,  company_info);
 			MemberVO vo2 = new MemberVO(member_id, member_pw, name, date, nick, email, phone, member_type, company_name,
 					company_bn, b_type, file, company_pic2, company_pic3, company_info);
 			session.setAttribute("vo", vo2);

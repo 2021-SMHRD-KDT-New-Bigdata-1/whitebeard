@@ -296,6 +296,8 @@ public class memberDAO {
 		int cnt = 0;
 		try {
 			conn();
+			System.out.println(member_id);
+			System.out.println(member_pw);
 			
 			String sql = "update members set company_name = ?, company_bn = ?, b_type = ?, company_pic1=?, company_pic2=?, company_pic3=?, company_info=? where member_id = ? and member_pw = ?";
 			

@@ -2,6 +2,7 @@ package com.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.DAO.memberDAO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 @WebServlet("/SellerUpdate")
 public class SellerUpdate extends HttpServlet {
@@ -18,19 +21,28 @@ public class SellerUpdate extends HttpServlet {
 
 		request.setCharacterEncoding("euc-kr");
 
-		String member_id = request.getParameter("id");
-		String member_pw = request.getParameter("pw");		
-		String company_name = request.getParameter("company_name");
-		String company_bn = request.getParameter("company_bn");
-		String b_type = request.getParameter("b_type");
-		String company_pic1 = request.getParameter("company_pic1");
-		String company_pic2 = request.getParameter("company_pic2");
-		String company_pic3 = request.getParameter("company_pic3");
-		String company_info = request.getParameter("company_info");
+		String saveDri = request.getServletContext().getRealPath("uploadedFiles");
+		System.out.println(saveDri);
+		int maxSize = 5*1024*1024;
+		String encoding = "EUC-KR";
+		
+		MultipartRequest multi = new MultipartRequest(request, saveDri, maxSize, encoding, new DefaultFileRenamePolicy());
+		
+		String member_id = multi.getParameter("id");
+		String member_pw = multi.getParameter("pw");
+		String company_name = multi.getParameter("company_name");
+		String company_bn = multi.getParameter("company_bn");
+		String b_type = multi.getParameter("b_type");
+		String company_pic1 = URLEncoder.encode(multi.getFilesystemName("company_pic1"), "EUC-KR");
+		String company_pic2 = URLEncoder.encode(multi.getFilesystemName("company_pic2"), "EUC-KR");
+		String company_pic3 = URLEncoder.encode(multi.getFilesystemName("company_pic3"), "EUC-KR");
+		String company_info = multi.getParameter("company_info");
+		
+		
 		
 		memberDAO dao = new memberDAO();
 		int cnt = dao.sellerupdate(member_id, member_pw, company_name, company_bn, b_type, company_pic1, company_pic2, company_pic3, company_info);
-		
+		System.out.println(cnt);
 		if(cnt>0) {
 			response.setCharacterEncoding("euc-kr");
 			response.setContentType("text/html; charset=euc-kr");
