@@ -41,19 +41,21 @@
             
             <div class="submit">
                 <a href = "update.html"><input type="submit" value=" 회원정보 수정 "></a>
+                <a href = "update.html"><input type="submit" value=" 회원정보 수정 "></a>
             </div>
             <hr>
             
             <!-- 내 동네 설정 -->
             <div class="plus">
-                <a class="sub" id="ground">내 동네 설정 </a>
+                <a class="sub" id="ground">내 동네 설정 : </a>
                 <div class="icon1"><i class="fas fa-map-marker-alt"></i></div>
                 <%String town = (String)session.getAttribute("town");
                    if(town == null){
-                      town = " : 동네 없슴";
-                   } 
-                %>
-                <%=" : "+ town %>
+                      town = " " + "동네 없슴";
+                   } %>
+                    <%="  "+ town %>
+               
+               
             </div>
             <form action="MyPageService" method="post">
                 <input type="text" id="ground_input" name="town" class=''>
@@ -63,14 +65,16 @@
             
             <!-- 내 관심 상품 -->
             <div class="plus">
-                <a class="sub" id="favitem">내 관심 상품 </a>
+                <a class="sub" id="favitem">내 관심 상품 : </a>
                 <div class="icon1"><i class="fas fa-shopping-cart"></i></div>
                 <%String favitem = (String)session.getAttribute("favitem");
                    if(favitem == null){
-                      favitem = " : 아이템 없슴";
-                   } 
-                %>
-                <%=" : " + favitem %>
+                      favitem = " " + "아이템 없슴";
+                	} 
+                   %>
+                    <%=" " + favitem %>
+ 
+                
             </div>
             <form action="MyPageService" method="post">
                 <input type="text" id="item_input" name="favitem" class=''>
@@ -80,14 +84,14 @@
          
             <!-- 내 관심 스토어 -->
             <div class="plus">
-                <a class="sub" id="favshop">내 관심 스토어 </a>
+                <a class="sub" id="favshop">내 관심 스토어 : </a>
                 <div class="icon1"><i class="fas fa-store-alt"></i></div>
                 <%String favshop = (String)session.getAttribute("favshop");
                    if(favshop == null){
-                      favshop = " : 상점 없슴";
-                   } 
-                %>
-                <%=" : " + favshop %>
+                      favshop = " 상점 없슴";
+              	  } %>
+                    <%=" "+ favshop %>
+
             </div>
             <form action="MyPageService" method="post">
                 <input type="text" id="shop_input" name="favshop" class=''>
