@@ -28,9 +28,8 @@
 		out.print("<div class='navbar__profile'>프로필</div></nav>");
 		out.print("<ul class='navbar__menu'>");
 		out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
-		out.print("<li><a href=''>순위표</a></li>");
-		out.print("<li><a href=''>내찜목록</a></li>");
-		out.print("<li><a href=''>판매자등록</a></li>");
+		out.print("<li><a href='myzzim.jsp'>내찜정보</a></li>");
+		out.print("<li><a href='sellerjoin.html'>판매자등록</a></li>");
 		out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
 		out.print("</ul>");
 			}
@@ -54,6 +53,7 @@
 		
 		
 		<!-- 내가 찜에 성공한 리스트 (SNS 제목만 나옴) -->
+		<div>내 찜 성공 목록</div>
 		<div><% if(p_dao.select_my_choice(vo.getMember_id()) == null) {
 			out.print("<div> 내 찜 인증 사진 없슴</div>");
 		} else { %>

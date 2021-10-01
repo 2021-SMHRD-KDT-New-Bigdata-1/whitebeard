@@ -1,5 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="com.VO.MemberVO"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -7,57 +12,57 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-<script>
-function move(url) {
-	location.href=url;
-}
-
-function boardUpdateCheck() {
-	var form = document.BoardUpdateForm;
-	return true;
-}
-</script>
-
-<body>
-
-	<table summary="글수정 전체 테이블">
-		<form name="dbr_edit_Form" method="post" action="main.jsp" 
-														onsubmit="return boardUpdateCheck();" >
+<%
+	MemberVO vo = (MemberVO) session.getAttribute("vo");
+	%>
+<%
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
+	String id = "cgi_6_2";
+	String pass = "smhrd2";
+	int idx = Integer.parseInt(request.getParameter("idx"));
+		try{
+			request.setCharacterEncoding("euc-kr");
+			Connection conn = DriverManager.getConnection(url,id,pass); 
+			Statement stmt = conn.createStatement(); 
+	
+			String title = request.getParameter("ano_subject");
+			String memo = request.getParameter("memo");		
 		
-   		<colgroup>
-   			<col width="20%">
-   			<col width="80%">
-   		</colgroup>
-   	
+			String sql = "SELECT ano_seq FROM anonymous WHERE ano_seq=" + idx;
+			ResultSet rs = stmt.executeQuery(sql);
+		
+		 if(rs.next()){
+			 vo = (MemberVO) session.getAttribute("vo");		 
+			 }
+		
+		 if(vo != null) {
+				sql = "UPDATE anonymous SET ano_subject='" + title+ "' ,ano_content='"+ memo +"' WHERE ano_seq=" + idx;				
+				stmt.executeUpdate(sql);
+				
+%>
+				  <script language=javascript>
+				  	self.window.alert("changed.");
+				  	location.href="dbr.jsp?idx=<%=idx%>";
+				  </script>
+<%
 
-		<table summary="테이블 구성" >
-		<caption>글 수정하기</caption>	
-    	
-    		<tr>
-     			<td>제 목</td>
-     			<td><input type=text name=ano_subject></td>
-    		</tr>
-    		<tr>
-     			<td>내 용</td>
-     			<td><textarea name=ano_content rows ="10" cols="100"></textarea></td>
-    		</tr>
-    		<tr>
-     			<td>비밀번호</td> 
-     			<td><input type=password name=password size=15 maxlength=15></td>
-    		</tr>
-    		<tr>
-     			<td colspan=2><hr size=1></td>
-    		</tr>
-    		<tr>
-     			<td colspan="2"><div align="center">
-     			<input type="submit" value="수정 완료">&nbsp;&nbsp;
-				<input type=reset value="다시 수정"> 
-         		<input type="button" value="뒤로" onclick="move('main.jsp');"></div>
-     			</td>
-    		</tr> 
-		</table>
-	</form> 
-</table>
+			rs.close();
+			stmt.close();
+			conn.close();
+			
+		} else {
+%>
+			<script language=javascript>
+				self.window.alert("notuser.");
+				location.href="javascript:history.back()";
+			</script>
+<%			
+		}
+		 
+ } catch(SQLException e) {
+	out.println( e.toString() );
+} 
 
-</body>
+%>
 </html>

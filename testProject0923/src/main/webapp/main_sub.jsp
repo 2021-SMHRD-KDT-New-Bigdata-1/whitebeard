@@ -1,9 +1,10 @@
-<%@page import="com.VO.SnsVO"%>
-<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="com.VO.MemberVO"%>
-<%@page import="com.DAO.snsDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,18 +19,7 @@
 </head>
 <body>
 	<%
-	request.setCharacterEncoding("euc-kr");
 	MemberVO vo = (MemberVO) session.getAttribute("vo");
-	
-	String want = request.getParameter("want");
-	snsDAO dao = new snsDAO();
-	ArrayList<SnsVO> vo2 = dao.search(want);
-	
-	for (int i = 0; i < vo2.size(); i++) {
-		 System.out.println(vo2.get(i).getSubject()); 
-		 System.out.println("------"); }
-	
-	
 	%>
 	<!-- 상단 메뉴 -->
 
@@ -57,10 +47,10 @@
 
 
 		<!-- 검색 -->
-		<div id="inner">
-			<form action="" class="searchBar" method="post">
+		<div id="search.jsp">
+			<form action="search" class="searchBar" method="post">
 				<input type="text" name="want" placeholder="검색(상품명, 행정동)">
-				<input type="submit" value="검색">
+				<input type="button" value="검색" onClick="location.href='search.jsp'">
 			</form>
 			<br>
 
@@ -76,29 +66,19 @@
 
 			<!-- 간단히 볼래요  -->
 			<section>
-					<%for (int i = 0; i < vo2.size(); i++) {
-						  
-						 System.out.println("------");  %>
 				<div class="simpleLook" onclick="location.href='sns.jsp'">
 					<div class="img">
 						<img src="assets/img/seller.png" alt="상품이미지">
 					</div>
 					<div class="hoho">
-						<div class="notimg">상품명 : <%
-						out.print(vo2.get(i).getSubject());
-						%>
-						</div>
+						<div class="notimg">상품명</div>
 						<br>
-						<div class="notimg">현재 판매가 : <%
-						out.print(vo2.get(i).getRegular_price());
-						%>
-						</div>
+						<div class="notimg">현재 판매가</div>
 						<br>
 						<div class="notimg">상호명 :</div>
 						<br>
-					</div> 
+					</div>
 				</div>
-					<% }%>
 
 
 				<!-- 자세히 볼래요  -->
@@ -131,63 +111,94 @@
 				<div class="secretLook"
 					style="display: none;">
 					
-					<marquee behavior="alternate" scrolldelay="100" direction="right">
-      담벼락.</marquee
-    >
-    <table class="bbs" width="800" height="200" border="2" bgcolor="D8D8D8">
-      <colgroup>
-        <col width="50" />
-        <col width="500" />
-        <col width="100" />
-        <col width="50" />
-      </colgroup>
-      <thead>
-        <tr>
-          <th>번 호</th>
-          <th>제 목</th>
-          <th>작성자</th>
-          <th>작성일</th>
-          <th>조 회</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td align="center">3</td>
-          <td><a href="Board_View.jsp">게시판 글입니다 3<i class="far fa-images"></i>
-					</a></td>
-          <td align="center">닉네임</td>
-          <td align="center">날자</td>
-          <td align="center">0</td>
-          
-        </tr>
-        <tr>
-          <td align="center">2</td>
-          <td><a href="Board_View.jsp">게시판 글입니다 2</a></td>
-          <td align="center">닉네임</td>
-          <td align="center">날자</td>
-          <td align="center">0</td>
-        </tr>
-        <tr>
-          <td align="center">1</td>
-          <td><a href="dbr.jsp">점심메뉴 딱 정하는방법</a></td>
-          <td align="center">닉네임</td>
-          <td align="center">날자</td>
-          <td align="center">0</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td align="center" colspan="5">1</td>
-        </tr>
-      </tfoot>
-    </table>
-    <input type="button" value="처음으로ㄱㄱ" onclick="move('main.jsp');" />
-    <input type="button" value="글쓰기" onclick="move('dbr_write.jsp');" />
-								
-						
-						
-					
+ <%
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
+	String id = "cgi_6_2";
+	String pass = "smhrd2";
+	int total = 0;
+	Connection conn = null;
+	try {
+		conn = DriverManager.getConnection(url,id,pass);
+		Statement stmt = conn.createStatement();
+
+		String sqlCount = "SELECT COUNT(*) FROM anonymous";
+		ResultSet rs = stmt.executeQuery(sqlCount);
+		
+		if(rs.next()){
+			total = rs.getInt(1);
+		}
+		rs.close();
+		out.print("총 게시물 : " + total + "개");
+		
+		String sqlList = "SELECT ano_seq, ano_subject, ano_content, ano_pic1, ano_pic2,ano_pic3,member_id,ano_date from anonymous order by ano_seq DESC";
+		// board 테이블에 있는 Num, UserName, title, time, 
+		//hit의 값을 가져오되 Num을 기준으로 내림차순정렬
+
+				rs = stmt.executeQuery(sqlList);
+		
+%>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr height="5"><td width="5"></td></tr>
+ <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
+   <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
+   <td width="73">번호</td>
+   <td width="379">제목</td>
+   <td width="73">작성자</td>
+   <td width="164">작성일</td>
+   <td width="58">조회수</td>
+   <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
+  </tr>
+<%
+	if(total==0) {
+%>
+	 		<tr align="center" bgcolor="#FFFFFF" height="30">
+	 	   <td colspan="6">등록된 글이 없습니다.</td>
+	 	  </tr>
+<%
+	 	} else {
+	 		
+		while(rs.next()) {
+			int ano_seq = rs.getInt(1);
+			String ano_subject = rs.getString(2);
+			String ano_content = rs.getString(3);
+			String date = rs.getString(8);
+			int count = rs.getInt(7);
+		
+%>
+<tr height="25" align="center">
+	<td>&nbsp;</td>
+	<td><%=ano_seq %></td>
+	
+	<td align="left"><a href="dbr.jsp?ano_seq=<%=ano_seq%>"><%=ano_subject %></td>
+	<td align="center">익명</td>
+	<td align="center"><%=date %></td>
+	<td>&nbsp;</td>
+</tr>
+  <tr height="1" bgcolor="#D2D2D2"><td colspan="6"></td></tr>
+<% ///////
+		}
+	} 
+	rs.close();
+	stmt.close();
+	conn.close();
+} catch(Exception e) { 
+	out.println( e.toString() );
+}
+%>
+ <tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr>
+ </table>
+ 
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td colspan="4" height="5"></td></tr>
+  <tr align="center">
+   <td><input type=button value="글쓰기" onclick="move('dbr_write')"></td>
+  </tr>
+</table>
+
+
 				</div>
+				<!-- -------------------------------- -->
 			</section>
 		</div>
 
@@ -232,6 +243,5 @@
 				$('.secretLook').css('display', 'inline-block');
 			});
 		</script>
-		
 </body>
 </html>
