@@ -94,7 +94,7 @@ public class memberDAO {
 			} else {
 				System.out.print("false");
 				check = false;
-			}
+			}//
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
