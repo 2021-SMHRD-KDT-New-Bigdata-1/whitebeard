@@ -234,7 +234,10 @@ public class memberDAO {
 		int cnt = 0;
 		try {
 			conn();
-
+			
+			System.out.println(member_id);
+			System.out.println(member_pw);
+			
 			String sql = "update members set member_type = '1', company_name=?, company_bn=?, b_type=?, company_pic1=?, company_pic2=?, company_pic3=?, company_info=? where member_id = ? and member_pw = ?";
 
 			psmt = conn.prepareStatement(sql);
@@ -250,7 +253,7 @@ public class memberDAO {
 			psmt.setString(9, member_pw);
 			
 			cnt = psmt.executeUpdate();
-
+			System.out.println(cnt);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -293,6 +296,8 @@ public class memberDAO {
 		int cnt = 0;
 		try {
 			conn();
+			System.out.println(member_id);
+			System.out.println(member_pw);
 			
 			String sql = "update members set company_name = ?, company_bn = ?, b_type = ?, company_pic1=?, company_pic2=?, company_pic3=?, company_info=? where member_id = ? and member_pw = ?";
 			
