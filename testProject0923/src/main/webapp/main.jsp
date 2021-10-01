@@ -109,7 +109,7 @@
 					     }else {%>
 					<%for (int i = 0; i < vo2.size(); i++) {
 						   %>
-				<div class="simpleLook" onclick="location.href='sns.jsp'">
+				<div class="simpleLook" onclick="location.href='sns.jsp?sns_seq=<%=vo2.get(i).getArticle_seq()%>&sns_memeber_id=<%=vo2.get(i).getMember_id() %>'">
 					<div class="img">
 						<img src="assets/img/seller.png" alt="상품이미지">
 					</div>
@@ -139,7 +139,7 @@
 				if (vo2.size()==0) {
 				for (int i = 0; i < vo3.size(); i++) {
 						    %>
-				<div class="closerLook" onclick="location.href='sns.jsp'"
+				<div class="closerLook" onclick="location.href='sns.jsp?sns_seq=<%=vo3.get(i).getArticle_seq()%>&sns_memeber_id=<%=vo3.get(i).getMember_id() %>'"
 					style="display: none;">
 					<div class="img2">
 						<img src="assets/img/seller.png" alt="상품이미지">
@@ -187,7 +187,7 @@
 				}else {%>
 				<%for (int i = 0; i < vo2.size(); i++) {
 						   %>
-				<div class="closerLook" onclick="location.href='sns.jsp'"
+				<div class="closerLook" onclick="location.href='sns.jsp?sns_seq=<%=vo2.get(i).getArticle_seq()%>&sns_memeber_id=<%=vo2.get(i).getMember_id() %>'"
 					style="display: none;">
 					<div class="img2">
 						<img src="assets/img/seller.png" alt="상품이미지">
