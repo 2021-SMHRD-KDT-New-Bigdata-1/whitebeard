@@ -12,7 +12,8 @@
 </head>
 <body>
 	<%
-   MemberVO vo = (MemberVO) session.getAttribute("vo");
+   	MemberVO vo = (MemberVO) session.getAttribute("vo");
+	SnsVO vo2 = (String)session.getAttribute("vo");
    %>
    <a href = "page.jsp">고</a>
 	<div id="wrapper">
@@ -128,10 +129,9 @@
 						</div>
 
 						<!-- 가게정보 -->
-						<div id="tab-2" class="tab-content">가을 전어는 맛도 좋지만, 몸에 좋은
-							것으로도 유명하다. 전어에는 불포화지방산이 풍부하게 함유되어 있어 콜레스테롤을 낮추고, 동맥경화나 고혈압과 같은 각종
-							성인병 예방에 좋다. 또 비타민과 미네랄 성분이 풍부하게 함유되어 있어 피로 해소뿐만 아니라 피부 미용에도 효과가
-							좋다.2019. 9. 6.</div>
+						<div id="tab-2" class="tab-content">
+						<p><%=vo.get %></p>
+						</div>
 
 						<!-- 댓글 모아보기 -->
 						<div id="tab-3" class="tab-content">
