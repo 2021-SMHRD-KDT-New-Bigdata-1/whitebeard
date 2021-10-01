@@ -18,7 +18,6 @@ public class MemberVO {
       private String company_pic2;
       private String company_pic3;
       private String company_info;
-
    
       
       public MemberVO(String member_id, String member_pw, String name, String birth_date, String nickname, String email,

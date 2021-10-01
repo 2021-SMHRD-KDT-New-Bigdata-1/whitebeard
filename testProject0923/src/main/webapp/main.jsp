@@ -23,7 +23,6 @@
 </head>
 <body>
    <% 
-
    request.setCharacterEncoding("euc-kr");
    //로그인 한사람의 세션
    MemberVO vo = (MemberVO) session.getAttribute("vo");
