@@ -19,7 +19,7 @@
 	
 	<div class="wrap">
         <div class="mypage">
-	
+	 
 	<!-- 상단 메뉴 -->	
 	<nav class='navbar'>
 	<div class='navbar__logo'>로고 자리</div>
