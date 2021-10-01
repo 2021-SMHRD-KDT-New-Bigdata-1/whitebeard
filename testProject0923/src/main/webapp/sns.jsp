@@ -1,3 +1,6 @@
+<%@page import="jdk.internal.misc.FileSystemOption"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.snsDAO"%>
 <%@page import="com.VO.SnsVO"%>
 <%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -13,6 +16,11 @@
 <body>
 	<%
     MemberVO vo = (MemberVO) session.getAttribute("vo");
+	snsDAO dao = new snsDAO();
+	int idx = Integer.parseInt(request.getParameter("sns_seq")); 
+		ArrayList<SnsVO> vo2 = dao.sns_real(idx);
+	/* System.out.println(idx); */
+	
    %>
 	<a href="page.jsp">고</a>
 	<div id="wrapper">
@@ -54,11 +62,10 @@
 							<table>
 								<tr class="storeimg">
 									<td class="storeimg">
-										<%
-										if (vo != null) {%> <img
-										src="uploadedFiles/<%=vo.getCompany_pic1() %>" class="profile">
-										<%} else {%>
-										<p>업체 사진을 등록해 주세요.</p> <%}%>
+										<img
+										src="uploadedFiles/" class="profile">
+										 
+										<p>업체 사진을 등록해 주세요.</p> 
 									</td>
 								</tr>
 
@@ -105,15 +112,15 @@
 							</div>
 
 
-							<h4>제목</h4>
+							<h4><%=vo2.get(0).getSubject() %></h4>
 							<img src="assets/img/test.jfif" id="storeitem" alt="">
-							<div>게시자</div>
-							<div>정가</div>
-							<div>판매가</div>
+							<div>게시자 : <%=vo2.get(0).getMember_id() %> </div>
+							<div>정가 : <%=vo2.get(0).getRegular_price() %></div>
+							<div>판매가 : <%=vo2.get(0).getSale_price() %></div>
 							<div>상호명</div>
 							<div>
-								게시글 맛있는 가을전어를 갈아서 드셔 보시겠습니까?
-								<div>프로필</div>
+							글내용 : <%=vo2.get(0).getContent() %>
+						    <div>프로필</div>
 
 							</div>
 							<div class="coment">
@@ -127,7 +134,7 @@
 						<!-- 가게정보 -->
 						<div id="tab-2" class="tab-content">
 							<p>
-								<%=vo.getCompany_info() %>)
+								가게정보
 							</p>
 						</div>
 
