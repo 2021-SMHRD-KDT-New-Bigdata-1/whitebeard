@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.DAO.dbrDAO;
+import com.VO.MemberVO;
 
 
 
@@ -22,8 +24,11 @@ public class dbrwrite extends HttpServlet {
 
 		request.setCharacterEncoding("euc-kr");
 
+		HttpSession session = request.getSession();
+		MemberVO vo = (MemberVO) session.getAttribute("vo");
 		
-		String member_id = request.getParameter("member_id");
+		
+		String member_id = vo.getMember_id();
 		String ano_subject = request.getParameter("ano_subject");
 		String ano_content = request.getParameter("ano_content");
 		String ano_pic1 = request.getParameter("ano_pic1");
@@ -36,7 +41,7 @@ public class dbrwrite extends HttpServlet {
 		
 
 		
-		dbrDAO dbr = new dbrDAO();
+		dbrDAO dbr = new dbrDAO();  
 		int num= 0;
 		int cnt = dbr.write(member_id,ano_subject, ano_content,
 				ano_pic1, ano_pic2, ano_pic3);
