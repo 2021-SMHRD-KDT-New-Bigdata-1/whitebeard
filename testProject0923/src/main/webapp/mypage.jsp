@@ -24,8 +24,13 @@
             <h4>마이 페이지</h4>
             <div class="imgAndNick">
                 <div class="profilediv">
+                	<%if(vo.getCompany_pic1() !=null){ %>
                     <!-- <img src="C:\Users\smhrd\Desktop\JavaStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\testProject0923\uploadedFiles\img113.jpg" class="profile" > -->
                     <img src="uploadedFiles/<%=vo.getCompany_pic1() %>" class="profile" >
+                    <%} else{%>
+                    <P>아이콘 넣어라</P>
+                    <%} %>
+                    
                 </div>
                 <div class="nick">
                     <p><%=vo.getNickname() %></p>

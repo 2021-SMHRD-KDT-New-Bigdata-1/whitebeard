@@ -73,7 +73,7 @@ public class snsDAO {
 				psmt.setInt(9, sale_price);
 
 				cnt = psmt.executeUpdate();
-
+				System.out.println(cnt);
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {

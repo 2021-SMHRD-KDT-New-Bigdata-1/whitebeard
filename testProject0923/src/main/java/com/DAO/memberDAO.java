@@ -198,8 +198,11 @@ public class memberDAO {
 			rs = psmt.executeQuery();
 
 			if (rs.next()) {
+				
+				String id = rs.getString(1);
+				String pw = rs.getString(2);
 				String name = rs.getString(3);
-				Date birth_date = rs.getDate(4);
+				String birth_date = rs.getString(4);
 				String nickname = rs.getString(5);
 				String email = rs.getString(6);
 				String phone = rs.getString(7);
@@ -211,8 +214,8 @@ public class memberDAO {
 				String company_pic2 = rs.getString(13);
 				String company_pic3 = rs.getString(14);
 				String company_info = rs.getString(15);
-				
-				vo = new MemberVO(name, birth_date, nickname, email, phone, member_type, company_name,
+				System.out.print(birth_date);
+				vo = new MemberVO(id, pw, name, birth_date, nickname, email, phone, member_type, company_name,
 						company_bn, b_type, company_pic1, company_pic2, company_pic3, company_info);
 			} 
 			
@@ -255,7 +258,8 @@ public class memberDAO {
 		}
 		return cnt;
 	}
-	public int update(String nowpw, String member_pw, String name, String date, String nick, String email, String phone, String company_pic1, String member_id) {
+	public int update(String nowpw, String member_pw, String name, String date, String nick, String email, String phone, String file, String member_id) {
+		System.out.println(nowpw+","+member_pw+","+ name+","+ date+","+ nick+","+ email+","+ phone+","+ file+","+ member_id);
 		int cnt=0;
 		try {
 			conn();
@@ -269,7 +273,7 @@ public class memberDAO {
 			psmt.setString(4, nick);
 			psmt.setString(5, email);
 			psmt.setString(6, phone);
-			psmt.setString(7, company_pic1);
+			psmt.setString(7, file);
 			psmt.setString(8, member_id);
 			psmt.setString(9, nowpw);
 			

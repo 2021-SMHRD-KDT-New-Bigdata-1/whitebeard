@@ -23,7 +23,7 @@ public class JoinService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	request.setCharacterEncoding("euc-kr");
-
+ 
 	String saveDri = request.getServletContext().getRealPath("uploadedFiles");
 	System.out.println(saveDri);
 	int maxSize = 5*1024*1024;
@@ -38,8 +38,10 @@ public class JoinService extends HttpServlet {
 	String email = multi.getParameter("email");
 	String phone = multi.getParameter("phone");
 	String yy = multi.getParameter("yy");
+	yy = yy.substring(2);
 	String mm = multi.getParameter("mm");
 	String dd = multi.getParameter("dd");
+	 
 	String date =  yy+"/"+mm+"/"+dd;
 	String file = URLEncoder.encode(multi.getFilesystemName("file"), "EUC-KR");
 	//saveDri +"\\"+ 
@@ -55,7 +57,7 @@ public class JoinService extends HttpServlet {
 //	String phone = request.getParameter("phone");
 //	String company_pic1 = request.getParameter("company_pic1");
 //	//String yy = request.getParameter("yy");
-//	//yy = yy.substring(2);
+//	//
 //	String mm = request.getParameter("mm");
 //	String dd = request.getParameter("dd");
 //	String date = yy+"/"+mm+"/"+dd;
@@ -67,7 +69,7 @@ public class JoinService extends HttpServlet {
 	if(cnt>0) {
 		response.sendRedirect("joincomplete.html");
 	}else {
-		response.sendRedirect("join.jsp");
+		response.sendRedirect("join.html");
 		System.out.println("가입실패");
 	}
 	
