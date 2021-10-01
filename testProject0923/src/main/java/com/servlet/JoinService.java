@@ -30,6 +30,8 @@ public class JoinService extends HttpServlet {
 	int maxSize = 5*1024*1024;
 	String encoding = "EUC-KR";
 	
+	
+	
 	MultipartRequest multi = new MultipartRequest(request, saveDri, maxSize, encoding, new DefaultFileRenamePolicy());
 
 	String id = multi.getParameter("id");
