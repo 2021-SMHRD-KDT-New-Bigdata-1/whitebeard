@@ -11,7 +11,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-</head>
+</head>//
 <%
 	MemberVO vo = (MemberVO) session.getAttribute("vo");
 	%>

@@ -49,24 +49,24 @@ public class dbrDAO {
 
 	}
 
-	public int write(String ano_subject, String ano_content, String ano_pic1, String ano_pic2, String ano_pic3, String member_id) {
+	public int write(String member_id,String ano_subject, String ano_content, String ano_pic1, String ano_pic2, String ano_pic3) {
 		int cnt = 0;
 		try {
 			conn();
 			//글제목 사진 1 2 3 이름 시간 글내용 댓글~~~ 이코드는 담벼락 글 작성하는 녀석입니다
-			String sql = "insert into anonymous(ano_subject,ano_content,ano_pic1,ano_pic2,ano_pic3,member_id,ano_date) values(?, ?, ?, ?,?,?, SYSDATE)";
+			String sql = "insert into anonymous(member_id,ano_subject,ano_content,ano_pic1,ano_pic2,ano_pic3,ano_date) values(?, ?, ?, ?,?,?, SYSDATE)";
 
 			PreparedStatement psmt = conn.prepareStatement(sql);
 
 			
-			psmt.setString(1, ano_subject); //글제목
-			psmt.setString(2, ano_content); //글내용
-			psmt.setString(3, ano_pic1); //글사진
-			psmt.setString(4, ano_pic2); //글사진
-			psmt.setString(5, ano_pic3); //글사진
-			psmt.setString(6, member_id);
+			psmt.setString(1, member_id);
+			psmt.setString(2, ano_subject); //글제목
+			psmt.setString(3, ano_content); //글내용
+			psmt.setString(4, ano_pic1); //글사진
+			psmt.setString(5, ano_pic2); //글사진
+			psmt.setString(6, ano_pic3); //글사진
 			
- 
+ //
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {

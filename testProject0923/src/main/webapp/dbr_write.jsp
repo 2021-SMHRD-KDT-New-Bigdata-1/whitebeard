@@ -22,17 +22,15 @@
   </head>
 
   <body>
-  	<%
-  	
-  	
-  	
-	session = request.getSession(member_id);
-
-
-  	%>
+   <%
+   MemberVO vo = (MemberVO)session.getAttribute("vo");
   
-  <% 
-    %>
+   %>
+  
+  <% //
+  String member_id = vo.getMember_id();
+  
+  %>
  
  
  
