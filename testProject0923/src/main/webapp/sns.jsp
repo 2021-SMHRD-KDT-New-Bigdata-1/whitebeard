@@ -13,7 +13,6 @@
 <body>
 	<%
     MemberVO vo = (MemberVO) session.getAttribute("vo");
-	SnsVO vo2 = (SnsVO)session.getAttribute("vo2");
    %>
 	<a href="page.jsp">고</a>
 	<div id="wrapper">
@@ -86,7 +85,7 @@
 						<!-- 상품 게시글 -->
 						<div id="tab-1" class="tab-content current">
 							<div class="feed">
-								<h3 class="name"><%=vo.getCompany_name() %></h3>
+								<%-- <h3 class="name"><%=vo.getCompany_name() %></h3>
 								<div class="date"><%=vo2.getInput_date() %></div>
 								<a class="title"><%=vo2.getSubject() %></a>
 								<p class="content">
@@ -97,7 +96,7 @@
 										}else{ %>
 											<img src="uploadedFiles/<%=vo2.getPic1() %>" class="pic" >
 										<%} %>
-									<%} %> 
+									<%} %>  --%>
 								</p>
 								<div class="accessory">
 									<img src="좋아요아이콘" width="16px"> Like 
