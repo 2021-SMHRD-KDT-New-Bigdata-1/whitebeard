@@ -1,7 +1,7 @@
 <%@page import="com.VO.SnsVO"%>
 <%@page import="com.VO.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +12,10 @@
 </head>
 <body>
 	<%
-   	MemberVO vo = (MemberVO) session.getAttribute("vo");
-	SnsVO vo2 = (String)session.getAttribute("vo");
+   MemberVO vo = (MemberVO) session.getAttribute("vo");
+	SnsVO vo2 = (SnsVO)session.getAttribute("vo2");
    %>
-   <a href = "page.jsp">고</a>
+	<a href="page.jsp">고</a>
 	<div id="wrapper">
 		<div id="content">
 			<nav class='navbar'>
@@ -54,23 +54,20 @@
 							<!--가게 프로필사진 -->
 							<table>
 								<tr class="storeimg">
-									<td class="storeimg" >
+									<td class="storeimg">
 										<%
-										if (vo != null) {%> 
-										<img src="uploadedFiles/<%=vo.getCompany_pic1() %>"
-										class="profile"> 
+										if (vo != null) {%> <img
+										src="uploadedFiles/<%=vo.getCompany_pic1() %>" class="profile">
 										<%} else {%>
-										<p>업체 사진을 등록해 주세요.</p> 
-										<%}%>
+										<p>업체 사진을 등록해 주세요.</p> <%}%>
 									</td>
 								</tr>
 
 							</table>
 						</div>
 
-						<a href=""><img src="img/face.png" alt="" id="face"></a> 
-						<span id = "name">
-							<strong id="storename">가게이름</strong>
+						<a href=""><img src="img/face.png" alt="" id="face"></a> <span
+							id="name"> <strong id="storename">가게이름</strong>
 							<p id="storekind" name="stkind">
 								<span>가게종류</span>
 							</p>
@@ -89,11 +86,12 @@
 
 						<!-- 상품 게시글 -->
 						<div id="tab-1" class="tab-content current">
-							<%-- <div class="feed">
+							<div class="feed">
 								<h3 class="name"><%=vo.getCompany_name() %></h3>
 								<div class="date"><%=vo2.getInput_date() %></div>
 								<a class="title"><%=vo2.getSubject() %></a>
 								<p class="content">
+									
 									<%for(int i = 1; i <= 3; i++){ %>
 										<%if(vo2.getPic1() == null){
 											break;
@@ -106,7 +104,7 @@
 									<img src="좋아요아이콘" width="16px"> Like 
 									<img src="댓글아이콘" width="16px"> Comments
 								</div>
-							</div> --%>
+							</div>
 
 
 							<h4>제목</h4>
@@ -130,7 +128,9 @@
 
 						<!-- 가게정보 -->
 						<div id="tab-2" class="tab-content">
-						<p><%=vo.get %></p>
+							<p>
+								<%=vo.getCompany_info() %>)
+							</p>
 						</div>
 
 						<!-- 댓글 모아보기 -->
@@ -142,11 +142,12 @@
 
 							<div>행인2:화욜점심뭐먹지</div>
 						</div>
-					</div>
+										</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<script>
 		$(".navbar__profile").click(function() {
 			if ($(".navbar__menu").attr('class') == 'navbar__menu') {
@@ -220,10 +221,4 @@
 	</script>
 
 </body>
-
-
-
-
-
-
 </html>

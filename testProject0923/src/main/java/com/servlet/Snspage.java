@@ -48,9 +48,10 @@ public class Snspage extends HttpServlet {
 		
 		snsDAO dao = new snsDAO();
 		int cnt = dao.insert_sns(id, subject, content, pic1, pic2, pic3, regular_price, discount_price, sale_price, input_date);
-
-		SnsVO vo2 = new SnsVO(id, subject, regular_price, discount_price, sale_price, pic1, pic2, pic3, content, input_date);
+		SnsVO vo2 = new SnsVO(id, subject, content, pic1, pic2, pic3, regular_price, discount_price, sale_price, input_date);
+		
 		if(cnt>0) {
+			session.setAttribute("vo2", vo2);
 			response.sendRedirect("sns.jsp");
 		}else {
 			response.sendRedirect("page.jsp");
