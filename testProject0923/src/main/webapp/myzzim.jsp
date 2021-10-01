@@ -44,7 +44,7 @@
 	mychoiceDAO c_dao = new mychoiceDAO();
 	%>
 	<section>
-	
+		<!-- 주석추가 -->
 		<!-- 내 찜 목록 (내가 찜한 SNS 제목만 나옴) -->
 		<div>내 찜 목록</div><br>
 		<div><% if(c_dao.select_my_choice(vo.getMember_id()) == null) {
