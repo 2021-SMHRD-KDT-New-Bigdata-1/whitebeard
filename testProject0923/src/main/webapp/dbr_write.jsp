@@ -23,6 +23,7 @@
   <body>
   	<%
 	MemberVO vo = (MemberVO)session.getAttribute("vo");
+  
 	%>
   
   <% 
