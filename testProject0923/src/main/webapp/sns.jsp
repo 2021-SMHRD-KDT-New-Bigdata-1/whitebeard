@@ -97,7 +97,7 @@
 										}else{ %>
 											<img src="uploadedFiles/<%=vo2.getPic1() %>" class="pic" >
 										<%} %>
-									<%} %>
+									<%} %> 
 								</p>
 								<div class="accessory">
 									<img src="좋아요아이콘" width="16px"> Like 
