@@ -46,11 +46,7 @@
 			<% if(vo.getMember_type().equals("0")){%> 
                 <a href = "update.html"><input type="submit" value=" 회원 정보 수정 "></a>
              <% } else { %>                
-<<<<<<< HEAD
-        	    <a href = "update.html"><input type="submit" value=" 회원 정보 수정 "></a>
-=======
              	<a href = "update.html"><input type="submit" value=" 회원 정보 수정 "></a>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/whitebeard.git
                 <a href = "sellerupdate.html"><input type="submit" value=" 판매자 정보 수정 "></a>
                 <%} %>
             </div>
@@ -118,15 +114,14 @@
             
             
             <!-- 판매자 등록 / 내 SNS 이동 -->
-            <% if(vo.getMember_type().equals("0")){
-            	%>           
+            <% if(vo.getMember_type().equals("0")){%>           
 	            <div class="plus">
 	                <a class="sub" href = "sellerjoin.html">판매자 등록</a>
 	                <div class="icon1"><i class="fas fa-user-check"></i></div>
 	            </div>
             <% } else {  %>
 	            <div class="plus">
-		           	<a class="sub" href = "sellerjoin.html">내 SNS 이동</a>
+		           	<a class="sub" href = "sns.jsp">내 SNS 이동</a>
 		            <div class="icon1"><i class="fas fa-user-check"></i></div>
 	            </div>	
             <% }%>

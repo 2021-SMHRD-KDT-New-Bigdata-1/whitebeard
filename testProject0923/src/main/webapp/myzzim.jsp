@@ -57,11 +57,12 @@
 		</div><br>
 		
 		<!-- 내가 찜에 성공한 리스트 (SNS 제목만 나옴) -->
-		<div>내 찜 성공 목록</div>
-		<div><% if(p_dao.select_my_choice(vo.getMember_id()) == null) {
-			out.print("<div> 내 찜 인증 사진 없슴</div>");
-		} else { %>
-			<%=p_dao.select_my_choice(vo.getMember_id())%>					
+		<div><h3>내 찜 성공 목록</h3></div>
+		<div>
+		<% if(p_dao.select_my_choice(member_id) == null) {%>
+			<div><p> 내 찜 인증 사진 없슴</p></div>
+		<%} else { %> 
+			<%=p_dao.select_my_choice(member_id)%>					
 		<%} %>
 		</div><br>
 		
