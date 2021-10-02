@@ -38,7 +38,7 @@
 					out.print("<div class='navbar__profile'>프로필</div>");
 				%>
 
-
+	
 				<%
 				out.print("<ul class='navbar__menu'>");
 				out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
@@ -64,6 +64,8 @@
 							<table>
 								<tr class="storeimg">
 									<td class="storeimg">
+									<%  %>
+										<img src= "./uploadedFiles\\<%=vo3.get(0).getCompany_pic1() %>" class="profile" >
 										<img
 										src="uploadedFiles/" class="profile">
 										 
