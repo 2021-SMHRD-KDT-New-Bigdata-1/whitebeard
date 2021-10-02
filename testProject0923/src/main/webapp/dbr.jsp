@@ -8,7 +8,12 @@
 	String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe"; 
 	String id = "cgi_6_2"; 
 	String pass = "smhrd2"; 
-	int idx = Integer.parseInt(request.getParameter("ano_seq")); 
+	// int idx = Integer.parseInt(request.getParameter("ano_seq")); 
+	// int idx = Integer.parseInt(session.setAttribute("ano_seq", ano_seq)); 
+	int idx = Integer.parseInt(request.getParameter("ano_seq"));
+	session.setAttribute("ano_seq", idx);
+
+	
 	try { 
 		Connection conn = DriverManager.getConnection(url,id,pass); 
 		Statement stmt = conn.createStatement(); 
@@ -259,7 +264,7 @@ a {
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
      <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
       <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-      <td>내 용</td>
+      <td></td>
       <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
      </tr>
     </table>
@@ -299,12 +304,14 @@ a {
       <td align="center" width="76">내용</td>
       <td width="319"><%=ano_pic1%><%=ano_pic2%><%=ano_pic3%><%=ano_content%></td>
       
-      
       <td width="0">&nbsp;</td>
      </tr>
      
-     
-     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
+     	
+     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"><form action="dbr_Comment">
+								<a>댓글 입력 : </a><input type="text" name="ano_content2">
+								<input type="submit" value="등록"  onclick="location.href='dbr_Comment.java?ano_seq=<%=idx%>'">
+								</form></td></tr>
      
                 
  <% 
