@@ -22,7 +22,7 @@
    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body> 
-   <% 
+   <%   
 
    request.setCharacterEncoding("euc-kr");
    //로그인 한사람의 세션
