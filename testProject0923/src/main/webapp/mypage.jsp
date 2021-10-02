@@ -26,10 +26,13 @@
                 <div class="profilediv">
                 	<%if(vo.getCompany_pic1() !=null){ %>
                     <!-- <img src="C:\Users\smhrd\Desktop\JavaStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\testProject0923\uploadedFiles\img113.jpg" class="profile" > -->
-                    <img src= "uploadedFiles/<%=vo.getCompany_pic1() %>" class="profile" >
+                   <%--  <img src= "C:\\Users\\smhrd\\git\\whitebeard123\\testProject0923\\src\\main\\webapp\\uploadedFiles\\<%=vo.getCompany_pic1() %>" class="profile" > --%>
+	                     <img src= "./uploadedFiles\\<%=vo.getCompany_pic1() %>" class="profile" >
+                    
                     <%} else{%>
                     <P>아이콘 넣어라</P>
                     <%} %>
+                   <!--  "C:\\Users\\smhrd\\git\\whitebeard123\\testProject0923\\src\\main\\webapp\\uploadedFiles"; -->
                     
                 </div>
                 <div class="nick">
