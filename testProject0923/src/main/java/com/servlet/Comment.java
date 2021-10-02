@@ -6,9 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.DAO.commetDAO;
 import com.VO.CommentVO;
+import com.VO.MemberVO;
 
 @WebServlet("/Comment")
 public class Comment extends HttpServlet {
@@ -18,20 +20,26 @@ public class Comment extends HttpServlet {
 		
 		request.setCharacterEncoding("euc-kr");
 		
-		String comment = request.getParameter("comment");
-		String member_id = (String) request.getAttribute("mmid");
+		HttpSession session = request.getSession();
+		MemberVO vo = (MemberVO) session.getAttribute("vo");
 		
-		System.out.println(comment);
+		String member_id = vo.getMember_id();
+		String content =request.getParameter("content");
+
+		int idx = (int) session.getAttribute("sns_seq");
+		
 		System.out.println(member_id);
-		
-		
-/*		String comment_content, int article_seq, String member_id
-		String member_id = request.getSession("vo").g;
+		System.out.println(idx);
+		System.out.println(content);
 		
 		commetDAO dao = new commetDAO();
-		CommentVO com_vo = dao.insert_comment(comment, 0, comment)*/
+		int commentVO = dao.insert_comment(content, idx, member_id);
 		
-		
+		if(commentVO >0) {
+			
+			response.sendRedirect("main.jsp");
+			
+		}
 		
 		
 	}

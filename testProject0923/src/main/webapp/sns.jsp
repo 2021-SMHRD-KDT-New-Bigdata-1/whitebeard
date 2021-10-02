@@ -21,8 +21,8 @@
 	
 	ArrayList<SnsVO> vo2 = dao.sns_real(idx);
 	ArrayList<MemberVO> vo3 = dao.sns_member(id);
-	System.out.println(id);
 	
+	session.setAttribute("sns_seq", idx);
    %>
 	<a href="page.jsp">고</a>
 	<div id="wrapper">
@@ -132,9 +132,8 @@
 									} else {
 								%>
 								<form action="Comment">
-								<a>댓글 입력 : </a><input type="text" name="comment">
-								<%String mmid = vo.getMember_id();%>
-								<input type="submit" value="등록">
+								<a>댓글 입력 : </a><input type="text" name="content">
+								<input type="submit" value="등록"  onclick="location.href='Comment.java?sns_seq=<%=idx%>'">
 								</form>
 							</div>
 							<% } %>
