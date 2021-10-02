@@ -21,9 +21,9 @@
    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-   <% 
-
+<body> 
+   <%   
+ 
    request.setCharacterEncoding("euc-kr");
    //로그인 한사람의 세션
    MemberVO vo = (MemberVO) session.getAttribute("vo");
