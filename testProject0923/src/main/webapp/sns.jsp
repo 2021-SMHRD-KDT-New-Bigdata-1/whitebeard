@@ -45,7 +45,7 @@
 				out.print("<li><a href=''>순위표</a></li>");
 				out.print("<li><a href=''>내찜목록</a></li>");
 				out.print("<li><a href=''>판매자등록</a></li>");
-				out.print("<li><a href='LogoutCon.do'>로그아웃</a></li>");
+				out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
 				out.print("</ul>");
 				/*  if (vo.getEmail().equals("admin")) {
 				out.print("<a href='selectMember.jsp'>회원전체목록</a>");
