@@ -11,7 +11,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
 	integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  
 </head>
 <body>
    <%
@@ -114,17 +114,16 @@
             
             
             <!-- 판매자 등록 / 내 SNS 이동 -->
-            <% if(vo.getMember_type().equals('0')){
-            	%>           
-            <div class="plus">
-                <a class="sub" href = "sellerjoin.html">판매자 등록</a>
-                <div class="icon1"><i class="fas fa-user-check"></i></div>
-            </div>
+            <% if(vo.getMember_type().equals("0")){%>           
+	            <div class="plus">
+	                <a class="sub" href = "sellerjoin.html">판매자 등록</a>
+	                <div class="icon1"><i class="fas fa-user-check"></i></div>
+	            </div>
             <% } else {  %>
-            <div class="plus">
-	           	<a class="sub" href = "sellerjoin.html">내 SNS 이동</a>
-	            <div class="icon1"><i class="fas fa-user-check"></i></div>
-            </div>	
+	            <div class="plus">
+		           	<a class="sub" href = "sns.jsp">내 SNS 이동</a>
+		            <div class="icon1"><i class="fas fa-user-check"></i></div>
+	            </div>	
             <% }%>
             
             

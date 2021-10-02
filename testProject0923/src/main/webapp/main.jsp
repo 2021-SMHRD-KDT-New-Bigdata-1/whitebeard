@@ -21,9 +21,9 @@
    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-   <% 
-
+<body> 
+   <%   
+ 
    request.setCharacterEncoding("euc-kr");
    //로그인 한사람의 세션
    MemberVO vo = (MemberVO) session.getAttribute("vo");
@@ -41,7 +41,7 @@
    <nav class='navbar'>
       <div class='navbar__logo'>로고 자리</div>
 
-      <div class='navbar__main' onclick="location.href='main.jsp'">할인2동</div>
+      <div class='navbar__main' onclick="location.href='main.jsp'"\>할인2동</div>
       <%
       if (vo == null) {
          out.print("<div class='' onclick='location.href=\"login.jsp\"'>로그인</div></nav>");

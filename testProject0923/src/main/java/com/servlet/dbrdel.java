@@ -1,6 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,48 +10,62 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.DAO.commetDAO;
 import com.DAO.dbrDAO;
-import com.DAO.dbr_comDAO;
 import com.VO.MemberVO;
 
-@WebServlet("/dbr_Comment")
-public class dbr_Comment extends HttpServlet {
+/**
+ * Servlet implementation class dbrdel
+ */
+@WebServlet("/dbrdel")
+public class dbrdel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		request.setCharacterEncoding("euc-kr");
-		response.setCharacterEncoding("euc-kr");
-		
+
+	
+
 		HttpSession session = request.getSession();
 		MemberVO vo = (MemberVO) session.getAttribute("vo");
-		
-		String member_id = vo.getMember_id();
-		String content =request.getParameter("ano_content2");
+		int ano_seq = (int) session.getAttribute("ano_seq");
 
-		int idx = (int) session.getAttribute("ano_seq");
 		
-		System.out.println(member_id);
-		System.out.println(idx);
-		System.out.println(content);
+		dbrDAO dbr = new dbrDAO();  
+
+		int cnt = dbr.delete(ano_seq);
+		
+		if(cnt>0) {
+			response.sendRedirect("main.jsp");
+		}else {
+			System.out.println("¾ÈµÇ³×¿ë");
+		}
 		
 
-		 
-		  
-		  
-		  dbr_comDAO dao = new dbr_comDAO(); 
-		  
-			int cnt = dao.write_com(content,idx, member_id);
-			
-			if(cnt>0) {
-				response.sendRedirect("main.jsp");
-			}else {
-				System.out.println("¾Ó´ô¤À¿µ");
-			}
+		
+
 		
 		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		// TODO Auto-generated method stub
 	}
 
 }
-

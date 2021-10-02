@@ -308,9 +308,12 @@ a {
      </tr>
      
      	
-     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"><form action="dbr_Comment">
+     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"><form>
 								<a>댓글 입력 : </a><input type="text" name="ano_content2">
-								<input type="submit" value="등록"  onclick="location.href='dbr_Comment.java?ano_seq=<%=idx%>'">
+								<input type="submit" value="등록"  onclick="location.href='dbr_Comment?ano_seq=<%=idx%>'">
+								
+						
+								
 								</form></td></tr>
      
                 
@@ -336,7 +339,7 @@ a {
 	<input type=button value="목록" OnClick="window.location='main.jsp'">
 	
 	<input type=button value="수정" OnClick="window.location='dbr_edit.jsp?idx=<%=idx%>'">
-	<input type=button value="삭제">
+	<input type=button value="삭제" OnClick="window.location='dbrdel'">
       <td width="0">&nbsp;</td>
      </tr>
     </table>

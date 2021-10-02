@@ -238,7 +238,7 @@ public class mypointDAO {
 		try {
 			conn();
 
-			String sql = String.format("select subject from sns where article_seq in (select article_seq from mypoints where member_id = ?)");
+			String sql = "select subject from sns where article_seq in (select article_seq from mypoints where member_id = ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, member_id);
 

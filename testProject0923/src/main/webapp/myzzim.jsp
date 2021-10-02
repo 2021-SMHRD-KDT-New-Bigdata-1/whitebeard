@@ -47,7 +47,7 @@
 	<section>
 		<!-- 주석추가 -->
 		<!-- 내 찜 목록 (내가 찜한 SNS 제목만 나옴) -->
-		<div>내 찜 목록</div><br>
+		<div><h3>내 찜 목록</h3></div><br>
 		<div>
 		<% if(c_dao.select_my_choice(member_id) == null) {%>
 		<div><p>내 찜 목록 없슴 </p></div>
@@ -57,16 +57,17 @@
 		</div><br>
 		
 		<!-- 내가 찜에 성공한 리스트 (SNS 제목만 나옴) -->
-		<div>내 찜 성공 목록</div>
-		<div><% if(p_dao.select_my_choice(vo.getMember_id()) == null) {
-			out.print("<div> 내 찜 인증 사진 없슴</div>");
-		} else { %>
-			<%=p_dao.select_my_choice(vo.getMember_id())%>					
+		<div><h3>내 찜 성공 목록</h3></div>
+		<div>
+		<% if(p_dao.select_my_choice(member_id) == null) {%>
+			<div><p> 내 찜 인증 사진 없슴</p></div>
+		<%} else { %> 
+			<%=p_dao.select_my_choice(member_id)%>					
 		<%} %>
 		</div><br>
 		
 		<!-- 찜을 성공한 뒤, 인증 사진 올리기  -->
-		<form>
+		<!-- <form>
 			<div>찜 인증 사진 올리기</div><br>
 			<div class="uploadwrap">
 				<div>
@@ -88,14 +89,14 @@
 						accept="image/*" name="pic3" id="company_pic3">
 				</div>
 			</div>
-		</form>
-		<div>찜 인증 사진 구경하기</div><br>
+		</form> -->
+		<%-- <div>찜 인증 사진 구경하기</div><br>
 		<div><% if(p_dao.select_picture(vo.getMember_id()) == null) {
 		out.print("<div> 내 찜 인증 사진 없슴 </div>");
 		} else { %>
 			<%=p_dao.select_picture(vo.getMember_id())%>					
 		<%} %>
-		</div><br>
+		</div><br> --%>
 		
 		<!-- 내 현재 포인트 (새로고침 버튼 누르면 업데이트) -->
 		<form action="MyPointService">

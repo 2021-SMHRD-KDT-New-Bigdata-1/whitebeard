@@ -47,18 +47,20 @@ public class dbr_comDAO {
 	}
 
 		
-	public int write_com(String anocom_content,int idx,String member_id) {
+	public int write_com(String anocom_content,int ano_seq,String member_id) {
 		int cnt = 0;
 		try {
 			conn(); 
 			//글제목 사진 1 2 3 이름 시간 글내용 댓글~~~ 이코드는 담벼락 글 작성하는 녀석입니다
-			String sql = "insert into anocomments(anocom_content,member_id,anocome_date) values(?,?, SYSDATE)";
+			String sql = "insert into anocomments(anocom_content,ano_seq,anocome_date,member_id) values(?,?,SYSDATE,?)";
 
 			PreparedStatement psmt = conn.prepareStatement(sql);
 
 			
 			
 			psmt.setString(1, anocom_content); //글내용
+			psmt.setInt(2, ano_seq);
+			psmt.setString(3, member_id); //글내용
 			
 			
 
