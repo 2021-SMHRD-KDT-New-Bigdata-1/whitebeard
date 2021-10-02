@@ -47,7 +47,7 @@ public class dbr_comDAO {
 	}
 
 		
-	public int write_com(String anocom_content, String member_id) {
+	public int write_com(String anocom_content,int idx,String member_id) {
 		int cnt = 0;
 		try {
 			conn(); 

@@ -11,7 +11,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
 	integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  
 </head>
 <body>
    <%
@@ -46,7 +46,11 @@
 			<% if(vo.getMember_type().equals("0")){%> 
                 <a href = "update.html"><input type="submit" value=" 회원 정보 수정 "></a>
              <% } else { %>                
+<<<<<<< HEAD
         	    <a href = "update.html"><input type="submit" value=" 회원 정보 수정 "></a>
+=======
+             	<a href = "update.html"><input type="submit" value=" 회원 정보 수정 "></a>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/whitebeard.git
                 <a href = "sellerupdate.html"><input type="submit" value=" 판매자 정보 수정 "></a>
                 <%} %>
             </div>

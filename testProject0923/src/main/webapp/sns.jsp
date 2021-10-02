@@ -21,8 +21,8 @@
 	
 	ArrayList<SnsVO> vo2 = dao.sns_real(idx);
 	ArrayList<MemberVO> vo3 = dao.sns_member(id);
-	System.out.println(id);
 	
+	session.setAttribute("sns_seq", idx);
    %>
 	<a href="page.jsp">고</a>
 	<div id="wrapper">
@@ -38,7 +38,7 @@
 					out.print("<div class='navbar__profile'>프로필</div>");
 				%>
 
-
+	
 				<%
 				out.print("<ul class='navbar__menu'>");
 				out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
@@ -64,6 +64,8 @@
 							<table>
 								<tr class="storeimg">
 									<td class="storeimg">
+									<%  %>
+										<img src= "./uploadedFiles\\<%=vo3.get(0).getCompany_pic1() %>" class="profile" >
 										<img
 										src="uploadedFiles/" class="profile">
 										 
@@ -132,9 +134,8 @@
 									} else {
 								%>
 								<form action="Comment">
-								<a>댓글 입력 : </a><input type="text" name="comment">
-								<%String mmid = vo.getMember_id();%>
-								<input type="submit" value="등록">
+								<a>댓글 입력 : </a><input type="text" name="content">
+								<input type="submit" value="등록"  onclick="location.href='Comment.java?sns_seq=<%=idx%>'">
 								</form>
 							</div>
 							<% } %>
