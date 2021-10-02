@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import com.VO.AnoCommentVO;
 import com.VO.AnonymousVO;
 import com.VO.MemberVO;
 
@@ -52,7 +53,7 @@ public class dbr_comDAO {
 		try {
 			conn(); 
 			//글제목 사진 1 2 3 이름 시간 글내용 댓글~~~ 이코드는 담벼락 글 작성하는 녀석입니다
-			String sql = "insert into anocomments(anocom_content,ano_seq,anocome_date,member_id) values(?,?,SYSDATE,?)";
+			String sql = "insert into anocomments(anocom_content,ano_seq,anocom_date,member_id) values(?,?,SYSDATE,?)";
 
 			PreparedStatement psmt = conn.prepareStatement(sql);
 
@@ -128,14 +129,14 @@ public class dbr_comDAO {
 		
 	}
 	
-	public ArrayList<AnonymousVO> select_all_dbr(int ano_seq) {
+	public ArrayList<AnoCommentVO> select_all_comdbr(int ano_seq) {
 		
-		ArrayList<AnonymousVO> anoList = new ArrayList<AnonymousVO>();
+		ArrayList<AnoCommentVO> anoList = new ArrayList<AnoCommentVO>();
 
 		try {
 			
 			conn();	               				
-			String sql = "select * from anonymous where ano_seq=?";
+			String sql = "select * from anocomments where ano_seq=?";
 			psmt = conn.prepareStatement(sql);
             psmt.setInt(1, ano_seq);               
             
@@ -144,17 +145,14 @@ public class dbr_comDAO {
             while(rs.next()) {
             	
             	
-            	ano_seq = rs.getInt(1);
-            	String member_id = rs.getString(2); //글제목
-    		    String ano_subject = rs.getString(3); //글제목
-    		    String ano_content = rs.getString(4); //글내용
-    		    String ano_pic1 = rs.getString(5); //글사진
-    		    String ano_pic2 = rs.getString(6); //글사진
-    		    String ano_pic3 =rs.getString(7); //글사진
-    		    Date ano_date = rs.getDate(8);
+            	int anocom_seq = rs.getInt(1);
+            	String anocom_content = rs.getString(2); //글내용
+            	ano_seq = rs.getInt(3);
+            	Date anocom_date = rs.getDate(4);
+            	String member_id = rs.getString(5);
     		    
             		            		            	
-            	anoList.add(new AnonymousVO(ano_seq, member_id, ano_subject, ano_content, ano_pic1, ano_pic2, ano_pic3, ano_date));
+            	anoList.add(new AnoCommentVO(anocom_seq, anocom_content, ano_seq, anocom_date, member_id));
             }
             
             }catch(Exception e){
