@@ -45,7 +45,7 @@
                 <button><a href="main.jsp">홈화면이동</a></button>
             </span>
             <span>
-                <button><a href = "login.html">로그인</a></button>
+                <button><a href = "login.jsp">로그인</a></button>
             </span>
         </div>
     </div>
