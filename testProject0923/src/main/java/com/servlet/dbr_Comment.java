@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.commetDAO;
+import com.DAO.dbrDAO;
 import com.DAO.dbr_comDAO;
 import com.VO.MemberVO;
 
@@ -33,18 +34,22 @@ public class dbr_Comment extends HttpServlet {
 		System.out.println(idx);
 		System.out.println(content);
 		
-		/*
-		 * dbr_comDAO dao = new dbr_comDAO(); int commentVO = dao.write_com(content,
-		 * idx, member_id);
-		 * 
-		 * if(commentVO >0) {
-		 * 
-		 * response.sendRedirect("main.jsp");
-		 * 
-		 * }
-		 */
+
+		 
+		  
+		  
+		  dbr_comDAO dao = new dbr_comDAO(); 
+		  
+			int cnt = dao.write_com(content,idx, member_id);
+			
+			if(cnt>0) {
+				response.sendRedirect("main.jsp");
+			}else {
+				System.out.println("¾Ó´ô¤À¿µ");
+			}
 		
 		
 	}
 
 }
+

@@ -308,9 +308,12 @@ a {
      </tr>
      
      	
-     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"><form action="dbr_Comment">
+     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"><form>
 								<a>댓글 입력 : </a><input type="text" name="ano_content2">
-								<input type="submit" value="등록"  onclick="location.href='dbr_Comment.java?ano_seq=<%=idx%>'">
+								<input type="submit" value="등록"  onclick="location.href='dbr_Comment?ano_seq=<%=idx%>'">
+								
+						
+								
 								</form></td></tr>
      
                 
