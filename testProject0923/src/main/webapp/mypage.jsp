@@ -114,17 +114,17 @@
             
             
             <!-- 판매자 등록 / 내 SNS 이동 -->
-            <% if(vo.getMember_type().equals('0')){
+            <% if(vo.getMember_type().equals("0")){
             	%>           
-            <div class="plus">
-                <a class="sub" href = "sellerjoin.html">판매자 등록</a>
-                <div class="icon1"><i class="fas fa-user-check"></i></div>
-            </div>
+	            <div class="plus">
+	                <a class="sub" href = "sellerjoin.html">판매자 등록</a>
+	                <div class="icon1"><i class="fas fa-user-check"></i></div>
+	            </div>
             <% } else {  %>
-            <div class="plus">
-	           	<a class="sub" href = "sellerjoin.html">내 SNS 이동</a>
-	            <div class="icon1"><i class="fas fa-user-check"></i></div>
-            </div>	
+	            <div class="plus">
+		           	<a class="sub" href = "sellerjoin.html">내 SNS 이동</a>
+		            <div class="icon1"><i class="fas fa-user-check"></i></div>
+	            </div>	
             <% }%>
             
             
