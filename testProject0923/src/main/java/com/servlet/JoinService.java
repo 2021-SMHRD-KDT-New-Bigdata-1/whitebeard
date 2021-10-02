@@ -24,7 +24,8 @@ public class JoinService extends HttpServlet {
 
 	request.setCharacterEncoding("euc-kr");
  
-	String saveDri = "C:\\Users\\smhrd\\git\\whitebeard123\\testProject0923\\src\\main\\webapp\\uploadedFiles";
+	String saveDri = request.getServletContext().getRealPath("uploadedFiles");
+//			"C:\\Users\\smhrd\\git\\whitebeard123\\testProject0923\\src\\main\\webapp\\uploadedFiles";
 //			request.getServletContext().getRealPath("uploadedFiles");
 	System.out.println(saveDri);
 	int maxSize = 5*1024*1024;
