@@ -274,13 +274,12 @@
    <td width="379">제목</td>
    <td width="73">작성자</td>
    <td width="164">작성일</td>
-   
+   <td width="58">조회수</td>
    <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
   </tr>
 <%
    if(total==0) {
 %>
-
           <tr align="center" bgcolor="#FFFFFF" height="30">
           <td colspan="6">등록된 글이 없습니다.</td>
          </tr>
@@ -290,7 +289,9 @@
       while(rs.next()) {
          int ano_seq = rs.getInt(1);
          String ano_subject = rs.getString(2);
+         String ano_content = rs.getString(3);
          String date = rs.getString(8);
+         int count = rs.getInt(7);
       
 %>
 <tr height="25" align="center">

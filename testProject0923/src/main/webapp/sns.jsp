@@ -126,10 +126,18 @@
 
 							</div>
 							<div class="coment">
-								행인1: 맛있겠당 행인4:군침이 싹도네요 <br> 행인3:그녀와 가을전어에 소주한잔 하고싶은 15시
-								16분... <br> 행인2:화욜점심뭐먹지
+							<!-- 댓글  -->
+							<% if (vo == null) {
+								out.print("");
+									} else {
+								%>
+								<form action="Comment">
+								<a>댓글 입력 : </a><input type="text" name="comment">
+								<%= vo.getMember_id()%>
+								<input type="submit" value="등록">
+								</form>
 							</div>
-
+							<% } %>
 
 						</div>
 
