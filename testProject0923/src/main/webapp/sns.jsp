@@ -45,7 +45,7 @@
 				out.print("<li><a href=''>순위표</a></li>");
 				out.print("<li><a href=''>내찜목록</a></li>");
 				out.print("<li><a href=''>판매자등록</a></li>");
-				out.print("<li><a href='LogoutCon.do'>로그아웃</a></li>");
+				out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
 				out.print("</ul>");
 				/*  if (vo.getEmail().equals("admin")) {
 				out.print("<a href='selectMember.jsp'>회원전체목록</a>");
@@ -133,7 +133,7 @@
 								%>
 								<form action="Comment">
 								<a>댓글 입력 : </a><input type="text" name="comment">
-								<%= vo.getMember_id()%>
+								<%String mmid = vo.getMember_id();%>
 								<input type="submit" value="등록">
 								</form>
 							</div>
