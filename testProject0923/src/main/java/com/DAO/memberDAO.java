@@ -214,7 +214,6 @@ public class memberDAO {
 				String company_pic2 = rs.getString(13);
 				String company_pic3 = rs.getString(14);
 				String company_info = rs.getString(15);
-				System.out.print(birth_date);
 				vo = new MemberVO(id, pw, name, birth_date, nickname, email, phone, member_type, company_name,
 						company_bn, b_type, company_pic1, company_pic2, company_pic3, company_info);
 			} 
