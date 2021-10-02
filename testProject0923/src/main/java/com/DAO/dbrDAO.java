@@ -120,10 +120,10 @@ public class dbrDAO {
 		
 		try {
             conn();
-             
-            String sql = "delete * from anonymous where ano_seq = ?";
+
+            String sql = "delete from anonymous where ano_seq = ?";
              		
-            psmt = conn.prepareStatement(sql);	          
+            PreparedStatement psmt = conn.prepareStatement(sql);	          
 			psmt.setInt(1, ano_seq);
                           
             cnt = psmt.executeUpdate();      	      
