@@ -125,7 +125,10 @@
 
 
 							<h4><%=vo2.get(0).getSubject()%></h4>
-							<img src="assets/img/test.jfif" id="storeitem" alt="">
+							<!-- <img src="assets/img/test.jfif" id="storeitem" alt=""> -->
+							<img
+										src="./uploadedFiles\\<%=vo2.get(0).getPic1()%>"
+										class="profile"> 
 							<div>
 								°Ô½ÃÀÚ :
 								<%=vo2.get(0).getMember_id()%>
