@@ -43,6 +43,7 @@
 	mypointDAO p_dao = new mypointDAO();
 	mychoiceDAO c_dao = new mychoiceDAO();
 	%>
+	
 	<section>
 		<!-- 주석추가 -->
 		<!-- 내 찜 목록 (내가 찜한 SNS 제목만 나옴) -->
