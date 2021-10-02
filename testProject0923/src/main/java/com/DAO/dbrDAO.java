@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.VO.AnoCommentVO;
 import com.VO.AnonymousVO;
+import com.VO.CommentVO;
 import com.VO.MemberVO;
 import com.VO.SnsVO;
 
@@ -79,7 +80,7 @@ public class dbrDAO {
 	
 		
 	
-	public int edit(String ano_subject, String ano_content, String ano_pic1, String ano_pic2, String ano_pic3) {
+	public int edit(String ano_subject, String ano_content, String ano_pic1, String ano_pic2, String ano_pic3, int ano_seq) {
 		
 		int cnt = 0;
 		
@@ -88,12 +89,16 @@ public class dbrDAO {
              
             String sql = "update anonymous set ano_subject=?, ano_content=?, ano_pic1=?, ano_pic2=?, ano_pic3=?,ano_date=SYSDATE where ano_seq = ?";
              		
+			PreparedStatement psmt = conn.prepareStatement(sql);
+
 			psmt.setString(1, ano_subject); //글제목
 			psmt.setString(2, ano_content); //글내용
 			psmt.setString(3, ano_pic1); //글사진
 			psmt.setString(4, ano_pic2); //글사진
 			psmt.setString(5, ano_pic3); //글사진
-                          
+			psmt.setInt(6, ano_seq);
+      
+			
             cnt = psmt.executeUpdate();      	      
 	         
 	      } catch (Exception e) {
@@ -134,28 +139,31 @@ public class dbrDAO {
 	}
 	
 	
-	public ArrayList<AnoCommentVO> select_all_dbr(int anocom_seq) {
+	public ArrayList<AnonymousVO> select_all_dbr(int ano_seq) {
 		
-		ArrayList<AnoCommentVO> anoList = new ArrayList<AnoCommentVO>();
+		ArrayList<AnonymousVO> dbrList = new ArrayList<AnonymousVO>();
 
 		try {
 			
 			conn();	               				
-			String sql = "select * from anocomment where ano_seq=?";
+			String sql = "select * from anonymous where ano_seq=?";
 			psmt = conn.prepareStatement(sql);
-            psmt.setInt(1, anocom_seq);               
+            psmt.setInt(1, ano_seq);               
             
             rs = psmt.executeQuery();
             
             while(rs.next()) {
-            	
-            	
-            	anocom_seq = rs.getInt(1);           		    
-    		    String ano_content = rs.getString(2); //글내용
-    		    Date ano_date = rs.getDate(3);
-    		    String member_id = rs.getString(4); //글제목
+            	           	
+            	ano_seq = rs.getInt(1);
+            	String member_id = rs.getString(2);
+    			String ano_subject = rs.getString(3); 
+    			String ano_content = rs.getString(4); 
+    			String ano_pic1 = rs.getString(5); 
+    			String ano_pic2 = rs.getString(6); 
+    			String ano_pic3 = rs.getString(7); 
+    			Date ano_date = rs.getDate(8);
             		            		            	
-            	anoList.add(new AnoCommentVO(anocom_seq, ano_content, anocom_seq, ano_date, member_id));
+    		    dbrList.add(new AnonymousVO(ano_seq, member_id, ano_subject, ano_content, ano_pic1, ano_pic2, ano_pic3, ano_date));
             }
             
             }catch(Exception e){
@@ -164,7 +172,7 @@ public class dbrDAO {
             	close();
             }
 		
-		return anoList;		
+		return dbrList;		
 		
 	}
 
