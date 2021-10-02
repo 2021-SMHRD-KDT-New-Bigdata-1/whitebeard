@@ -288,7 +288,7 @@ if(total==0) {
     } else {
        
    while(rs.next()) {
-      int ano_seq = rs.getInt(1);
+      int ano_seq = rs.getInt(1);      
       String ano_subject = rs.getString(2);
       String date = rs.getString(8);
    
@@ -312,6 +312,8 @@ conn.close();
 } catch(Exception e) { 
 out.println( e.toString() );
 }
+
+
 %>
 <tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr>
 </table>
