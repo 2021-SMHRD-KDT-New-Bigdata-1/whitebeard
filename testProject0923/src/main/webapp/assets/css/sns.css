@@ -27,6 +27,13 @@ html,
 body {
   height: 100%;
   background: #f5f6f7;
+  display: inherit;
+}
+
+#inner {
+	width : 100%;
+	position: absolute;
+	z-index: -1;
 }
 
 a {
@@ -66,9 +73,11 @@ a {
 
 .navbar__menu.active {
   background-color: darkgray;
-  float: right;
+  position: static;
   display: flex;
   flex-direction: column;
+  float: right;
+  z-index: 4;
 }
 
 .searchBar {
@@ -166,6 +175,7 @@ ul.tabs li.current {
 
 .tab-content.current {
   display: inherit;
+  z-index: 99;
 }
 
 #storeitem {

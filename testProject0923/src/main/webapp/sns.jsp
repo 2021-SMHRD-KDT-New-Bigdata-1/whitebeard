@@ -1,3 +1,5 @@
+<%@page import="com.VO.CommentVO"%>
+<%@page import="com.DAO.commetDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.snsDAO"%>
 <%@page import="com.VO.SnsVO"%>
@@ -14,16 +16,19 @@
 </head>
 <body>
 	<%
-    MemberVO vo = (MemberVO) session.getAttribute("vo");
+	MemberVO vo = (MemberVO) session.getAttribute("vo");
 	snsDAO dao = new snsDAO();
-	int idx = Integer.parseInt(request.getParameter("sns_seq")); 
-	String id = request.getParameter("sns_memeber_id");
-	
-	ArrayList<SnsVO> vo2 = dao.sns_real(idx);
-	ArrayList<MemberVO> vo3 = dao.sns_member(id);
-	
+	commetDAO comment_dao = new commetDAO();
+	int idx = Integer.parseInt(request.getParameter("sns_seq"));
 	session.setAttribute("sns_seq", idx);
-   %>
+	ArrayList<SnsVO> vo2 = dao.sns_real(idx);
+
+	String id = request.getParameter("sns_memeber_id");
+	ArrayList<MemberVO> vo3 = dao.sns_member(id);
+
+	ArrayList<CommentVO> vo4 = comment_dao.select_article_comment(idx);
+	ArrayList<CommentVO> vo5 = comment_dao.select_market_comment(id);
+	%>
 	<a href="page.jsp">고</a>
 	<div id="wrapper">
 		<div id="content">
@@ -33,12 +38,11 @@
 				<div class='navbar__main' onclick="location.href='main.jsp'">할인2동</div>
 				<%
 				if (vo == null) {
-					out.print("<div class='', onclick='location.href=\"login.jsp\"'>로그인</div>");
+					out.print("<div class='', onclick='location.href=\"login.jsp\"'>로그인</div></nav>");
 				} else {
-					out.print("<div class='navbar__profile'>프로필</div>");
+					out.print("<div class='navbar__profile'>프로필</div></nav>");
 				%>
 
-	
 				<%
 				out.print("<ul class='navbar__menu'>");
 				out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
@@ -54,7 +58,7 @@
 				}  */
 				}
 				%>
-			</nav>
+			
 
 			<div id="inner">
 				<div class="snshead">
@@ -64,12 +68,14 @@
 							<table>
 								<tr class="storeimg">
 									<td class="storeimg">
-									<%  %>
-										<img src= "./uploadedFiles\\<%=vo3.get(0).getCompany_pic1() %>" class="profile" >
-										<img
-										src="uploadedFiles/" class="profile">
-										 
-										<p>업체 사진을 등록해 주세요.</p> 
+										<%
+										if (vo3.get(0).getCompany_pic1() !=null) {			
+										%> <img
+										src="./uploadedFiles\\<%=vo3.get(0).getCompany_pic1()%>"
+										class="profile"> 
+										<%} else { %>
+										<p>업체 사진을 등록해 주세요.</p>
+										<%} %>
 									</td>
 								</tr>
 
@@ -77,10 +83,12 @@
 						</div>
 
 						<a href=""><img src="img/face.png" alt="" id="face"></a> <span
-							id="name"> <strong id="storename">가게이름 : <%= vo3.get(0).getCompany_name() %></strong>
+							id="name"> <strong id="storename">가게이름 : <%=vo3.get(0).getCompany_name()%></strong>
 							<p id="storekind" name="stkind">
-								<span>가게종류 : <%= vo3.get(0).getB_type() %> </span>
+								<span>가게종류 : <%=vo3.get(0).getB_type()%>
+								</span>
 							</p>
+
 						</span>
 					</form>
 					<div class="container">
@@ -110,55 +118,106 @@
 									<%} %>  --%>
 								</p>
 								<div class="accessory">
-									<img src="좋아요아이콘" width="16px"> Like 
-									<img src="댓글아이콘" width="16px"> Comments
+									<img src="좋아요아이콘" width="16px"> Like <img src="댓글아이콘"
+										width="16px"> Comments
 								</div>
 							</div>
 
 
-							<h4><%=vo2.get(0).getSubject() %></h4>
+							<h4><%=vo2.get(0).getSubject()%></h4>
 							<img src="assets/img/test.jfif" id="storeitem" alt="">
-							<div>게시자 : <%=vo2.get(0).getMember_id() %> </div>
-							<div>정가 : <%=vo2.get(0).getRegular_price() %></div>
-							<div>판매가 : <%=vo2.get(0).getSale_price() %></div>
-							<div>상호명 :  <%=vo3.get(0).getCompany_name() %></div>
 							<div>
-							글내용 : <%=vo2.get(0).getContent() %>
-						    <div>프로필</div>
+								게시자 :
+								<%=vo2.get(0).getMember_id()%>
+							</div>
+							<div>
+								정가 :
+								<%=vo2.get(0).getRegular_price()%></div>
+							<div>
+								판매가 :
+								<%=vo2.get(0).getSale_price()%></div>
+							<div>
+								상호명 :
+								<%=vo3.get(0).getCompany_name()%></div>
+							<div>
+								글내용 :
+								<%=vo2.get(0).getContent()%>
+								<div>프로필</div>
+								<div>댓글</div>
+								<table style="width: 100%">
+									<tr>
+										<td style="width: 30%">작성자</td>
+										<td style="width: 30%">내용</td>
+										<td style="width: 30%">날짜</td>
+									</tr>
+								</table>
 
+								<table style="width: 100%">
+									<%
+									if (vo4.size() == 0) {
+										System.out.print("값이 없습니다");
+									} else {
+										for (int i = 0; i < vo4.size(); i++) {
+									%>
+									<tr>
+										<td style="width: 30%"><%=vo4.get(i).getMember_id()%></td>
+										<td style="width: 30%"><%=vo4.get(i).getComment_content()%></td>
+										<td style="width: 30%"><%=vo4.get(i).getComment_date()%></td>
+									</tr>
+									<%
+									}
+									}
+									%>
+								</table>
 							</div>
 							<div class="coment">
-							<!-- 댓글  -->
-							<% if (vo == null) {
-								out.print("");
-									} else {
+								<!-- 댓글  -->
+								<%
+								if (vo == null) {
+									out.print("");
+								} else {
 								%>
 								<form action="Comment">
-								<a>댓글 입력 : </a><input type="text" name="content">
-								<input type="submit" value="등록"  onclick="location.href='Comment.java?sns_seq=<%=idx%>'">
+									<a>댓글 입력 : </a><input type="text" name="content"> <input
+										type="submit" value="등록"
+										onclick="location.href='Comment.java?sns_seq=<%=idx%>'">
 								</form>
 							</div>
-							<% } %>
+							<%
+							}
+							%>
 
 						</div>
 
 						<!-- 가게정보 -->
 						<div id="tab-2" class="tab-content">
 							<p>
-								가게정보 : <%= vo3.get(0).getCompany_info() %>
+								가게정보 :
+								<%=vo3.get(0).getCompany_info()%>
 							</p>
 						</div>
 
 						<!-- 댓글 모아보기 -->
 						<div id="tab-3" class="tab-content">
-							<div>행인1: 맛있겠당</div>
-							<div>행인4:군침이 싹도네요</div>
-
-							<div>행인3:그녀와 가을전어에 소주한잔 하고싶은 15시 16분...</div>
-
-							<div>행인2:화욜점심뭐먹지</div>
+						<table style="width: 100%">
+							<% if (vo5.size() ==0) {
+								out.print("없어용");
+							}else { %>
+								<tr>
+								<td style="width: 30%">작성자</td>
+								<td style="width: 30%">댓글</td>
+								<td style="width: 30%">작성 날짜</td>
+								</tr>
+							<%for (int i=0 ; i<vo5.size(); i++) { %>
+								<tr>
+									<td style="width: 30%"><%=vo5.get(i).getMember_id()%></td>
+									<td style="width: 30%"><%=vo5.get(i).getComment_content()%></td>
+									<td style="width: 30%"><%=vo5.get(i).getComment_date() %></td>
+								</tr>
+							<%}} %>	
+						</table>
 						</div>
-										</div>
+					</div>
 				</div>
 			</div>
 		</div>
