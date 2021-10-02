@@ -15,6 +15,7 @@
 <body>
 	<%
 	MemberVO vo = (MemberVO)session.getAttribute("vo");
+	String member_id = vo.getMember_id();
 	%>
 	
 	<div class="wrap">
@@ -47,13 +48,13 @@
 		<!-- ÁÖ¼®Ãß°¡ -->
 		<!-- ³» Âò ¸ñ·Ï (³»°¡ ÂòÇÑ SNS Á¦¸ñ¸¸ ³ª¿È) -->
 		<div>³» Âò ¸ñ·Ï</div><br>
-		<div><% if(c_dao.select_my_choice(vo.getMember_id()) == null) {
-			out.print("<div> ³» Âò ¸ñ·Ï ¾ø½¿ </div>");
-		} else { %>
-			<%=c_dao.select_my_choice(vo.getMember_id())%>					
+		<div>
+		<% if(c_dao.select_my_choice(member_id) == null) {%>
+		<div><p>³» Âò ¸ñ·Ï ¾ø½¿ </p></div>
+		<%} else { %>
+			<div><p>³» Âò ¸ñ·Ï ÀÌ¾¸ </p></div>			
 		<%} %>
 		</div><br>
-		
 		
 		<!-- ³»°¡ Âò¿¡ ¼º°øÇÑ ¸®½ºÆ® (SNS Á¦¸ñ¸¸ ³ª¿È) -->
 		<div>³» Âò ¼º°ø ¸ñ·Ï</div>
@@ -65,9 +66,29 @@
 		</div><br>
 		
 		<!-- ÂòÀ» ¼º°øÇÑ µÚ, ÀÎÁõ »çÁø ¿Ã¸®±â  -->
-		<div>Âò ÀÎÁõ »çÁø ¿Ã¸®±â</div><br>
-		<div></div><br>
-		
+		<form>
+			<div>Âò ÀÎÁõ »çÁø ¿Ã¸®±â</div><br>
+			<div class="uploadwrap">
+				<div>
+					<input type="file" class="file" accept="image/*"
+						name="pic1" id="company_pic1"
+						onchange="setThumbnail(event);">
+				</div>
+			</div>
+			<div>
+				<div>
+					<input type="file" class="file" accept="image/*"
+						onchange="setThumbnail(event);" name="pic2"
+						id="company_pic2">
+				</div>
+			</div>
+			<div>
+				<div>
+					<input type="file" class="file" onchange="setThumbnail(event);"
+						accept="image/*" name="pic3" id="company_pic3">
+				</div>
+			</div>
+		</form>
 		<div>Âò ÀÎÁõ »çÁø ±¸°æÇÏ±â</div><br>
 		<div><% if(p_dao.select_picture(vo.getMember_id()) == null) {
 		out.print("<div> ³» Âò ÀÎÁõ »çÁø ¾ø½¿ </div>");
@@ -99,5 +120,21 @@
      	});
                                               
 	</script>
+	<script type = "text/javascript">
+	function setThumbnail(event) {
+        var uploadWrap = event.target.parentNode; 
+              var reader = new FileReader();
+
+               reader.onload = function(event) {
+                    console.log(uploadWrap);
+                    var newImg = document.createElement("img");
+                    uploadWrap.appendChild(newImg);
+                    newImg.setAttribute("src", event.target.result);
+                    newImg.setAttribute("width", 200);
+                    newImg.setAttribute("class", "pre_img");
+            }; 
+            reader.readAsDataURL(event.target.files[0]);
+	}
+    </script>
 </body>
 </html>
