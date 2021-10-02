@@ -133,7 +133,7 @@
 								%>
 								<form action="Comment">
 								<a>댓글 입력 : </a><input type="text" name="comment">
-								<%= vo.getMember_id()%>
+								<%String mmid = vo.getMember_id();%>
 								<input type="submit" value="등록">
 								</form>
 							</div>

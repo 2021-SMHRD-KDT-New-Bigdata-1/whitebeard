@@ -47,6 +47,7 @@
          out.print("<div class='' onclick='location.href=\"login.jsp\"'>로그인</div></nav>");
 
       } else {
+         out.print("<div class='navbar__profile'>프로필</div></nav>");
          out.print("<ul class='navbar__menu'>");
          out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
          out.print("<li><a href='myzzim.jsp'>내찜정보</a></li>");
