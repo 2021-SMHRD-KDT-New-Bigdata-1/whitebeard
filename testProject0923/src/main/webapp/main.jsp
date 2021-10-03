@@ -22,20 +22,23 @@
    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body> 
-   <%   
- 
-   request.setCharacterEncoding("euc-kr");
-   //로그인 한사람의 세션
-   MemberVO vo = (MemberVO) session.getAttribute("vo");
-   
-   //검색값 받아오기
-   String want = request.getParameter("want");
-   snsDAO dao = new snsDAO();
-   
-   memberDAO m_dao = new memberDAO();
-   ArrayList<SnsVO> vo2 = dao.search(want);
-   ArrayList<SnsVO> vo3 = dao.select_random_sns();
-   %>
+<div id = "wrapper">
+	<div id = "content">
+
+	   <%   
+	 
+	   request.setCharacterEncoding("euc-kr");
+	   //로그인 한사람의 세션
+	   MemberVO vo = (MemberVO) session.getAttribute("vo");
+	   
+	   //검색값 받아오기
+	   String want = request.getParameter("want");
+	   snsDAO dao = new snsDAO();
+	   
+	   memberDAO m_dao = new memberDAO();
+	   ArrayList<SnsVO> vo2 = dao.search(want);
+	   ArrayList<SnsVO> vo3 = dao.select_random_sns();
+	   %>
    <!-- 상단 메뉴 -->
 
    <nav class='navbar'>
@@ -330,7 +333,8 @@ out.println( e.toString() );
             <!-- -------------------------------- -->
          </section>
       </div>
-
+	</div>
+</div>
       <script>
 
          $(".navbar__profile").click(function() {
