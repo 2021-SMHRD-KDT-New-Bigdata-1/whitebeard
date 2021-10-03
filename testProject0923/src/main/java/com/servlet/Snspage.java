@@ -53,7 +53,7 @@ public class Snspage extends HttpServlet {
 
 		if(cnt>0) {
 //			session.setAttribute("vo2", vo2);
-			response.sendRedirect("sns.jsp");
+			response.sendRedirect("main.jsp");
 		}else {
 			response.sendRedirect("page.jsp");
 			System.out.println("작성실패");
