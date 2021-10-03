@@ -10,10 +10,12 @@
 
 
 <!DOCTYPE html>
-<html>
+<html>  
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" href="assets/css/dbr.css" />
+
 </head>
 
     <script type="text/javascript">
@@ -28,7 +30,7 @@
   </head>
 
   <body>
-   <%
+   <%//
    MemberVO vo = (MemberVO)session.getAttribute("vo");
 	dbrDAO dbr = new dbrDAO();  
 
@@ -70,7 +72,8 @@
   
           <tr>
             <td>내 용</td>
-            <td><input type="text" name="ano_content" rows="10" cols="100" value="<%=vo2.get(0).getAno_content()%>"></td>
+            <td><textarea type="text" name="ano_content" rows="10" cols="100"><%=vo2.get(0).getAno_content()%></textarea></td>
+            <!-- <textarea name="ano_content" rows="10" cols="100" value="<%=vo2.get(0).getAno_content()%>></textarea> -->
           </tr>
        
           <tr>

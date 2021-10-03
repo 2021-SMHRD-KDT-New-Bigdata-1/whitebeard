@@ -37,7 +37,7 @@
    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>  
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <meta charset="UTF-8" />
@@ -46,192 +46,6 @@
 <title>Document</title>
 <link rel="stylesheet" href="assets/css/dbr.css" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<style>
-#wrapper {
-   position: relative;
-   height: 100%;
-}
-
-#content {
-   left: 50%;
-   position: absolute;
-   transform: translate(-50%);
-   text-align: center;
-   width: 460px;
-   margin: auto;
-}
-
-html, body {
-   margin: 0;
-}
-
-a {
-   text-decoration: none;
-   color: black;
-}
-
-/*  */
-.navbar {
-   background-color: burlywood;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 8px 12px;
-}
-
-.navbar__profile {
-   display: flex;
-   list-style: none;
-}
-
-.navbar__menu {
-   width: 20%;
-   padding-left: 0;
-   display: none;
-   flex-direction: column;
-   list-style: none;
-}
-
-.navbar__menu li {
-   padding: 8px 12px;
-}
-
-.navbar__menu li:hover {
-   background-color: cornflowerblue;
-   border-radius: 4px;
-}
-
-.navbar__menu.active {
-   background-color: darkgray;
-   float: right;
-   display: flex;
-   flex-direction: column;
-}
-
-#dbr {
-   text-align: center;
-}
-
-#dbr_box {
-   border: blueviolet solid 1px;
-   width: auto;
-   height: auto;
-}
-
-#dbr_box_body {
-   border: darkblue solid 1px;
-   width: auto;
-   height: auto;
-}
-
-#dbr_box_tail {
-   border: black solid 1px;
-   width: auto;
-   height: auto;
-}
-
-#coment_box {
-   width: 850px;
-   height: auto;
-}
-
-#dbr_box_body_title {
-   text-align: center;
-}
-
-#dbr_box_body_name {
-   text-align: right;
-   font-size: 20px;
-}
-
-#dbr_box_body_time {
-   font-size: small;
-   color: gray;
-   text-align: right;
-}
-
-#dbr_box_body_text {
-   margin: 5px;
-}
-
-#dbr_box_body_img {
-   text-align: center;
-}
-
-#form-commentInfo {
-   width: 100%;
-}
-
-#comment-count {
-   margin-bottom: 10px;
-}
-
-#comment-input {
-   width: 50%;
-   height: 3.3em;
-}
-
-#submit {
-   background-color: rgb(0, 128, 255);
-   width: 5.5em;
-   height: 3.3em;
-   font-size: 15px;
-   font-weight: bold;
-   color: aliceblue;
-}
-
-#voteUp, #voteDown {
-   width: 3.5em;
-   height: 1.9em;
-   background-color: aqua;
-}
-
-#comments {
-   margin-top: 10px;
-}
-
-.eachComment {
-   width: 50%;
-   margin: 10px;
-   padding: 0.5em;
-   border-bottom: 1px solid #c1bcba;
-}
-
-.eachComment .name {
-   font-size: 1.5em;
-   font-weight: bold;
-   margin-bottom: 0.3em;
-   display: flex;
-   justify-content: space-between;
-}
-
-.eachComment .inputValue {
-   font-size: 1.2em;
-   font-style: italic;
-}
-
-.eachComment .time {
-   font-size: 0.7em;
-   color: #c1bcba;
-   font-style: oblique;
-   margin-top: 0.5em;
-   margin-bottom: 0.5em;
-}
-
-.eachComment .voteDiv {
-   display: flex;
-   justify-content: flex-end;
-}
-
-.eachComment .deleteComment {
-   background-color: red;
-   color: aliceblue;
-}
-
-#comments>div:nth-child(1n) {
-   border: 1px solid;
-}
-</style>
 </head>
 <body>
    <%
@@ -266,64 +80,50 @@ a {
             %>
             <div>
                <h1 id="dbr">담벼락</h1>
-               <table>
-  <tr>
+               
+   <table>
+   <tr>
    <td>
-    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-     <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
-      <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-      <td></td>
-      <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
-     </tr>
-    </table>
-   <table width="413">
+   
+   </td>
+   </tr>
      <tr>
-      <td width="0">&nbsp;</td>
-      <td align="center" width="76">글번호</td>
-      <td width="319"><%=ano_seq%></td>
-      <td width="0">&nbsp;</td>
+      <td>글번호</td>
+      <td><%=ano_seq%></td>
      </tr>
-	 <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
+	 <tr><td colspan="4"></td></tr>
     <tr>
-      <td width="0">&nbsp;</td>
-      <td align="center" width="76">이름</td>
-      <td width="319">익명</td>
-      <td width="0">&nbsp;</td>
+      <td>이름</td>
+      <td >익명</td>
      </tr>
-     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
+     <tr><td colspan="4"></td></tr>
     <tr>
-      <td width="0">&nbsp;</td>
-      <td align="center" width="76">작성일</td>
-      <td width="319"><%=ano_date%></td>
-      <td width="0">&nbsp;</td>
+      <td>작성일</td>
+      <td><%=ano_date%></td>
      </tr>
-      <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
+      <tr><td colspan="4"></td></tr>
     <tr>
-      <td width="0">&nbsp;</td>
-      <td align="center" width="76">제목</td>
-      <td width="319"><%=ano_subject%></td>
-      <td width="0">&nbsp;</td>
+      <td>제목</td>
+      <td><%=ano_subject%></td>
      </tr>
      
      <%String a = (ano_pic1 != null) ? ano_pic1 : ""; %>
           <%String b = (ano_pic2 != null) ? ano_pic2 : ""; %>
           <%String c = (ano_pic3 != null) ? ano_pic3 : ""; %>
      
-     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
+     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="307"></td></tr>
      <tr>
-      <td width="0">&nbsp;</td>
       <td align="center" width="76">내용</td>
-      <td width="319">
+      <td >
       
-	        <img src= "./uploadedFiles\\<%=a %>" class="profile" >
+	        <img class = "img123" src= "./uploadedFiles\\<%=a %>" class="profile" >
                     
-                   	        <img src= "./uploadedFiles\\<%=b %>" class="profile" >
-                   	        <img src= "./uploadedFiles\\<%=c %>" class="profile" >
+            <img class = "img123" src= "./uploadedFiles\\<%=b %>" class="profile" >
+            <img class = "img123" src= "./uploadedFiles\\<%=c %>" class="profile" >
             <div>       
       <%=ano_content%></div>
       </td>
       
-      <td width="0">&nbsp;</td>
       </table>
       <table>
       
@@ -350,7 +150,7 @@ a {
 							
      </tr>
      	
-     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"><form action="dbr_Comment">
+     <tr height="1" bgcolor="#F7323F"><td colspan="4" width="407"><form action="dbr_Comment">
 								<a>댓글 입력 : </a><input type="text" name="ano_content2">
 								<input type="submit" value="등록">
 								
@@ -372,7 +172,6 @@ a {
 
 
 
-     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
      <tr height="1" bgcolor="#82B5DF"><td colspan="4" width="407"></td></tr>
      <tr align="center">
       <td width="0">&nbsp;</td>

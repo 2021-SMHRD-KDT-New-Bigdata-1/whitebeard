@@ -15,8 +15,6 @@
 <body>
 	<%
 	MemberVO vo = (MemberVO)session.getAttribute("vo");
-	String member_id = vo.getMember_id();
-	
 	%>
 	
 	<div class="wrap">
@@ -48,12 +46,13 @@
 	<section>
 		<!-- ÁÖ¼®Ãß°¡ -->
 		<!-- ³» Âò ¸ñ·Ï (³»°¡ ÂòÇÑ SNS Á¦¸ñ¸¸ ³ª¿È) -->
-		<div><h3>³» Âò ¸ñ·Ï</h3></div><br>
+		<div class = "list"><h3>³» Âò ¸ñ·Ï</h3></div><br>
 		<div>
 		<%System.out.print(c_dao.select_my_choice(vo.getMember_id())); %>
-		<% if(c_dao.select_my_choice(member_id).isEmpty()) {%>
-				<div><p>¾øÀ½</p>
-				<p><%=c_dao.select_my_choice(vo.getMember_id()) %></p>
+		<% if(c_dao.select_my_choice(vo.getMember_id()).isEmpty()) {%>
+				<div>
+					<p>¾øÀ½</p>
+					<p><%=c_dao.select_my_choice(vo.getMember_id()) %></p>
 				</div>
 			<%} else { %>
 			<div>
@@ -64,12 +63,12 @@
 		</div><br>
 		
 		<!-- ³»°¡ Âò¿¡ ¼º°øÇÑ ¸®½ºÆ® (SNS Á¦¸ñ¸¸ ³ª¿È) -->
-		<div><h3>³» Âò ¼º°ø ¸ñ·Ï</h3></div>
+		<div class = "list"><h3>³» Âò ¼º°ø ¸ñ·Ï</h3></div>
 		<div>
-		<% if(p_dao.select_my_choice(member_id) == null) {%>
+		<% if(p_dao.select_my_choice(vo.getMember_id()) == null) {%>
 			<div><p> ³» Âò ÀÎÁõ »çÁø ¾ø½¿</p></div>
 		<%} else { %> 
-			<%=p_dao.select_my_choice(member_id)%>					
+			<%=p_dao.select_my_choice(vo.getMember_id())%>					
 		<%} %>
 		</div><br>
 		

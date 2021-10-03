@@ -16,14 +16,15 @@
 }
 
 .mypage {
-  width: 30%;
+  width: 460px;
   height: 600px;
   background: white;
   border-radius: 20px;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   /* align-items: center; */
   flex-direction: column;
+  
 }
 
 
@@ -36,12 +37,6 @@ a {
   text-decoration: none;
   color: black;
 }
-
-
-
-/*  */
-
-
 
 #inner {
 	width : 100%;
@@ -58,7 +53,7 @@ a {
   background-color: burlywood;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: top;
   padding: 8px 12px;
 }
 
@@ -93,12 +88,11 @@ a {
   border-radius: 4px;
 }
 
-
-
-/*  */
-
-
-
 section {
 	text-align: center;
+	top : 100px;
+}
+.list{
+	text-align: lrft;
+	
 }

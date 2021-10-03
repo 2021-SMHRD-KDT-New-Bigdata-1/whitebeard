@@ -8,6 +8,8 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" href="assets/css/dbr.css" />
+
 </head>
 
     <script type="text/javascript">
@@ -28,7 +30,7 @@
    %>
   
   <% //
-  String member_id = vo.getMember_id();
+  String member_id = vo.getMember_id();//
   
   %>
  
@@ -50,7 +52,8 @@
         </colgroup>
 
         <table summary="테이블 구성">
-          <caption>
+        <div color="f7323f"><caption></div>
+          
             담벼락 글쓰기
           </caption>
           <tr>
@@ -58,6 +61,9 @@
             <td><input type="text" name="ano_subject" /></td>
           </tr>
 <tr>
+<td>
+이미지
+</td>
 <td>
 					<div class = "uploadwrap">
 					
@@ -97,11 +103,13 @@
           <tr>
             <td colspan="2">
               <div align="center">
-                <input type="submit" value="등록" />&nbsp;&nbsp;
+                <input type="submit" value="등록" class="dbr_write_button" />&nbsp;&nbsp; 
                 <input
                   type="button"
                   value="뒤로"
                   onclick="move('main.jsp');"
+                  class="dbr_write_button"
+                  backgroun-color="white"
                 />
               </div>
             </td>
