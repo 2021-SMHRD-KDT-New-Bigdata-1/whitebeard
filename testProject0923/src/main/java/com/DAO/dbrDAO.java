@@ -80,23 +80,20 @@ public class dbrDAO {
 	
 		
 	
-	public int edit(String ano_subject, String ano_content, String ano_pic1, String ano_pic2, String ano_pic3, int ano_seq) {
+	public int edit(String ano_subject, String ano_content, int ano_seq) {
 		
 		int cnt = 0;
 		
 		try {
             conn();
              
-            String sql = "update anonymous set ano_subject=?, ano_content=?, ano_pic1=?, ano_pic2=?, ano_pic3=?,ano_date=SYSDATE where ano_seq = ?";
+            String sql = "update anonymous set ano_subject=?, ano_content=?,ano_date=SYSDATE where ano_seq = ?";
              		
 			PreparedStatement psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, ano_subject); //글제목
 			psmt.setString(2, ano_content); //글내용
-			psmt.setString(3, ano_pic1); //글사진
-			psmt.setString(4, ano_pic2); //글사진
-			psmt.setString(5, ano_pic3); //글사진
-			psmt.setInt(6, ano_seq);
+			psmt.setInt(3, ano_seq);
       
 			
             cnt = psmt.executeUpdate();      	      

@@ -62,7 +62,7 @@
 					<div class = "uploadwrap">
 					
 						<div>
-							<input type="file" class="file" accept="image/*" name="company_pic1" id = "ano_pic1"
+							<input type="file" class="file" accept="image/*" name="ano_pic1" id = "a_pic1"
 							onchange = "setThumbnail(event);">
 						</div>
 						<!-- <div id="image_container"><img src = ""></div> -->
@@ -70,7 +70,7 @@
 					<div>
 						
 						<div>
-							<input type="file" class="file" accept="image/*" onchange = "setThumbnail(event);" name="company_pic2" id = "company_pic2">
+							<input type="file" class="file" accept="image/*" onchange = "setThumbnail(event);" name="ano_pic2" id = "company_pic2">
 						</div>
 						<!-- <div id="image_container"><img src = ""></div> -->
 						
@@ -79,7 +79,7 @@
 						
 						<div>
 							<input type="file" class="file" onchange = "setThumbnail(event);" accept="image/*"
-								name="company_pic3"  id = "company_pic3">
+								name="ano_pic3"  id = "company_pic3">
 						</div>
 						<!-- <div id="image_container"><img src = ""></div> -->
 					</div>
