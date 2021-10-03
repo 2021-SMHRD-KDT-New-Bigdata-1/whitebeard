@@ -1,3 +1,4 @@
+<%@page import="com.VO.MyChoiceVO"%>
 <%@page import="com.DAO.mypointDAO"%>
 <%@page import="com.DAO.mychoiceDAO"%>
 <%@page import="com.VO.MyPointVO"%>
@@ -15,6 +16,7 @@
 <body>
 	<%
 	MemberVO vo = (MemberVO)session.getAttribute("vo");
+	
 	%>
 	
 	<div class="wrap">
@@ -42,25 +44,31 @@
 	ArrayList<MyPointVO> successList = new ArrayList<MyPointVO>();
 	mypointDAO p_dao = new mypointDAO();
 	mychoiceDAO c_dao = new mychoiceDAO();
+	ArrayList<MyChoiceVO> vo2 = c_dao.select_my_choice(vo.getMember_id());
 	%>
 	<section>
 		<!-- 주석추가 -->
 		<!-- 내 찜 목록 (내가 찜한 SNS 제목만 나옴) -->
 		<div class = "list"><h3>내 찜 목록</h3></div><br>
 		<div>
-		<%System.out.print(c_dao.select_my_choice(vo.getMember_id())); %>
-		<% if(c_dao.select_my_choice(vo.getMember_id()).isEmpty()) {%>
-				<div>
-					<p>없음</p>
-					
-				</div>
-			<%} else { %>
-			<div>
-				<p>있어</p>
-				
-			</div>			
-			<%} %>
-		</div><br>
+		
+		<table style="width: 100%">
+		<%
+		if (vo2.size() == 0) {
+			System.out.print("값이 없습니다");
+		} else {
+		for (int i = 0; i < vo2.size(); i++) {
+		%>
+		<tr>
+			<td style="width: 30%"><%=vo2.get(i).getChoice_date() %></td>
+		</tr>
+		<%
+			}
+		}
+		%>
+		</table>
+		
+		
 		
 		<!-- 내가 찜에 성공한 리스트 (SNS 제목만 나옴) -->
 		<div class = "list"><h3>내 찜 성공 목록</h3></div>
