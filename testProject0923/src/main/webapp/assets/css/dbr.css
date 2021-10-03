@@ -196,6 +196,16 @@ body {
 .dbr_img{
 	width: 400px;
 }
+body > table:nth-child(3) > caption{
+	background-color: #F7323F;
+	color:white;
+}
+body > table:nth-child(3) > tbody > tr:nth-child(5) > td > div > input.dbr_write_button{
+	font-family: yg-jalnan;
+	background-color: #F7323F;
+	color:white;
+	
+}
 
 
 

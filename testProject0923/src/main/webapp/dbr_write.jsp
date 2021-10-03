@@ -52,7 +52,8 @@
         </colgroup>
 
         <table summary="테이블 구성">
-          <caption>
+        <div color="f7323f"><caption></div>
+          
             담벼락 글쓰기
           </caption>
           <tr>
@@ -107,6 +108,7 @@
                   type="button"
                   value="뒤로"
                   onclick="move('main.jsp');"
+                  class="dbr_write_button"
                 />
               </div>
             </td>
