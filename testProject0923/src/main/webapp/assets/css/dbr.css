@@ -190,5 +190,11 @@ body > table:nth-child(3) > tbody > tr:nth-child(5) > td > div > input.dbr_write
 }
 
 
+body > table:nth-child(2) > caption{
+	background-color: #F7323F;
+	color:white;
+	  }
+
+
 
 /*  */

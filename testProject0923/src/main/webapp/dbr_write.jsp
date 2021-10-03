@@ -30,7 +30,7 @@
    %>
   
   <% //
-  String member_id = vo.getMember_id();
+  String member_id = vo.getMember_id();//
   
   %>
  
