@@ -112,7 +112,7 @@ public class dbr_comDAO {
 		try {
             conn();
              
-            String sql = "delete * from anocom_content where anocom_seq = ?";
+            String sql = "delete from anocom_content where anocom_seq = ?";
              		
             psmt = conn.prepareStatement(sql);	          
 			psmt.setInt(1, anocom_seq);

@@ -42,6 +42,7 @@
         method="post"
         action="dbrwrite"
         onsubmit="return boardWriteCheck();"
+        enctype="multipart/form-data"
       >
         <colgroup>
           <col width="20%" />
@@ -56,8 +57,36 @@
             <td>제 목</td>
             <td><input type="text" name="ano_subject" /></td>
           </tr>
-  
-          <tr>
+<tr>
+<td>
+					<div class = "uploadwrap">
+					
+						<div>
+							<input type="file" class="file" accept="image/*" name="company_pic1" id = "ano_pic1"
+							onchange = "setThumbnail(event);">
+						</div>
+						<!-- <div id="image_container"><img src = ""></div> -->
+					</div>
+					<div>
+						
+						<div>
+							<input type="file" class="file" accept="image/*" onchange = "setThumbnail(event);" name="company_pic2" id = "company_pic2">
+						</div>
+						<!-- <div id="image_container"><img src = ""></div> -->
+						
+					</div>
+					<div>
+						
+						<div>
+							<input type="file" class="file" onchange = "setThumbnail(event);" accept="image/*"
+								name="company_pic3"  id = "company_pic3">
+						</div>
+						<!-- <div id="image_container"><img src = ""></div> -->
+					</div>
+				
+</td>
+</tr>
+				<tr>
             <td>내 용</td>
             <td><textarea name="ano_content" rows="10" cols="100"></textarea></td>
           </tr>
@@ -80,5 +109,23 @@
         </table>
       </form>
     </table>
+    <script>
+	function setThumbnail(event) {
+        var uploadWrap = event.target.parentNode; 
+              var reader = new FileReader();
+
+               reader.onload = function(event) {
+                    console.log(uploadWrap);
+                    var newImg = document.createElement("img");
+                    uploadWrap.appendChild(newImg);
+                    newImg.setAttribute("src", event.target.result);
+                    newImg.setAttribute("width", 200);
+                    newImg.setAttribute("class", "pre_img");
+            }; 
+            reader.readAsDataURL(event.target.files[0]);
+	}
+	</script>
+    
+    
   </body>
 </html>

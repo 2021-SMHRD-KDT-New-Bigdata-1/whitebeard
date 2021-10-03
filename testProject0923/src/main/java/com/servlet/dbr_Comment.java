@@ -36,7 +36,7 @@ public class dbr_Comment extends HttpServlet {
 		
 
 		 
-		  
+	String a =String.format("dbr.jsp?=%s", idx);
 		  
 		  dbr_comDAO dao = new dbr_comDAO(); 
 		  
