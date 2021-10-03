@@ -1,3 +1,6 @@
+<%@page import="com.VO.AnoCommentVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.dbr_comDAO"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="com.VO.MemberVO"%>
 <%@page import="java.sql.ResultSet"%>
@@ -231,6 +234,8 @@ a {
 <body>
    <%
    MemberVO vo = (MemberVO) session.getAttribute("vo");
+   dbr_comDAO dao = new dbr_comDAO();
+   ArrayList<AnoCommentVO> anoList = dao.select_all_comdbr((int) session.getAttribute("ano_seq"));
    %>
 
 
@@ -297,16 +302,42 @@ a {
       <td width="0">&nbsp;</td>
      </tr>
      
+     <%String a = (ano_pic1 != null) ? ano_pic1 : ""; %>
+          <%String b = (ano_pic2 != null) ? ano_pic2 : ""; %>
+          <%String c = (ano_pic3 != null) ? ano_pic3 : ""; %>
      
      <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
      <tr>
       <td width="0">&nbsp;</td>
       <td align="center" width="76">내용</td>
-      <td width="319"><%=ano_pic1%><%=ano_pic2%><%=ano_pic3%><%=ano_content%></td>
+      <td width="319"><%=a%><%=b%><%=c%><%=ano_content%></td>
       
       <td width="0">&nbsp;</td>
-     </tr>
+      </table>
+      <table>
+      
+      
+									<%
+									if (anoList.size() == 0) {
+										System.out.print("값이 없습니다");
+									} else {
+										for (int i = 0; i < anoList.size() ; i++) {
+									%>
+									<tr>
+										<td style="width: 30%"><%=anoList.get(i).getMember_id()%></td>
+										<td style="width: 30%"><%=anoList.get(i).getAnocom_content()%></td>
+										<td style="width: 30%"><%=anoList.get(i).getDate()%></td>
+									</tr>
+									<%
+									}
+									}
+									%>
+      </table>
+     <table>
      
+     	
+							
+     </tr>
      	
      <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"><form action="dbr_Comment">
 								<a>댓글 입력 : </a><input type="text" name="ano_content2">
