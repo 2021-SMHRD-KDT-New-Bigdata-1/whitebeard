@@ -8,6 +8,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
+
 <% Class.forName("oracle.jdbc.driver.OracleDriver"); 
 	String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe"; 
 	String id = "cgi_6_2"; 
