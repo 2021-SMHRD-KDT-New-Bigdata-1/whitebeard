@@ -109,7 +109,7 @@
                   value="µÚ·Î"
                   onclick="move('main.jsp');"
                   class="dbr_write_button"
-                  backgroun
+                  backgroun-color="white"
                 />
               </div>
             </td>
