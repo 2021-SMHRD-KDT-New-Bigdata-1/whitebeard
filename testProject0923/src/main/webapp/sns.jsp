@@ -73,11 +73,11 @@
 											%> <img
 											src="./uploadedFiles\\<%=vo3.get(0).getCompany_pic1()%>"
 											class="profile"> <%
- } else {
- %>
+											 } else {
+											 %>
 											<p>업체 사진을 등록해 주세요.</p> <%
- }
- %>
+										 }
+										 %>
 										</td>
 									</tr>
 
@@ -141,13 +141,12 @@
 								</div>
 
 								<h4><%=vo2.get(0).getSubject()%></h4>
-								<img src="assets/img/test.jfif" id="storeitem" alt="">
 								
-								<%if(vo.getCompany_pic1() !=null){ %>
+								<%if(vo2.get(0).getPic1() !=null){ %>
 	                     			<img src= "./uploadedFiles\\<%=vo2.get(0).getPic1() %>" class="profile" >
                     
 				                    <%} else{%>
-				                    <P>아이콘 넣어라</P>
+				                    <P>업체사진없음ㄴ</P>
 				                    <%} %>
 								
 								<div>
