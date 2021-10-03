@@ -37,7 +37,7 @@
    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>  
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <meta charset="UTF-8" />
