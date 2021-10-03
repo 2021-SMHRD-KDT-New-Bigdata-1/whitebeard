@@ -126,7 +126,7 @@ public class snsDAO {
 			try {
 	            conn();
 	             
-	            String sql = "delete * from sns where article_seq = ?";
+	            String sql = "delete from sns where article_seq = ?";
 	             		
 	            psmt = conn.prepareStatement(sql);	          
 				psmt.setInt(1, article_seq);

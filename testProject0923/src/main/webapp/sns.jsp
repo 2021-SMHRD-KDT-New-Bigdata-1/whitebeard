@@ -117,15 +117,17 @@
 										<%} %>
 									<%} %>  --%>
 								</p>
-								<div class="accessory">
-									<img src="좋아요아이콘" width="16px"> Like <img src="댓글아이콘"
-										width="16px"> Comments
-								</div>
 							</div>
 
 
 							<h4><%=vo2.get(0).getSubject()%></h4>
 							<img src="assets/img/test.jfif" id="storeitem" alt="">
+							<div>
+							<%if (vo.getMember_id().equals(vo2.get(0).getMember_id())) { %>
+								<input type=button value="삭제" OnClick="window.location='Sns_Del'">
+							
+							<%}%>
+							</div>
 							<div>
 								게시자 :
 								<%=vo2.get(0).getMember_id()%>
@@ -155,15 +157,16 @@
 								<table style="width: 100%">
 									<%
 									if (vo4.size() == 0) {
-										System.out.print("값이 없습니다");
+										System.out.print("댓글이 없습니다");
 									} else {
 										for (int i = 0; i < vo4.size(); i++) {
 									%>
 									<tr>
-										<td style="width: 30%"><%=vo4.get(i).getMember_id()%></td>
+										<td style="width: 30%"><%=vo4.get(i).getMember_id()+"눈"+vo4.get(i).getComment_seq()%></td>
 										<td style="width: 30%"><%=vo4.get(i).getComment_content()%></td>
 										<td style="width: 30%"><%=vo4.get(i).getComment_date()%></td>
 									</tr>
+									
 									<%
 									}
 									}
