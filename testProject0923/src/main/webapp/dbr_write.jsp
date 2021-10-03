@@ -103,12 +103,13 @@
           <tr>
             <td colspan="2">
               <div align="center">
-                <input type="submit" value="등록" />&nbsp;&nbsp;
+                <input type="submit" value="등록" class="dbr_write_button" />&nbsp;&nbsp; 
                 <input
                   type="button"
                   value="뒤로"
                   onclick="move('main.jsp');"
                   class="dbr_write_button"
+                  backgroun
                 />
               </div>
             </td>
