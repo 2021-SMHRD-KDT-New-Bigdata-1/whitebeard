@@ -1,6 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +27,8 @@ public class LoginCon extends HttpServlet {
 		memberDAO dao = new memberDAO();
 		
 		MemberVO vo = dao.login(ID, PW);
+		
+		PrintWriter out = response.getWriter();
 		
 		if (vo != null) {
 			HttpSession session = request.getSession(); //技记 按眉 积己
