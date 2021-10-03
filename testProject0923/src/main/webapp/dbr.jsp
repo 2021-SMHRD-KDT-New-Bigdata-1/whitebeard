@@ -83,30 +83,30 @@
             %>
             <div>
                <h1 id="dbr">담벼락</h1>
-   <table width="213"">
+   <table>
    <tr>
    <td>
    
    </td>
    </tr>
      <tr>
-      <td align="center" width="306">글번호</td>
-      <td width="119"><%=ano_seq%></td>
+      <td>글번호</td>
+      <td><%=ano_seq%></td>
      </tr>
-	 <tr height="1" bgcolor="#dddddd"><td colspan="4" width="307"></td></tr>
+	 <tr><td colspan="4"></td></tr>
     <tr>
-      <td align="center" width="306">이름</td>
-      <td width="119">익명</td>
+      <td>이름</td>
+      <td >익명</td>
      </tr>
-     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="307"></td></tr>
+     <tr><td colspan="4"></td></tr>
     <tr>
-      <td align="center" width="306">작성일</td>
-      <td width="119"><%=ano_date%></td>
+      <td>작성일</td>
+      <td><%=ano_date%></td>
      </tr>
-      <tr height="1" bgcolor="#dddddd"><td colspan="4" width="307"></td></tr>
+      <tr><td colspan="4"></td></tr>
     <tr>
-      <td align="center" width="306">제목</td>
-      <td width="119"><%=ano_subject%></td>
+      <td>제목</td>
+      <td><%=ano_subject%></td>
      </tr>
      
      <%String a = (ano_pic1 != null) ? ano_pic1 : ""; %>

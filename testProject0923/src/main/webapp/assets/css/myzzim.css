@@ -38,12 +38,6 @@ a {
   color: black;
 }
 
-
-
-/*  */
-
-
-
 #inner {
 	width : 100%;
 	position: absolute;
@@ -94,12 +88,11 @@ a {
   border-radius: 4px;
 }
 
-
-
-/*  */
-
-
-
 section {
 	text-align: center;
+	top : 100px;
+}
+.list{
+	text-align: lrft;
+	
 }
