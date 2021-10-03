@@ -46,9 +46,6 @@
 <title>Document</title>
 <link rel="stylesheet" href="assets/css/dbr.css" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<style>
-#content > div > table:nth-child(2) > tbody > tr:nth-child(5) > td:nth-child(2)
-</style>
 </head>
 <body>
    <%
@@ -83,6 +80,7 @@
             %>
             <div>
                <h1 id="dbr">´ãº­¶ô</h1>
+               
    <table>
    <tr>
    <td>
@@ -116,12 +114,12 @@
      <tr height="1" bgcolor="#dddddd"><td colspan="4" width="307"></td></tr>
      <tr>
       <td align="center" width="76">³»¿ë</td>
-      <td width="219">
+      <td >
       
-	        <img src= "./uploadedFiles\\<%=a %>" class="profile" >
+	        <img class = "img123" src= "./uploadedFiles\\<%=a %>" class="profile" >
                     
-                   	        <img src= "./uploadedFiles\\<%=b %>" class="profile" >
-                   	        <img src= "./uploadedFiles\\<%=c %>" class="profile" >
+            <img class = "img123" src= "./uploadedFiles\\<%=b %>" class="profile" >
+            <img class = "img123" src= "./uploadedFiles\\<%=c %>" class="profile" >
             <div>       
       <%=ano_content%></div>
       </td>

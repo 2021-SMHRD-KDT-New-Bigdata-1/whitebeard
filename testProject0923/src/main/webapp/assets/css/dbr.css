@@ -20,7 +20,9 @@
    margin: auto;
 }
 
-
+.img123{
+	width : 90%
+}
 html,
 body {
   margin: 0;
@@ -72,25 +74,7 @@ body {
   margin:0px;
   padding: 0px;
 }
-#dbr_box {
-  border: blueviolet solid 1px;
-  width: auto;
-  height: auto;
-}
-#dbr_box_body {
-  border: darkblue solid 1px;
-  width: auto;
-  height: auto;
-}
-#dbr_box_tail {
-  border: black solid 1px;
-  width: auto;
-  height: auto;
-}
-#coment_box {
-  width: 850px;
-  height: auto;
-}
+
 #dbr_box_body_title {
   text-align: center;
 }
@@ -193,9 +177,7 @@ body {
 #comments > div:nth-child(1n) {
   border: 1px solid;
 }
-.dbr_img{
-	width: 400px;
-}
+
 body > table:nth-child(3) > caption{
 	background-color: #F7323F;
 	color:white;
