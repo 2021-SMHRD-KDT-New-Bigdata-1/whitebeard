@@ -58,53 +58,55 @@
 				}  */
 				}
 				%>
-			
-
-			<div id="inner">
-				<div class="snshead">
-					<form action="/SnsSevice">
-						<div>
-							<!--가게 프로필사진 -->
-							<table>
-								<tr class="storeimg">
-									<td class="storeimg">
-										<%
-										if (vo3.get(0).getCompany_pic1() !=null) {			
-										%> <img
-										src="./uploadedFiles\\<%=vo3.get(0).getCompany_pic1()%>"
-										class="profile"> 
-										<%} else { %>
-										<p>업체 사진을 등록해 주세요.</p>
-										<%} %>
-									</td>
-								</tr>
-
-							</table>
-						</div>
-
-						<a href=""><img src="img/face.png" alt="" id="face"></a> <span
-							id="name"> <strong id="storename">가게이름 : <%=vo3.get(0).getCompany_name()%></strong>
-							<p id="storekind" name="stkind">
-								<span>가게종류 : <%=vo3.get(0).getB_type()%>
-								</span>
-							</p>
-
-						</span>
-					</form>
-					<div class="container">
-
-						<ul class="tabs">
-							<li class="tab-link current" data-tab="tab-1">상품게시글</li>
-							<li class="tab-link" data-tab="tab-2">가게정보</li>
-							<li class="tab-link" data-tab="tab-3">댓글모아보기</li>
-						</ul>
 
 
+				<div id="inner">
+					<div class="snshead">
+						<form action="/SnsSevice">
+							<div>
+								<!--가게 프로필사진 -->
+								<table>
+									<tr class="storeimg">
+										<td class="storeimg">
+											<%
+											if (vo3.get(0).getCompany_pic1() != null) {
+											%> <img
+											src="./uploadedFiles\\<%=vo3.get(0).getCompany_pic1()%>"
+											class="profile"> <%
+ } else {
+ %>
+											<p>업체 사진을 등록해 주세요.</p> <%
+ }
+ %>
+										</td>
+									</tr>
 
-						<!-- 상품 게시글 -->
-						<div id="tab-1" class="tab-content current">
-							<div class="feed">
-								<%-- <h3 class="name"><%=vo.getCompany_name() %></h3>
+								</table>
+							</div>
+
+							<a href=""><img src="img/face.png" alt="" id="face"></a> <span
+								id="name"> <strong id="storename">가게이름 : <%=vo3.get(0).getCompany_name()%></strong>
+								<p id="storekind" name="stkind">
+									<span>가게종류 : <%=vo3.get(0).getB_type()%>
+									</span>
+								</p>
+
+							</span>
+						</form>
+						<div class="container">
+
+							<ul class="tabs">
+								<li class="tab-link current" data-tab="tab-1">상품게시글</li>
+								<li class="tab-link" data-tab="tab-2">가게정보</li>
+								<li class="tab-link" data-tab="tab-3">댓글모아보기</li>
+							</ul>
+
+
+
+							<!-- 상품 게시글 -->
+							<div id="tab-1" class="tab-content current">
+								<div class="feed">
+									<%-- <h3 class="name"><%=vo.getCompany_name() %></h3>
 								<div class="date"><%=vo2.getInput_date() %></div>
 								<a class="title"><%=vo2.getSubject() %></a>
 								<p class="content">
@@ -116,114 +118,139 @@
 											<img src="uploadedFiles/<%=vo2.getPic1() %>" class="pic" >
 										<%} %>
 									<%} %>  --%>
+									</p>
+									<div class="accessory">
+										<input type="button" value="찜♡" onclick="location.href='Zzim'">
+										<%
+										if (vo != null) {
+										%>
+										<%
+										if (vo.getMember_id().equals(vo2.get(0).getMember_id())) {
+										%>
+										<form action="Sold">
+										<input type="text" name="user_id" >
+										<input type="submit" value="아이디 입력">
+										</form>
+										<input type="button" value="판매완료☆" onclick="location.href='SoldOut'">
+										<%
+										}
+										}
+										%>
+
+									</div>
+								</div>
+
+								<h4><%=vo2.get(0).getSubject()%></h4>
+								<img src="assets/img/test.jfif" id="storeitem" alt="">
+								
+								<%if(vo.getCompany_pic1() !=null){ %>
+	                     			<img src= "./uploadedFiles\\<%=vo2.get(0).getPic1() %>" class="profile" >
+                    
+				                    <%} else{%>
+				                    <P>아이콘 넣어라</P>
+				                    <%} %>
+								
+								<div>
+									게시자 :
+									<%=vo2.get(0).getMember_id()%>
+								</div>
+								<div>
+									정가 :
+									<%=vo2.get(0).getRegular_price()%></div>
+								<div>
+									판매가 :
+									<%=vo2.get(0).getSale_price()%></div>
+								<div>
+									상호명 :
+									<%=vo3.get(0).getCompany_name()%></div>
+								<div>
+									글내용 :
+									<%=vo2.get(0).getContent()%>
+									<div>프로필</div>
+									<div>댓글</div>
+									<table style="width: 100%">
+										<tr>
+											<td style="width: 30%">작성자</td>
+											<td style="width: 30%">내용</td>
+											<td style="width: 30%">날짜</td>
+										</tr>
+									</table>
+
+									<table style="width: 100%">
+										<%
+										if (vo4.size() == 0) {
+											System.out.print("값이 없습니다");
+										} else {
+											for (int i = 0; i < vo4.size(); i++) {
+										%>
+										<tr>
+											<td style="width: 30%"><%=vo4.get(i).getMember_id()%></td>
+											<td style="width: 30%"><%=vo4.get(i).getComment_content()%></td>
+											<td style="width: 30%"><%=vo4.get(i).getComment_date()%></td>
+										</tr>
+										<%
+										}
+										}
+										%>
+									</table>
+								</div>
+								<div class="coment">
+									<!-- 댓글  -->
+									<%
+									if (vo == null) {
+										out.print("");
+									} else {
+									%>
+									<form action="Comment">
+										<a>댓글 입력 : </a><input type="text" name="content"> <input
+											type="submit" value="등록"
+											onclick="location.href='Comment.java?sns_seq=<%=idx%>'">
+									</form>
+								</div>
+								<%
+								}
+								%>
+
+							</div>
+
+							<!-- 가게정보 -->
+							<div id="tab-2" class="tab-content">
+								<p>
+									가게정보 :
+									<%=vo3.get(0).getCompany_info()%>
 								</p>
 							</div>
 
-
-							<h4><%=vo2.get(0).getSubject()%></h4>
-							<img src="assets/img/test.jfif" id="storeitem" alt="">
-							<div>
-							<%if (vo != null) {%>
-							<%if (vo.getMember_id().equals(vo2.get(0).getMember_id())) { %>
-								<input type=button value="삭제" OnClick="window.location='Sns_Del'">
-							
-							<%}}%>
-							</div>
-							<div>
-								게시자 :
-								<%=vo2.get(0).getMember_id()%>
-							</div>
-							<div>
-								정가 :
-								<%=vo2.get(0).getRegular_price()%></div>
-							<div>
-								판매가 :
-								<%=vo2.get(0).getSale_price()%></div>
-							<div>
-								상호명 :
-								<%=vo3.get(0).getCompany_name()%></div>
-							<div>
-								글내용 :
-								<%=vo2.get(0).getContent()%>
-								<div>프로필</div>
-								<div>댓글</div>
+							<!-- 댓글 모아보기 -->
+							<div id="tab-3" class="tab-content">
 								<table style="width: 100%">
+									<%
+									if (vo5.size() == 0) {
+										out.print("없어용");
+									} else {
+									%>
 									<tr>
 										<td style="width: 30%">작성자</td>
-										<td style="width: 30%">내용</td>
-										<td style="width: 30%">날짜</td>
+										<td style="width: 30%">댓글</td>
+										<td style="width: 30%">작성 날짜</td>
 									</tr>
-								</table>
-
-								<table style="width: 100%">
 									<%
-									if (vo4.size() == 0) {
-										System.out.print("댓글이 없습니다");
-									} else {
-										for (int i = 0; i < vo4.size(); i++) {
+									for (int i = 0; i < vo5.size(); i++) {
 									%>
 									<tr>
-										<td style="width: 30%"><%=vo4.get(i).getMember_id()+"눈"+vo4.get(i).getComment_seq()%></td>
-										<td style="width: 30%"><%=vo4.get(i).getComment_content()%></td>
-										<td style="width: 30%"><%=vo4.get(i).getComment_date()%></td>
+										<td style="width: 30%"><%=vo5.get(i).getMember_id()%></td>
+										<td style="width: 30%"><%=vo5.get(i).getComment_content()%></td>
+										<td style="width: 30%"><%=vo5.get(i).getComment_date()%></td>
 									</tr>
-									
 									<%
 									}
 									}
 									%>
 								</table>
 							</div>
-							<div class="coment">
-								<!-- 댓글  -->
-								<%
-								if (vo == null) {
-									out.print("");
-								} else {
-								%>
-								<form action="Comment">
-									<a>댓글 입력 : </a><input type="text" name="content"> <input
-										type="submit" value="등록"
-										onclick="location.href='Comment.java?sns_seq=<%=idx%>'">
-								</form>
-							</div>
-							<%
-							}
-							%>
-
-						</div>
-
-						<!-- 가게정보 -->
-						<div id="tab-2" class="tab-content">
-							<p>
-								가게정보 :
-								<%=vo3.get(0).getCompany_info()%>
-							</p>
-						</div>
-
-						<!-- 댓글 모아보기 -->
-						<div id="tab-3" class="tab-content">
-						<table style="width: 100%">
-							<% if (vo5.size() ==0) {
-								out.print("없어용");
-							}else { %>
-								<tr>
-								<td style="width: 30%">작성자</td>
-								<td style="width: 30%">댓글</td>
-								<td style="width: 30%">작성 날짜</td>
-								</tr>
-							<%for (int i=0 ; i<vo5.size(); i++) { %>
-								<tr>
-									<td style="width: 30%"><%=vo5.get(i).getMember_id()%></td>
-									<td style="width: 30%"><%=vo5.get(i).getComment_content()%></td>
-									<td style="width: 30%"><%=vo5.get(i).getComment_date() %></td>
-								</tr>
-							<%}} %>	
-						</table>
 						</div>
 					</div>
 				</div>
-			</div>
 		</div>
 	</div>
 
@@ -235,6 +262,8 @@
 				$(".navbar__menu").removeClass("active");
 			}
 		});
+		
+		
 
 		var div2 = document.getElementsByClassName("div2");
 

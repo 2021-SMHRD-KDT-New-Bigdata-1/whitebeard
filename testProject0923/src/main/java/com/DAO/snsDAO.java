@@ -393,4 +393,32 @@ public class snsDAO {
 					return memList;		
 					
 				}
+				
+				
+				
+				public int sold_sns(String subject, int article_seq) {
+					int cnt = 0;
+					
+					try {
+			            conn();
+			             
+			            String sql = "update sns set subject = ? where article_seq = ?";
+			             	
+			            psmt = conn.prepareStatement(sql);
+						psmt.setString(1, subject);
+						psmt.setInt(2, article_seq);
+						
+			            cnt = psmt.executeUpdate();      	      
+
+			            
+				      } catch (Exception e) {
+				         e.printStackTrace();
+				      } finally {
+				    	  close();
+				      }
+				      
+					  return cnt;
+					
+				}
+				
 }
