@@ -52,12 +52,12 @@
 		<% if(c_dao.select_my_choice(vo.getMember_id()).isEmpty()) {%>
 				<div>
 					<p>없음</p>
-					<p><%=c_dao.select_my_choice(vo.getMember_id()) %></p>
+					
 				</div>
 			<%} else { %>
 			<div>
 				<p>있어</p>
-				<p><%=c_dao.select_my_choice(vo.getMember_id()) %></p>
+				
 			</div>			
 			<%} %>
 		</div><br>

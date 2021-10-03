@@ -13,20 +13,14 @@ import javax.servlet.http.HttpSession;
 import com.DAO.dbrDAO;
 import com.VO.MemberVO;
 
-/**
- * Servlet implementation class dbredit
- */
 @WebServlet("/dbredit")
 public class dbredit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("euc-kr");
 
-	
 
 		HttpSession session = request.getSession();
 		MemberVO vo = (MemberVO) session.getAttribute("vo");
@@ -39,6 +33,9 @@ public class dbredit extends HttpServlet {
 		int ano_seq = (int) session.getAttribute("ano_seq");
 		int readcount = 0;//
 		Timestamp nowdate = new Timestamp(System.currentTimeMillis());
+		System.out.println(ano_subject);
+		System.out.println(ano_content);
+		System.out.println(ano_seq);
 		
 		dbrDAO dbr = new dbrDAO();  
 		int num= 0;
@@ -49,25 +46,6 @@ public class dbredit extends HttpServlet {
 		}else {
 				System.out.println("안되네용");
 		}
-		
-
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-		
-		
-		
-		
-		
 		
 		
 		

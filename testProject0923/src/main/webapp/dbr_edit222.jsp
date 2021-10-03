@@ -1,15 +1,22 @@
-<%@page import="com.VO.AnonymousVO"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="com.VO.AnonymousVO"%>
 <%@page import="com.DAO.dbrDAO"%>
+<%@page import="java.sql.SQLException"%>
 <%@page import="com.VO.MemberVO"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<html>
+<html>  
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" href="assets/css/dbr.css">
+<link rel="stylesheet" href="assets/css/dbr.css" />
 </head>
 
     <script type="text/javascript">
@@ -43,7 +50,7 @@
  
   	
   
-    <table summary="±Û¾²±â ÀüÃ¼ Å×ÀÌºí">
+    <table summary="ê¸€ì“°ê¸° ì „ì²´ í…Œì´ë¸”">
       <form
         name="dbrWriteForm"
         method="post"
@@ -55,17 +62,17 @@
           <col width="80%" />
         </colgroup>
 
-        <table summary="Å×ÀÌºí ±¸¼º">
+        <table summary="í…Œì´ë¸” êµ¬ì„±">
           <caption>
-            ´ãº­¶ô ±Û ¼öÁ¤
+            write
           </caption>
           <tr>
-            <td>Á¦ ¸ñ</td>
+            <td>title</td>
             <td><input type="text" name="ano_subject" value="<%=vo2.get(0).getAno_subject()%>" /></td>
           </tr>
   
           <tr>
-            <td>³» ¿ë</td>
+            <td>content</td>
             <td><textarea type="text" name="ano_content" rows="10" cols="100"><%=vo2.get(0).getAno_content()%></textarea></td>
             <!-- <textarea name="ano_content" rows="10" cols="100" value="<%=vo2.get(0).getAno_content()%>></textarea> -->
           </tr>
@@ -76,10 +83,10 @@
           <tr>
             <td colspan="2">
               <div align="center">
-                <input type="submit" value="µî·Ï" />&nbsp;&nbsp;
+                <input type="submit" value="ë“±ë¡" />&nbsp;&nbsp;
                 <input
                   type="button"
-                  value="µÚ·Î"
+                  value="ë’¤ë¡œ"
                   onclick="move('main.jsp');"
                 />
               </div>
@@ -88,5 +95,5 @@
         </table>
       </form>
     </table>
-</body>
+  </body>
 </html>
