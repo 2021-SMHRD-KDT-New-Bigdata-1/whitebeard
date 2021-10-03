@@ -231,6 +231,7 @@ a {
 #comments>div:nth-child(1n) {
    border: 1px solid;
 }
+#content > div > table:nth-child(2) > tbody > tr:nth-child(5) > td:nth-child(2)
 </style>
 </head>
 <body>
@@ -266,52 +267,38 @@ a {
             %>
             <div>
                <h1 id="dbr">담벼락</h1>
-               <table>
-  <tr>
+   <table width="513"">
+   <tr>
    <td>
-    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-     <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
-      <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-      <td></td>
-      <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
-     </tr>
-    </table>
-   <table width="413">
+   
+   </td>
+   </tr>
      <tr>
-      <td width="0">&nbsp;</td>
-      <td align="center" width="76">글번호</td>
+      <td align="center" width="306">글번호</td>
       <td width="319"><%=ano_seq%></td>
-      <td width="0">&nbsp;</td>
      </tr>
-	 <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
+	 <tr height="1" bgcolor="#dddddd"><td colspan="4" width="507"></td></tr>
     <tr>
-      <td width="0">&nbsp;</td>
-      <td align="center" width="76">이름</td>
+      <td align="center" width="306">이름</td>
       <td width="319">익명</td>
-      <td width="0">&nbsp;</td>
      </tr>
-     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
+     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="507"></td></tr>
     <tr>
-      <td width="0">&nbsp;</td>
-      <td align="center" width="76">작성일</td>
+      <td align="center" width="306">작성일</td>
       <td width="319"><%=ano_date%></td>
-      <td width="0">&nbsp;</td>
      </tr>
-      <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
+      <tr height="1" bgcolor="#dddddd"><td colspan="4" width="507"></td></tr>
     <tr>
-      <td width="0">&nbsp;</td>
-      <td align="center" width="76">제목</td>
+      <td align="center" width="306">제목</td>
       <td width="319"><%=ano_subject%></td>
-      <td width="0">&nbsp;</td>
      </tr>
      
      <%String a = (ano_pic1 != null) ? ano_pic1 : ""; %>
           <%String b = (ano_pic2 != null) ? ano_pic2 : ""; %>
           <%String c = (ano_pic3 != null) ? ano_pic3 : ""; %>
      
-     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="407"></td></tr>
+     <tr height="1" bgcolor="#dddddd"><td colspan="4" width="507"></td></tr>
      <tr>
-      <td width="0">&nbsp;</td>
       <td align="center" width="76">내용</td>
       <td width="319">
       
@@ -323,7 +310,6 @@ a {
       <%=ano_content%></div>
       </td>
       
-      <td width="0">&nbsp;</td>
       </table>
       <table>
       

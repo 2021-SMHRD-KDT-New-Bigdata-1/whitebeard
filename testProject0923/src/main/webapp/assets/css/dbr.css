@@ -54,6 +54,8 @@ body {
 }
 #dbr {
   text-align: center;
+  magin:0px;
+  padding: 0px;
 }
 #dbr_box {
   border: blueviolet solid 1px;
@@ -154,6 +156,12 @@ body {
   margin-bottom: 0.5em;
 }
 
+
+#content > div > table:nth-child(2) > tbody > tr:nth-child(1) > td{
+	padding:25px;
+}
+
+
 .eachComment .voteDiv {
   display: flex;
   justify-content: flex-end;
@@ -165,6 +173,16 @@ body {
 }
 #comments > div:nth-child(1n) {
   border: 1px solid;
+}
+.dbr_img{
+	width: 400px;
+}
+#dbrco{
+	border: solid 1px;
+}
+td {
+    display: table-cell;
+    vertical-align: ;
 }
 
 /*  */
