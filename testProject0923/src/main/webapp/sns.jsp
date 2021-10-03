@@ -123,10 +123,11 @@
 							<h4><%=vo2.get(0).getSubject()%></h4>
 							<img src="assets/img/test.jfif" id="storeitem" alt="">
 							<div>
+							<%if (vo != null) {%>
 							<%if (vo.getMember_id().equals(vo2.get(0).getMember_id())) { %>
 								<input type=button value="삭제" OnClick="window.location='Sns_Del'">
 							
-							<%}%>
+							<%}}%>
 							</div>
 							<div>
 								게시자 :
