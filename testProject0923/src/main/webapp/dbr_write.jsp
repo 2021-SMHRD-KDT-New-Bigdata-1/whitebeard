@@ -8,6 +8,8 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" href="assets/css/dbr.css" />
+
 </head>
 
     <script type="text/javascript">
