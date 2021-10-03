@@ -8,6 +8,8 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" href="assets/css/dbr.css" />
+
 </head>
 
     <script type="text/javascript">
@@ -58,6 +60,9 @@
             <td><input type="text" name="ano_subject" /></td>
           </tr>
 <tr>
+<td>
+이미지
+</td>
 <td>
 					<div class = "uploadwrap">
 					
