@@ -1,6 +1,7 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import com.DAO.dbrDAO;
 import com.VO.MemberVO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 
@@ -27,13 +30,26 @@ public class dbrwrite extends HttpServlet {
 		HttpSession session = request.getSession();
 		MemberVO vo = (MemberVO) session.getAttribute("vo");
 		
+		String saveDri = request.getServletContext().getRealPath("./uploadedFiles");
+		System.out.println(saveDri);
+		int maxSize = 5*1024*1024;
+		String encoding = "EUC-KR";
 		
+		MultipartRequest multi = new MultipartRequest(request, saveDri, maxSize, encoding, new DefaultFileRenamePolicy());
+
 		String member_id = vo.getMember_id();
-		String ano_subject = request.getParameter("ano_subject");
-		String ano_content = request.getParameter("ano_content");
-		String ano_pic1 = request.getParameter("ano_pic1");
-		String ano_pic2 = request.getParameter("ano_pic2");
-		String ano_pic3 = request.getParameter("ano_pic3");
+		String ano_subject = multi.getParameter("ano_subject");
+		String ano_content = multi.getParameter("ano_content");
+		String ano_pic1 = URLEncoder.encode(multi.getFilesystemName("ano_pic1"), "EUC-KR");
+		String ano_pic2 = URLEncoder.encode(multi.getFilesystemName("ano_pic2"), "EUC-KR");
+		String ano_pic3 = URLEncoder.encode(multi.getFilesystemName("ano_pic3"), "EUC-KR");
+		
+//		String member_id = vo.getMember_id();
+//		String ano_subject = request.getParameter("ano_subject");
+//		String ano_content = request.getParameter("ano_content");
+//		String ano_pic1 = request.getParameter("ano_pic1");
+//		String ano_pic2 = request.getParameter("ano_pic2");
+//		String ano_pic3 = request.getParameter("ano_pic3");
 		int readcount = 0;//
 		Timestamp nowdate = new Timestamp(System.currentTimeMillis());
 		

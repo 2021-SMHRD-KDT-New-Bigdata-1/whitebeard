@@ -1,3 +1,4 @@
+<%@page import="com.VO.AnonymousVO"%>
 <%@page import="com.VO.AnoCommentVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.dbr_comDAO"%>
@@ -236,6 +237,7 @@ a {
    MemberVO vo = (MemberVO) session.getAttribute("vo");
    dbr_comDAO dao = new dbr_comDAO();
    ArrayList<AnoCommentVO> anoList = dao.select_all_comdbr((int) session.getAttribute("ano_seq"));
+   
    %>
 
 
@@ -310,7 +312,15 @@ a {
      <tr>
       <td width="0">&nbsp;</td>
       <td align="center" width="76">³»¿ë</td>
-      <td width="319"><%=a%><%=b%><%=c%><%=ano_content%></td>
+      <td width="319">
+      
+	        <img src= "./uploadedFiles\\<%=a %>" class="profile" >
+                    
+                   	        <img src= "./uploadedFiles\\<%=b %>" class="profile" >
+                   	        <img src= "./uploadedFiles\\<%=c %>" class="profile" >
+            <div>       
+      <%=ano_content%></div>
+      </td>
       
       <td width="0">&nbsp;</td>
       </table>

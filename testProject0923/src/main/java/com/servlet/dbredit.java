@@ -36,16 +36,13 @@ public class dbredit extends HttpServlet {
 		String member_id = vo.getMember_id();
 		String ano_subject = request.getParameter("ano_subject");
 		String ano_content = request.getParameter("ano_content");
-		String ano_pic1 = request.getParameter("ano_pic1");
-		String ano_pic2 = request.getParameter("ano_pic2");
-		String ano_pic3 = request.getParameter("ano_pic3");
 		int ano_seq = (int) session.getAttribute("ano_seq");
 		int readcount = 0;//
 		Timestamp nowdate = new Timestamp(System.currentTimeMillis());
 		
 		dbrDAO dbr = new dbrDAO();  
 		int num= 0;
-		int cnt = dbr.edit(ano_subject,ano_content, ano_pic1,ano_pic2, ano_pic3, ano_seq);
+		int cnt = dbr.edit(ano_subject,ano_content, ano_seq);
 		
 		if(cnt>0) {
 			response.sendRedirect("main.jsp");
