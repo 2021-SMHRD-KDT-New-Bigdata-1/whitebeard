@@ -1,218 +1,170 @@
 @charset "EUC-KR";
-
-@font-face { 
-  font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; 
+@font-face {
+  font-family: "yg-jalnan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
-<<<<<<< HEAD
 html,
 body {
   margin: 0;
-  position: relative;
-=======
-#wrapper {
-	position: relative;
-	height: 100%;
-}
-
-#content {
-	left: 50%;
-	position: absolute;
-	transform: translate(-50%);
-	text-align: center;
-	width: 460px;
-	margin: auto;
-}
-
-html, body {
-	margin: 0;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/whitebeard.git
-}
-
-a {
-	text-decoration: none;
-	color: black;
+  font-family: yg-jalnan;
+  
 }
 
 /*  */
-<<<<<<< HEAD
 
-#inner {
-	width : 100%;
-	position: absolute;
-	z-index: -1;
-}
-
-=======
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/whitebeard.git
 .navbar {
-	background-color: burlywood;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 8px 12px;
+  background-color: burlywood;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  color:white;
 }
 
 .navbar__profile {
-	display: flex;
-	list-style: none;
+  display: flex;
+  list-style: none;
 }
 
 .navbar__menu {
-	width: 20%;
-	padding-left: 0;
-	display: none;
-	flex-direction: column;
-	list-style: none;
+  width: 20%;
+  padding-left: 0;
+  display: none;
+  flex-direction: column;
+  list-style: none;
 }
 
 .navbar__menu li {
-	padding: 8px 12px;
+  padding: 8px 12px;
 }
 
 .navbar__menu li:hover {
-	background-color: cornflowerblue;
-	border-radius: 4px;
+  background-color: cornflowerblue;
+  border-radius: 4px;
 }
 
 .navbar__menu.active {
-<<<<<<< HEAD
   background-color: darkgray;
-  position: static;
+  float: right;
   display: flex;
   flex-direction: column;
-  float: right;
-  z-index: 4;
-=======
-	background-color: darkgray;
-	float: right;
-	display: flex;
-	flex-direction: column;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-Bigdata-1/whitebeard.git
 }
-
 #dbr {
-	text-align: center;
+  text-align: center;
 }
-
 #dbr_box {
-	border: blueviolet solid 1px;
-	width: auto;
-	height: auto;
+  border: blueviolet solid 1px;
+  width: auto;
+  height: auto;
 }
-
 #dbr_box_body {
-	border: darkblue solid 1px;
-	width: auto;
-	height: auto;
+  border: darkblue solid 1px;
+  width: auto;
+  height: auto;
 }
-
 #dbr_box_tail {
-	border: black solid 1px;
-	width: auto;
-	height: auto;
+  border: black solid 1px;
+  width: auto;
+  height: auto;
 }
-
 #coment_box {
-	width: 850px;
-	height: auto;
+  width: 850px;
+  height: auto;
 }
-
 #dbr_box_body_title {
-	text-align: center;
+  text-align: center;
 }
-
 #dbr_box_body_name {
-	text-align: right;
-	font-size: 20px;
+  text-align: right;
+  font-size: 20px;
 }
-
 #dbr_box_body_time {
-	font-size: small;
-	color: gray;
-	text-align: right;
+  font-size: small;
+  color: gray;
+  text-align: right;
 }
-
 #dbr_box_body_text {
-	margin: 5px;
+  margin: 5px;
 }
-
 #dbr_box_body_img {
-	text-align: center;
+  text-align: center;
 }
 
 #form-commentInfo {
-	width: 100%;
+  width: 100%;
 }
 
 #comment-count {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #comment-input {
-	width: 50%;
-	height: 3.3em;
+  width: 50%;
+  height: 3.3em;
 }
 
 #submit {
-	background-color: rgb(0, 128, 255);
-	width: 5.5em;
-	height: 3.3em;
-	font-size: 15px;
-	font-weight: bold;
-	color: aliceblue;
+  background-color: rgb(0, 128, 255);
+  width: 5.5em;
+  height: 3.3em;
+  font-size: 15px;
+  font-weight: bold;
+  color: aliceblue;
 }
 
-#voteUp, #voteDown {
-	width: 3.5em;
-	height: 1.9em;
-	background-color: aqua;
+#voteUp,
+#voteDown {
+  width: 3.5em;
+  height: 1.9em;
+  background-color: aqua;
 }
 
 #comments {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 .eachComment {
-	width: 50%;
-	margin: 10px;
-	padding: 0.5em;
-	border-bottom: 1px solid #c1bcba;
+  width: 50%;
+  margin: 10px;
+  padding: 0.5em;
+  border-bottom: 1px solid #c1bcba;
 }
 
 .eachComment .name {
-	font-size: 1.5em;
-	font-weight: bold;
-	margin-bottom: 0.3em;
-	display: flex;
-	justify-content: space-between;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 0.3em;
+  display: flex;
+  justify-content: space-between;
 }
 
 .eachComment .inputValue {
-	font-size: 1.2em;
-	font-style: italic;
+  font-size: 1.2em;
+  font-style: italic;
 }
 
 .eachComment .time {
-	font-size: 0.7em;
-	color: #c1bcba;
-	font-style: oblique;
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
+  font-size: 0.7em;
+  color: #c1bcba;
+  font-style: oblique;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .eachComment .voteDiv {
-	display: flex;
-	justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .eachComment .deleteComment {
-	background-color: red;
-	color: aliceblue;
+  background-color: red;
+  color: aliceblue;
+}
+#comments > div:nth-child(1n) {
+  border: 1px solid;
 }
 
-#comments>div:nth-child(1n) {
-	border: 1px solid;
-}
-
-/*     */
+/*  */

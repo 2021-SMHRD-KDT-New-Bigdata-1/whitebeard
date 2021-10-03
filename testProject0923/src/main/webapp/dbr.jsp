@@ -72,7 +72,7 @@ a {
 
 /*  */
 .navbar {
-   background-color: burlywood;
+   background-color: #F7323F;
    display: flex;
    justify-content: space-between;
    align-items: center;
