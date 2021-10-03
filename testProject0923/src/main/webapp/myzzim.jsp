@@ -16,6 +16,7 @@
 	<%
 	MemberVO vo = (MemberVO)session.getAttribute("vo");
 	String member_id = vo.getMember_id();
+	
 	%>
 	
 	<div class="wrap">
@@ -49,11 +50,17 @@
 		<!-- ³» Âò ¸ñ·Ï (³»°¡ ÂòÇÑ SNS Á¦¸ñ¸¸ ³ª¿È) -->
 		<div><h3>³» Âò ¸ñ·Ï</h3></div><br>
 		<div>
-		<% if(c_dao.select_my_choice(member_id) == null) {%>
-		<div><p>³» Âò ¸ñ·Ï ¾ø½¿ </p></div>
-		<%} else { %>
-			<div><p>³» Âò ¸ñ·Ï ÀÌ¾¸ </p></div>			
-		<%} %>
+		<%System.out.print(c_dao.select_my_choice(vo.getMember_id())); %>
+		<% if(c_dao.select_my_choice(member_id).isEmpty()) {%>
+				<div><p>¾øÀ½</p>
+				<p><%=c_dao.select_my_choice(vo.getMember_id()) %></p>
+				</div>
+			<%} else { %>
+			<div>
+				<p>ÀÖ¾î</p>
+				<p><%=c_dao.select_my_choice(vo.getMember_id()) %></p>
+			</div>			
+			<%} %>
 		</div><br>
 		
 		<!-- ³»°¡ Âò¿¡ ¼º°øÇÑ ¸®½ºÆ® (SNS Á¦¸ñ¸¸ ³ª¿È) -->
