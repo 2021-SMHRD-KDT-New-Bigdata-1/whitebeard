@@ -141,6 +141,12 @@
 								</div>
 
 								<h4><%=vo2.get(0).getSubject()%></h4>
+								<%
+								if (vo != null) {
+								if (vo.getMember_id().equals(vo2.get(0).getMember_id())) {
+								%>
+								<input type=button value="수정" OnClick="window.location='sns_update.jsp'">
+								<%}} %>
 								
 								<%if(vo2.get(0).getPic1() !=null){ %>
 	                     			<img src= "./uploadedFiles\\<%=vo2.get(0).getPic1() %>" class="profile" >
@@ -178,7 +184,7 @@
 									<table style="width: 100%">
 										<%
 										if (vo4.size() == 0) {
-											System.out.print("값이 없습니다");
+											System.out.print("댓글이 없습니다");
 										} else {
 											for (int i = 0; i < vo4.size(); i++) {
 										%>

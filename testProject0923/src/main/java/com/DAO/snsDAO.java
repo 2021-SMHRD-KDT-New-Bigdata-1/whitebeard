@@ -85,25 +85,22 @@ public class snsDAO {
 		
 		
 		// SNS ¼öÁ¤
-		public int update_sns(int article_seq, String subject, String content, String pic1, String pic2, String pic3, int regular_price, int discount_price, int sale_price) {
+		public int update_sns(int article_seq, String subject, String content, int regular_price, int discount_price, int sale_price) {
 			
 			int cnt = 0;
 			
 			try {
 	            conn();
 	             
-	            String sql = "update sns set subject=?, content=?, pic1=?, pic2=?, pic3=?, regular_price=?, discount_price=?, sale_price=? input_date=SYSDATE where article_seq = ?";
+	            String sql = "update sns set subject=?, content=?, regular_price=?, discount_price=?, sale_price=?, input_date=SYSDATE where article_seq = ?";
 	             		
 	            psmt = conn.prepareStatement(sql);
 	            psmt.setString(1, subject);
 				psmt.setString(2, content);
-				psmt.setString(3, pic1);
-				psmt.setString(4, pic2);
-				psmt.setString(5, pic3);
-				psmt.setInt(6, regular_price);
-				psmt.setInt(7, discount_price);
-				psmt.setInt(8, sale_price);
-				psmt.setInt(9, article_seq);
+				psmt.setInt(3, regular_price);
+				psmt.setInt(4, discount_price);
+				psmt.setInt(5, sale_price);
+				psmt.setInt(6, article_seq);
 	                          
 	            cnt = psmt.executeUpdate();      	      
 		         
