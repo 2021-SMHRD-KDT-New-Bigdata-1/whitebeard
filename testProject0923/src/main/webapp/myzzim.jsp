@@ -12,7 +12,9 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <link rel="stylesheet" href="assets/css/myzzim.css">
+
 </head>
 <body>
 	<%
@@ -24,22 +26,20 @@
         <div class="mypage">
 	 
 	<!-- 상단 메뉴 -->	
-	<nav class='navbar'>
-	<div class='navbar__logo'>로고 자리</div>
-	<div class='navbar__main' onclick="location.href='main.jsp'"\>할인2동</div>
-	<% 
-	if (vo == null) {
-		out.print("<div class='' onclick='location.href=\"login.jsp\"'>로그인</div></nav>");        
-	} else {
-		out.print("<div class='navbar__profile'>프로필</div></nav>");
-		out.print("<ul class='navbar__menu'>");
-		out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
-		out.print("<li><a href='myzzim.jsp'>내찜정보</a></li>");
-		out.print("<li><a href='sellerjoin.html'>판매자등록</a></li>");
-		out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
-		out.print("</ul>");
-			}
-	%>
+	 <nav class='navbar'>
+      <div class='navbar__logo'>로고 자리</div>
+
+      <div class='navbar__main' onclick="location.href='main.jsp'"\>할인2동</div>
+      
+        <div class='navbar__profile'>프로필</div></nav>
+         <ul class='navbar__menu'>
+         <li><a href='mypage.jsp'>마이페이지</a></li>
+         <li><a href='myzzim.jsp'>내찜정보</a></li>
+         <li><a href='sellerjoin.html'>판매자등록</a></li>
+         <li><a href='LogoutCon.java'>로그아웃</a></li>
+         </ul>
+ 
+    
 	
 	<%
 	ArrayList<MyPointVO> successList = new ArrayList<MyPointVO>();
@@ -137,7 +137,6 @@
 		<!-- 내 현재 포인트 (새로고침 버튼 누르면 업데이트) -->
 		
 	</section>
-	
 		</div>
 	</div>
 	
@@ -153,6 +152,7 @@
      	});
                                               
 	</script>
+	
 	<script type = "text/javascript">
 	function setThumbnail(event) {
         var uploadWrap = event.target.parentNode; 
@@ -169,13 +169,13 @@
             reader.readAsDataURL(event.target.files[0]);
 	}
 	
-	  $(".navbar__profile").click(function() {
+	  /* $(".navbar__profile").click(function() {
           if ($(".navbar__menu").attr('class') == 'navbar__menu') {
              $(".navbar__menu").addClass("active");
           } else {
              $(".navbar__menu").removeClass("active");
           }
-       });
+       }); */
     </script>
 </body>
 </html>

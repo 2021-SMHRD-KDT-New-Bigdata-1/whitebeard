@@ -121,6 +121,7 @@
 									</p>
 									<div class="accessory">
 										<input type="button" value="Âò¢½" onclick="location.href='Zzim'">
+										<a href="page.jsp"><input type = "button" value = "»óÇ°µî·Ï"></a>
 										<%
 										if (vo != null) {
 										%>
