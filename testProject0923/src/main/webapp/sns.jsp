@@ -224,6 +224,16 @@
 									가게정보 :
 									<%=vo3.get(0).getCompany_info()%>
 								</p>
+								<%
+										if (vo != null) {
+										%>
+										<%
+										if (vo.getMember_id().equals(vo2.get(0).getMember_id())) {
+										%>
+								<form action="Info_update">
+								<input type="text" name="info">
+								<input type="submit" value="수정하기"></input>
+								</form> <% }} %>
 							</div>
 
 							<!-- 댓글 모아보기 -->
@@ -231,7 +241,7 @@
 								<table style="width: 100%">
 									<%
 									if (vo5.size() == 0) {
-										out.print("없어용");
+										out.print("이 계정의 sns 댓글이 없어용");
 									} else {
 									%>
 									<tr>
