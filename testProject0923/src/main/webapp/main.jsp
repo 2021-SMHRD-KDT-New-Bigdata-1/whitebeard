@@ -89,7 +89,11 @@
                       %>
             <div class="simpleLook" onclick="location.href='sns.jsp?sns_seq=<%=vo3.get(i).getArticle_seq()%>&sns_memeber_id=<%=vo3.get(i).getMember_id() %>'">
                <div class="img">
-                  <img src="assets/img/seller.png" alt="상품이미지">
+                  <%if(vo3.get(i).getPic1() !=null){ %>
+	                    <img src= "./uploadedFiles\\<%=vo3.get(i).getPic1() %>" class="profile" >
+				        <%} else{%>
+				        <div>상품사진없음</div>
+				        <%} %>
                </div>
                <div class="hoho">
                   <div class="notimg">상품명 : <%
@@ -114,7 +118,11 @@
                      %>
             <div class="simpleLook" onclick="location.href='sns.jsp?sns_seq=<%=vo2.get(i).getArticle_seq()%>&sns_memeber_id=<%=vo2.get(i).getMember_id() %>'">
                <div class="img">
-                  <img src="assets/img/seller.png" alt="상품이미지">
+                 <%if(vo2.get(i).getPic1() !=null){ %>
+	                    <img src= "./uploadedFiles\\<%=vo2.get(i).getPic1() %>" class="profile" >
+				        <%} else{%>
+				        <div>상품사진없음</div>
+				        <%} %>
                </div>
                <div class="hoho">
                   <div class="notimg">상품명 : <%
@@ -145,7 +153,11 @@
             <div class="closerLook" onclick="location.href='sns.jsp?sns_seq=<%=vo3.get(i).getArticle_seq()%>&sns_memeber_id=<%=vo3.get(i).getMember_id() %>'"
                style="display: none;">
                <div class="img2">
-                  <img src="assets/img/seller.png" alt="상품이미지">
+                  <%if(vo3.get(i).getPic1() !=null){ %>
+	                    <img src= "./uploadedFiles\\<%=vo3.get(i).getPic1() %>" class="profile" >
+				        <%} else{%>
+				        <div>상품사진없음</div>
+				        <%} %>
                </div>
                <div class="hoho2">
 
@@ -193,7 +205,11 @@
             <div class="closerLook" onclick="location.href='sns.jsp?sns_seq=<%=vo2.get(i).getArticle_seq()%>&sns_memeber_id=<%=vo2.get(i).getMember_id() %>'"
                style="display: none;">
                <div class="img2">
-                  <img src="assets/img/seller.png" alt="상품이미지">
+                  <%if(vo2.get(i).getPic1() !=null){ %>
+	                    <img src= "./uploadedFiles\\<%=vo2.get(i).getPic1() %>" class="profile" >
+				        <%} else{%>
+				        <div>상품사진없음</div>
+				        <%} %>
                </div>
                <div class="hoho2">
                   <div class="notimg">상품명 : <%
