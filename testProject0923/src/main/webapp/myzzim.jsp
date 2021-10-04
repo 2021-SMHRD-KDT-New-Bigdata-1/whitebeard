@@ -83,11 +83,11 @@
 		%> 
 		<table border = "1">
 			<tr>
-				<td class = "tt">제목</td>
+				<td class = "tt">게시글 제목</td>
 				<td><%=list.get(i).getSubject()%></td>
 			</tr>
 			<tr>
-				<td class = "tt">사진</td>
+				<td class = "tt">상품 사진</td>
 				<td>
 					<img src= "./uploadedFiles\\<%=list.get(i).getPic1() %>" class = "img">
 				</td>
