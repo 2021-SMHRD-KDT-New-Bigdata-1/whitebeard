@@ -150,6 +150,8 @@
 								
 								<%if(vo2.get(0).getPic1() !=null){ %>
 	                     			<img src= "./uploadedFiles\\<%=vo2.get(0).getPic1() %>" class="profile" >
+	                     			<img src= "./uploadedFiles\\<%=vo2.get(0).getPic2() %>" class="profile" >
+	                     			<img src= "./uploadedFiles\\<%=vo2.get(0).getPic3() %>" class="profile" >
                     
 				                    <%} else{%>
 				                    <P>상품사진없음</P>
