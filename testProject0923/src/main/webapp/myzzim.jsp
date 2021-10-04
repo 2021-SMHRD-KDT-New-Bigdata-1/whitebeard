@@ -68,7 +68,9 @@
 		 <div>값이 없습니다</div>
 		<% }%>	
 		</div>
-		
+		<br>
+		<div><h3>내 현재 포인트 : </h3><%= p_dao.select_count_point(vo.getMember_id()) %></div>
+		<br>
 		
 		<!-- 내가 찜에 성공한 리스트 (SNS 제목만 나옴) -->
 		<div class = "list"><h3>내 찜 성공 목록</h3></div>
@@ -79,13 +81,16 @@
 		<%} else { 
 			for(int i = 0 ; i < list.size() ; i++) {
 		%> 
-		<table>
-			<tr colspan : "2">
-				<td>제목 : <%=list.get(i).getSubject()%></td>
+		<table border = "1">
+			<tr>
+				<td class = "tt">제목</td>
+				<td><%=list.get(i).getSubject()%></td>
 			</tr>
 			<tr>
-				<td>사진 : </td>
-				<td><img src= "./uploadedFiles\\<%=list.get(i).getPic1() %>" class = "img"></td>
+				<td class = "tt">사진</td>
+				<td>
+					<img src= "./uploadedFiles\\<%=list.get(i).getPic1() %>" class = "img">
+				</td>
 			</tr>			
 		</table>	
 		<%}} %>
@@ -124,8 +129,6 @@
 		</div><br> --%>
 		
 		<!-- 내 현재 포인트 (새로고침 버튼 누르면 업데이트) -->
-		<div>내 현재 포인트 : <%=p_dao.select_count_point(vo.getMember_id())%>
-		<br>
 		
 	</section>
 	

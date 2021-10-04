@@ -1,5 +1,11 @@
 @charset "EUC-KR";
-
+@font-face   {
+  font-family: "yg-jalnan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
@@ -31,6 +37,7 @@
 html, body {
   margin: 0;
   position: relative;
+  font-family: "yg-jalnan";
 }
 
 a {
@@ -90,7 +97,6 @@ a {
 
 section {
 	text-align: center;
-	top : 100px;
 }
 .list{
 	text-align: lrft;
@@ -98,4 +104,13 @@ section {
 }
 .img{
 	width : 50%;
+}
+table{
+	border-spacing : 2px;
+	border-collapse : separate;
+	
+}
+.tt{
+	width : 20%;
+	
 }
