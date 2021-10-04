@@ -286,16 +286,16 @@ try {
    
 %>
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
-<tr height="5"><td width="5"></td></tr>
+<tr height="5"><td width="25"></td></tr>
 <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
-<td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-<td width="73">글번호</td>
-<td width="379">제목</td>
-<td width="73">작성자</td>
+
+<td width="80">글번호</td>
+<td width="313">제목</td>
+<td width="90">작성자</td>
 <td width="164">작성일</td>
 
-<td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
 </tr>
+<tr height="1" bgcolor="#F7323F"><td colspan="6" width="752"></td></tr>
 <%
 if(total==0) {
 %>
@@ -310,18 +310,22 @@ if(total==0) {
       int ano_seq = rs.getInt(1);      
       String ano_subject = rs.getString(2);
       String date = rs.getString(8);
+      String ano_pic1 = rs.getString(4);
    
 %>
+
 <tr height="25" align="center">
-<td>&nbsp;</td>
+
 <td><%=ano_seq %></td>
 
-<td align="left"><a href="dbr.jsp?ano_seq=<%=ano_seq%>"><%=ano_subject %></td>
+<td align="center" border="solid"><a href="dbr.jsp?ano_seq=<%=ano_seq%>"><%=ano_subject %> 
+<% if( ano_pic1 != null)  {%>
+<i class="fas fa-images"></i> <%} %></td>
 <td align="center">익명</td>
 <td align="center"><%=date %></td>
-<td>&nbsp;</td>
+<!-- <td bgcolor="#F7323F" height="1">&nbsp;</td> -->
 </tr>
-<tr height="1" bgcolor="#D2D2D2"><td colspan="6"></td></tr>
+<tr height="1" bgcolor="#F7323F"><td colspan="6"></td></tr>
 <% ///////
    }
 } 
@@ -334,11 +338,10 @@ out.println( e.toString() );
 
 
 %>
-<tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr>
+<tr height="1" bgcolor="#F7323F"><td colspan="6" width="752"></td></tr>
 </table>
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
-<tr><td colspan="4" height="5"></td></tr>
 <tr align="center">
 <td><input type=button value="글쓰기" onclick="location.href='dbr_write.jsp'""></td>
 </tr>

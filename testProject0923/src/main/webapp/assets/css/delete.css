@@ -115,7 +115,7 @@ ul, li {
 }
 
 .tabnav li a.active:before {
-	background: #7ea21e;
+	background: #F7323F;
 }
 
 .tabnav li a.active {
@@ -136,11 +136,11 @@ ul, li {
 .btn {
 	width: 100%;
 	height: 40px;
-	background-color: #7ea21e;
+	background-color: #F7323F;
 	/* 나중에 색 변경 */
 }
 
 .tabnav li a:hover, .tabnav li a.active {
 	background: #fff;
-	color: #7ea21e;
+	color: #F7323F;
 }
