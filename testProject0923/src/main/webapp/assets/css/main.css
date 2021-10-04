@@ -77,6 +77,8 @@ a {
   color:black;
   boder-radius: 10px;
   boder: solid 1px;
+  margin-top: 0px;
+  
 }
 
 .navbar__menu li {

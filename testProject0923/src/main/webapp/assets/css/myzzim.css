@@ -31,7 +31,9 @@
   flex-direction: column;
   
 }
-
+body > div{
+	height : 100%
+}
 
 html, body {
   margin: 0;

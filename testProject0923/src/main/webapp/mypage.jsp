@@ -125,6 +125,13 @@
 	            </div>	--%>
             
             <% }%> 
+            <% if(vo.getMember_type().equals("1")){%>           
+	            <div class="plus">
+	                <a class="sub" href = "page.jsp">ªÛ«∞∆«∏≈ µÓ∑œ</a>
+	                <div class="icon1"><i class="fas fa-user-check"></i></div>
+	            </div>
+	         <%}else{ %>
+	         <%} %>
             
             <!-- »∏ø¯≈ª≈ / ∆«∏≈¿⁄≈ª≈ -->          
             <div class="plus">
