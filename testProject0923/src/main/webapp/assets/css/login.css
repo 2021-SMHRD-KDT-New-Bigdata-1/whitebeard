@@ -82,21 +82,14 @@ h2 {
   outline: none;
 }
 
-.login_etc {
-  padding: 10px;
-  width: 80%;
-  font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 
 .login_etc2 {
     margin-top: 40px;
 }
 
 .submit {
-  margin: 30px;
+  margin: 20px;
   width: 80%;
 }
 .submit input {
