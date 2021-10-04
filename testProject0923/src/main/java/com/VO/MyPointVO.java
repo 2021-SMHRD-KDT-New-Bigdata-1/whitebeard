@@ -56,6 +56,20 @@ public class MyPointVO {
 
 
 
+	public MyPointVO(int article_seq) {
+		this.article_seq = article_seq;
+	}
+
+
+
+
+
+
+
+
+
+
+
 	public int getSuccess_seq() {
 		return success_seq;
 	}

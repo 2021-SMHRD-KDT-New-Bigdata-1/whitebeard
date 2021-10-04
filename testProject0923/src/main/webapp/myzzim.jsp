@@ -70,10 +70,12 @@
 		<%} else {%>
 		 <div>내 찜이 없습니다</div>
 		<% }%>	
+		
 		</table>
 		</div>
 		<br>
-		<div><h3>내 현재 포인트 : </h3><%= p_dao.select_count_point(vo.getMember_id()) %></div>
+		<% ArrayList<MyPointVO> num = p_dao.select_count_point(vo.getMember_id());%>
+		<div><h3>내 현재 포인트 : </h3><%= num.size()*10%></div>
 		<br>
 		
 		<!-- 내가 찜에 성공한 리스트 (SNS 제목만 나옴) -->
