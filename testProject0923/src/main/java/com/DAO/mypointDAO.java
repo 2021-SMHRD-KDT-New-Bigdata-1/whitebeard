@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import com.VO.AnoCommentVO;
 import com.VO.MemberVO;
 import com.VO.MyChoiceVO;
 import com.VO.MyPointVO;
@@ -103,9 +104,9 @@ public class mypointDAO {
 	
 	
 	// 찜 성공 횟수 인한 포인트 계산	
-	public int select_count_point(String member_id) {
+	public ArrayList<MyPointVO> select_count_point(String member_id) {
 		
-		int a = 0; // 찜 성공 횟수
+		ArrayList<MyPointVO> num = new ArrayList<MyPointVO>(); // 찜 성공 횟수
 		
 		try {
 			conn();
@@ -116,9 +117,14 @@ public class mypointDAO {
 
 			rs = psmt.executeQuery();
 
-			if (rs.next()) {
-				a += 1;			
-			} 
+
+			
+			while(rs.next()) {
+				int article_seq	= rs.getInt(1);	
+            	
+ 		            		            	
+				num.add(new MyPointVO(article_seq));
+            }
 			
 		} catch (Exception e) {
 			// 실행 후 오류가 발생했을 때 에러 출력
@@ -127,9 +133,8 @@ public class mypointDAO {
 			close();
 		}
 		
-		a *= 10;		
 		
-		return a;
+		return num;
 	}
 	
 	

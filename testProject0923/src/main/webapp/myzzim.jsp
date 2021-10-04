@@ -26,7 +26,7 @@
 	<!-- 상단 메뉴 -->	
 	<nav class='navbar'>
 	<div class='navbar__logo'>로고 자리</div>
-	<div class='navbar__main' onclick="location.href='main.jsp'">할인2동</div>
+	<div class='navbar__main' onclick="location.href='main.jsp'"\>할인2동</div>
 	<% 
 	if (vo == null) {
 		out.print("<div class='' onclick='location.href=\"login.jsp\"'>로그인</div></nav>");        
@@ -55,21 +55,27 @@
 	<section>
 		<!-- 주석추가 -->
 		<!-- 내 찜 목록 (내가 찜한 SNS 제목만 나옴) -->
-		<div class = "list"><h3>내 찜 목록</h3></div><br>
+		<div class = "list"><h3>내 찜 목록</h3></div>
 		<div>
-		
+		<table border = "1">
 		<%
 		if (vo2.size() > 0) {%>
 			<%for(int i =0; i < vo2.size(); i ++){ %>
-		
-			<div><%=vo2.get(i).getSubject()%></div>
+			<tr>
+				<td class = "tt">게시글 제목</td>
+				<td><%=vo2.get(i).getSubject()%></td>
+			</tr>
+			
 		<%}%>
 		<%} else {%>
-		 <div>값이 없습니다</div>
+		 <div>내 찜이 없습니다</div>
 		<% }%>	
+		
+		</table>
 		</div>
 		<br>
-		<div><h3>내 현재 포인트 : </h3><%= p_dao.select_count_point(vo.getMember_id()) %></div>
+		<% ArrayList<MyPointVO> num = p_dao.select_count_point(vo.getMember_id());%>
+		<div><h3>내 현재 포인트 : </h3><%= num.size()*10%></div>
 		<br>
 		
 		<!-- 내가 찜에 성공한 리스트 (SNS 제목만 나옴) -->
@@ -83,11 +89,11 @@
 		%> 
 		<table border = "1">
 			<tr>
-				<td class = "tt">제목</td>
+				<td class = "tt">게시글 제목</td>
 				<td><%=list.get(i).getSubject()%></td>
 			</tr>
 			<tr>
-				<td class = "tt">사진</td>
+				<td class = "tt">상품 사진</td>
 				<td>
 					<img src= "./uploadedFiles\\<%=list.get(i).getPic1() %>" class = "img">
 				</td>
@@ -162,6 +168,14 @@
             }; 
             reader.readAsDataURL(event.target.files[0]);
 	}
+	
+	  $(".navbar__profile").click(function() {
+          if ($(".navbar__menu").attr('class') == 'navbar__menu') {
+             $(".navbar__menu").addClass("active");
+          } else {
+             $(".navbar__menu").removeClass("active");
+          }
+       });
     </script>
 </body>
 </html>

@@ -1,5 +1,14 @@
 @charset "EUC-KR";
+@font-face   {
+  font-family: "yg-jalnan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
+	font-family: "yg-jalnan";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -38,7 +47,7 @@ li {
 
 
 h2 {
-  color: tomato;
+  color: #F7323F;
   font-size: 2em;
   margin-bottom: 50px;
 }
@@ -97,7 +106,7 @@ h2 {
   border: 0;
   outline: none;
   border-radius: 40px;
-  background: linear-gradient(to left, rgb(31, 107, 170), rgb(27, 212, 120));
+  background: linear-gradient(to left, #F7323F, white);
   color: white;
   font-size: 1.2em;
   letter-spacing: 2px;

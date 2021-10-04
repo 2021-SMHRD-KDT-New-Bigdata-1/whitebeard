@@ -6,9 +6,16 @@
   font-weight: normal;
   font-style: normal;
 }
+*{
+	font-family: "yg-jalnan";
+}
 a {
 	text-decoration: none;
 	color: inherit;
+}
+h1{
+	background-color:#F7323F;
+	color:white;
 }
 
 body {
@@ -112,7 +119,7 @@ h3 {
 	padding: 21px 0px 17px;
 	border: 0;
 	color: #fff;
-	background-color: rgb(224, 34, 34);
+	background-color: #F7323F;
 	/* 나중에 색상 변경 */
 	font-size: 20px;
 	font-weight: 400;

@@ -1,4 +1,14 @@
 @charset "EUC-KR";
+@font-face   {
+  font-family: "yg-jalnan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+	font-family: "yg-jalnan";
+}
 
 html, body {
   margin: 0;
@@ -36,7 +46,7 @@ a {
 
 
 .navbar {
-  background-color: burlywood;
+  background-color: #F7323F;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,21 +68,29 @@ a {
 }
 
 .navbar__menu.active {
-  background-color: darkgray;
+  background-color: white;
   position: static;
   display: flex;
   flex-direction: column;
   float: right;
   z-index: 4;
+  color:black;
+  boder-radius: 10px;
+  boder: solid 1px;
 }
 
 .navbar__menu li {
   padding: 8px 12px;
+  border:solid 2px #F7323F;
+  border-radius: 8px;
+  
+  
 }
 
 .navbar__menu li:hover {
   background-color: cornflowerblue;
-  border-radius: 4px;
+  border-radius: 8px;
+  border-bottom:solid 1px;
 }
 
 
@@ -97,7 +115,7 @@ div > .img {
 	height : 100%;
 	float: left;
 	margin: auto auto;
-	border-right : 1px solid;
+	border-right : 1px solid ;
 }
 
 div > .img2 {
@@ -144,10 +162,11 @@ img {
 }
 
 .secretLook{
-	background-color: green;
+	background-color: white;
 	display: inline-block;
   	flex-direction: column;
   	width : 100%;	
+  	border:solid 1px #F7323F;
 }
 
 .secretLook.active{
@@ -261,4 +280,13 @@ ul.tabs li.current {
 
 .tab-content.current {
   display: inherit;
+}
+#inner > section > div:nth-child(1){
+	boder: solid 2px #F7323F;
+}
+#inner > section > div:nth-child(*){
+	color:indigo;
+}
+td{
+	boder:solid 5px;
 }
