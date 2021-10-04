@@ -98,7 +98,6 @@
                       favshop = " ªÛ¡° æ¯Ωø";
               	  } %>
                     <%=" "+ favshop %>
-
             </div>
             <form action="MyPageService" method="post">
                 <input type="text" id="shop_input" name="favshop" class=''>
@@ -123,9 +122,9 @@
 	            <div class="plus">
 		           	<a class="sub" href = "sns.jsp">≥ª SNS ¿Ãµø</a>
 		            <div class="icon1"><i class="fas fa-user-check"></i></div>
-	            </div>	
-            <% }%> --%>
+	            </div>	--%>
             
+            <% }%> 
             
             <!-- »∏ø¯≈ª≈ / ∆«∏≈¿⁄≈ª≈ -->          
             <div class="plus">
