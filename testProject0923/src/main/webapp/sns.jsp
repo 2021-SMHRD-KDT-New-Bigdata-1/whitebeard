@@ -152,7 +152,7 @@
 	                     			<img src= "./uploadedFiles\\<%=vo2.get(0).getPic1() %>" class="profile" >
                     
 				                    <%} else{%>
-				                    <P>업체사진없음ㄴ</P>
+				                    <P>상품사진없음</P>
 				                    <%} %>
 								
 								<div>
