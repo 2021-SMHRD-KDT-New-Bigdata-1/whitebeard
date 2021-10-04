@@ -43,7 +43,13 @@ public class MemberVO {
    }
       
       
-   public String getMember_id() {
+   public MemberVO(String company_info) {
+		// TODO Auto-generated constructor stub
+	   this.company_info = company_info;
+	}
+
+
+public String getMember_id() {
       return member_id;
    }
    public void setMember_id(String member_id) {

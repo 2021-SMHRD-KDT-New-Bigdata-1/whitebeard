@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.VO.MemberVO;
 
@@ -391,5 +392,30 @@ public class memberDAO {
 		return getCompany_name;
 	}
 	
-	
+	public int company_info(String member_id, String company_info) {
+		
+		int cnt = 0;
+		
+		try {
+			
+			conn();	               				
+			String sql = "update members set company_info=? where member_id = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, company_info);               
+			psmt.setString(2,member_id);               
+
+			rs = psmt.executeQuery();
+			
+			cnt = psmt.executeUpdate();  
+
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return cnt;		
+		
+	}	
 }

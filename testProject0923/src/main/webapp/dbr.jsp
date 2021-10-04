@@ -1,3 +1,4 @@
+<%@page import="com.DAO.dbrDAO"%>
 <%@page import="com.VO.AnonymousVO"%>
 <%@page import="com.VO.AnoCommentVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -177,10 +178,18 @@
       <td width="0">&nbsp;</td>
       <td colspan="2" width="399"><input type=button value="글쓰기"  OnClick="window.location='dbr_write.jsp'">
 	
-	<input type=button value="목록" OnClick="window.location='main.jsp'">
 	
+	<%   MemberVO vo = (MemberVO) session.getAttribute("vo");
+		dbrDAO dao = new dbrDAO();
+		ArrayList<AnonymousVO> vo2 = dao.select_all_dbr(idx);
+
+	
+	if (vo.getMember_id().equals(vo2.get(0).getMember_id())) {%>
+	<input type=button value="목록" OnClick="window.location='main.jsp'">
 	<input type=button value="수정" OnClick="window.location='dbr_edit.jsp?idx=<%=idx%>'">
-	<input type=button value="삭제" OnClick="window.location='dbrdel'">
+	<%}else{ %>
+	<input type=button value="목록" OnClick="window.location='main.jsp'">
+	<% } %>
       <td width="0">&nbsp;</td>
      </tr>
     </table>

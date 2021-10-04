@@ -173,8 +173,42 @@ public class dbrDAO {
 		
 	}
 
+	public ArrayList<AnonymousVO> match(String member_id) {
 	
+	ArrayList<AnonymousVO> dbr = new ArrayList<AnonymousVO>();
+
+	try {
+		
+		conn();	               				
+		String sql = "select * from anonymous where member_id=?";
+		psmt = conn.prepareStatement(sql);
+        psmt.setString(1, member_id);               
+        
+        rs = psmt.executeQuery();
+        
+        while(rs.next()) {
+        	           	
+        	int ano_seq = rs.getInt(1);
+        	member_id = rs.getString(2);
+			String ano_subject = rs.getString(3); 
+			String ano_content = rs.getString(4); 
+			String ano_pic1 = rs.getString(5); 
+			String ano_pic2 = rs.getString(6); 
+			String ano_pic3 = rs.getString(7); 
+			Date ano_date = rs.getDate(8);
+        		            		            	
+			dbr.add(new AnonymousVO(ano_seq, member_id, ano_subject, ano_content, ano_pic1, ano_pic2, ano_pic3, ano_date));
+        }
+        
+        }catch(Exception e){
+        	e.printStackTrace();
+        }finally {
+        	close();
+        }
 	
+	return dbr;		
+	
+}
 	
 	
 		}
