@@ -46,9 +46,11 @@
 	mypointDAO p_dao = new mypointDAO();
 	mychoiceDAO c_dao = new mychoiceDAO();
 	ArrayList<SnsVO> vo2 = c_dao.select_my_choice(vo.getMember_id());
-	System.out.println(vo2.get(0));
+	System.out.println(vo2.get(0).getSubject());
 	System.out.println("이곳이에요");
 	System.out.println(vo.getMember_id());
+	System.out.println(vo2.size());
+	
 	%>
 	<section>
 		<!-- 주석추가 -->
@@ -57,10 +59,10 @@
 		<div>
 		
 		<%
-		if (vo2.size() != 0) {%>
+		if (vo2.size() > 0) {%>
 			<%for(int i =0; i < vo2.size(); i ++){ %>
 		
-			<%=vo2.get(i).getSubject() %>
+			<div><%=vo2.get(i).getSubject()%></div>
 		<%}%>
 		<%} else {%>
 		 <div>값이 없습니다</div>
@@ -71,11 +73,22 @@
 		<!-- 내가 찜에 성공한 리스트 (SNS 제목만 나옴) -->
 		<div class = "list"><h3>내 찜 성공 목록</h3></div>
 		<div>
-		<% if(p_dao.select_my_choice(vo.getMember_id()) == null) {%>
-			<div><p> 내 찜 인증 사진 없슴</p></div>
-		<%} else { %> 
-			<%=p_dao.select_my_choice(vo.getMember_id())%>					
-		<%} %>
+		<% ArrayList<SnsVO> list = p_dao.select_my_choice(vo.getMember_id());
+		if(list.size() == 0)  {%>
+			<div><p> 내 찜 성공  없슴</p></div>
+		<%} else { 
+			for(int i = 0 ; i < list.size() ; i++) {
+		%> 
+		<table>
+			<tr colspan : "2">
+				<td>제목 : <%=list.get(i).getSubject()%></td>
+			</tr>
+			<tr>
+				<td>사진 : </td>
+				<td><img src= "./uploadedFiles\\<%=list.get(i).getPic1() %>" class = "img"></td>
+			</tr>			
+		</table>	
+		<%}} %>
 		</div><br>
 		
 		<!-- 찜을 성공한 뒤, 인증 사진 올리기  -->
@@ -111,10 +124,8 @@
 		</div><br> --%>
 		
 		<!-- 내 현재 포인트 (새로고침 버튼 누르면 업데이트) -->
-		<form action="MyPointService">
-		<div>내 현재 포인트 : <%=session.getAttribute("mypoint")%>
-		<button type="submit">새로고침</button></div>
-		</form><br>
+		<div>내 현재 포인트 : <%=p_dao.select_count_point(vo.getMember_id())%>
+		<br>
 		
 	</section>
 	

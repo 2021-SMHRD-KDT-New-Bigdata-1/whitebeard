@@ -58,7 +58,12 @@ public class SnsVO {
 
 
 	public SnsVO(String subject) {
-		// TODO Auto-generated constructor stub
+		this.subject = subject;
+	}
+
+	public SnsVO(String subject, String pic1) {
+		this.subject = subject;
+		this.pic1 = pic1;
 	}
 
 	public int getArticle_seq() {

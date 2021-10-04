@@ -231,21 +231,24 @@ public class mypointDAO {
 	
 	
 	// 찜 성공한 물건 이름 모두 불러오기
-	public ArrayList<MyPointVO> select_my_choice(String member_id) {		
+	public ArrayList<SnsVO> select_my_choice(String member_id) {		
 		
-		ArrayList<MyPointVO> success_company_name_list = new ArrayList<MyPointVO>();
+		ArrayList<SnsVO> success_company_name_list = new ArrayList<SnsVO>();
 
 		try {
 			conn();
 
-			String sql = "select subject from sns where article_seq in (select article_seq from mypoints where member_id = ?)";
+			String sql = "select subject, pic1 from sns where article_seq in (select article_seq from mypoints where member_id = ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, member_id);
+			
+			rs = psmt.executeQuery();
 
             while(rs.next()) {
             	String subject = rs.getString(1);
+            	String pic1 = rs.getString(2);
             		            		            	
-            	success_company_name_list.add(new MyPointVO(subject));
+            	success_company_name_list.add(new SnsVO(subject, pic1));
             			}
             
             }catch(Exception e){
