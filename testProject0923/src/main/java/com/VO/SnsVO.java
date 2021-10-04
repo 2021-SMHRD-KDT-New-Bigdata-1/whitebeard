@@ -16,6 +16,7 @@ public class SnsVO {
 	private int sale_price;
 	private Date input_date;
 	
+
 	
 	public SnsVO(int article_seq, String member_id, String subject, String content, String pic1, String pic2,
 			String pic3, int regular_price, int discount_price, int sale_price, Date input_date) {
@@ -55,6 +56,10 @@ public class SnsVO {
 
 
 
+
+	public SnsVO(String subject) {
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getArticle_seq() {
 		return article_seq;

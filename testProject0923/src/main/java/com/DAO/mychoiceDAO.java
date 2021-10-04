@@ -131,9 +131,9 @@ public class mychoiceDAO {
 	
 	
 	// ³» Âò
-	public ArrayList<MyChoiceVO> select_my_choice(String member_id) {		
+	public ArrayList<SnsVO> select_my_choice(String member_id) {		
 		
-		ArrayList<MyChoiceVO> company_name_list = new ArrayList<MyChoiceVO>();
+		ArrayList<SnsVO> company_name_list = new ArrayList<SnsVO>();
 
 		try {
 			conn();
@@ -141,11 +141,13 @@ public class mychoiceDAO {
 			String sql = "select subject from sns where article_seq in (select article_seq from mychoices where member_id = ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, member_id);
+            
+			rs = psmt.executeQuery();
 
             while(rs.next()) {
             	String subject = rs.getString(1);
             		            		            	
-            	company_name_list.add(new MyChoiceVO(subject));
+            	company_name_list.add(new SnsVO(subject));
             			}
             
             }catch(Exception e){

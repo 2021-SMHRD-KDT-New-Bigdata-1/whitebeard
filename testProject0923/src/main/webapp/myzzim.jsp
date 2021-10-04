@@ -1,3 +1,4 @@
+<%@page import="com.VO.SnsVO"%>
 <%@page import="com.VO.MyChoiceVO"%>
 <%@page import="com.DAO.mypointDAO"%>
 <%@page import="com.DAO.mychoiceDAO"%>
@@ -44,7 +45,10 @@
 	ArrayList<MyPointVO> successList = new ArrayList<MyPointVO>();
 	mypointDAO p_dao = new mypointDAO();
 	mychoiceDAO c_dao = new mychoiceDAO();
-	ArrayList<MyChoiceVO> vo2 = c_dao.select_my_choice(vo.getMember_id());
+	ArrayList<SnsVO> vo2 = c_dao.select_my_choice(vo.getMember_id());
+	System.out.println(vo2.get(0));
+	System.out.println("이곳이에요");
+	System.out.println(vo.getMember_id());
 	%>
 	<section>
 		<!-- 주석추가 -->
@@ -52,22 +56,16 @@
 		<div class = "list"><h3>내 찜 목록</h3></div><br>
 		<div>
 		
-		<table style="width: 100%">
 		<%
-		if (vo2.size() == 0) {
-			System.out.print("값이 없습니다");
-		} else {
-		for (int i = 0; i < vo2.size(); i++) {
-		%>
-		<tr>
-			<td style="width: 30%"><%=vo2.get(i).getChoice_date() %></td>
-		</tr>
-		<%
-			}
-		}
-		%>
-		</table>
+		if (vo2.size() != 0) {%>
+			<%for(int i =0; i < vo2.size(); i ++){ %>
 		
+			<%=vo2.get(i).getSubject() %>
+		<%}%>
+		<%} else {%>
+		 <div>값이 없습니다</div>
+		<% }%>	
+		</div>
 		
 		
 		<!-- 내가 찜에 성공한 리스트 (SNS 제목만 나옴) -->
