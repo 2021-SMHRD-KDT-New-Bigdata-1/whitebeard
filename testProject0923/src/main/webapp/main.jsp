@@ -78,7 +78,8 @@
             <button class="closerLookBtn" style="display: inline">자세히</button>
             <span class="secretLookBtn" style="display: inline"><button>담벼락</button></span>
          </div>
-         <br>
+         <br>\
+         
 
 
          <!-- 간단히 볼래요  -->

@@ -10,7 +10,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Noto Sans KR", sans-serif;
   font-family: "yg-jalnan";
 }
 
@@ -51,12 +50,6 @@ a {
 	position: absolute;
 	z-index: -1;
 }
-
-.searchBar {
-	text-align: center;
-}
-
-
 .navbar {
   	background-color: #F7323F;
   	display: flex;
@@ -110,9 +103,10 @@ section {
 	width : 50%;
 }
 table{
+	width : 100%;
 	border-spacing : 2px;
 	border-collapse : separate;
-	
+	text-align : left''
 }
 .tt{
 	width : 30%;
