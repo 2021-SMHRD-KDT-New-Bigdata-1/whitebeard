@@ -104,9 +104,10 @@ section {
 
 .simpleLook{
 	width : 100%;	
-	background-color: #fff;
+	background-color: white;
   	display:inline-block;
   	flex-direction: column;
+  	border:solid 1px #F7323F;
 }
 
 
@@ -115,7 +116,6 @@ div > .img {
 	height : 100%;
 	float: left;
 	margin: auto auto;
-	border-right : 1px solid ;
 }
 
 div > .img2 {
@@ -141,18 +141,19 @@ img {
 	height : 100%;
 	float: left;
 	padding-left: 3px;
-	border-left : 1px solid;
-}
+	}
 .notimg {
 	float: left;
 	display: block;
+	border-left:solid 1px #F7323F;
 }
 
 .closerLook{
-	background-color: grey;
+	background-color: white;
 	display: inline-block;
   	flex-direction: column;
   	width : 100%;	
+  	border : solid 1px #F7323F;
 }
 
 .closerLook.active{
