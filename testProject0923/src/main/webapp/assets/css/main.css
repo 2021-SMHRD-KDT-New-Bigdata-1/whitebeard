@@ -119,12 +119,13 @@ section {
   	border:solid 1px #F7323F;
 }
 
-
-div > .img {
+                                   
+div > .img {     
 	width : 30%;
 	height : 100px;
 	float: left;
 	margin: auto auto;
+	
 }
 
 div > .img2 {
