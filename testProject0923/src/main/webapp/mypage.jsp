@@ -45,10 +45,10 @@
             
             <div class="submit">
 			<% if(vo.getMember_type().equals("0")){%> 
-                <a href = "update.html"><input type="submit" value=" 회원 정보 수정 "></a>
+                <a href = "update.html"><input type="submit" class = "upup" value=" 회원 정보 수정 "></a>
              <% } else { %>                
-             	<a href = "update.html"><input type="submit" value=" 회원 정보 수정 "></a>
-                <a href = "sellerupdate.html"><input type="submit" value=" 판매자 정보 수정 "></a>
+             	<a href = "update.html"><input type="submit" class = "upd" value=" 회원 정보 수정 "></a>
+                <a href = "sellerupdate.html"><input type="submit" class = "upd" value=" 판매자 정보 수정 "></a>
                 <%} %>
             </div>
             <hr>
