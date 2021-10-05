@@ -1,6 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,14 +37,22 @@ public class Comment extends HttpServlet {
 		commetDAO dao = new commetDAO();
 		int commentVO = dao.insert_comment(content, idx, member_id);
 		
-		if(commentVO >0) {
-			
-			response.sendRedirect("main.jsp");
-			return;
+		PrintWriter out = response.getWriter();
+		
+		if(commentVO>0) {
+		response.setCharacterEncoding("euc-kr");	
+		out.print("<script language='javascript' charset='euc-kr'>");	
+		out.println("alert('등록완료');");
+		out.println("history.back();");
+		out.println("</script>"); 
 		
 		} else {
-			response.sendRedirect("main.jsp");
-		}
+		
+		out.println("<script>");
+		out.println("alert('등록실패');");
+		out.println("history.back();");
+		out.println("</script>"); 
+	}
 		
 		
 	}

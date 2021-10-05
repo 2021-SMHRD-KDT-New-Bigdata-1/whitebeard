@@ -53,7 +53,7 @@ public class Snsupdate extends HttpServlet {
 		if(cnt>0) {
 			response.sendRedirect(address);
 		}else {
-			System.out.println("없데이트");
+			System.out.println("업데이트 실패");
 		}
 	}
 

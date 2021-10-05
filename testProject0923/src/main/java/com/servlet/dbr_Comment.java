@@ -1,6 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,11 +44,22 @@ public class dbr_Comment extends HttpServlet {
 		  
 			int cnt = dao.write_com(content,idx, member_id);
 			
+			PrintWriter out = response.getWriter();
+			
 			if(cnt>0) {
-				response.sendRedirect("main.jsp");
-			}else {
-				System.out.println("앙댜ㅐ영");
-			}
+			response.setCharacterEncoding("euc-kr");	
+			out.print("<script language='javascript' charset='euc-kr'>");	
+			out.println("alert('등록완료');");
+			out.println("history.back();");
+			out.println("</script>"); 
+			
+			} else {
+			
+			out.println("<script>");
+			out.println("alert('등록실패');");
+			out.println("history.back();");
+			out.println("</script>"); 
+		}
 		
 		
 	}
