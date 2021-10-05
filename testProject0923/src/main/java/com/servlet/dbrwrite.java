@@ -69,7 +69,7 @@ public class dbrwrite extends HttpServlet {
 		response.setCharacterEncoding("euc-kr");	
 		out.print("<script language='javascript' charset='euc-kr'>");	
 		out.println("alert('등록완료');");
-		out.println("history.back();");
+		out.println("history.go(-3);");
 		out.println("</script>"); 
 		
 		} else {

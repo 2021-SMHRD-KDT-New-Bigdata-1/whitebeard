@@ -11,8 +11,12 @@
 }
 	a{
     text-decoration: none;
-    color: inherit;
+    color: white;
     }
+    	h1{
+	color:white;
+	background-color: #F7323F;
+	}
     body{
         height: 100%;
         background: #f5f6f7;
