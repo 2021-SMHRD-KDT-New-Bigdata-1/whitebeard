@@ -257,17 +257,17 @@
 									} else {
 									%>
 									<tr>
-										<td style="width: 30%">작성자</td>
-										<td style="width: 30%">댓글</td>
-										<td style="width: 30%">작성 날짜</td>
+										<td style="width: 20%">작성자</td>
+										<td style="width: 45%">댓글</td>
+										<td style="width: 23%">작성 날짜</td>
 									</tr>
 									<%
 									for (int i = 0; i < vo5.size(); i++) {
 									%>
 									<tr>
-										<td style="width: 30%"><%=vo5.get(i).getMember_id()%></td>
-										<td style="width: 30%"><%=vo5.get(i).getComment_content()%></td>
-										<td style="width: 30%"><%=vo5.get(i).getComment_date()%></td>
+										<td style="width: 20%"><%=vo5.get(i).getMember_id()%></td>
+										<td style="width: 45%"><%=vo5.get(i).getComment_content()%></td>
+										<td style="width: 23%"><%=vo5.get(i).getComment_date()%></td>
 									</tr>
 									<%
 									}
