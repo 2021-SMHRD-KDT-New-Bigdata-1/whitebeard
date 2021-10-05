@@ -30,7 +30,9 @@ public class MyChoiceVO {
 		// TODO Auto-generated constructor stub
 	}
 
-
+	public MyChoiceVO(int article_seq) {
+		this.article_seq = article_seq;
+	}
 
 
 

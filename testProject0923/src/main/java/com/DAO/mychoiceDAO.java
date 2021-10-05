@@ -113,9 +113,12 @@ public class mychoiceDAO {
 
 				rs = psmt.executeQuery();
 
-				if (rs.next()) {
-					a += 1;			
+				while(rs.next()) {
+					a += 1;
 				}
+				/*
+				 * if (rs.next()) { a += 1; }
+				 */
 			
 		} catch (Exception e) {
 			// 실행 후 오류가 발생했을 때 에러 출력
