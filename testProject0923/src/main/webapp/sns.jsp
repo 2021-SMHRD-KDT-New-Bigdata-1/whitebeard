@@ -187,9 +187,9 @@
 									<div>댓글</div>
 									<table style="width: 100%">
 										<tr>
-											<td style="width: 30%">작성자</td>
-											<td style="width: 30%">내용</td>
-											<td style="width: 30%">날짜</td>
+											<td style="width: 20%">작성자</td>
+											<td style="width: 45%">내용</td>
+											<td style="width: 23%">날짜</td>
 										</tr>
 									</table>
 
@@ -201,9 +201,9 @@
 											for (int i = 0; i < vo4.size(); i++) {
 										%>
 										<tr>
-											<td style="width: 30%"><%=vo4.get(i).getMember_id()%></td>
-											<td style="width: 30%"><%=vo4.get(i).getComment_content()%></td>
-											<td style="width: 30%"><%=vo4.get(i).getComment_date()%></td>
+											<td style="width: 20%"><%=vo4.get(i).getMember_id()%></td>
+											<td style="width: 45%"><%=vo4.get(i).getComment_content()%></td>
+											<td style="width: 23%"><%=vo4.get(i).getComment_date()%></td>
 										</tr>
 										<%
 										}

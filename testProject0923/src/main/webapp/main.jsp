@@ -194,7 +194,7 @@
                   out.print(vo3.get(i).getRegular_price());
                   %>
                   </div>
-                  <br><br>
+                  <br>
                   <div class="notimg">«“¿Œ∞° : <%
                   out.print(vo3.get(i).getDiscount_price());
                   %>
