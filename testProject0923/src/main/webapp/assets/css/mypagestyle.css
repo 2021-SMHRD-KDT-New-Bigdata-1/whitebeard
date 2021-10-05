@@ -37,10 +37,11 @@ body{
 }
 
 h2 {
-  color: #F7323F;
+  color: white;
   font-size: 2em;
   margin-bottom: 40px;
   text-align: center;
+  baackground-color: #F7323F;
 }
 
 h2:hover {

@@ -69,6 +69,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 8px 12px;
+  color:white;
 }
 
 .navbar__profile {
@@ -87,15 +88,20 @@ a {
 
 .navbar__menu li {
   padding: 8px 12px;
+  border:solid 2px #F7323F;
+  border-radius: 8px;
+  background-color: white;                       
+  
 }
 
 .navbar__menu li:hover {
   background-color: cornflowerblue;
-  border-radius: 4px;
+  border-radius: 8px;
+  border-bottom:solid 1px;
 }
 
 .navbar__menu.active {
-  background-color: darkgray;
+  background-color: none;
   position: static;
   display: flex;
   flex-direction: column;
@@ -212,6 +218,6 @@ ul.tabs li.current {
    border: soild 1px;
    color: red;
    
-}
+}                                              
 
 

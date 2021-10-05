@@ -300,3 +300,6 @@ ul.tabs li.current {
 td{
 	boder:solid 5px;
 }
+button{
+	background-color: none;
+}
