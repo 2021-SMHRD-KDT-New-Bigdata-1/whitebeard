@@ -185,7 +185,7 @@ hr {
 }
 #item_input_check.active {
    display:block;
-   float: right;
+   float: left;
    margin: 1px 10px;
 }
 
@@ -197,6 +197,6 @@ hr {
 }
 #shop_input_check.active {
    display:block;
-   float: right;
+   float: left;
    margin: 1px 10px;
 }
