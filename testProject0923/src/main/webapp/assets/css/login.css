@@ -46,9 +46,11 @@ li {
 
 
 h2 {
-  color: #F7323F;
+  color: white;
   font-size: 2em;
   margin-bottom: 50px;
+  background-color: #F7323F;
+  
 }
 
 
