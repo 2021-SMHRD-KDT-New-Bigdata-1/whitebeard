@@ -166,7 +166,7 @@
 				                    <%} else{%>
 				                    <P>상품사진없음</P>
 				                    <%} %>
-								
+								<div id = "innnner">
 								<div>
 									게시자 :
 									<%=vo2.get(0).getMember_id()%>
@@ -183,6 +183,8 @@
 								<div>
 									글내용 :
 									<%=vo2.get(0).getContent()%>
+								</div>
+								</div>
 								<br><br>
 									<div>댓글</div>
 									<table style="width: 100%">

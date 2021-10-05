@@ -36,6 +36,9 @@
    width: 460px;
    margin: auto;
 }
+#innnner{
+	text-align: left;
+}
 html,
 body {
   height: 100%;
