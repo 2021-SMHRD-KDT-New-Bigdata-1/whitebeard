@@ -49,6 +49,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
+
    <%
    MemberVO vo = (MemberVO) session.getAttribute("vo");
    dbr_comDAO dao = new dbr_comDAO();
