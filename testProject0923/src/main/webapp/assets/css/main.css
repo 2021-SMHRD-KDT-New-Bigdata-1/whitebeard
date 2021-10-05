@@ -56,6 +56,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 8px 12px;
+  color:white;
 	
 }
 
@@ -118,12 +119,13 @@ section {
   	border:solid 1px #F7323F;
 }
 
-
-div > .img {
+                                   
+div > .img {     
 	width : 30%;
 	height : 100px;
 	float: left;
 	margin: auto auto;
+	
 }
 
 div > .img2 {
@@ -153,7 +155,6 @@ img {
 .notimg {
 	float: left;
 	display: block;
-	border-left:solid 1px #F7323F;
 }
 
 .closerLook{
