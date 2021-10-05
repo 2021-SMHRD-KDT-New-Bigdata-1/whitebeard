@@ -8,7 +8,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" href="assets/css/dbr.css" />
+<link rel="stylesheet" href="assets/css/dbr_write.css" />
 
 </head>
 
@@ -36,6 +36,8 @@
  
  
  
+  	<div id = "wrapper">
+  	<div id = "content">
   	
   
     <table summary="글쓰기 전체 테이블">
@@ -52,13 +54,12 @@
         </colgroup>
 
         <table summary="테이블 구성">
-        <div color="f7323f"><caption></div>
-          
-            담벼락 글쓰기
-          </caption>
+        	<caption>
+         		담벼락 글쓰기
+        	</caption>
           <tr>
             <td>제 목</td>
-            <td><input type="text" name="ano_subject" /></td>
+            <td><input type="text" name="ano_subject" id = "title"></td>
           </tr>
 <tr>
 <td>
@@ -94,7 +95,7 @@
 </tr>
 				<tr>
             <td>내 용</td>
-            <td><textarea name="ano_content" rows="10" cols="100"></textarea></td>
+            <td><textarea name="ano_content" rows="10" cols="100" id = "content_area"></textarea></td>
           </tr>
        
           <tr>
@@ -117,6 +118,8 @@
         </table>
       </form>
     </table>
+    </div>
+  	</div>
     <script>
 	function setThumbnail(event) {
         var uploadWrap = event.target.parentNode; 

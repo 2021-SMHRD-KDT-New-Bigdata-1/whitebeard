@@ -23,14 +23,22 @@
    margin: auto;
 }
 
-.img123{
-	width : 90%
+
+html{
+	height: 100%;
 }
-html,
 body {
-  margin: 0;
-  font-family: yg-jalnan;
+	height : 100%;
+  	margin: 0;
+  	font-family: yg-jalnan;
   
+}
+#content_area{
+	width : 90%;
+	resize : none;
+}
+#title{
+	width : 90%;
 }
 
 /*  */
