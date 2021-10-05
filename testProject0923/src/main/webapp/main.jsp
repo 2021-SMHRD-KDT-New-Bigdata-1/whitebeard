@@ -50,6 +50,7 @@
          out.print("<div class='' onclick='location.href=\"login.jsp\"'>로그인</div></nav>");
 
       } else {
+    	  if(vo.getMember_type().equals("0")){
          out.print("<div class='navbar__profile'>프로필</div></nav>");
          out.print("<ul class='navbar__menu'>");
          out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
@@ -57,9 +58,17 @@
          out.print("<li><a href='sellerjoin.html'>판매자등록</a></li>");
          out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
          out.print("</ul>");
+    	  }else{
+    		  out.print("<div class='navbar__profile'>프로필</div></nav>");
+    	      out.print("<ul class='navbar__menu'>");
+    	      out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
+    	      out.print("<li><a href='myzzim.jsp'>내찜정보</a></li>");
+    	      out.print("<li><a href='page.html'>상품판매</a></li>");
+    	      out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
+    	      out.print("</ul>");
+    	  }
       }
       %>
-
 
 
 
@@ -161,7 +170,6 @@
 				        <%} %>
                </div>
                <div class="hoho2">
-
 
                   <div class="notimg">상품명 : <%
                   out.print(vo3.get(i).getSubject());
