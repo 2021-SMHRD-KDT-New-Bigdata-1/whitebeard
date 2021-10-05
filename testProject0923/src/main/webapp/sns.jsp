@@ -124,7 +124,7 @@
 									</p>  --%>
 									<div class="accessory">
 										<input type="button" class = "zzim" value="Âò¢½" onclick="location.href='Zzim'">
-										<span class = "zzim2">
+										<span>
 											ÂòÇÑ»ç¶÷ : <%= mydao.select_choice_number(vo2.get(0).getArticle_seq()) %>
 										</span>
 										<%
