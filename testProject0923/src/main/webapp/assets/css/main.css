@@ -39,6 +39,10 @@ a {
 	position: absolute;
 	z-index: -1;
 }
+.profile{
+	width: 100%;
+	height : 100%;
+}
 
 .searchBar {
 	text-align: center;
@@ -115,14 +119,14 @@ section {
 
 div > .img {
 	width : 30%;
-	height : 100%;
+	height : 100px;
 	float: left;
 	margin: auto auto;
 }
 
 div > .img2 {
-	width : 30%;
-	height : 100%;
+	width : 100%;
+	height : 300px;
 	float: left;
 	margin: auto;
 }
