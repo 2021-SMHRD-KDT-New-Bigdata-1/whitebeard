@@ -16,6 +16,7 @@
 <body>
    <%
    MemberVO vo = (MemberVO)session.getAttribute("vo");
+   session.setMaxInactiveInterval(60*60*24*365);
    %>
    
    <div class="wrap">
