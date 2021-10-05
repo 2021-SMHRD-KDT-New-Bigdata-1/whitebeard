@@ -132,7 +132,7 @@
                   </div>
                   <br>
                   <div class="notimg">현재 판매가 : <%
-                  out.print(vo2.get(i).getSale_price());
+                  out.print(vo2.get(i).getRegular_price());
                   %>
                   </div>
                   <br>
@@ -319,9 +319,11 @@ if(total==0) {
 
 <td><%=ano_seq %></td>
 
-<td align="center" border="solid"><a href="dbr.jsp?ano_seq=<%=ano_seq%>"><%=ano_subject %> 
+<td align="center" border="solid"><% if(vo !=null){%><a href="dbr.jsp?ano_seq=<%=ano_seq%>"><%=ano_subject %> 
 <% if( ano_pic1 != null)  {%>
-<i class="fas fa-images"></i> <%} %></td>
+<i class="fas fa-images"></i> <%} %></td><% }else{%><a href="login.jsp"onclick="alert('로그인 하지않아 로그인페이지로 이동합니다');""><%=ano_subject %> 
+<% if( ano_pic1 != null)  {%>
+<i class="fas fa-images"></i> <%} %></td><% }%>
 <td align="center">익명</td>
 <td align="center"><%=date %></td>
 <!-- <td bgcolor="#F7323F" height="1">&nbsp;</td> -->
