@@ -73,24 +73,29 @@ a {
   display: none;
   flex-direction: column;
   list-style: none;
-}
+}              
 
 .navbar__menu.active {
-  background-color: darkgray;
+  background-color: none;
   position: relative;
   display: flex;
   flex-direction: column;
   float: right;
   z-index: 14;
 }
-
 .navbar__menu li {
   padding: 8px 12px;
+  border:solid 2px #F7323F;
+  border-radius: 8px;
+  background-color: white;
+  
+  
 }
 
 .navbar__menu li:hover {
   background-color: cornflowerblue;
-  border-radius: 4px;
+  border-radius: 8px;
+  border-bottom:solid 1px;
 }
 
 /* section {
