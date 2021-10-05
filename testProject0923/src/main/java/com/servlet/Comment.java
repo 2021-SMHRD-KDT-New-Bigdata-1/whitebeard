@@ -44,7 +44,7 @@ public class Comment extends HttpServlet {
 		if(commentVO>0) {
 		out.print("<script>");	
 		out.println("alert('등록완료');");
-		out.println("history.back();");
+		out.println("history.go(-2);");
 		out.println("</script>"); 
 		
 		} else {
