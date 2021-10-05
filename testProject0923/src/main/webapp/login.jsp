@@ -11,7 +11,7 @@
  <div class="wrap">
         <div class="login">
         <div>
-            <h2>할인 2동</h2>
+            <h2><a href = "main.jsp">할인 2동</a></h2>
             </div>
             <div class="login_sns">
             </div>
