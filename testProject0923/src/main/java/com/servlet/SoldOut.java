@@ -47,17 +47,21 @@ public class SoldOut extends HttpServlet {
 
 
 		
-		if (cnt>0) {
+		
+		if(cnt>0) {
 		response.setCharacterEncoding("euc-kr");	
 		out.print("<script language='javascript' charset='euc-kr'>");	
-		out.println("alert('판매완료');");
-		// out.println("history.back();");
-		out.println("</script>"); 	
+		out.println("alert('등록완료');");
+		out.println("history.back();");
+		out.println("</script>"); 
 		
-		response.sendRedirect(address);
 		} else {
-			System.out.println("실팽");
-		}
+		
+		out.println("<script>");
+		out.println("alert('등록실패');");
+		out.println("history.back();");
+		out.println("</script>"); 
+	}
 	
 	}
 

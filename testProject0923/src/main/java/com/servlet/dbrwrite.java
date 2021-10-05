@@ -1,6 +1,7 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.sql.Timestamp;
 
@@ -62,9 +63,22 @@ public class dbrwrite extends HttpServlet {
 		int cnt = dbr.write(member_id,ano_subject, ano_content,
 				ano_pic1, ano_pic2, ano_pic3);
 		
+		PrintWriter out = response.getWriter();
+		
 		if(cnt>0) {
-			response.sendRedirect("main.jsp");
-		}
+		response.setCharacterEncoding("euc-kr");	
+		out.print("<script language='javascript' charset='euc-kr'>");	
+		out.println("alert('등록완료');");
+		out.println("history.back();");
+		out.println("</script>"); 
+		
+		} else {
+		
+		out.println("<script>");
+		out.println("alert('등록실패');");
+		out.println("history.back();");
+		out.println("</script>"); 
+	}
 		
 				
 		
