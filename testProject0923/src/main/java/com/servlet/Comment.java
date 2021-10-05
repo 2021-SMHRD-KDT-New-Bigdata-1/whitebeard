@@ -37,17 +37,17 @@ public class Comment extends HttpServlet {
 		commetDAO dao = new commetDAO();
 		int commentVO = dao.insert_comment(content, idx, member_id);
 		
+		response.setContentType("text/html; charset=euc-kr");
+		
 		PrintWriter out = response.getWriter();
 		
 		if(commentVO>0) {
-		response.setCharacterEncoding("euc-kr");	
-		out.print("<script language='javascript' charset='euc-kr'>");	
+		out.print("<script>");	
 		out.println("alert('등록완료');");
 		out.println("history.back();");
 		out.println("</script>"); 
 		
 		} else {
-		
 		out.println("<script>");
 		out.println("alert('등록실패');");
 		out.println("history.back();");
