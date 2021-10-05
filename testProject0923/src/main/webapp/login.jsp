@@ -10,7 +10,9 @@
 <body>
  <div class="wrap">
         <div class="login">
+        <div>
             <h2>«“¿Œ 2µø</h2>
+            </div>
             <div class="login_sns">
             </div>
             <form action="LoginCon" method="post">
