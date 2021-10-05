@@ -11,8 +11,12 @@
 }
 	a{
         text-decoration: none;
-        color: #F7323F;;
+        color: white;
+        background-color:#F7323F;
         
+    }
+    #content > header > div{
+    background-color:#F7323F;
     }
     body{
         height: 100%;
