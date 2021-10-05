@@ -132,7 +132,7 @@
                   </div>
                   <br>
                   <div class="notimg">현재 판매가 : <%
-                  out.print(vo2.get(i).getRegular_price());
+                  out.print(vo2.get(i).getSale_price());
                   %>
                   </div>
                   <br>

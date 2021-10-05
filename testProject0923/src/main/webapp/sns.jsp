@@ -87,9 +87,9 @@
 							</div>
 
 							<a href=""><img src="img/face.png" alt="" id="face"></a> <span
-								id="name"> <strong id="storename">가게이름 : <%=vo3.get(0).getCompany_name()%></strong>
+								id="name"> <strong id="storename"><%=vo3.get(0).getCompany_name()%></strong>
 								<p id="storekind" name="stkind">
-									<span>가게종류 : <%=vo3.get(0).getB_type()%>
+									<span><%=vo3.get(0).getB_type()%>
 									</span>
 								</p>
 
@@ -147,7 +147,7 @@
 									</div>
 								</div>
 
-								<h4><%=vo2.get(0).getSubject()%></h4>
+								<h4>제목 : <%=vo2.get(0).getSubject()%></h4>
 								<%
 								if (vo != null) {
 								if (vo.getMember_id().equals(vo2.get(0).getMember_id())) {
@@ -180,7 +180,7 @@
 								<div>
 									글내용 :
 									<%=vo2.get(0).getContent()%>
-									<div>프로필</div>
+								<br><br>
 									<div>댓글</div>
 									<table style="width: 100%">
 										<tr>
