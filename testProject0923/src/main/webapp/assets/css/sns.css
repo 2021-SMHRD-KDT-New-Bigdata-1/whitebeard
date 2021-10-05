@@ -62,6 +62,9 @@ a {
   text-decoration: none;
   color: black;
 }
+.navbar__logo{
+	color:#F7323F;
+}
 
 .navbar {
   background-color: #F7323F;

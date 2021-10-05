@@ -59,7 +59,9 @@ a {
   color:white;
 	
 }
-
+.navbar__logo{
+	color:#F7323F;
+}
 .navbar__profile {
   display: flex;
   list-style: none;

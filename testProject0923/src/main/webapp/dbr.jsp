@@ -135,7 +135,7 @@
 										for (int i = 0; i < anoList.size() ; i++) {
 									%>
 									<tr>
-										<td style="width: 30%"><%=anoList.get(i).getMember_id()%></td>
+										<td style="width: 30%">¿Õ∏Ì</td>
 										<td style="width: 30%"><%=anoList.get(i).getAnocom_content()%></td>
 										<td style="width: 30%"><%=anoList.get(i).getDate()%></td>
 									</tr>

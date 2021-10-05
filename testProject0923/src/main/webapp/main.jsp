@@ -42,7 +42,7 @@
    <!-- 상단 메뉴 -->
 
    <nav class='navbar'>
-      <div class='navbar__logo'>로고 자리</div>
+      <div class='navbar__logo' color="#F7323F">로고 자리</div>
 
       <div class='navbar__main' onclick="location.href='main.jsp'"\>할인2동</div>
       <%
