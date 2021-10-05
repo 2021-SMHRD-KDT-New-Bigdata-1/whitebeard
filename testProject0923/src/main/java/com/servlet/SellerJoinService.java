@@ -63,7 +63,6 @@ public class SellerJoinService extends HttpServlet {
 		
 		int cnt = dao.sellerjoin(member_id, member_pw, company_name, company_bn, b_type, company_pic1, company_pic2, company_pic3, company_info);
 		
-		response.setCharacterEncoding("euc-kr");
 		response.setContentType("text/html; charset=euc-kr");
 		PrintWriter out = response.getWriter();
 		
