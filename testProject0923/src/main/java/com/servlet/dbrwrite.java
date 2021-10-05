@@ -63,10 +63,10 @@ public class dbrwrite extends HttpServlet {
 		int cnt = dbr.write(member_id,ano_subject, ano_content,
 				ano_pic1, ano_pic2, ano_pic3);
 		
+		response.setCharacterEncoding("euc-kr");	
 		PrintWriter out = response.getWriter();
 		
 		if(cnt>0) {
-		response.setCharacterEncoding("euc-kr");	
 		out.print("<script language='javascript' charset='euc-kr'>");	
 		out.println("alert('등록완료');");
 		out.println("history.go(-3);");
