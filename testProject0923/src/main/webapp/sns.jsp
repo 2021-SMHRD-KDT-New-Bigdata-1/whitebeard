@@ -1,3 +1,5 @@
+<%@page import="com.VO.MyChoiceVO"%>
+<%@page import="com.DAO.mychoiceDAO"%>
 <%@page import="com.VO.CommentVO"%>
 <%@page import="com.DAO.commetDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -19,15 +21,17 @@
 	MemberVO vo = (MemberVO) session.getAttribute("vo");
 	snsDAO dao = new snsDAO();
 	commetDAO comment_dao = new commetDAO();
+	mychoiceDAO mydao = new mychoiceDAO();
 	int idx = Integer.parseInt(request.getParameter("sns_seq"));
 	session.setAttribute("sns_seq", idx);
 	ArrayList<SnsVO> vo2 = dao.sns_real(idx);
 
 	String id = request.getParameter("sns_memeber_id");
 	ArrayList<MemberVO> vo3 = dao.sns_member(id);
-
+	
 	ArrayList<CommentVO> vo4 = comment_dao.select_article_comment(idx);
 	ArrayList<CommentVO> vo5 = comment_dao.select_market_comment(id);
+	MyChoiceVO vo6 = new MyChoiceVO();
 	%>
 	<div id="wrapper">
 		<div id="content">
@@ -97,6 +101,7 @@
 								<li class="tab-link current" data-tab="tab-1">상품게시글</li>
 								<li class="tab-link" data-tab="tab-2">가게정보</li>
 								<li class="tab-link" data-tab="tab-3">댓글모아보기</li>
+								<li><a href="page.jsp"><input type = "button" value = "상품등록"></a></li>
 							</ul>
 
 
@@ -115,20 +120,23 @@
 										}else{ %>
 											<img src="uploadedFiles/<%=vo2.getPic1() %>" class="pic" >
 										<%} %>
-									<%} %>  --%>
-									</p>
+									<%} %>
+									</p>  --%>
 									<div class="accessory">
-										<input type="button" value="찜♡" onclick="location.href='Zzim'">
+										<input type="button" class = "zzim" value="찜♡" onclick="location.href='Zzim'">
+										<span>
+											찜한사람 : <%= mydao.select_choice_number(vo2.get(0).getArticle_seq()) %>
+										</span>
 										<%
 										if (vo != null) {
 										%>
 										<%
 										if (vo.getMember_id().equals(vo2.get(0).getMember_id())) {
 										%>
-										<a href="page.jsp"><input type = "button" value = "상품등록"></a>
+										
 										<form action="Sold">
-										<input type="text" name="user_id" >
-										<input type="submit" value="아이디 입력">
+											<input type="text" name="user_id" placeholder="구매자 계정 등록">
+											<input type="submit" value="아이디 입력">
 										</form>
 										<input type="button" value="판매완료☆" onclick="location.href='SoldOut'">
 										<%
