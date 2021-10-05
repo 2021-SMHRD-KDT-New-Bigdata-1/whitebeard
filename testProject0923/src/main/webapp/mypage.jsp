@@ -59,7 +59,7 @@
                 <div class="icon1"><i class="fas fa-map-marker-alt"></i></div>
                 <%String town = (String)session.getAttribute("town");
                    if(town == null){
-                      town = " " + "동네 없슴";
+                      town = " " + "동네 없음";
                    } %>
                     <%="  "+ town %>
                
@@ -77,7 +77,7 @@
                 <div class="icon1"><i class="fas fa-shopping-cart"></i></div>
                 <%String favitem = (String)session.getAttribute("favitem");
                    if(favitem == null){
-                      favitem = " " + "아이템 없슴";
+                      favitem = " " + "아이템 없음";
                 	} 
                    %>
                     <%=" " + favitem %>
@@ -96,7 +96,7 @@
                 <div class="icon1"><i class="fas fa-store-alt"></i></div>
                 <%String favshop = (String)session.getAttribute("favshop");
                    if(favshop == null){
-                      favshop = " 상점 없슴";
+                      favshop = " 상점 없음";
               	  } %>
                     <%=" "+ favshop %>
             </div>

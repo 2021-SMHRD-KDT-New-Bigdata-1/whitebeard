@@ -94,7 +94,7 @@
 		<div>
 		<% ArrayList<SnsVO> list = p_dao.select_my_choice(vo.getMember_id());
 		if(list.size() == 0)  {%>
-			<div><p> 내 찜 성공  없슴</p></div>
+			<div><p> 내 찜 성공  없음</p></div>
 		<%} else { 
 			for(int i = 0 ; i < list.size() ; i++) {
 		%> 
