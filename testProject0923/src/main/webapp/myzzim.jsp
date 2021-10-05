@@ -52,6 +52,7 @@
 	System.out.println(vo2.size());
 	
 	%>
+	<div id = "inner">
 	<section>
 		<!-- 주석추가 -->
 		<!-- 내 찜 목록 (내가 찜한 SNS 제목만 나옴) -->
@@ -137,6 +138,7 @@
 		<!-- 내 현재 포인트 (새로고침 버튼 누르면 업데이트) -->
 		
 	</section>
+	</div>
 		</div>
 	</div>
 	

@@ -29,7 +29,6 @@
 	ArrayList<CommentVO> vo4 = comment_dao.select_article_comment(idx);
 	ArrayList<CommentVO> vo5 = comment_dao.select_market_comment(id);
 	%>
-	<a href="page.jsp">고</a>
 	<div id="wrapper">
 		<div id="content">
 			<nav class='navbar'>
@@ -46,8 +45,7 @@
 				<%
 				out.print("<ul class='navbar__menu'>");
 				out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
-				out.print("<li><a href=''>순위표</a></li>");
-				out.print("<li><a href=''>내찜목록</a></li>");
+				out.print("<li><a href=''>내찜정보</a></li>");
 				out.print("<li><a href=''>판매자등록</a></li>");
 				out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
 				out.print("</ul>");
@@ -121,13 +119,13 @@
 									</p>
 									<div class="accessory">
 										<input type="button" value="찜♡" onclick="location.href='Zzim'">
-										<a href="page.jsp"><input type = "button" value = "상품등록"></a>
 										<%
 										if (vo != null) {
 										%>
 										<%
 										if (vo.getMember_id().equals(vo2.get(0).getMember_id())) {
 										%>
+										<a href="page.jsp"><input type = "button" value = "상품등록"></a>
 										<form action="Sold">
 										<input type="text" name="user_id" >
 										<input type="submit" value="아이디 입력">
