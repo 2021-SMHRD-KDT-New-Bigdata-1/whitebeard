@@ -57,7 +57,7 @@
     	      out.print("<ul class='navbar__menu'>");
     	      out.print("<li><a href='mypage.jsp'>마이페이지</a></li>");
     	      out.print("<li><a href='myzzim.jsp'>내찜정보</a></li>");
-    	      out.print("<li><a href='page.html'>상품판매</a></li>");
+    	      out.print("<li><a href='page.jsp'>상품판매</a></li>");
     	      out.print("<li><a href='LogoutCon.java'>로그아웃</a></li>");
     	      out.print("</ul>");
     	  }
