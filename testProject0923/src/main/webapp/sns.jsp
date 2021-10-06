@@ -235,7 +235,6 @@
 							<!-- 가게정보 -->
 							<div id="tab-2" class="tab-content">
 								<p>
-									가게정보 :
 									<%=vo3.get(0).getCompany_info()%>
 								</p>
 								<%
